@@ -36,3 +36,20 @@
 //         System.out.print(site);
 //     }
 // }
+
+//  01-Jan-2025
+// class hello{
+//     public static void main(String args[]){
+//         int container = 50;
+//         System.out.print(container);
+//     }
+// }
+
+
+class hello{
+    public static void main(String args[]){
+        int a = 1;
+        int b =2;
+        System.out.print(a+b);
+    }
+}

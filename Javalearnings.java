@@ -46,10 +46,38 @@
 // }
 
 
-class hello{
-    public static void main(String args[]){
-        int a = 1;
-        int b =2;
-        System.out.print(a+b);
-    }
-}
+// class hello{
+//     public static void main(String args[]){
+//         int a = 1;
+//         int b = 2;
+//         System.out.print(a+b);
+//     }
+// }
+
+
+
+//      09 - Mar - 2025
+//  ***** input method
+
+// import java.util.Scanner;
+
+// class Hello {
+//     public static void main(String args[]) {
+//         Scanner input = new Scanner(System.in);
+//         int a = input.nextInt();
+//         int b = input.nextInt();
+//         int total = a + b;
+//         System.out.print("UserInput is " + total);
+//     }
+// }
+
+
+// import java.util.Scanner;
+
+// class Hello {
+//     public static void main(String args[]) {
+//         Scanner input = new Scanner(System.in);
+//         String a = input.nextLine();
+//         System.out.print("UserInput is " + a);
+//     }
+// }

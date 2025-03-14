@@ -8,8 +8,6 @@
 //     }
 // }
 
-
-
 // // This is a basic Java program
 // public class hello{
 
@@ -19,7 +17,6 @@
 //         System.out.println("Hello, World!");
 //     }
 // }
-
 
 //              Variables
 // public class myFun{
@@ -45,7 +42,6 @@
 //     }
 // }
 
-
 // class hello{
 //     public static void main(String args[]){
 //         int a = 1;
@@ -53,8 +49,6 @@
 //         System.out.print(a+b);
 //     }
 // }
-
-
 
 //      09 - Mar - 2025
 //  ***** input method
@@ -71,7 +65,6 @@
 //     }
 // }
 
-
 // import java.util.Scanner;
 
 // class Hello {
@@ -81,3 +74,146 @@
 //         System.out.print("UserInput is " + a);
 //     }
 // }
+
+//      13 - Mar - 2025
+//  input methods
+
+// import java.util.Scanner;
+
+// class Hello {
+//     public static void main(String args[]) {
+//         Scanner input = new Scanner(System.in);
+//         String name = input.nextLine();
+//         int age = input.nextInt();
+//         System.out.println("My name is " + name);
+//         System.out.print("My age is " + age);
+//     }
+// }
+
+// import java.util.Scanner;
+
+// class Hello {
+//     public static void main(String args[]) {
+//         Scanner input = new Scanner(System.in);
+//         String name = input.nextLine();
+//         int age = input.nextInt();
+//         input.nextLine();
+//         String address = input.nextLine();
+//         System.out.println("My name is " + name);
+//         System.out.println("My age is " + age);
+//         System.out.print("My address is " + address);
+//     }
+// }
+
+// import java.util.Scanner;
+
+// class Hello {
+//     public static void main(String args[]) {
+//         Scanner input = new Scanner(System.in);
+//         int a = input.nextInt();
+//         int b = input.nextInt();
+//         int c = input.nextInt();
+//         int d = a * b * c;
+//         int e = a + b + c;
+//         System.out.print(d / e);
+//     }
+// }
+
+// import java.util.Scanner;
+
+// class Hello {
+//     public static void main(String args[]) {
+//         Scanner input = new Scanner(System.in);
+//         String name = input.nextLine();
+//         double score = input.nextDouble();
+//         input.nextLine();
+//         String address = input.nextLine();
+//         System.out.println("My name is " + name);
+//         System.out.println("My age is " +  score/10 + "/10");
+//         System.out.print("My address is " + address);
+//     }
+// }
+
+//      14 - Mar - 2024
+//  Data types
+
+//  ***** Primitive data types
+// int
+
+// class hello {
+//     public static void main(String args[]) {
+//         int a = 10;
+//         System.out.print(a);
+//     }
+// }
+
+// float
+
+// class hello {
+//     public static void main(String args[]) {
+//         float a = 10.0f;
+//         System.out.print(a);
+//     }
+// }
+
+// double
+
+// class hello {
+//     public static void main(String args[]) {
+//         double a = 10.123456789;
+//         System.out.print(a);
+//     }
+// }
+
+// char
+
+// class hello {
+//     public static void main(String args[]) {
+//         char a = 'm';
+//         System.out.print(a);
+//     }
+// }
+
+// boolean
+
+// class hello {
+//     public static void main(String args[]) {
+//         boolean a = true;
+//         System.out.print(a);
+//     }
+// }
+
+
+// byte
+
+// class hello {
+//     public static void main(String args[]) {
+//         byte a = 127;
+//         System.out.print(a);
+//     }
+// }
+
+
+// short
+
+// class hello {
+//     public static void main(String args[]) {
+//         short a = 32767;
+//         System.out.print(a);
+//     }
+// }
+
+
+// long
+
+// class hello {
+//     public static void main(String args[]) {
+//         long a = 327671212;
+//         System.out.print(a);
+//     }
+// }
+
+//  ***** Reference data types
+// String
+// Object
+// Array

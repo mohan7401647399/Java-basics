@@ -183,7 +183,6 @@
 //     }
 // }
 
-
 // byte
 
 // class hello {
@@ -193,7 +192,6 @@
 //     }
 // }
 
-
 // short
 
 // class hello {
@@ -202,7 +200,6 @@
 //         System.out.print(a);
 //     }
 // }
-
 
 // long
 
@@ -215,5 +212,73 @@
 
 //  ***** Reference data types
 // String
+
 // Object
+
 // Array
+
+//      15-Mar-2025
+//  if-else statements
+
+// class hello {
+//     public static void main(String args[]) {
+//         if (true) {
+//             System.out.println(true);
+//         } else {
+//             System.out.println(false);
+//         }
+//     }
+// }
+
+// class hello {
+//     public static void main(String args[]) {
+//         boolean rain = true;
+//         if (rain) {
+//             System.out.println("Rain is there");
+//         } else {
+//             System.out.println("Rain is not there");
+//         }
+//     }
+// }
+
+// class hello {
+//     public static void main(String args[]) {
+//         int num1 = 40, num2 = 50;
+//         boolean value = num1 > num2;
+//         if (value) {
+//             System.out.println("num1 is greater than num2");
+//         } else {
+//             System.out.println("num2 is greater than num1");
+//         }
+//     }
+// }
+
+// class hello {
+//     public static void main(String args[]) {
+//         int num1 = 50, num2 = 50;
+//         if ( num1 > num2) {
+//             System.out.println("num1 is greater than num2");
+//         } else if (num1 < num2) {
+//             System.out.println("num2 is greater than num1");
+//         } else {
+//             System.out.println("num1 is equal to num2");
+//         }
+//     }
+// }
+
+
+import java.util.Scanner;
+
+class hello {
+    public static void main(String args[]) {
+        Scanner scan = new Scanner(System.in);
+        int num1 = scan.nextInt(), num2 = scan.nextInt();
+        if ( num1 > num2) {
+            System.out.println("num1 is greater than num2");
+        } else if (num1 < num2) {
+            System.out.println("num2 is greater than num1");
+        } else {
+            System.out.println("num1 is equal to num2");
+        }
+    }
+}

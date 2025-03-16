@@ -266,19 +266,89 @@
 //     }
 // }
 
+// import java.util.Scanner;
+
+// class hello {
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         int num1 = scan.nextInt(), num2 = scan.nextInt();
+//         if ( num1 > num2) {
+//             System.out.println("num1 is greater than num2");
+//         } else if (num1 < num2) {
+//             System.out.println("num2 is greater than num1");
+//         } else {
+//             System.out.println("num1 is equal to num2");
+//         }
+//     }
+// }
+
+//      16 - Mar - 2025
+//  How to compare two strings
+
+// class hello {
+//     public static void main(String args[]) {
+//         String str1 = "hello";
+//         String str2 = "hello";
+//         String str3 = new String("hello");
+//         String str4 = new String("hello");
+//         System.out.println(str1 == str2);
+//         System.out.println(str3 == str4);
+//     }
+// }
+
+// class hello {
+//     public static void main(String args[]) {
+//         String str3 = new String("hello");
+//         String str4 = new String("hello");
+//         System.out.println(str3.equals(str4));
+//     }
+// }
+
+// class hello {
+//     public static void main(String args[]) {
+//         String a = "one";
+//         String b = "one";
+//         String c = b;
+//         System.out.println(a == c);
+//     }
+// }
+
+
+// import java.util.Scanner;
+// class hello {
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         String a = scan.nextLine();
+//         String b = scan.nextLine();
+//         System.out.println(a == b);
+//         System.out.println(a.equals(b));
+//     }
+// }
+
+
+// import java.util.Scanner;
+// class hello {
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         String a = scan.nextLine();
+//         if (a.equals("won")) {
+//             System.out.println("You won");
+//         } else {
+//             System.out.println("You lost");
+//         }
+//     }
+// }
+
 
 import java.util.Scanner;
-
 class hello {
     public static void main(String args[]) {
         Scanner scan = new Scanner(System.in);
-        int num1 = scan.nextInt(), num2 = scan.nextInt();
-        if ( num1 > num2) {
-            System.out.println("num1 is greater than num2");
-        } else if (num1 < num2) {
-            System.out.println("num2 is greater than num1");
+        String a = scan.nextLine();
+        if (a.equals("dead")) {
+            System.out.println("Surya meets ramya");
         } else {
-            System.out.println("num1 is equal to num2");
+            System.out.println("Surya weds meghana");
         }
     }
 }

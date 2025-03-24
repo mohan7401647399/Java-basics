@@ -340,15 +340,72 @@
 // }
 
 
+// import java.util.Scanner;
+// class hello {
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         String a = scan.nextLine();
+//         if (a.equals("dead")) {
+//             System.out.println("Surya meets ramya");
+//         } else {
+//             System.out.println("Surya weds meghana");
+//         }
+//     }
+// }
+
+
+
+//      24 - Mar - 2025
+
+// import java.util.Scanner;
+// class hello{
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         int input = scan.nextInt();
+//         if (input > 35) {
+//             System.out.println("Pass");
+//         } else {
+//             System.out.println("Fail");
+//         }
+//     }
+// }
+
+// import java.util.Scanner;
+// class hello {
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         int income = scan.nextInt();
+//         if (income > 7000) {
+//             System.out.println("Scholarship is available");
+//         } else {
+//             System.out.println("Scholarship is not available");
+//         }
+//     }
+// }
+
+// import java.util.Scanner;
+// class hello {
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         int num = scan.nextInt();
+//         if(num % 3 == 0 && num % 5 == 0){
+//             System.out.println("num is divisible by 3 and 5");
+//         } else {
+//             System.out.println("num is not divisible by 3 and 5");
+//         }
+//     }
+// }
+
 import java.util.Scanner;
+
 class hello {
     public static void main(String args[]) {
         Scanner scan = new Scanner(System.in);
-        String a = scan.nextLine();
-        if (a.equals("dead")) {
-            System.out.println("Surya meets ramya");
+        int num = scan.nextInt();
+        if(num % 2 == 0){
+            System.out.println("even number");
         } else {
-            System.out.println("Surya weds meghana");
+            System.out.println("odd number");
         }
     }
 }

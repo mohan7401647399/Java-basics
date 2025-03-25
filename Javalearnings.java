@@ -396,16 +396,57 @@
 //     }
 // }
 
+// import java.util.Scanner;
+// class hello {
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         int num = scan.nextInt();
+//         if(num % 2 == 0){
+//             System.out.println("even number");
+//         } else {
+//             System.out.println("odd number");
+//         }
+//     }
+// }
+
+
+//      25 - Mar - 2025
+//  Else if and nested if
+
+// import java.util.Scanner;
+
+// class hello {
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         int score = scan.nextInt();
+//         if (score > 30 && score < 60) {
+//             System.out.println("C Grade");
+//         } else if (score > 60 && score < 90) {
+//             System.out.println("B Grade");
+//         } else if (score > 90) {
+//             System.out.println("A Grade");
+//         }
+//     }
+// }
+
+
 import java.util.Scanner;
 
 class hello {
     public static void main(String args[]) {
         Scanner scan = new Scanner(System.in);
-        int num = scan.nextInt();
-        if(num % 2 == 0){
-            System.out.println("even number");
-        } else {
-            System.out.println("odd number");
+        String score = scan.nextLine();
+        boolean kfc = true;
+        boolean chicken = true;
+        boolean pepsi = true;
+        if(kfc){
+            System.out.println("Enter into kfc");
+            if(chicken){
+                System.out.println("Eat chicken");
+                if(pepsi){
+                    System.out.println("Drink pepsi");
+                }
+            }
         }
     }
 }

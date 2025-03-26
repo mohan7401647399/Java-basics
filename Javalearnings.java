@@ -430,23 +430,48 @@
 // }
 
 
+// import java.util.Scanner;
+
+// class hello {
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         String score = scan.nextLine();
+//         boolean kfc = true;
+//         boolean chicken = true;
+//         boolean pepsi = true;
+//         if(kfc){
+//             System.out.println("Enter into kfc");
+//             if(chicken){
+//                 System.out.println("Eat chicken");
+//                 if(pepsi){
+//                     System.out.println("Drink pepsi");
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+
+//  26-Mar-2025
+//  Ternary Operator
+
+// class hello {
+//     public static void main(String args[]) {
+//         System.out.println(true ? "Hello" : "Bye");
+//         System.out.println(5 > 2 ? "Five is greater than two" : "Five is less than two");
+//         Boolean rain = true;
+//         System.out.println(rain ? "It is raining" : "It is not raining");
+//     }
+// }
+
 import java.util.Scanner;
 
 class hello {
     public static void main(String args[]) {
         Scanner scan = new Scanner(System.in);
-        String score = scan.nextLine();
-        boolean kfc = true;
-        boolean chicken = true;
-        boolean pepsi = true;
-        if(kfc){
-            System.out.println("Enter into kfc");
-            if(chicken){
-                System.out.println("Eat chicken");
-                if(pepsi){
-                    System.out.println("Drink pepsi");
-                }
-            }
-        }
+        int first = scan.nextInt();
+        int second = scan.nextInt();
+        System.out.println(first > second ? "First is greater than second" : "First is less than second");
     }
 }

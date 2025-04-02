@@ -313,7 +313,6 @@
 //     }
 // }
 
-
 // import java.util.Scanner;
 // class hello {
 //     public static void main(String args[]) {
@@ -324,7 +323,6 @@
 //         System.out.println(a.equals(b));
 //     }
 // }
-
 
 // import java.util.Scanner;
 // class hello {
@@ -339,7 +337,6 @@
 //     }
 // }
 
-
 // import java.util.Scanner;
 // class hello {
 //     public static void main(String args[]) {
@@ -352,8 +349,6 @@
 //         }
 //     }
 // }
-
-
 
 //      24 - Mar - 2025
 
@@ -409,7 +404,6 @@
 //     }
 // }
 
-
 //      25 - Mar - 2025
 //  Else if and nested if
 
@@ -428,7 +422,6 @@
 //         }
 //     }
 // }
-
 
 // import java.util.Scanner;
 
@@ -451,8 +444,6 @@
 //     }
 // }
 
-
-
 //  26-Mar-2025
 //  Ternary Operator
 
@@ -465,13 +456,68 @@
 //     }
 // }
 
-import java.util.Scanner;
+// import java.util.Scanner;
+// class hello {
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         int first = scan.nextInt();
+//         int second = scan.nextInt();
+//         System.out.println(first > second ? "First is greater than second" : "First is less than second");
+//     }
+// }
 
+
+
+//      02-Apr-2025
+
+// import java.util.Scanner;
+// class hello {
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         int input = scan.nextInt();
+//         if (input < 50) {
+//             System.out.println("Need to improve");
+//         } else if (input >= 50 && input < 75) {
+//             System.out.println("Good");
+//         } else {
+//             System.out.println("Excellent");
+//         }
+//     }
+// }
+
+
+// import java.util.Scanner;
+// class hello {
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         int subject1 = scan.nextInt();
+//         int subject2 = scan.nextInt();
+//         int subject3 = scan.nextInt();
+//         int subject4 = scan.nextInt();
+//         int subject5 = scan.nextInt();
+//         int sum = subject1 + subject2 + subject3 + subject4 + subject5;
+//         int input = sum / 5;
+//         if (input < 35) {
+//             System.out.println("Additional class is required" + " " + input);
+//         } else {
+//             System.out.println("you are good to go" + " " + input);
+//         }
+//     }
+// }
+
+
+
+import java.util.Scanner;
 class hello {
     public static void main(String args[]) {
         Scanner scan = new Scanner(System.in);
-        int first = scan.nextInt();
-        int second = scan.nextInt();
-        System.out.println(first > second ? "First is greater than second" : "First is less than second");
+        String light = scan.nextLine();
+        if (light == "red") {
+            System.out.println("Stop" + " " + light);
+        } else if (light == "yellow") {
+            System.out.println("Ready" + " " + light);
+        } else if(light == "green") {
+            System.out.println("Go" + " " + light);
+        }
     }
 }

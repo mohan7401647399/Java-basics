@@ -507,17 +507,29 @@
 
 
 
-import java.util.Scanner;
-class hello {
+// import java.util.Scanner;
+// class hello {
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         String light = scan.nextLine();
+//         if (light == "red") {
+//             System.out.println("Stop" + " " + light);
+//         } else if (light == "yellow") {
+//             System.out.println("Ready" + " " + light);
+//         } else if(light == "green") {
+//             System.out.println("Go" + " " + light);
+//         }
+//     }
+// }
+
+
+//      03-Apr-2025
+//  for loop
+
+class hello{
     public static void main(String args[]) {
-        Scanner scan = new Scanner(System.in);
-        String light = scan.nextLine();
-        if (light == "red") {
-            System.out.println("Stop" + " " + light);
-        } else if (light == "yellow") {
-            System.out.println("Ready" + " " + light);
-        } else if(light == "green") {
-            System.out.println("Go" + " " + light);
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("for loop"+ " " + i);
         }
     }
 }

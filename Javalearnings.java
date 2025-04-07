@@ -466,8 +466,6 @@
 //     }
 // }
 
-
-
 //      02-Apr-2025
 
 // import java.util.Scanner;
@@ -484,7 +482,6 @@
 //         }
 //     }
 // }
-
 
 // import java.util.Scanner;
 // class hello {
@@ -505,8 +502,6 @@
 //     }
 // }
 
-
-
 // import java.util.Scanner;
 // class hello {
 //     public static void main(String args[]) {
@@ -522,14 +517,77 @@
 //     }
 // }
 
-
 //      03-Apr-2025
 //  for loop
+// class hello{
+//     public static void main(String args[]) {
+//         for (int i = 1; i <= 5; i++) {
+//             System.out.println("for loop"+ " " + i);
+//         }
+//     }
+// }
 
-class hello{
-    public static void main(String args[]) {
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("for loop"+ " " + i);
-        }
-    }
-}
+//      06-Apr-2025
+//  for loop
+// import java.util.Scanner;
+
+// class hello{
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         System.out.println("Enter the start number");
+//         int start = scan.nextInt();
+//         System.out.println("Enter the end number");
+//         int end = scan.nextInt();
+//         for (int i = start; i <= end; i++) {
+//             System.out.println("for loop"+ " " + i);
+//         }
+//     }
+// }
+
+// import java.util.Scanner;
+// class hello{
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         System.out.println("Enter the start number");
+//         int start = scan.nextInt();
+//         for (int i = 0; i <= start; i++) {
+//             if(i % 2 == 0) System.out.println("for loop"+ " " + i);
+//         }
+//     }
+// }
+
+// import java.util.Scanner;
+// class hello{
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         System.out.println("Enter the start number");
+//         int start = scan.nextInt();
+//         for (int i = 0; i <= start; i++) {
+//             if (i % 2 == 0)
+//                 System.out.println("Even Number are" + " " + i);
+//              else
+//                 System.out.println("Odd Number are" + " " + i);
+//         }
+//     }
+// }
+
+// import java.util.Scanner;
+// class hello {
+//     public static void main(String args[]) {
+//         Scanner scan = new Scanner(System.in);
+//         System.out.println("Enter the start number");
+//         int start = scan.nextInt();
+//         int oddCount = 0, evenCount = 0;
+//         for (int i = 0; i < start; i++) {
+//             if (i % 2 == 0) {
+//                 System.out.println("Even Number are" + " " + i);
+//                 evenCount++;
+//             } else {
+//                 System.out.println("Odd Number are" + " " + i);
+//                 oddCount++;
+//             }
+//         }
+//         System.out.println("Total Even Number are" + " " + evenCount);
+//         System.out.println("Total Odd Number are" + " " + oddCount);
+//     }
+// }

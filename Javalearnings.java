@@ -591,3 +591,49 @@
 //         System.out.println("Total Odd Number are" + " " + oddCount);
 //     }
 // }
+
+
+//      06-Apr-2025
+//      array
+
+// class hello {
+//     public static void main(String args[]){
+//         String[] playlist = new String[3];
+//         playlist[0] = "Song 1";
+//         System.out.println(playlist[0]);
+//         playlist[1] = "Song 2";
+//         System.out.println(playlist[1]);
+//         playlist[2] = "Song 3";
+//         System.out.println(playlist[2]);
+//     }
+// }
+
+// class hello {
+//     public static void main(String args[]){
+//         String[] playlist = {"song 1", "song 2", "song 3"};
+//         System.out.println(playlist[0]);
+//     }
+// }
+
+
+
+// class hello {
+//     public static void main(String args[]){
+//         int[] playlist = {1, 2, 3};
+//         System.out.println(playlist[0]);
+//     }
+// }
+
+import java.util.Scanner;
+
+class hello {
+    public static void main(String args[]){
+        int[] playlist = new int[5];
+        Scanner input = new Scanner(System.in);
+        playlist[0] = input.nextInt();
+        playlist[1] = input.nextInt();
+        playlist[2] = input.nextInt();
+        playlist[3] = input.nextInt();
+        System.out.println(playlist[0] + playlist[1] + playlist[2] + playlist[3]);
+    }
+}

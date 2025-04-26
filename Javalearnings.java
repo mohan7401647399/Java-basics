@@ -624,16 +624,87 @@
 //     }
 // }
 
-import java.util.Scanner;
+// import java.util.Scanner;
 
-class hello {
+// class hello {
+//     public static void main(String args[]){
+//         int[] playlist = new int[5];
+//         Scanner input = new Scanner(System.in);
+//         playlist[0] = input.nextInt();
+//         playlist[1] = input.nextInt();
+//         playlist[2] = input.nextInt();
+//         playlist[3] = input.nextInt();
+//         System.out.println(playlist[0] + playlist[1] + playlist[2] + playlist[3]);
+//     }
+// }
+
+
+//          26 - Apr - 2025
+//  practice
+
+// import java.util.Scanner;
+// class hello{
+//     public static void main(String args[]){
+//         int[] playlist = new int[5];
+//         Scanner input = new Scanner(System.in);
+//         for(int i = 0; i < playlist.length; i++){
+//             playlist[i] = input.nextInt();
+//         }
+//         for(int i = 0; i < playlist.length; i++){
+//             System.out.println(playlist[i]);
+//         }
+//     }
+// }
+
+
+// import java.util.Scanner;
+// class hello{
+//     public static void main(String args[]){
+//         Scanner input = new Scanner(System.in);
+//         for (int i = 1; i <= input.nextInt(); i++) {
+//             System.out.println(i + "*2 = " + i*2);
+//         }
+//     }
+// }
+
+
+// import java.util.Scanner;
+// class hello{
+//     public static void main(String args[]){
+//         Scanner input  = new Scanner(System.in);
+//         int[] array = new int[input.nextInt()];
+//         for (int i = 0; i <= input.nextInt() - 1; i++) {
+//             System.out.println(array[i]);
+//         }
+//     }
+// }
+
+//  nested loop
+// class hello{
+//     public static void main(String args[]){
+//         for (int i = 0; i < 1; i++) {
+//             System.out.println(i + "Mohan");
+//             for (int j = 0; j < 2; j++) {
+//                 System.out.println(j + "Mohan");
+//             }
+//         }
+//     }
+// }
+
+// class hello{
+//     public static void main(String args[]){
+//         for (int i = 0; i < 3; i++) {
+//             for (int j = 0; j < 3; j++) System.out.print("*");
+//             System.out.println();
+//         }
+//     }
+// }
+
+class hello{
     public static void main(String args[]){
-        int[] playlist = new int[5];
-        Scanner input = new Scanner(System.in);
-        playlist[0] = input.nextInt();
-        playlist[1] = input.nextInt();
-        playlist[2] = input.nextInt();
-        playlist[3] = input.nextInt();
-        System.out.println(playlist[0] + playlist[1] + playlist[2] + playlist[3]);
+        for (int i = 1; i <= 3; i++) {
+            for (int j = 0; j < i; j++) System.out.print("*");
+            System.out.println();
+        }
     }
 }

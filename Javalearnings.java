@@ -700,11 +700,62 @@
 //     }
 // }
 
+// class hello{
+//     public static void main(String args[]){
+//         for (int i = 1; i <= 3; i++) {
+//             for (int j = 0; j < i; j++) System.out.print("*");
+//             System.out.println();
+//         }
+//     }
+// }
+
+
+//          27 - Apr - 2025
+//  while loop
+
+// class hello{
+//     public static void main(String args[]){
+//         int j = 1;
+//         while (j <= 2) {
+//             System.out.println("step j = " + j);
+//             j++;
+//         }
+//     }
+// }
+
+// import java.util.Random;
+// class hello{
+//     public static void main(String args[]){
+//         Random rand = new Random();
+//         int randNum = 0;
+//         while (randNum != 5) {
+//             randNum = rand.nextInt(6);
+//             System.out.println(randNum);
+//         }
+//     }
+// }
+
+//  do-while loop
+
+// class hello{
+//     public static void main(String args[]){
+//         int i = 1;
+//         do{
+//             System.out.println("i = " + i);
+//             i++;
+//         } while(i <= 3);
+//     }
+// }
+
+import java.util.Scanner;
+
 class hello{
-    public static void main(String args[]){
-        for (int i = 1; i <= 3; i++) {
-            for (int j = 0; j < i; j++) System.out.print("*");
-            System.out.println();
-        }
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int count = 0;
+        do{
+            System.out.println("Please enter the number above 10");
+            count = scan.nextInt();
+        } while(count < 10);
     }
 }

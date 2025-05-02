@@ -75,13 +75,54 @@
 // }
 
 
+// public class fn{
+//     String name(String name){
+//         return name;
+//     }
+//     public static void main(String args[]){
+//         fn obj = new fn();
+//         String myName = obj.name("Mohan");
+//         System.out.println(myName);
+//     }
+// }
+
+
+//      02 - May - 2025
+
+// import java.util.Scanner;
+// public class fn{
+
+//     void evenoradd(int num){
+//         if(num % 2 == 0){
+//             System.out.println("Even Num is " + num);
+//         } else {
+//             System.out.println("Odd Num is " + num);
+//         }
+//     }
+
+//     public static void main(String args[]){
+//         Scanner scan = new Scanner(System.in);
+//         int number = scan.nextInt();
+//         fn obj1 = new fn();
+//         obj1.evenoradd(number);
+//     }
+// }
+
+
+import java.util.Scanner;
 public class fn{
-    String name(String name){
-        return name;
+    String passorfail(int num){
+        if(num > 35){
+            return "Pass";
+        } else {
+           return "Fail";
+        }
     }
     public static void main(String args[]){
-        fn obj = new fn();
-        String myName = obj.name("Mohan");
-        System.out.println(myName);
+        Scanner scan = new Scanner(System.in);
+        int number = scan.nextInt();
+        fn obj1 = new fn();
+        String result =  obj1.passorfail(number);
+        System.out.println(result);
     }
 }

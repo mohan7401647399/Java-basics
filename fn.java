@@ -109,20 +109,81 @@
 // }
 
 
-import java.util.Scanner;
+// import java.util.Scanner;
+// public class fn{
+//     String passorfail(int num){
+//         if(num > 35){
+//             return "Pass";
+//         } else {
+//            return "Fail";
+//         }
+//     }
+//     public static void main(String args[]){
+//         Scanner scan = new Scanner(System.in);
+//         int number = scan.nextInt();
+//         fn obj1 = new fn();
+//         String result =  obj1.passorfail(number);
+//         System.out.println(result);
+//     }
+// }
+
+
+//          03 - May - 2025
+//  method overloading
+
+// public class fn{
+
+//     void display(){
+//         System.out.println("a");
+//     }
+
+//     void display(int a){
+//         System.out.println("b");
+//     }
+
+//     public static void main(String[] args){
+//         fn obj1 = new fn();
+//         obj1.display();
+//         fn obj2 = new fn();
+//         obj2.display(57);
+//     }
+// }
+
+
+// public class fn{
+
+//     void display(int a, int b){
+//         System.out.println(a + b);
+//     }
+//     void display(int a, int b, int c){
+//         System.out.println(a + b + c);
+//     }
+//     public static void main(String[] args){
+//         fn obj1 = new fn();
+//         obj1.display(1,2);
+//         fn obj2 = new fn();
+//         obj2.display(5,5,6);
+//     }
+// }
+
+
+//      enhanced foreach-loop
+
+// public class fn{
+//     public static void main(String[] args) {
+//         int num[] = { 1,2,3,4,5};
+//         for(int var:num){
+//             System.out.println(var);
+//         }
+//     }
+// }
+
+
 public class fn{
-    String passorfail(int num){
-        if(num > 35){
-            return "Pass";
-        } else {
-           return "Fail";
+    public static void main(String[] args) {
+        String str[] = { "a", "b", "c", "d"};
+        for(String var:str){
+            System.out.println(var);
         }
-    }
-    public static void main(String args[]){
-        Scanner scan = new Scanner(System.in);
-        int number = scan.nextInt();
-        fn obj1 = new fn();
-        String result =  obj1.passorfail(number);
-        System.out.println(result);
     }
 }

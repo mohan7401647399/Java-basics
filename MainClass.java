@@ -179,11 +179,56 @@
 // }
 
 
-public class fn{
-    public static void main(String[] args) {
-        String str[] = { "a", "b", "c", "d"};
-        for(String var:str){
-            System.out.println(var);
-        }
-    }
-}
+// public class fn{
+//     public static void main(String[] args) {
+//         String str[] = { "a", "b", "c", "d"};
+//         for(String var:str){
+//             System.out.println(var);
+//         }
+//     }
+// }
+
+
+
+
+//      10 - May - 2025
+//	this
+
+
+// package java_practice;
+// public class Teacher {
+
+// 	String myName = null;
+// 	Teacher(){
+// 		System.out.println("Hello");
+// 	}
+// 	void setName(String myName) {
+// 		this.myName = myName;
+// 	}
+
+// 	public static void main(String[] args) {
+// 		Teacher t1 = new Teacher();
+// 		t1.setName("Mohan");
+// 		System.out.println(t1.myName);
+// 	}	
+// }
+
+
+//  inheritance
+
+// package java_practice;
+
+// 	class Dad{
+// 		int money = 200;
+// 	}
+// 	class Son extends Dad{
+// 		String name = "Mohan";
+// 	}
+
+// 	public class MainClass {
+// 	public static void main(String[] args) {
+// 		Son s1 = new Son();
+// 		System.out.println(s1.money);
+// 		System.out.println(s1.name);
+// 	}
+// }

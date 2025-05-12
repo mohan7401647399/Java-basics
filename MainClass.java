@@ -194,7 +194,6 @@
 //      10 - May - 2025
 //	this
 
-
 // package java_practice;
 // public class Teacher {
 
@@ -214,21 +213,159 @@
 // }
 
 
-//  inheritance
+//        inheritance
+
+//package java_practice;
+
+//	Super class
+//	class Dad{
+//		int money = 200;
+//	}
+//	derived class
+//	class Son extends Dad{
+//		String name = "Mohan";
+//	}
+//
+//	public class MainClass {
+//		
+//	public static void main(String[] args) {
+//		Son s1 = new Son();
+//		System.out.println(s1.money);
+//		System.out.println(s1.name);
+//	}
+//}
+
+
+
+//	        Single inheritance
+
+//package java_practice;
+	
+//	super class
+//	class Dad{
+//		int money = 200;
+//	}
+//	derived class
+//	class Son extends Dad{
+//		String name = "Mohan";
+//	}
+//
+//	public class MainClass {
+//		
+//	public static void main(String[] args) {
+//		Son s1 = new Son();
+//		System.out.println(s1.money);
+//		System.out.println(s1.name);
+//	}
+//}
+
+
+
+//			12 - May - 2025
+
+//	        Multi level inheritance
+
+//package java_practice;
+//	
+//	class Dad{
+//		void dad() {			
+//			System.out.println("Dad");
+//		}
+//	}
+//	class Son extends Dad{
+//		void son(){			
+//			System.out.println("Son");
+//		}
+//	}
+//	
+//	class Daughter extends Son{
+//		void daughter() {			
+//			System.out.println("Daughter");
+//		}
+//	}
+//
+//	public class MainClass {
+//		
+//	public static void main(String[] args) {
+//		Daughter d1 = new Daughter();
+//		d1.daughter();
+//		d1.son();
+//		d1.dad();
+//	}
+//}
+
+
+
+//	Hierarchical inheritance 
+
+//			-> Dad -> Son -> Daughter
+
+//package java_practice;
+//	
+//	class Dad{
+//		void dad() {			
+//			System.out.println("Dad");
+//		}
+//	}
+//	class Son extends Dad{
+//		void son(){			
+//			System.out.println("Son");
+//		}
+//	}
+//	
+//	class Daughter extends Son{
+//		void daughter() {			
+//			System.out.println("Daughter");
+//		}
+//	}
+//
+//	public class MainClass {
+//		
+//	public static void main(String[] args) {
+//		Daughter d1 = new Daughter();
+//		d1.daughter();
+//		d1.son();
+//		d1.dad();
+//	}
+//}
+
+
+//	hybrid inheritance 
+
+// 	-> ( single ) && ( multi level ) && (Dad -> Son -> Daughter)
 
 // package java_practice;
-
+	
 // 	class Dad{
-// 		int money = 200;
+// 		void dad() {			
+// 			System.out.println("Dad");
+// 		}
 // 	}
 // 	class Son extends Dad{
-// 		String name = "Mohan";
+// 		void son(){			
+// 			System.out.println("Son");
+// 		}
+// 	}
+	
+// 	class Daughter extends Son{
+// 		void daughter() {			
+// 			System.out.println("Daughter");
+// 		}
+// 	}
+	
+// 	class Wife extends Dad{
+// 		void wife(){
+// 			System.out.println("wife")
+// 		}
 // 	}
 
 // 	public class MainClass {
 // 	public static void main(String[] args) {
-// 		Son s1 = new Son();
-// 		System.out.println(s1.money);
-// 		System.out.println(s1.name);
+// 		Daughter d1 = new Daughter();
+// 		d1.daughter();
+// 		d1.son();
+// 		d1.dad();
+// 		Wife w1 = new Wife();
+// 		w1.dad();
 // 	}
 // }

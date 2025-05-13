@@ -369,3 +369,58 @@
 // 		w1.dad();
 // 	}
 // }
+
+
+
+//		13 - May - 2025
+//	inheritance practice
+
+
+package java_practice;
+
+class Animal{
+	String name;
+	int age;
+	void makeSound() {
+		System.out.println("Animal make a sound");
+	}
+}
+
+class Dog extends Animal{
+	String breed;
+	void makeSound() {
+		System.out.println("Dog barks");		
+	}
+	void fetch() {
+		System.out.println("Dog is fetching");
+	}
+}
+
+class Cat extends Animal{
+	String color;
+	void makeSound() {
+		System.out.println("Meowwwww.....");		
+	}
+	void climb() {
+		System.out.println("Cat is climbing");		
+	}
+}
+
+
+public class MainClass {
+	public static void main(String[] args) {
+
+		Dog d1 = new Dog();
+		d1.makeSound();
+		d1.name = "pretty";
+		d1.age = 5;
+		d1.fetch();
+		
+		Cat c1 = new Cat();
+		c1.makeSound();
+		c1.name = "new";
+		c1.age = 2;
+		c1.climb();
+	}
+
+}

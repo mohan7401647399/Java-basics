@@ -376,51 +376,109 @@
 //	inheritance practice
 
 
+// package java_practice;
+
+// class Animal{
+// 	String name;
+// 	int age;
+// 	void makeSound() {
+// 		System.out.println("Animal make a sound");
+// 	}
+// }
+
+// class Dog extends Animal{
+// 	String breed;
+// 	void makeSound() {
+// 		System.out.println("Dog barks");		
+// 	}
+// 	void fetch() {
+// 		System.out.println("Dog is fetching");
+// 	}
+// }
+
+// class Cat extends Animal{
+// 	String color;
+// 	void makeSound() {
+// 		System.out.println("Meowwwww.....");		
+// 	}
+// 	void climb() {
+// 		System.out.println("Cat is climbing");		
+// 	}
+// }
+
+
+// public class MainClass {
+// 	public static void main(String[] args) {
+
+// 		Dog d1 = new Dog();
+// 		d1.makeSound();
+// 		d1.name = "pretty";
+// 		d1.age = 5;
+// 		d1.fetch();
+		
+// 		Cat c1 = new Cat();
+// 		c1.makeSound();
+// 		c1.name = "new";
+// 		c1.age = 2;
+// 		c1.climb();
+// 	}
+
+// }
+
+
+
+//		23 - May - 2025
+//	Super - keyword
+
+
+// package java_practice;
+
+// class Animal{
+// 	int age = 12;
+// 	Animal(String name) {
+// 		System.out.println(name);
+// 	}
+// 	void makesound() {
+// 		System.out.println("Animal make a sound");
+// 	}
+// }
+
+// class Dog extends Animal{
+// 	Dog() {
+// 		super("Monkey");
+// 		super.makesound();
+// 		System.out.println("Dog barks");
+// 		System.out.println(super.age);
+// 	}
+// }
+
+// public class MainClass {
+// 	public static void main(String[] args) {
+// 		Dog d1 = new Dog();
+// 	}
+// }
+
+
+
 package java_practice;
 
-class Animal{
+class Person{
 	String name;
-	int age;
-	void makeSound() {
-		System.out.println("Animal make a sound");
+	Person(String name) {
+		this.name=name;
 	}
 }
 
-class Dog extends Animal{
-	String breed;
-	void makeSound() {
-		System.out.println("Dog barks");		
-	}
-	void fetch() {
-		System.out.println("Dog is fetching");
+class Employee extends Person{
+	Employee(String name) {
+		super(name);
 	}
 }
-
-class Cat extends Animal{
-	String color;
-	void makeSound() {
-		System.out.println("Meowwwww.....");		
-	}
-	void climb() {
-		System.out.println("Cat is climbing");		
-	}
-}
-
 
 public class MainClass {
 	public static void main(String[] args) {
-
-		Dog d1 = new Dog();
-		d1.makeSound();
-		d1.name = "pretty";
-		d1.age = 5;
-		d1.fetch();
-		
-		Cat c1 = new Cat();
-		c1.makeSound();
-		c1.name = "new";
-		c1.age = 2;
-		c1.climb();
+		Employee e1 = new Employee("Mohan");
+		System.out.println(e1.name);
 	}
 
 }

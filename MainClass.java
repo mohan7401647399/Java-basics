@@ -460,25 +460,128 @@
 
 
 
-package java_practice;
+// package java_practice;
 
-class Person{
-	String name;
-	Person(String name) {
-		this.name=name;
-	}
-}
+// class Person{
+// 	String name;
+// 	Person(String name) {
+// 		this.name=name;
+// 	}
+// }
 
-class Employee extends Person{
-	Employee(String name) {
-		super(name);
-	}
-}
+// class Employee extends Person{
+// 	Employee(String name) {
+// 		super(name);
+// 	}
+// }
 
-public class MainClass {
-	public static void main(String[] args) {
-		Employee e1 = new Employee("Mohan");
-		System.out.println(e1.name);
-	}
+// public class MainClass {
+// 	public static void main(String[] args) {
+// 		Employee e1 = new Employee("Mohan");
+// 		System.out.println(e1.name);
+// 	}
 
-}
+// }
+
+
+
+//		25 - May - 2025
+//	abstract
+
+// package java_practice;
+// abstract class Person{
+// 	abstract void child();
+// }
+
+// class Employee extends Person{
+// 	void child() {
+// 		System.out.println("child");
+// 	}
+// }
+
+// public class MainClass {
+// 	public static void main(String[] args) {
+// 		Employee e1 = new Employee("Mohan");
+// 		System.out.println(e1.name);
+// 	}
+// }
+
+
+//		26 - May - 2025
+//	static
+
+// package java_practice;
+
+// class Person{
+// 	int mark = 0;
+// 	static String name = "Mohan";
+// }
+
+// public class MainClass {
+// 	public static void main(String[] args) {
+		
+// 		Person p1 = new Person();
+// 		p1.mark = 50;
+// 		Person.name = "Mohan R";
+		
+// 		Person p2 = new Person();
+// 		p2.mark = 60;
+		
+// 		System.out.println(p1.name);
+// 	}
+// }
+
+
+
+// package java_practice;
+
+// class Person{
+
+// 	static void disp() {
+// 		System.out.println("Hello");
+// 	}
+// }
+
+// public class MainClass {
+// 	public static void main(String[] args) {
+		
+// 		Person.disp();
+// 	}
+// }
+
+
+// package java_practice;
+
+// public class MainClass {
+// 	static int num = 10;
+// 	public static void main(String[] args) {
+// 		System.out.println(num);
+// 	}
+// }
+
+
+
+// package java_practice;
+
+// public class MainClass {
+// 	static {
+// 		System.out.println("static");
+// 	}
+// 	public static void main(String[] args) {
+// 		System.out.println("main");
+// 	}
+// }
+
+
+// package java_practice;
+
+// public class MainClass {
+// 	static {
+// 		System.out.println("static");
+// 	}
+// 	public static void main(String[] args) {
+// 		System.out.println("main");
+// 		MainClass m1 = new MainClass();
+// 		MainClass m2 = new MainClass();
+// 	}
+// }

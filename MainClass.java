@@ -585,3 +585,30 @@
 // 		MainClass m2 = new MainClass();
 // 	}
 // }
+
+
+
+//		28 - May - 2025
+//	Final
+
+// package java_practice;
+
+// final class A{
+// 	 void disp() {
+// 		System.out.println("Class A");
+// 	}
+// }
+
+// class B extends A{
+// 	void disp() {
+// 		System.out.println("Class B");
+// 	}
+// }
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+// 		B obj = new B();
+// 		obj.disp();
+// 	}
+// }

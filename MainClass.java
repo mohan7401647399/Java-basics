@@ -612,3 +612,162 @@
 // 		obj.disp();
 // 	}
 // }
+
+
+//		31 - May - 2025
+//	Constructor - Practice
+
+// package java_practice;
+
+//  class Person{
+// 	 	public String name;
+// 	 	protected int age;
+// 	 	private String SecurityNumber;
+// 	 	String address;
+// 	 	Person(String name, int age, String ssn, String address){
+// 	 		this.name = name;
+// 	 		this.age = age;
+// 	 		this.SecurityNumber = ssn;
+// 	 		this.address = address;
+// 	 	}
+// }
+
+// class Employee extends Person{
+// 	Employee(String name, int age, String ssn, String address){
+		
+// 		super(name, age, ssn, address);
+// 		System.out.println("Employee Class");
+// 	}
+// }
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+// 		Employee e1 = new Employee("Mohan", 29, "djfdsl", "Chennai");
+		
+// 		System.out.println(e1.name);
+// 		System.out.println(e1.age);
+// 		System.out.println(e1.address);
+		
+// 	}
+// }
+
+
+
+//	Static - Practice
+
+// package java_practice;
+
+// class Counter{
+// 	static int count = 0;
+// 	int instanceNumber = 0;
+	
+// 	Counter(){
+// 		count = count + 1;
+// 		instanceNumber = instanceNumber + 1;
+// 	}
+	
+// 	void disp() {
+// 		System.out.println("instanceNumber " + instanceNumber);
+// 		System.out.println("count " + count);
+// 	}
+// }
+
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+// 		Counter e1 = new Counter();
+// 		e1.disp();
+// 		Counter e2 = new Counter();
+// 		e2.disp();
+// 		Counter e3 = new Counter();
+// 		e3.disp();
+// 	}
+// }
+
+
+
+// package java_practice;
+
+// abstract class Animal{
+// 	String name;
+// 	Animal(String name){
+// 		this.name = name;
+// 	}
+// 	abstract void makeSound();
+// }
+
+// class Dog extends Animal{
+// 	Dog(String name){
+// 		super(name);
+// 	}
+// 	void makeSound() {
+// 		System.out.println("Wowwww....!");
+// 	}
+// }
+
+// class Cat extends Animal{
+// 	Cat(String name){
+// 		super(name);
+// 	}
+// 	void makeSound() {
+// 		System.out.println("Meowwww....!");
+// 	}
+// }
+
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+// 		Dog d1 = new Dog("Pretty");
+// 		System.out.println(d1.name);
+// 		d1.makeSound();
+		
+// 		Cat c1 = new Cat("Blacky");
+// 		System.out.println(c1.name);
+// 		c1.makeSound();
+// 	}
+// }
+
+
+
+// package java_practice;
+
+// abstract class vehicle{
+// 	final void startEngine() {
+// 		System.out.println("Engine Started.....!");
+// 	}
+	
+// 	static String getVehicleType() {
+// 		return "Generic Vehicle";
+// 	}
+	
+// 	abstract void drive();
+// }
+
+// class Car extends vehicle{
+// 	void drive() {
+// 		System.out.println("Drive a Car");
+// 	}
+// }
+
+// class Bike extends vehicle{
+// 	void drive() {
+// 		System.out.println("Drive a Bike");
+// 	}
+// }
+
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+// 		Car c1 = new Car();
+// 		c1.drive();
+// 		System.out.println(vehicle.getVehicleType());
+		
+// 		Bike b1 = new Bike();
+// 		b1.drive();
+// 		System.out.println(vehicle.getVehicleType());
+// 	}
+// }

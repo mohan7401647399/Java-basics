@@ -771,3 +771,86 @@
 // 		System.out.println(vehicle.getVehicleType());
 // 	}
 // }
+
+
+
+
+//		01 - Jun - 2025
+//	interface
+
+// package java_practice;
+
+// interface Animal{
+// 	int mark = 20;
+// 	void sound();
+	
+// 	default void disp() {
+// 		System.out.println("disp...");
+// 	}
+// }
+
+// class Cat implements Animal{
+// 		public void sound() {
+// 			System.out.println("Cat....");
+// 		}
+// }
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+// 		Cat c1 = new Cat();
+// 		c1.sound();
+// 		System.out.println(c1.mark);
+// 		c1.disp();
+// 	}
+// }
+
+
+
+
+//	        multi interface
+
+// package java_practice;
+
+// interface A{
+// 	void disp();
+// }
+
+// interface B{
+// 	void disp();
+// }
+
+// class C implements A,B{
+// 	public void display() {
+// 		System.out.println("Class C...");
+// 	}
+// }
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+// 		C c1 = new C();
+// 		c1.display();
+// 	}
+// }
+
+
+
+//	Lambda Expression
+
+package java_practice;
+
+interface A{
+	void disp();
+}
+
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		A obj = () -> {
+			System.out.println("Class A");
+		};
+		obj.disp();
+	}
+}

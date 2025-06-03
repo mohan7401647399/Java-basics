@@ -838,19 +838,143 @@
 
 //	Lambda Expression
 
-package java_practice;
+// package java_practice;
 
-interface A{
-	void disp();
-}
+// interface A{
+// 	void disp();
+// }
 
 
-public class MainClass {
+// public class MainClass {
 
-	public static void main(String[] args) {
-		A obj = () -> {
-			System.out.println("Class A");
-		};
-		obj.disp();
-	}
-}
+// 	public static void main(String[] args) {
+// 		A obj = () -> {
+// 			System.out.println("Class A");
+// 		};
+// 		obj.disp();
+// 	}
+// }
+
+
+
+
+//		02 - Jun - 2025
+//	Exception handling
+
+//package java_practice;
+//
+//import java.util.Scanner;
+//
+//public class MainClass {
+//
+//	public static void main(String[] args) {
+//		Scanner scan = new Scanner(System.in);
+//		
+//		try {
+//			System.out.print("Enter the number : ");
+//			int a = scan.nextInt();
+//		} catch (Exception e) {
+//			System.out.println(e);
+//		}
+//		System.out.println("Program Ended");
+//	}
+//}
+
+
+//package java_practice;
+//
+//import java.util.InputMismatchException;
+//import java.util.Scanner;
+//
+//public class MainClass {
+//
+//	public static void main(String[] args) {
+//		Scanner scan = new Scanner(System.in);
+//		
+//		try {
+//			System.out.print("Enter the number : ");
+//			int a = scan.nextInt();
+//			int b = 10/0;			
+//		} catch (ArithmeticException e) {
+//			System.out.println(e);
+//		} catch (InputMismatchException e){
+//			System.out.println(e);
+//		}
+//		System.out.println("Program Ended");
+//	}
+//}
+
+
+
+// package java_practice;
+
+// import java.util.InputMismatchException;
+// import java.util.Scanner;
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+// 		Scanner scan = new Scanner(System.in);
+// 		int a = 0;
+// 		int b = 0;
+// 		int c = 0;
+		
+// 		try {
+// 			System.out.print("Enter the number : ");
+// 			a = scan.nextInt();
+// 			System.out.print("Enter the number : ");
+// 			b = scan.nextInt();
+// 			c = a / b;
+// 		} catch (ArithmeticException e) {
+// 			System.out.println(e + " Please try");
+// 		} catch (InputMismatchException e) {
+// 			System.out.println(e + " Please try");
+// 		}
+// 		System.out.println("Program Ended " + c);
+// 	}
+// }
+
+
+
+//		02 - Jun - 2025
+//	Finally
+
+// package java_practice;
+
+// import java.util.Scanner;
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+// 		try {
+// 			int a = 10/0;
+// 		} catch (Exception e) {
+// 			System.out.println("error" + e);
+// 		} finally {
+// 			System.out.println("finally completed");
+// 		}
+// 	}
+// }
+
+
+
+// package java_practice;
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+// 		int err = 0;
+// 		try {
+// 			int a = 10/0;
+// 			err=0;
+// 		} catch (Exception e) {
+// 			err=1;
+// 		} finally {
+// 			if(err == 1) {
+// 				System.out.println("Error found");
+// 			} else {
+// 				System.out.println("No Error");
+// 			}
+// 		}
+// 	}
+// }

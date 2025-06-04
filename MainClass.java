@@ -936,9 +936,8 @@
 
 
 
-//		02 - Jun - 2025
+//		03 - Jun - 2025
 //	Finally
-
 // package java_practice;
 
 // import java.util.Scanner;
@@ -975,6 +974,28 @@
 // 			} else {
 // 				System.out.println("No Error");
 // 			}
+// 		}
+// 	}
+// }
+
+
+
+//		03 - Jun - 2025
+//	throw
+
+// package java_practice;
+
+// import java.util.Scanner;
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+// 		Scanner scan = new Scanner(System.in);
+// 		try {
+// 			int age = scan.nextInt();
+// 			if(age < 1) throw new ArithmeticException("Age should be greater than 1");
+// 		} catch (ArithmeticException e) {
+// 			System.out.println(e);
 // 		}
 // 	}
 // }

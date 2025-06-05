@@ -980,7 +980,7 @@
 
 
 
-//		03 - Jun - 2025
+//		04 - Jun - 2025
 //	throw
 
 // package java_practice;
@@ -995,6 +995,37 @@
 // 			int age = scan.nextInt();
 // 			if(age < 1) throw new ArithmeticException("Age should be greater than 1");
 // 		} catch (ArithmeticException e) {
+// 			System.out.println(e);
+// 		}
+// 	}
+// }
+
+
+
+//		05 - Jun - 2025
+//	custom exception handling
+
+// package java_practice;
+// import java.util.Scanner;
+
+// class NotValidException extends Exception{
+// 	public NotValidException(String s) {
+// 		super(s);
+// 	}
+// }
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+		
+// 		Scanner scan = new Scanner(System.in);
+		
+// 		try {
+// 			int age = scan.nextInt();
+// 			if(age < 18) throw new NotValidException("Your age should be above - 18");
+// 		} catch (NotValidException e) {
+// 			System.out.println(e);
+// 		} catch(Exception e) {
 // 			System.out.println(e);
 // 		}
 // 	}

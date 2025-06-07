@@ -1030,3 +1030,95 @@
 // 		}
 // 	}
 // }
+
+
+
+//		07 - Jun - 2025
+//	custom exception handling - Practice
+
+// package java_practice;
+// import java.util.Scanner;
+
+// class DivisionExample{
+// 	void divideNumbers(int num, int den) {		
+// 	try {
+// 		int result = num / den;
+// 		System.out.println("Result is " + result);
+// 	} catch (ArithmeticException e){
+// 		System.out.println("Cannot divide by zero");
+// 		}
+// 	}
+// }
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+// 		Scanner scan = new Scanner(System.in);
+// 		int n1 = scan.nextInt();
+// 		int n2 = scan.nextInt();
+		
+// 		DivisionExample d1 = new DivisionExample();
+// 		d1.divideNumbers(5, 10);
+// 	}
+// }
+
+
+
+// package java_practice;
+
+// import java.util.Scanner;
+
+// class InvalidAgeException extends Exception{
+// 	public InvalidAgeException(String message) {
+// 		super(message);
+// 	}
+// }
+
+// class AgeValidator{
+// 	void checkage(int age) {
+// 		try {
+// 			if(age < 0 || age > 150) {
+// 				throw new InvalidAgeException("Age is Invalid");
+// 			} else {
+// 				System.err.println("Valid Age");
+// 			}
+// 		} catch (Exception e) {
+// 			System.out.println(e);
+// 		}
+// 	}
+// }
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+// 		Scanner scan = new Scanner(System.in);
+// 		int age = scan.nextInt();
+		
+// 		AgeValidator a1 = new AgeValidator();
+// 		a1.checkage(50);
+// 	}
+// }
+
+
+
+//	throws
+
+// package java_practice;
+
+// class Calc{
+// 	void div() throws Exception{
+// 		int num = 10/0;
+// 	}
+// }
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+// 		Calc c1 = new Calc();
+// 		try{
+// 			c1.div();
+// 		} catch (Exception e) {
+// 			System.out.println(e);
+// 		}
+// 	}
+// }

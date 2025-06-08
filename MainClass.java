@@ -1122,3 +1122,102 @@
 // 		}
 // 	}
 // }
+
+
+
+//		08 - Jun - 2025
+//	Text-File handling
+
+//  File - creation
+
+// package java_practice;
+
+// import java.io.FileWriter;
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+		
+// 		try{			
+// 			FileWriter fw = new FileWriter("Output.txt");
+// 			fw.write("Hello world");
+// 			fw.close();			
+// 			System.out.println("File appended");
+// 		} catch (Exception e) {
+// 			System.out.println("Something has happened");
+// 		}
+// 	}
+// }
+
+
+
+//  File - append
+
+// package java_practice;
+
+// import java.io.FileWriter;
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+		
+// 		try{			
+// 			FileWriter fw = new FileWriter("Output.txt");
+// 			fw.append("Heyyyy");
+// 			fw.close();			
+// 			System.out.println("File appended");
+// 		} catch (Exception e) {
+// 			System.out.println("Something has happened");
+// 		}
+// 	}
+// }
+
+
+//  File - added
+
+// package java_practice;
+
+// import java.io.FileWriter;
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+		
+// 		try{			
+// 			FileWriter fw = new FileWriter("Output.txt", true);
+// 			fw.append("hello");
+// 			fw.close();			
+// 			System.out.println("File appended");
+// 		} catch (Exception e) {
+// 			System.out.println("Something has happened");
+// 		}
+// 	}
+// }
+
+
+
+//      Buffered writer
+
+
+// package java_practice;
+
+// import java.io.BufferedWriter;
+// import java.io.FileWriter;
+
+// public class MainClass {
+
+// 	public static void main(String[] args) {
+		
+// 		try{			
+// 			FileWriter fw = new FileWriter("Output.txt", true);
+// 			BufferedWriter bw = new BufferedWriter(fw);
+// 			bw.write("buffered writter");
+// 			bw.newLine();
+// 			bw.write("new Buffered line");
+// 			bw.close();
+// 			System.out.println("Buffered file");
+// 		} catch (Exception e) {
+// 			System.out.println("Something has happened");
+// 		}
+// 	}
+// }

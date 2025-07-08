@@ -1,5 +1,9 @@
+// Java is a high-level, object-oriented, general-purpose programming language and a computing platform first released by Sun Microsystems in 1995 (now owned by Oracle). 
+// It's designed to be portable, secure, and robust, powering everything from mobile apps to enterprise systems.
+
 //          01 - May - 2025
 //  function
+//  In Java, a function is a block of code that performs a specific task and can be reused throughout a program. However, Java is an object-oriented language, so functions are formally called methods and must be declared within a class (or interface)
 
 // public class fn{
 //     void greeting(){
@@ -26,9 +30,12 @@
 
 
 //  function parameters
+//  In programming, function parameters (also called formal parameters) are variables defined in a function's declaration. They act as placeholders for the actual values (arguments) that must be supplied when the function is called. Parameters define what input a function expects to receive.
+//  Parameters are specified in the method signature inside parentheses ():
+
 
 // public class fn{
-//     void getShop(int money){
+//     void getShop(int money){                          //  'money' are parameter
 //         System.out.println( "money is " +money);
 //     }
 //     void chocolate(int money){
@@ -49,6 +56,8 @@
 
 
 //  return
+//  In Java, the return keyword is used to explicitly exit a method and optionally send a value back to the caller. It plays a critical role in controlling the flow of methods
+
 
 // public class fn{
 //     int getMoney(int money){
@@ -130,6 +139,8 @@
 
 //          03 - May - 2025
 //  method overloading
+//  Define multiple methods with the same name but different parameters:
+
 
 // public class fn{
 
@@ -164,6 +175,14 @@
 //         fn obj2 = new fn();
 //         obj2.display(5,5,6);
 //     }
+// }
+
+
+// public int sum(int a, int b) {
+//     return a + b;
+// }
+// public double sum(double a, double b) {
+//     return a + b;
 // }
 
 

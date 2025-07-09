@@ -1,0 +1,258 @@
+08-Jul-2025
+
+
+1. primitive datatype
+    a. byte
+        In Java, byte is a primitive data type specifically designed for handling 8-bit signed integer values. It's the smallest integer type in Java and is optimized for memory efficiency.
+    Points:-
+        * Size	- 8 bits (1 byte)
+        * Range	- -128 to 127
+        * Default Value	- 0
+    codes:-
+        byte min = -128;
+        byte max = 127;
+        byte zero = 0;
+        byte data = 0b00101010;                 // Binary literal (42 in decimal)
+
+    b. short
+        In Java, short is a primitive data type designed for storing 16-bit signed integer values. It's larger than byte but smaller than int, offering a middle ground for memory optimization
+    Points:-
+        * Size	- 16 bits (2 bytes)
+        * Range -	-32,768 to 32,767
+        * Default Value -	0
+    codes:-
+        short min = -32768;                     // Smallest value
+        short max = 32767;                      // Largest value
+        short zero = 0;                         // Default value
+        short hex = 0x7FFF;                     // Hexadecimal literal (32,767)
+
+    c. int
+        In Java, int is the default integer data type, representing a 32-bit signed two's complement integer. It's the most commonly used integer type for general-purpose arithmetic and counting in Java.
+
+     Why int is the Default Integer Type
+        * JVM Optimization:
+            Operations on int are fastest (JVM bytecode has dedicated instructions for int).
+        * Natural Size:
+            32 bits balance range and performance (covers most real-world integer needs).
+        * Literal Handling:
+            Whole numbers (e.g., 123) are treated as int by default.
+    Points:-
+        * Size	- 32 bits (4 bytes)
+        * Range -	-2,147,483,648(-2.1B) to 2,147,483,647(2.1B)
+        * Default Value - 0    
+    codes:-
+        int count = 0;                          // Default initialization
+        int max = Integer.MAX_VALUE;            // 2,147,483,647
+        int min = Integer.MIN_VALUE;            // -2,147,483,648
+        int hexValue = 0x1F;                    // Hex = 31
+        int binaryValue = 0b1100;               // Binary = 12
+        int largeNum = 1_000_000;               // Underscores for readability
+
+    d. long
+        In Java, long is a primitive data type representing a 64-bit signed two's complement integer. It's used when values exceed the range of int (over 2.1 billion)
+    Points:-
+         * Size	- 64 bits (8 bytes)
+         * Range -	-9,223,372,036,854,775,808(-9.2Q) to 9,223,372,036,854,775,807(9.2Q)
+         * Default Value - 0L
+    codes:-
+        long min = Long.MIN_VALUE;                      // -9_223_372_036_854_775_808L
+        long max = Long.MAX_VALUE;                      //  9_223_372_036_854_775_807L
+        long population = 8_000_000_000L;               // Suffix 'L' required for large literals
+        long hex = 0x7FFF_FFFF_FFFF_FFFFL;              // Hexadecimal
+        long binary = 0b1000_0000_..._0000L;            // 64-bit binary          
+
+
+    e. float
+        In Java, float is a primitive data type representing a single-precision 32-bit IEEE 754 floating-point number. It's designed for fractional values where memory efficiency is prioritized over precision.
+    Points:-
+        * Size	- 32 bits (4 bytes)
+        * Range -	≈ ±3.4e-38 to ±3.4e38
+        * Default Value - 0.0f
+        * Literal Suffix -	f or F (e.g., 3.14f)
+        * Precision	- 6-7 significant decimal digits
+    codes:-
+        float pi = 3.14159f;                        // 'f' suffix required
+        float temperature = -10.5f;
+        float scientific = 1.23e4f;                 // 12300.0 (exponent notation)
+        float max = Float.MAX_VALUE;                // ≈3.4028235e38
+        float min = Float.MIN_VALUE;                // ≈1.4e-45 (smallest positive)
+
+    f. double
+        In Java, double is a primitive data type representing a double-precision 64-bit IEEE 754 floating-point number. It's the default choice for decimal values in Java due to its higher precision compared to float.
+    Points:-
+        * Size	- 64 bits (8 bytes)
+        * Range -	≈ ±4.9e-324 to ±1.7e308
+        * Default Value - 0.0
+        * Literal Suffix -	Optional d or D (e.g., 3.14 or 3.14d)
+        * Precision	- 15-16 significant decimal digits
+    codes:-
+        double pi = 3.1415926535;                   // No suffix needed (default decimal type)
+        double lightSpeed = 2.998e8;                // Scientific notation (299,800,000)
+        double max = Double.MAX_VALUE;              // ≈1.7976931348623157e308
+        double min = Double.MIN_VALUE;              // ≈4.9e-324 (smallest positive)
+        double explicit = 0.5d;                     // Optional 'd' suffix
+
+
+    g. char
+        In Java, char is a primitive data type representing a single 16-bit Unicode character. It's used to store textual data at the character level.
+    Points:-
+        * Size	- 16 bits (2 bytes)
+        * Range -	\u0000 to \uffff (0 to 65,535)
+        * Default Value - \u0000 (null character)
+        * Literal Syntax - Single quotes ('A'), Unicode ('\u0041'), or integer (65)
+    codes:-
+        char letter = 'A';                          // Character literal
+        char unicode = '\u0041';                    // Unicode escape (also 'A')
+        char digit = '9';                           // Digit character
+        char symbol = '$';                          // Special symbol
+        char heart = 9829;                          // Decimal value (♥)
+        char newline = '\n';                        // Escape sequence
+
+    h. boolean
+        In Java, boolean is a primitive data type that represents a binary logical value: either true or false. It's fundamental for controlling program flow through conditional statements and loops.
+    Points:-
+        * Size	- Not precisely defined (JVM-dependent)
+        * Values - true or false (no numeric equivalents)
+        * Default Value - false
+    codes:-
+        boolean isJavaFun = true;                   // Explicit true
+        boolean isCold = false;                     // Explicit false
+        boolean isEven = (10 % 2 == 0);             // true (expression result)
+        Boolean boxed = Boolean.TRUE;               // Wrapper object (rarely needed)
+
+
+2. non-primitive datatype
+    a. String
+        In Java, String is a class (not a primitive type) that represents an immutable sequence of Unicode characters. It's one of the most fundamental and frequently used types in Java
+    Points:-
+        Type - Class (java.lang.String)
+        Mutability - Immutable (contents cannot be changed after creation)
+        Storage - Backed by a char[] (Java 9+: compact byte[] with encoding)
+        Memory - Stored in the String Pool (for literals) to save memory
+        Nullability - Can be null
+    codes:-
+         1. String literal (uses String Pool)
+            String s1 = "Hello"; 
+         2. Using `new` (forces heap allocation)
+            String s2 = new String("Hello");
+         3. From char[]
+            char[] chars = {'H', 'e', 'l', 'l', 'o'};
+            String s3 = new String(chars);
+         4. Empty string
+            String empty = "";                  // Not the same as `null`
+
+
+3. Local Variable
+    In Java, a local variable is a variable that is declared inside a method, constructor, or block, and it is only accessible within that method or block.
+    Codes:-
+        public class Main{
+            public static void main(String[] args){
+                String name = "Mohan";                      //  Local variable
+                System.out.println(name);
+            }
+        }
+
+
+
+4. operators
+    In Java, operators are special symbols used to perform operations on variables and values. Java provides a wide range of operators grouped by their functionality.
+    
+    a. arithemetic
+        Used to perform basic mathematical operations.
+            | Operator | Description         | Example (`a = 10`, `b = 5`) | Result |
+            | -------- | ------------------- | --------------------------- | ------ |
+            | `+`      | Addition            | `a + b`                     | `15`   |
+            | `-`      | Subtraction         | `a - b`                     | `5`    |
+            | `*`      | Multiplication      | `a * b`                     | `50`   |
+            | `/`      | Division            | `a / b`                     | `2`    |
+            | `%`      | Modulus (Remainder) | `a % b`                     | `0`    |
+
+    b. relational(Comparison)
+        Used to compare two values.
+            | Operator | Description      | Example (`a = 10`, `b = 5`) | Result  |
+            | -------- | ---------------- | --------------------------- | ------- |
+            | `==`     | Equal to         | `a == b`                    | `false` |
+            | `!=`     | Not equal to     | `a != b`                    | `true`  |
+            | `>`      | Greater than     | `a > b`                     | `true`  |
+            | `<`      | Less than        | `a < b`                     | `false` |
+            | `>=`     | Greater or equal | `a >= b`                    | `true`  |
+            | `<=`     | Less or equal    | `a <= b`                    | `false` |
+
+    c. logical
+        Used to combine multiple conditions.
+            | Operator | Description | Example                     |
+            | -------- | ----------- | --------------------------- | 
+            | `&&`     | Logical AND | `(a > b && a > 0)` → `true` |
+            |  '\`     | Logical OR  | (a < b || a > 0)`→`true\`   |
+            | `!`      | Logical NOT | `!(a > b)` → `false`        |
+
+    d. assignment
+        Used to assign values to variables.
+            | Operator | Description         | Example                |
+            | -------- | ------------------- | ---------------------- |
+            | `=`      | Assign value        | `a = 10`               |
+            | `+=`     | Add and assign      | `a += 5` → `a = a + 5` |
+            | `-=`     | Subtract and assign | `a -= 3` → `a = a - 3` |
+            | `*=`     | Multiply and assign | `a *= 2` → `a = a * 2` |
+            | `/=`     | Divide and assign   | `a /= 2`               |
+            | `%=`     | Modulus and assign  | `a %= 2`               |
+
+    e. increment
+        The increment operator is used to increase the value of a variable by 1.
+
+          There are **two types** of increment operators:
+
+            ### 1. **Post-Increment (`a++`)**
+                * **Increases the value after** it is used in the expression.
+                Codes:-
+                    int a = 5;
+                    int b = a++;  // b = 5, a becomes 6
+
+            ### 2. **Pre-Increment (`++a`)**
+                * **Increases the value before** it is used in the expression.
+                Codes:-
+                    int a = 5;
+                    int b = ++a;  // a becomes 6, b = 6
+
+    f. ternary
+        Short-hand for if-else.
+            int result = (a > b) ? a : b;
+
+
+
+5. methods - syntax
+    In Java, a method is a reusable block of code that performs a specific task and is defined within a class. Methods encapsulate behavior, promote code reusability, and improve readability.
+
+    Basic Syntax Structure
+        [access_modifier] [non-access_modifiers] return_type method_name([parameters]) {
+            // Method body (code to execute)
+            [return value;]                     // Required if return_type ≠ void
+        }
+
+    Components Explained
+        1. Access Modifiers (Control visibility)
+        public: Accessible everywhere
+        protected: Accessible within package + subclasses
+        private: Accessible only within the class
+        (Default): Package-private (no keyword)
+
+        2. Non-Access Modifiers
+        static: Belongs to the class (not instances)
+        final: Cannot be overridden
+        abstract: No implementation (must be overridden)
+        synchronized: Thread-safe access
+
+        3. Return Type
+        Data type of the result (int, String, void, etc.)
+        void → Returns nothing
+
+        4. Method Name
+        Follows camelCase conventions (e.g., calculateTotal())
+
+        5. Parameters
+        Input values: (type1 param1, type2 param2)
+        Optional (can be empty)
+
+        6. Method Body
+        Code executed when the method is called
+        Must return a value if return type ≠ void

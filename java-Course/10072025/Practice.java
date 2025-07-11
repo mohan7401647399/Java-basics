@@ -170,12 +170,108 @@ public class Practice {
 // do {  
 //     // code to repeat
 // } while (condition);
-public class Practice {
-	public static void main(String[] args) {
-			int i = 0;
-			do {
-				System.out.println(i);
-				i++;
-			} while (i < 5);
+// public class Practice {
+// 	public static void main(String[] args) {
+// 			int i = 0;
+// 			do {
+// 				System.out.println(i);
+// 				i++;
+// 			} while (i < 5);
+// 	}
+// }
+
+
+
+// public class Practice{
+// 	public static void main(String[] args){
+		
+// 		int a=120,b=200,c=130,d=140;
+		// int max=0,min=a;
+		// if(a > max){
+		// 	max = a;
+		// } 
+		//  if(a < min){
+		// 	min = a;
+		// } 
+		// if(b > max){
+		// 	max = b;
+		// }
+		// if(b < min){
+		// 	min = b;
+		// }
+		// if(c > max){
+		// 	max = c;
+		// }
+		// if(c < min){
+		// 	min = c;
+		// }
+		// if(d > max){
+		// 	max = d;
+		// }
+		// if(d < min){
+		// 	min = d;
+		// }
+// 		System.out.println(max);
+// 		System.out.println(min);
+// 	}
+// }
+
+
+
+//	ternary operator
+/*
+public class Practice{
+	public static void main(String[] args){
+		int a = 5, b = 20, c = 30, d = 40;
+		int max = (a < b) ? ((a < c) ? ((a < d) ? a : d) : ((c < d) ? c : d )) : ((b < c) ? ((b < d) ? b : d) : ((c < d) ? c : d));
+		System.out.println("Max number is " + max);
+		int min = (a > b) ? ((a > c) ? ((a > d) ? a : d) : ((c > d) ? c : d )) : ((b > c) ? ((b > d) ? b : d) : ((c > d) ? c : d));
+		System.out.println("Min number is " + min);
 	}
 }
+*/
+
+
+//	even or odd nums
+// public class Practice{
+// 	public static void main(String[] args){
+// 		EvenNum(20);
+// 		OddNum(20);
+// 		EvenNumCount(20);
+// 		OddNumCount(20);
+// 		EvenNumSum(20);
+// 		OddNumSum(20);
+// 	}
+// 	public static void EvenNum(int num){
+// 			for(int i = 0; i < num; i++){
+// 				if(i % 2 == 0) System.out.println("Even number is "+ i);
+// 		}
+// 	}
+// 		public static void OddNum(int num){
+// 			for(int i = 0; i < num; i++){
+// 				if(i % 2 != 0) System.out.println("Odd number is "+ i);
+// 		}
+// 	}
+// 		public static void EvenNumCount(int num){
+// 			int count = 0;
+// 			for(int i = 0; i < num; i++) if(i % 2 == 0) count++;
+// 			System.out.println("Even numbers total count is "+ count);
+// 	}
+// 			public static void OddNumCount(int num){
+// 			int count = 0;
+// 			for(int i = 0; i < num; i++) if(i % 2 != 0) count++;
+// 			System.out.println("Odd numbers total count is "+ count);
+// 	}
+// 			public static void EvenNumSum(int num){
+// 			int count = 0;
+// 			for(int i = 0; i < num; i++) if(i % 2 == 0) count += i;
+// 			System.out.println("Even numbers total is "+ count);
+// 	}
+// 			public static void OddNumSum(int num){
+// 			int count = 0;
+// 			for(int i = 0; i < num; i++) if(i % 2 != 0) count += i;
+// 			System.out.println("Odd numbers total is "+ count);
+// 	}
+// }
+
+

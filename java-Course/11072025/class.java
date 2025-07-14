@@ -1,4 +1,5 @@
-//  A class in Java is a template or blueprint that defines the structure and behavior of objects. It encapsulates data (attributes) and functions (methods) into a single unit, forming the foundation of object-oriented programming (OOP).
+//  A class in Java is a template or blueprint that defines the structure and behavior of objects. 
+//  It encapsulates data (attributes) and functions (methods) into a single unit, forming the foundation of object-oriented programming (OOP).
 
 
 /*
@@ -34,9 +35,8 @@ ClassName: UpperCamelCase (e.g., BankAccount)
             }
 */
 
-
 /*
- 
+
 public class Car{
     //  Fields(state) | instance variable
     private String brand;
@@ -69,17 +69,29 @@ public class Car{
     public static void printTotalCars(){
         System.out.println("Total cars" + totalCars);
     }
+    
+    public static void main(String[] args){
+        Car c1 = new Car("Toyota", 2015);
+        System.out.println(c1.isRunning);
+        System.out.println(c1.brand);
+        printTotalCars();
+        System.out.println(c1.getAge(2025));
+        System.out.println(Car.totalCars);
+        c1.StartEngine();
+        System.out.println(c1.isRunning);
+    }    
 }
 */
 
 
-// public class testCar{
-//     public static void main(String[] args){
-//         Car car1 = new Car("Toyota", 2015);
-
-//         car1.StartEngine();
-//         System.out.println("Car1 age" + car1.getAge(2025));
-
-//         car1.printTotalCars();
-//     }
-// }
+/*
+public class Hotel{
+    int price = 1000;
+    String items = "Tea";
+    public static void main(String[] args){
+        Hotel h1 = new Hotel();                     //  Creating an object for a class
+        System.out.println(h1.items);
+        System.out.println(h1.price);
+    }
+}
+*/

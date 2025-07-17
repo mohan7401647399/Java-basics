@@ -2,7 +2,10 @@
 package oops;
 
 * we cannot inherit private,block and constructor
- * we can inherit variables and methods
+* we can inherit variables and methods
+* Five types of inheritance available -> single, multi, hierarchical, multiple, hybrid
+* multiple and hybrid inheritance not support using class*
+
 
 class R15Bike{
 	String name;
@@ -10,34 +13,31 @@ class R15Bike{
 	String brand;
 }
 
-class R15V1 extends R15Bike{//single level inheritance
-	
+class R15V1 extends R15Bike{					//	single(single-time extends) level inheritance
 	String newFeature;
 }
 
-class R15V3 extends R15V1{
-	
-}
-//class R15V4 extends R15V3,R15V3{we cannot extends more than one class
-	class R15V4 extends R15V3{
-	//multi level inheritance
+class R15V3 extends R15V1{						//	multi(multiple-times extends) level inheritance
 }
 
-//hierarchical inheritance
 class A{
-}
-
-//multiple and hybrid inheritance not support using class
-class B extends A{
-}
-class C extends A{
-}
-
-public class MainClass {
-
+	}
+class B extends A{										//hierarchical inheritance
+	}
+class C extends A{										//hierarchical inheritance
+	}
 	
-}
+public class MainClass {
+	}
+
+
+class R15V4 extends R15V3, R15V3{						we cannot extends more than one class
+	
+	}
+
+
 */
+		
 
 
 

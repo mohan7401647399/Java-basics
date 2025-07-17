@@ -1,26 +1,25 @@
 /*
+Encapsulation is a fundamental OOP principle that bundles data (attributes) and methods (behavior) into a single unit (class) while restricting direct access to internal state. 
+It acts as a protective shield, preventing external code from altering an object's data unexpectedly.
 package oops;
 
-class Laptop {
-	// we can hide the data using Encapsulation
+class Laptop {												// we can hide the data using Encapsulation
+
 	public String name;
 	public int price;
-	private int batteryCapacity;
-	private String chipName="snapdragon";// security others cannot access directly
+	private int batteryCapacity;							//	Access in the current class only
+	private String chipName = "snapdragon";					// security others cannot access directly
 
 	public void display() {
 		// fields
 	}
-	//helper methods
-	//getter
-	public String getChipName() {
+	public String getChipName() {								//helper methods -> getter(get)
 		return this.chipName;	
 	}
-	public int getBatteryCapacity() {
+	public int getBatteryCapacity() {							//helper methods -> getter(get)
 		return this.batteryCapacity;
 	}
-	//setter
-	public void setChipName(String cn) {
+	public void setChipName(String cn) {						//helper methods -> setter(edit)
 		this.chipName = cn;
 	}
 }
@@ -29,17 +28,16 @@ public class Encap {
 	public static void main(String[] args) {
 			Laptop l1 = new Laptop();
 			System.out.println(l1.name);
-//			System.out.println(l1.chipName);we cannot access the private data directly
-			System.out.println(l1.getChipName());
-			l1.setChipName("new chip");
-			System.out.println(l1.getChipName());
+			System.out.println(l1.chipName);					// we cannot access the private data directly
+			System.out.println(l1.getChipName());				//	we can access the private data using helper method only
+			l1.setChipName("new chip");							//	we can change the private data using helper method only
+			System.out.println(l1.getChipName());				//	we can access the private data using helper method only
 	}
 }
 */
 
 
-/*
-
+/*						-> practice
 package oops;
 
 class Laptop {

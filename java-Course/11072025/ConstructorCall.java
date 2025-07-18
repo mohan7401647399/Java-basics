@@ -1,16 +1,11 @@
-
 /*
-default, no para, para and copy constructor
-In a class have a same constructor name but different parameters
-is called constructor overloading
+* constructor types are -> default, no para, para and copy constructor.
+* In a class have a same constructor name but different parameters is called constructor overloading.
 
-In a class have a same method name but different parameters
-is called method overloading
+* In a class have a same method name but different parameters is called method overloading.
 
-
-calling one constructor inside another constructor 
-is called constructor chaining.
-we can achieve by using this() and super()
+* calling one constructor inside another constructor is called constructor chaining.
+* we can achieve by using this() and super()
 
 this - keyword is used to call the current class instance
 super = keyword is used to call the parent class instance
@@ -21,9 +16,6 @@ super() - method is used to call the parent class constructor
   public Constructor(){
     super();
     }
-    In polymorphism we have compile time polymorphism and run time polymorphism
-    compile time polymorphism -  Method overloading 
-run time polymorphism - Method overriding
 */
 
 
@@ -35,15 +27,15 @@ class ParentCons {
 	int sal = 10;
 	//	Have a default constructor
 	
-	public ParentCons() {												//	no parameter
+	public ParentCons() {											//	no parameter
 }
 
 public ParentCons(String name) {									//	single parameter
-this();															//	called same class constructor only
+this();																//	called same class constructor only
 		System.out.println("1 para");
 	}
 
-	public ParentCons(String name, int sal) {							//	double parameter
+	public ParentCons(String name, int sal) {						//	double parameter
     this.name = name;												//	called current class instance only
     this.sal = sal;													//	called current class instance only
     System.out.println("2 para");
@@ -95,7 +87,7 @@ public ChildCons() {
 	}
     
 	public void details() {
-        n1();				//method ambiguity
+        n1();					//method ambiguity
 	}
     
 	public void details(String user) {

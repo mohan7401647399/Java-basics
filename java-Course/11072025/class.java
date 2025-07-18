@@ -38,35 +38,29 @@ ClassName: UpperCamelCase (e.g., BankAccount)
 /*
 
 public class Car{
-    //  Fields(state) | instance variable
-    private String brand;
-    private int year;
-    private boolean isRunning;
+    private String brand;                           //  Fields(state) | instance variable
+    private int year;                               //  Fields(state) | instance variable
+    private boolean isRunning;                      //  Fields(state) | instance variable
     
-    //  Static field (shared across all cars)
-    public static int totalCars = 0;
+    public static int totalCars = 0;                //  Static field (shared across all cars)
     
-    // Constructor (initialize state)
-    public Car(String brand, int year){
-        this.brand = brand;
-        this.year = year;
-        this.isRunning = false;
+    public Car(String brand, int year){             // Constructor (initialize state)
+        this.brand = brand;                         //  this keyword is used to call the current class instance
+        this.year = year;                           //  this keyword is used to call the current class instance
+        this.isRunning = false;                     //  this keyword is used to call the current class instance
         totalCars++;
     }
     
-    // Method: Start the car
-    public void StartEngine(){
+    public void StartEngine(){                      // Method: Start the car
         isRunning = true;
         System.out.println(brand +  "engine started");
-    }
+    }    
     
-    // Method: Get car age
-    public int getAge(int currentYear){
+    public int getAge(int currentYear){             // Method: Get car age
         return currentYear - year;
     }
     
-    //  static method
-    public static void printTotalCars(){
+    public static void printTotalCars(){                //  static method
         System.out.println("Total cars" + totalCars);
     }
     
@@ -89,7 +83,7 @@ public class Hotel{
     int price = 1000;
     String items = "Tea";
     public static void main(String[] args){
-        Hotel h1 = new Hotel();                     //  Creating an object for a class
+        Hotel h1 = new Hotel();                             //  Creating an object for a class
         System.out.println(h1.items);
         System.out.println(h1.price);
     }

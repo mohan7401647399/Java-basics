@@ -7,23 +7,25 @@
 
 //  ClassName objectName = new ClassName(arguments);                    //  example
 
+
+/*
 public class Car {
     private String brand;
-
+    
     //  Constructor
     Car(String brand){
         this.brand = brand;
     }
-
+    
     //  Method(function) | behaviour
     public void Start(){
         System.out.println(brand + " started");
     }
-
+    
     public static void main(String[] args){
-        Car c1 = new Car("BMW");                    //  create an object
+        Car c1 = new Car("BMW");                          //  create an object
         System.out.println(c1.brand);
-        c1.Start();                                         //  call method
+        c1.Start();                                             //  call method
     }
-
 }
+*/

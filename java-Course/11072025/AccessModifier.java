@@ -1,5 +1,6 @@
-// Access modifiers in Java control the **visibility and accessibility** of classes, interfaces, variables, methods, and constructors. They enforce encapsulation and define how other parts of your code can interact with these elements. Java has **four** access modifiers:
+// Access modifiers in Java control the **visibility and accessibility** of classes, interfaces, variables, methods, and constructors. They enforce encapsulation and define how other parts of your code can interact with these elements. 
 
+// Java has **four** access modifiers:
 
 // ### **1. Access Modifiers Overview**
 // | Modifier       | Class | Package | Subclass (Same Pkg) | Subclass (Diff Pkg) | World |
@@ -9,7 +10,6 @@
 // | **`protected`**| ✅    | ✅      | ✅                  | ✅                  | ❌    |
 // | **`public`**   | ✅    | ✅      | ✅                  | ✅                  | ✅    |
 
-// *(✅ = Accessible, ❌ = Not accessible)*
 
 
 // ####                                         **(A) `private`**
@@ -95,7 +95,7 @@
 // package com.shapes;
 
 // public class Shape {
-//     protected double area; // Accessible in subclasses
+//     protected double area;                           // Accessible in subclasses
 // }
 
 // // File: com/shapes/Circle.java
@@ -103,7 +103,7 @@
 
 // public class Circle extends Shape {
 //     public void printArea() {
-//         System.out.println(area); // ✅ Accessible (same package)
+//         System.out.println(area);                    // ✅ Accessible (same package)
 //     }
 // }
 
@@ -114,7 +114,7 @@
 // public class ShapeInfo {
 //     public void display() {
 //         Circle circle = new Circle();
-//         System.out.println(circle.area); // ❌ Error! Not accessible
+//         System.out.println(circle.area);             // ❌ Error! Not accessible
 //     }
 // }
 

@@ -255,7 +255,7 @@ class OOPS extends C implements A, B {
 		* In Java we have 2 types of polymorphism:
 				1. Compile time polymorphism(or)static binding.
 				2. Run time polymorphism(or)dynamic binding.
-				
+
 		* Compile-time Polymorphism (Method Overloading):
 			1. This occurs when a class has multiple methods with the same name but different parameters (number, type, or order of arguments).
 			2. The correct method to be executed is determined by the compiler based on the arguments passed during the method call.

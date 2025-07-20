@@ -16,7 +16,7 @@ Key characteristics of a Java class:
 		When you define a class, you are essentially creating a new data type that can be used to declare variables and create objects.
  	*Syntax*:
 		A class is declared using the class keyword, followed by the class name and a block of code enclosed in curly braces, which contains the class members (fields, methods, constructors, etc.). 
- 
+
 	class syntax/structure:- 
 		class className {
 			//	fields(variables/properties)

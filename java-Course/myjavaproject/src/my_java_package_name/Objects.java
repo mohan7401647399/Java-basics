@@ -31,11 +31,13 @@ Key characteristics of Java objects:
 package my_java_package_name;
 
 public class Objects {									//	class(blueprint)
-	String name;
-	int age;
+	String name;										//	fields(state)
+	int age;											//	fields(state)
+	
 	public void display() {								//	method(behaviout)
 		System.out.println("My name is " + name + " and age is " + age);
 	}
+	
 	public static void main(String[] args) {
 		Objects o1 = new Objects();						//	o1 is an object
 		o1.name = "Mohan";								//	assign values to object fields

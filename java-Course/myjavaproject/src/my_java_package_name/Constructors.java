@@ -1,5 +1,5 @@
 /*
-In Java, a constructor is a special type of method used to initialize new objects of a class.
+	In Java, a constructor is a special type of method used to initialize new objects of a class.
 	It is invoked automatically when an object is created using the new keyword. 
 
 Key characteristics of Java constructors:
@@ -32,6 +32,7 @@ Types of Constructors:
 		}
 */
 
+
 package my_java_package_name;
 
 public class Constructors {
@@ -40,22 +41,22 @@ public class Constructors {
 	
 	//	No constructor is definded so java provides a default constructor
 	
-	public Constructors() {										//	no parameter
+	public Constructors() {										//	no parameter constructor
 		this.name = "Mickel";
 	}	
-	public Constructors(String name) {							//	single parameter
+	public Constructors(String name) {							//	single parameter constructor
 		this.name = name;
 	}
-	public Constructors(String name, int age) {					//	double parameter
+	public Constructors(String name, int age) {					//	double parameter constructor
 		this.name = name;
 		this.age = age;
 	}
 	public static void main(String[] args) {
-		Constructors noPara = new Constructors();
+		Constructors noPara = new Constructors();					//	create an object for no para
 		System.out.println(noPara.name);
-		Constructors singlePara = new Constructors("Mohan");
+		Constructors singlePara = new Constructors("Mohan");		//	create an object for single para
 		System.out.println(singlePara.name);
-		Constructors doublePara = new Constructors("Mohan", 29);
+		Constructors doublePara = new Constructors("Mohan", 29);	//	create an object for double para
 		System.out.println(doublePara.name);
 		System.out.println(doublePara.age);
 	}

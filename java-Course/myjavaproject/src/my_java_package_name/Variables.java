@@ -68,7 +68,7 @@ public class Variables {
 //		System.out.println(x);							//	 Error: x not visible here
 	}
 }
-
+v
 
 
 
@@ -142,7 +142,7 @@ public class Variables {
 
 
 
- 									*****3. static variables*****
+ 									*****3. static variables *****
 		* Belongs to the class, not to individual objects
 		* Is shared across all objects
 		* Is declared using the static keyword
@@ -172,15 +172,15 @@ public class Variables {
 package my_java_package_name;
 
 public class Variables {
-	static String name = "Mohan";											//	static variable
+	static String name = "Mohan";													//	static variable
 	
-	public void show() {													//	static method
-		System.out.println("Static variable in instance method called " + name); // can access directly
+	public void show() {															//	static method
+		System.out.println("Static variable in instance method called " + name); 	// can access directly
 	}
 
 	public static void main(String[] args) {
-		Variables v1 = new Variables();
-		v1.show();
+		Variables v1 = new Variables();												//	object creation
+		v1.show();																	//	call instance method
 	}
 }
 
@@ -198,6 +198,108 @@ public class Variables {
 		{																	//	block
 			System.out.println("static variable in block called " + name);	//	can access directly
 		}
+	}
+}
+
+
+
+4. Static Variables in a static Block
+package my_java_package_name;
+
+public class Variables {
+	static String name = "Mohan";											//	static variable
+	
+	static {
+		System.out.println(name);											//	static block
+	}
+
+	public static void main(String[] args) {
+		{																	//	block
+			System.out.println("static variable in block called " + name);	//	can access directly
+		}
+	
+	}
+}
+
+
+
+5. Static Variables call with className
+package my_java_package_name;
+
+public class Variables {
+	static String name = "Mohan";											//	static variable
+
+	public static void main(String[] args) {
+		System.out.println(Variables.name); 								//	Call className
+	}
+}
+
+
+
+6. Static Variables call with object
+package my_java_package_name;
+
+public class Variables {
+	static String name = "Mohan";											//	static variable
+	
+	public static void main(String[] args) {
+			Variables v1 = new Variables();									//	object creation
+			System.out.println(v1.name);									//	can access using object
+	}
+}
+
+
+
+7. Static Variables in a instance method using className
+package my_java_package_name;
+
+public class Variables {
+	static String name = "Mohan";											//	static variable
+	
+	public void display() {
+		System.out.println(Variables.name);									// can access using className
+	}
+	
+	public static void main(String[] args) {
+		Variables v1 = new Variables();										//	object creation
+		v1.display();														//	call method
+
+	}
+}
+
+
+
+8. Static method call instance method using object
+package my_java_package_name;
+
+public class Variables {
+	
+	public void display() {
+		System.out.println("instance method using in the static method");
+	}
+	
+	public static void main(String[] args) {
+		Variables v1 = new Variables();
+		v1.display();
+	}
+}
+
+
+
+9. Static variable call instance method using object
+package my_java_package_name;
+
+public class Variables {
+	static String name = "Mohan";											//	static variable
+	
+	public void display() {
+		Variables v1 = new Variables();
+		System.out.println(v1.name);
+	}
+
+	public static void main(String[] args) {
+		Variables obj = new Variables();
+		obj.display();
 	}
 }
  */

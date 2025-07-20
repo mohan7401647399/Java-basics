@@ -1,6 +1,7 @@
 /*
-In Java, a method is a block of code that performs a specific task.
-	Methods are fundamental to object-oriented programming in Java as they define the behavior of objects and allow for code reusability and organization. 
+	In Java, a method is a block of code that performs a specific task.
+	Methods are fundamental to object-oriented programming in Java as they define the behavior of objects
+		and allow for code reusability and organization. 
 
 Key components of a Java method:
 	*Access Specifier*:
@@ -33,20 +34,20 @@ Key components of a Java method:
 package my_java_package_name;
 
 public class Methods {
-	public void withOutParaMethod() {						//	without para method
+	public void withOutParaMethod() {								//	without para method
 		System.out.println("Without parameter method");
 	}
-	public void addition(int a, int b) {					//	with para method
+	public void addition(int a, int b) {							//	with para method
 		int result = a + b;
 		System.out.println("addition value is " + result);
 	}
-	public int square(int num) {							//	return method
+	public int square(int num) {									//	return method
 		return num * num;
 	}
 	public static void main(String[] args) {
-		Methods m1 = new Methods();							//	create object
-		m1.withOutParaMethod();								//	call method
-		m1.addition(5, 50);									//	call method
-		System.out.println("squared value is " + m1.square(5));										//	call method
+		Methods m1 = new Methods();									//	create object
+		m1.withOutParaMethod();										//	call method
+		m1.addition(5, 50);											//	call method
+		System.out.println("squared value is " + m1.square(5));		//	call method
 	}
 }

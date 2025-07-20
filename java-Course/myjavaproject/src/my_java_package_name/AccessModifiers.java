@@ -1,7 +1,6 @@
 /*
-		Access Modifiers in Java control where your variables,
-			methods, or classes can be accessed from.
-			
+		Access Modifiers in Java control where your variables, methods, or classes can be accessed from.
+
 			
 		| Modifier               | Access Level                 |
 		| ---------------------- | ---------------------------- |
@@ -105,7 +104,7 @@ public class AccessModifiers {
 
 class PrivateClass{
 	private String name = "Mohan";
-	public void display() {										//	public method
+	public void display() {												//	public method
 		System.out.println("newClass called");
 	}
 }
@@ -126,8 +125,8 @@ class AccessModifiers {
 	}
 	
 	public static void main(String[] args) {
-		AccessModifiers a1 = new AccessModifiers();				//	create an object
-		a1.display();											//	call method
+		AccessModifiers a1 = new AccessModifiers();						//	create an object
+		a1.display();													//	call method
 	}
 }
 

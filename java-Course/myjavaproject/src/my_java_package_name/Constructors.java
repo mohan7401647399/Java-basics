@@ -2,6 +2,7 @@
 	In Java, a constructor is a special type of method used to initialize new objects of a class.
 	It is invoked automatically when an object is created using the new keyword. 
 
+
 Key characteristics of Java constructors:
 	*Same Name as Class*:
 		A constructor must have the exact same name as the class it belongs to.
@@ -22,8 +23,9 @@ Types of Constructors:
 	*Parameterized Constructor*:
 		This type of constructor takes one or more arguments, allowing the object's instance variables to be initialized with specific values passed during object creation.
 	*Copy Constructor*:
-		While Java does not have a built-in copy constructor like C++, the concept can be implemented by creating a constructor that takes an object of the same class as an argument and copies its data members to the new object.
-
+		A copy constructor is a special constructor used to create a new object as a copy of an existing object.
+		Java does not provide a default copy constructor like C++, but you can define one manually.
+	
 	Constructor syntax/structure:- 
 		class className{
 			ClassName(){								//	constructor
@@ -38,9 +40,9 @@ package my_java_package_name;
 public class Constructors {
 	String name;
 	int age;
-	
+
 	//	No constructor is definded so java provides a default constructor
-	
+
 	public Constructors() {										//	no parameter constructor
 		this.name = "Mickel";
 	}	
@@ -51,6 +53,13 @@ public class Constructors {
 		this.name = name;
 		this.age = age;
 	}
+	public Constructors(Constructors constructor) {				//	copy constructor
+		this.name = constructor.name;
+		this.age = constructor.age;
+	}
+	public void display() {
+		System.out.println("constructor method");
+	}
 	public static void main(String[] args) {
 		Constructors noPara = new Constructors();					//	create an object for no para
 		System.out.println(noPara.name);
@@ -59,5 +68,8 @@ public class Constructors {
 		Constructors doublePara = new Constructors("Mohan", 29);	//	create an object for double para
 		System.out.println(doublePara.name);
 		System.out.println(doublePara.age);
+		
+		Constructors c1 = new Constructors(doublePara);				//	another constructor pass to copy object
+		c1.display();
 	}
 }

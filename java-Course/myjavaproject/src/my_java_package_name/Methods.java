@@ -3,6 +3,7 @@
 	Methods are fundamental to object-oriented programming in Java as they define the behavior of objects
 		and allow for code reusability and organization. 
 
+
 Key components of a Java method:
 	*Access Specifier*:
 		Defines the visibility of the method (e.g., public, private, protected, or default).

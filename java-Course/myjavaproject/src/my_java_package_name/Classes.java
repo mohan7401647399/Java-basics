@@ -13,18 +13,16 @@ Key characteristics of a Java class:
 		Classes support encapsulation by bundling data and the methods that operate on that data into a single unit. 
 		This helps in controlling access to the data and promoting data integrity.
  	*User-Defined Type*:
-		When you define a class, you are essentially creating a new data type that can be used to declare variables and create objects.
- 	*Syntax*:
-		A class is declared using the class keyword, followed by the class name and a block of code enclosed in curly braces, which contains the class members (fields, methods, constructors, etc.). 
+  		A class is declared using the class keyword, followed by the class name and a block of code enclosed in curly braces, which contains the class members (fields, methods, constructors, etc.). 
 
 	class syntax/structure:- 
 		class className {
 			//	fields(variables/properties)
 			//	methods(actions/behaviour)
 		}
-*/
+		
 
-/* Example - 1
+Example - 1
 package my_java_package_name;
 
 public class Classes {
@@ -43,9 +41,11 @@ public class Classes {
 	}
 
 }
-*/
 
 
+
+
+Example - 2
 package my_java_package_name;
 
 public class Classes {
@@ -68,3 +68,4 @@ public class Classes {
 	}
 
 }
+*/

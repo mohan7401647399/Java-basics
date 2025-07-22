@@ -1,6 +1,6 @@
 /*
   		this keyword - Refers to current object used inside any methods or constructor
-  		this() method - Calls another constructor in same class used insida a constructor only
+  		this() method - Calls another constructor in same class used inside a constructor only
   
   	****Note - this() must be the first line in the constructor****
   

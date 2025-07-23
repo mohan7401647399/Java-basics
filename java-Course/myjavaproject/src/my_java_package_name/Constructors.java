@@ -17,11 +17,14 @@ Key characteristics of Java constructors:
 2
 Types of Constructors:
 	*Default Constructor*:
-		If no constructor is explicitly defined in a class, the Java compiler automatically provides a public, no-argument default constructor. This constructor initializes instance variables with their default values (e.g., 0 for numeric types, null for objects, false for booleans).
+		If no constructor is explicitly defined in a class, the Java compiler automatically provides a public,
+			no-argument default constructor. This constructor initializes instance variables with their default values (e.g., 0 for numeric types, null for objects, false for booleans).
 	*No-Argument Constructor*:
-		This is a constructor explicitly defined by the programmer that takes no arguments. It can be used to perform specific initialization logic when an object is created without any initial parameters.
+		This is a constructor explicitly defined by the programmer that takes no arguments.
+			It can be used to perform specific initialization logic when an object is created without any initial parameters.
 	*Parameterized Constructor*:
-		This type of constructor takes one or more arguments, allowing the object's instance variables to be initialized with specific values passed during object creation.
+		This type of constructor takes one or more arguments, allowing the object's instance variables to be
+			initialized with specific values passed during object creation.
 	*Copy Constructor*:
 		A copy constructor is a special constructor used to create a new object as a copy of an existing object.
 		Java does not provide a default copy constructor like C++, but you can define one manually.
@@ -38,26 +41,26 @@ Types of Constructors:
 package my_java_package_name;
 
 public class Constructors {
-	String name;
-	int age;
+	String name;												//	instance variable
+	int age;													//	instance variable
 
 	//	No constructor is definded so java provides a default constructor
 
 	public Constructors() {										//	no parameter constructor
-		this.name = "Mickel";
+		this.name = "Mickel";									//	refer to the current class instance
 	}	
 	public Constructors(String name) {							//	single parameter constructor
-		this.name = name;
+		this.name = name;										//	refers to the current class instance
 	}
 	public Constructors(String name, int age) {					//	double parameter constructor
-		this.name = name;
-		this.age = age;
+		this.name = name;										//	refers to the current class instance
+		this.age = age;											//	refers to the current class instance
 	}
 	public Constructors(Constructors constructor) {				//	copy constructor
-		this.name = constructor.name;
-		this.age = constructor.age;
+		this.name = constructor.name;							//	refers to the current class instance
+		this.age = constructor.age;								//	refers to the current class instance
 	}
-	public void display() {
+	public void display() {										//	instance method
 		System.out.println("constructor method");
 	}
 	public static void main(String[] args) {

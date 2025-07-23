@@ -29,7 +29,7 @@ public class TypeCasting {
  
 
 Narrowing Casting
- 	* Narrowing casting must be done manually by placing the type in parentheses () in front of the value:
+ 	* Narrowing casting must be done manually by placing the type in parentheses () in front of the value.
 
 package my_java_package_name;
 

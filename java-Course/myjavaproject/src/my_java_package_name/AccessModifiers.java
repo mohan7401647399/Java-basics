@@ -52,13 +52,13 @@ public class AccessModifiers {
 }
 
 class PublicClass{
-	public void display() {										//	public method
+	public void display() {											//	public method
 		System.out.println("PublicClass called");
 	}
 }
 
 class PublicClass2{
-	public void display() {										//	public method
+	public void display() {											//	public method
 		System.out.println("PublicClass2 called");
 	}
 }
@@ -201,14 +201,15 @@ public class AccessModifiers {
 	public static void main(String[] args) {
 		ProtectedClass n1 = new ProtectedClass();						//	create on object
 		n1.display();													//	call method
+		System.out.println(n1.name);									//	print another class variable using extends
 	}
 }
 
 class ProtectedClass extends AccessModifiers{
-
+	
 	 protected void display() {											//	protected method
 		System.out.println("ProtectedClass called using extends by " + name);
 	}
 }
 
-*/
+ */

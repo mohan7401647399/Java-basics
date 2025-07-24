@@ -179,22 +179,6 @@ public class StringMethod {
 
 
 
-
-
-
-🔹 Summary Table
-
-| Feature           | `String`                       | `StringBuffer`                  | `StringBuilder`         |
-| ----------------- | ------------------------------ | ------------------------------- | ----------------------- |
-| **Mutability**    | ❌ Immutable                    | ✅ Mutable                       | ✅ Mutable               |
-| **Thread-safe**   | ❌ No                           | ✅ Yes (synchronized)            | ❌ No (not synchronized) |
-| **Performance**   | ❌ Slow (new object every time) | ❌ Slower (due to thread-safety) | ✅ Fastest (no sync)     |
-| **Use Case**      | Constant text                  | Multi-threaded updates          | Single-threaded updates |
-| **Introduced in** | Java 1.0                       | Java 1.0                        | Java 1.5                |
-
-
-
-
 -------------------------------------------------------------------------------------------------------------
 
  											*****StringBuilder*****
@@ -268,7 +252,6 @@ public class StringMethod {
 
 
 
- */
 
 package my_java_package_name;
 
@@ -276,7 +259,7 @@ public class StringMethod {
 	public static void main(String[] args) {
 		str1();
 	}
-
+	
 	public static void str1() {
 		String sentence = "Java is fun";
 		
@@ -289,3 +272,16 @@ public class StringMethod {
 		
 	}
 }
+
+
+
+🔹 Summary Table
+
+| Feature           | `String`                        | `StringBuffer`                   | `StringBuilder`         |
+| ----------------- | ------------------------------  | -------------------------------  | ----------------------- |
+| **Mutability**    | ❌ Immutable                    | ✅ Mutable                       | ✅ Mutable               |
+| **Thread-safe**   | ❌ No                           | ✅ Yes (synchronized)            | ❌ No (not synchronized) |
+| **Performance**   | ❌ Slow (new object every time) | ❌ Slower (due to thread-safety) | ✅ Fastest (no sync)     |
+| **Use Case**      | Constant text                   | Multi-threaded updates           | Single-threaded updates |
+| **Introduced in** | Java 1.0                        | Java 1.0                         | Java 1.5                |
+ */

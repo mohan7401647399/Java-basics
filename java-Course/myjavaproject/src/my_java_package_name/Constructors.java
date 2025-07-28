@@ -14,7 +14,7 @@ Key characteristics of Java constructors:
 		Their primary purpose is to set the initial state of an object by assigning values to its instance variables.
 	*Overloading*:
 		A class can have multiple constructors with different parameter lists, allowing for various ways to initialize objects (constructor overloading). 
-2
+
 Types of Constructors:
 	*Default Constructor*:
 		If no constructor is explicitly defined in a class, the Java compiler automatically provides a public,

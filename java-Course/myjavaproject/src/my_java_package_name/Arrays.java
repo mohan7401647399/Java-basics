@@ -1,5 +1,5 @@
 /*
- 		Array linear data structure
+ 		Array is a linear data structure
 
 	In Java, an array is a collection of elements of the same data type stored in contiguous memory locations.
 	It allows you to store multiple values in a single variable, instead of declaring separate variables for each value.
@@ -9,7 +9,7 @@
 	Fixed size (you can't change its length after creation)
 	Zero-based indexing (first element is at index 0)
 	Same data type for all elements (e.g., all int, or all String)
-
+	
 
 
 🔸 Array Declaration & Initialization
@@ -83,7 +83,7 @@
 				System.out.println();									//	move to next line after each row(optional)
 			}
 
- */
+
 
 package my_java_package_name;
 
@@ -104,3 +104,5 @@ public class Arrays {
 		}
 	}
 }
+ */
+

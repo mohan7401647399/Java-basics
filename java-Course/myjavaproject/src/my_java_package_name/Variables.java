@@ -3,10 +3,10 @@
 			(like numbers, names, etc.).
 		👉 Think of a variable like a box with a label. we can put something in it, 
 			and use it later.
-			
+
 		*Variables syntax/structure*:
 			dataType variableName = values;
-			
+
 		*Types of Variables in Java*
 			| Type            | Where it's declared        | Scope                         |
 			| --------------- | -------------------------- | ----------------------------- |
@@ -15,7 +15,7 @@
 			| 3. **Static**   | Inside class with `static` | Shared across all objects     |
 
 
-		*variables naming convention*
+		*Variables naming convention*
 			camelCase - first letter only lowercase then next words first letter starts with uppercase
 */
 
@@ -38,8 +38,8 @@ public class Variables {
 	}
 }	
  
- 
-2. Local Variable in an Instance Method
+
+2. Local variable in an instance method
 
 package my_java_package_name;
 
@@ -77,7 +77,7 @@ v
  		* Belongs to the object (instance) of the class
 		* Each object gets its own copy
 
-		
+
 1. Instance Variables in an Instance Method
 		* Instance methods can directly access instance variables.
 
@@ -115,12 +115,8 @@ public class Variables {
 }
 
 
-
-
-
 3. Instance Variables in a Block
 		* Only if the block is inside a method, and you're using an object or inside an instance method.
-
 
 package my_java_package_name;
 
@@ -138,7 +134,6 @@ public class Variables {
 		v1.show();									//	call method using object
 	}
 }
-
 
 
 
@@ -173,8 +168,8 @@ package my_java_package_name;
 
 public class Variables {
 	static String name = "Mohan";													//	static variable
-	
-	public void show() {															//	static method
+
+	public void show() {															//	instance method
 		System.out.println("Static variable in instance method called " + name); 	// can access directly
 	}
 
@@ -230,7 +225,7 @@ public class Variables {
 	static String name = "Mohan";											//	static variable
 
 	public static void main(String[] args) {
-		System.out.println(Variables.name); 								//	Call className
+		System.out.println(Variables.name); 								//	Call with className
 	}
 }
 
@@ -286,7 +281,7 @@ public class Variables {
 
 
 
-9. Static variable call instance method using object
+9. Instance method call static variable using object
 package my_java_package_name;
 
 public class Variables {

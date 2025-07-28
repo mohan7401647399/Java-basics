@@ -1,5 +1,6 @@
 /*
-		In Java, the final keyword is used to restrict modification. It can be applied to:
+		In Java, the final keyword is used to restrict modification. 
+	It can be applied to:
 
 
 1. Final Variable

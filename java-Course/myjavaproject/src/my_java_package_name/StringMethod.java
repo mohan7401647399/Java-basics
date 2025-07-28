@@ -1,9 +1,9 @@
 /*
- 											*****String*****
+ 								*****String*****
 
 	In Java, String is a class in the java.lang package used to represent sequences of characters(text).
 	It is one of the most commonly used classes for storing and manipulating text.
-	
+
 
 🔹 Key Features of Java String
 

@@ -1,11 +1,12 @@
 /*
-  		this keyword - Refers to current object used inside any methods or constructor
-  		this() method - Calls another constructor in same class used inside a constructor only
-  
-  	****Note - this() must be the first line in the constructor****
-  
 	The this keyword in Java is a reference variable that refers to the current object. 
 	It is used within an instance method or a constructor to access members of the current object
+
+  	this keyword - Refers to current object used inside any methods or constructor
+  		
+  	this() method - Calls another constructor in same class used inside a constructor only
+  	****Note - this() must be the first line in the constructor****
+  
 
 Uses of the this keyword:
 	*Differentiating between instance variables and local variables*:

@@ -1,7 +1,8 @@
 /*
-		Access Modifiers in Java control where your variables, methods, or classes can be accessed from.
+		Access Modifiers in Java control where your variables, methods,
+			or classes can be accessed from.
 
-			
+
 		| Modifier               | Access Level                 |
 		| ---------------------- | ---------------------------- |
 		| `public`               | Everywhere                   |

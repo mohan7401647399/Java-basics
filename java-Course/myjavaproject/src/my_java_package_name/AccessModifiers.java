@@ -161,7 +161,7 @@ class AccessModifiers {
 	//	You can access this only from classes in the same package, not outside.
 	protected int age = 29;
 
-	protected  void display() {
+	protected void display() {
 		System.out.println("age is  " + age);
 	}
 	

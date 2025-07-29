@@ -35,7 +35,6 @@ Types of Constructors:
 				//	codes
 			}
 		}
-*/
 
 
 package my_java_package_name;
@@ -74,5 +73,16 @@ public class Constructors {
 		
 		Constructors c1 = new Constructors(doublePara);				//	another constructor pass to copy object
 		c1.display();
+	}
+}
+ */
+
+
+
+package my_java_package_name;
+
+public class Constructors {
+	public static void main(String[] args) {
+		
 	}
 }

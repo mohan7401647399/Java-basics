@@ -142,7 +142,7 @@ public class Variables {
 		* Is shared across all objects
 		* Is declared using the static keyword
 
- 
+
 1. Static Variables in a Static Method
 		* Because static methods and static variables both belong to the class, 
 				they can access each other directly.

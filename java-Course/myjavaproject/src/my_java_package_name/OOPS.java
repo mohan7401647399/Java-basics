@@ -315,6 +315,28 @@ class OOPS extends Animal{
 
 
 
+// 				Run-time polymorphism (method overriding)
+class A {
+    void add() {    // original method
+        System.out.println("add method called");
+    }
+}
+
+class B extends A {
+    @Override
+    void add() {    // overridden method
+        System.out.println("add method rewrite");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        A obj = new B();   // upcasting: parent reference, child object
+        obj.add();         // will call overridden method in B
+    }
+}
+
+
 
 					*****4. Abstraction – Hiding Details, Showing Only Essentials *****
 
@@ -323,13 +345,18 @@ class OOPS extends Animal{
 			* Abstraction hides the “how” and shows only “what”.
 			* We can achieve abstraction by using abstract class or interface.
 
+		* Why We Use abstract:-
+			* In Java, the abstract keyword is used with classes and methods to define incomplete structures that must be implemented by subclasses.
+			* It’s a key part of abstraction and inheritance in object-oriented programming.
+
 		* Key rules:- 
 			1. Abstract method don't have a body.
-			2. Abstract method only inside the abstract class
+			2. Abstract method only inside the abstract class.
+			3. Abstract class have a constructor.
+			4. Abstract class have a methods.
 
 
-* Using abstract classes or interfaces.
-
+* Method - 01 *
 package my_java_package_name;
 
 abstract class Vehicle{
@@ -348,12 +375,12 @@ class OOPS extends Vehicle{
 
 
 
-
+* Method - 02 *
 package my_java_package_name;
 
 abstract class Vehicle{
 	abstract void start();									//	abstract method - no body
-	
+
 	void speed() {											//	instance method
 		System.out.println("XYZ brand");
 	}
@@ -374,6 +401,30 @@ class OOPS extends Car{										//	Car OOPS extends vehicle
 		a1.start();											//	call method
 	}
 }
+
+
+
+* Method - 03 *
+abstract class A{
+    abstract void a1();						//	abstract method
+    public void display(){					//	instance method
+        System.out.println("display method in abstract class");
+    }
+    A(){									//	constructor
+        System.out.println("A constructor");
+    }
+}
+class B extends A{
+    void a1(){
+        System.out.println("B class write in A abstract class");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        A a1 = new B(); //  upcasting parent reference, child class
+        a1.display();	//	call method
+        a1.a1();        //  call method
+    }
+}
 */
-
-

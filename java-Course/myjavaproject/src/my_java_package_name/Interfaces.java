@@ -49,7 +49,8 @@ public class Interfaces {
 		Animal.show();							//	call static method
 	}
 }
- */
+
+
 
 
 interface Payments{
@@ -73,4 +74,38 @@ class Main {
         GPay g1 = new GPay();
         g1.pay();
     }
+}
+ */
+
+
+package my_java_package_name;
+
+interface Payments{
+	void display();
+	default void defaultMethod() {
+		System.out.println("default method");
+	}
+}
+
+class Gpay implements Payments{
+	public void display() {
+		System.out.println("Gpay class implements payments interface");
+	}
+}
+
+class PhonePay implements Payments{
+	public void display() {
+		System.out.println("PhonePay class implements payments interface also");
+	}
+}
+
+
+public class Interfaces {
+	public static void main(String[] args) {
+		Gpay g1 = new Gpay();
+		g1.display();
+		PhonePay p1 = new PhonePay();
+		p1.display();
+		g1.defaultMethod();
+	}
 }

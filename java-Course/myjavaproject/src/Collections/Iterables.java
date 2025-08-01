@@ -18,35 +18,32 @@
 
 In Java Collections, **`Iterable`** is the **top-most interface** in the **Collection hierarchy**, and it's fundamental to how you loop through collections like `List`, `Set`, etc.
 
----
 
 ### 🔹 What is `Iterable`?
 
 `Iterable` is an **interface** in `java.lang` package that represents a collection of elements that can be **iterated one by one**.
 
-```java
+
 public interface Iterable<T> {
     Iterator<T> iterator();
 }
-```
+
 
 Any class that implements `Iterable` allows its elements to be accessed using a **`for-each` loop** or through an **`Iterator`**.
 
----
+
 
 ### 🔹 Where is `Iterable` used?
 
 All classes that implement the **`Collection`** interface (like `ArrayList`, `HashSet`, etc.) also implement `Iterable`.
 
-```java
-Collection → Iterable
-```
 
----
+Collection → Iterable
+
 
 ### 🔹 Real Example
 
-```java
+
 import java.util.*;
 
 public class Main {
@@ -62,24 +59,22 @@ public class Main {
         }
     }
 }
-```
+
 
 This works because `ArrayList` implements `Iterable`.
 
----
+
 
 ### 🔹 Using Iterator (from Iterable)
 
 You can manually get the iterator like this:
 
-```java
+
 Iterator<String> iterator = names.iterator();
 while (iterator.hasNext()) {
     System.out.println(iterator.next());
 }
-```
 
----
 
 ### 🔹 Why is `Iterable` important?
 
@@ -90,7 +85,7 @@ while (iterator.hasNext()) {
 | Foundation      | It's the base for all Collection classes                     |
 | Generic         | Supports generics for type-safety (`Iterable<String>`, etc.) |
 
----
+
 
 ### 🔹 Summary
 
@@ -103,9 +98,3 @@ Would you like a visual hierarchy of `Iterable` → `Collection` → `List`, `Se
 
 
  */
-
-package Collections;
-
-public class Iterables {
-
-}

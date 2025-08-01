@@ -6,7 +6,7 @@
 
 	🔹 Package:
 		java.util.Collection
-	
+
 	🔹 Declaration:
 		public interface Collection<E> extends Iterable<E>
 			Here, E is a generic type parameter that represents the type of elements in this collection.
@@ -16,7 +16,7 @@
 		Supports iteration via iterator()
 		Basis for more specific interfaces like List, Set, and Queue.
 
-	
+
 	🔹 Important Methods
 		| Method                       | Description                   |
 		| ---------------------------- | ----------------------------- |

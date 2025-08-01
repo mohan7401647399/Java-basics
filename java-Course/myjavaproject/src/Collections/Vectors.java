@@ -85,7 +85,7 @@ public class Vectors {
         System.out.println("lastElement - " + vector.lastElement());
         System.out.println("size - " + vector.size());
         System.out.println("capacity - " + vector.capacity());
-        vector.remove(2);
+        vector.remove(1);
         System.out.println("After removal - " + vector);
     }
 }

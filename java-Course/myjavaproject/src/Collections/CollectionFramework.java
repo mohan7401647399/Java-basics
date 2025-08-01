@@ -91,7 +91,6 @@ Stack           -            -             Hashtable
 * Supports **algorithms**, **thread safety**, **type-safety (generics)**, and **performance efficiency**.
 * It's located mainly in the **`java.util`** package.
 
-Let me know if you want a **visual image version** of this full hierarchy.
 
  */
 package Collections;

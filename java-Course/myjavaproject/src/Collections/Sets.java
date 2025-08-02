@@ -8,6 +8,14 @@
 		* Unordered (some implementations like HashSet do not maintain insertion order)		
 		* Allows at most one null element (in some implementations like HashSet)
 
+
+	🔸 When to Use Set?		
+			* We want to prevent duplicates			
+			* We don’t care about the order (use HashSet)			
+			* We want insertion order preserved (use LinkedHashSet)			
+			* We need sorted data (use TreeSet)
+
+
 	🔸 Hierarchy Diagram
 		         Collection (interface)
 		              ↑
@@ -28,17 +36,15 @@
 		| **TreeSet**       | ✅ Sorted (ascending by default) | ✅ Yes (uses `Comparable` or `Comparator`) | ❌            | ❌            |
 
 
-	🔸 When to Use Set?
-		Use Set when:			
-			* You want to prevent duplicates			
-			* You don’t care about the order (use HashSet)			
-			* You want insertion order preserved (use LinkedHashSet)			
-			* You need sorted data (use TreeSet)
-	
- */
 
+	
+	
+	
+	
 package Collections;
 
 public class Sets {
-
+	
 }
+ */
+

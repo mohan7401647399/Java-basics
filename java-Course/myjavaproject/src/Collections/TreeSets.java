@@ -46,12 +46,17 @@ public class TreeSets {
 		System.out.println(names);
 //		names.add(null);						//	Error
 		names.add("1");
+		names.add("4");
 		names.add("2");
+		names.add("0");
+		names.add("3");
+		
 		System.out.println(names);		
 		System.out.println(names.first());		//	Returns the first element currently in this set
 		System.out.println(names.last());		//	Returns the last element currently in this set
 		System.out.println(names.size());		//	Return the number of elements in this set
 		System.out.println(names.isEmpty());	//	Returns true if this set contains no element
 		System.out.println(names.remove("3"));	//	Removes the elements in this set if it is present
+		System.out.println(names);
 	}
 }

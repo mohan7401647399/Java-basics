@@ -31,7 +31,7 @@ public class HashSets {
 	public static void main(String[] args) {
 		HashSet<String> hs = new HashSet<>();
 		System.out.println(hs);
-		
+
 		hs.add("jack");
 		hs.add(null);
 		hs.add("john");
@@ -41,12 +41,12 @@ public class HashSets {
 		hs.add(null);			//	Duplicate will be ignored
 
 		System.out.println(hs);
-		System.out.println("isEmpty - " + hs.isEmpty());
+		System.out.println("isEmpty - " + hs.isEmpty());			//	Returns true if this set contains no elements
 		System.out.println("contains - " + hs.contains("jack"));	//	Returns true if this contains the specified element	
 		System.out.println("Size - " + hs.size());					//	Returns the number of elements in this set
 		hs.remove(null);											//	Remove the specified elements in this Set if it is present
 		System.out.println(hs);
-		
+
 			Iterator<String> i = hs.iterator();						//	iterating
 			while (i.hasNext()) {
 				System.out.println(i.next());

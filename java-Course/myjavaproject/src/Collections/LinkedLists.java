@@ -73,7 +73,6 @@
 		| Memory Usage   | Higher (pointers)  | Lower           |
 
 
- */
 
 package Collections;
 
@@ -107,3 +106,6 @@ public class LinkedLists {
 		System.out.println(list);
 	}
 }
+ */
+
+

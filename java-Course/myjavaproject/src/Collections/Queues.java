@@ -45,15 +45,22 @@ import java.util.*;
 public class Queues {
 	public static void main(String[] args) {
 		Queue<String> queue = new LinkedList<>();
-		
-		queue.add("A");
-		queue.add("B");
-		queue.add("C");
+
+		queue.offer("C");
+		queue.offer("B");
+		queue.offer("A");
 
 		System.out.println(queue);
+
 		System.out.println(queue.peek());	//	Retrieves but not remove, the head of this queue
 		System.out.println("After peek - " +  queue);
+		
+		System.out.println("get elements - " + queue.element());	//	Retrieves but not remove, the head of this queue		
+		
 		System.out.println(queue.poll());	//	Retrieves and removed, the head of this queue
 		System.out.println("After poll - " + queue);
+		
+		System.out.println(queue.remove());	//	Retrieves and removed, the head of this queue
+		System.out.println("After remove - " + queue);
 	}
 }

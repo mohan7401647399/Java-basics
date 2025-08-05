@@ -91,3 +91,24 @@ public class ArrayDequeues {
 }
  */
 
+package Collections;
+import java.util.*;
+
+public class ArrayDequeues {
+	public static void main(String[] args) {
+		Deque<String> stack = new ArrayDeque<>();
+		
+		System.out.println(stack);
+		
+		stack.push("B");
+		stack.push("A");
+		stack.push("C");
+		
+		System.out.println(stack);
+		
+		System.out.println(stack.getFirst());
+	
+		System.out.println(stack.pop());
+		
+	}
+}

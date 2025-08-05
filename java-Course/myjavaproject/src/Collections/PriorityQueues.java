@@ -59,17 +59,32 @@ import java.util.*;
 public class PriorityQueues {
 	public static void main(String[] args) {
 		PriorityQueue<Integer> pq = new PriorityQueue<>();
-		
+
 		System.out.println(pq);
-		
+
+		//	Add elements
 		pq.add(5);
-		pq.add(6);
 		pq.add(4);
+		pq.offer(6);
 		pq.add(1);
+		pq.add(0);
+//		pq.add(null);				//	throw error
 		
-		while(pq.isEmpty()) {
+		System.out.println(pq);				//	order not guaranteed
+		
+		System.out.println("size: " + pq.size());	//	returns the number of elements in this collection
+		
+		System.out.println("peek: " + pq.peek());	//	check head (smallest)
+
+		System.out.println("contains: " + pq.contains(6));	//	Returns true if this queue contains specified elements		
+
+		System.out.println("remove: " + pq.remove(5));
+		
+		while(!pq.isEmpty()) {
 			System.out.println(pq.poll());			//	ascending order
 		}
+		
+		pq.clear();				//	Removes all of the elements from this priority queue	
 		
 		System.out.println(pq);
 	}

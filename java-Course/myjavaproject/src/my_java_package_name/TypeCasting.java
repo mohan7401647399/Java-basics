@@ -1,5 +1,5 @@
 /*
-	Type casting is when you assign a value of one primitive data type to another type.
+	Type casting is when we assign a value of one primitive data type to another type.
 
 In Java, there are two types of casting:
 

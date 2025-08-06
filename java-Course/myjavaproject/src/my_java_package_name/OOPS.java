@@ -428,3 +428,46 @@ class Main {
     }
 }
 */
+
+
+/*
+
+class OOPS {
+	private String name = "John";
+	private int age = 29;
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	public static void main(String[] args) {
+		OOPS encap = new OOPS();
+		System.out.println(encap.getName());
+		
+		encap.setName("Mohan", 20);
+		System.out.println(encap.getName());
+	}
+}
+*/
+
+
+class A{
+	public String name = "jack";
+	public int age = 29;
+	
+}
+
+class B{
+
+}
+
+class OOPS extends B{
+	public static void main(String[] args){
+
+	}
+}

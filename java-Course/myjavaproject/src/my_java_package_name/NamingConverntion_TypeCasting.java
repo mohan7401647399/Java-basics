@@ -38,8 +38,8 @@ public class NamingConverntion_TypeCasting {
 		 * identifiers - like class, method, variables
 		 	
 		 	Rules of identifiers :
-		 	1. identifiers cannot start with number, inbetween or end possible
-		 	2. identifiers cannot accept space inbetween
+		 	1. identifiers cannot start with number, in between or end possible
+		 	2. identifiers cannot accept space in between
 		 	3. identifiers cannot allow special characters except $ and _.
 		 	4. identifiers cannot allow reserved keywords.
 		 */
@@ -48,11 +48,11 @@ public class NamingConverntion_TypeCasting {
 		 Naming Convention / Developer standard rule
 		 ProjectName & ClassName - PascalCase
 		 MethodName & VariableName - camelCase
-		 ProjectName : Each Word first letter should be capital
-		 ClassName : Each Word first letter should be capital
+		 ProjectName : Each Word first letter should be capital - PascalCase
+		 ClassName : Each Word first letter should be capital - PascalCase
+		 MethodName : first letter only lowercase then Each word first letter should be uppercase - camelCase
+		 VariableName : first letter only lowercase then Each word first letter should be uppercase - camelCase
 		 PackageName : All the letter should be lowercase
-		 MethodName : first letter only lowercase then Each word first letter should be uppercase
-		 VariableName : first letter only lowercase then Each word first letter should be uppercase
 		 FINAL : All the letter should be UPPERCASE
 		 
 		 */

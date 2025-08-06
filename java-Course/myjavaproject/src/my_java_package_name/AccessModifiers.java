@@ -1,5 +1,5 @@
 /*
-		Access Modifiers in Java control where your variables, methods,
+		Access Modifiers in Java control where our variables, methods,
 			or classes can be accessed from.
 
 

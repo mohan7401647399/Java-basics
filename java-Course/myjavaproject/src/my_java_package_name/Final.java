@@ -54,7 +54,7 @@ public class Final {
 
 
 3. Final Class
-	* A final class cannot be extended (no subclassing).
+	* A final class cannot be extended (no sub-classing).
 
 package my_java_package_name;
 

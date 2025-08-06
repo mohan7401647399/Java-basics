@@ -43,7 +43,7 @@ public class Constructors {
 	String name;												//	instance variable
 	int age;													//	instance variable
 
-	//	No constructor is definded so java provides a default constructor
+	//	No constructor is defined so java provides a default constructor
 
 	public Constructors() {										//	no parameter constructor
 		this.name = "Mickel";									//	refer to the current class instance
@@ -76,13 +76,3 @@ public class Constructors {
 	}
 }
  */
-
-
-
-package my_java_package_name;
-
-public class Constructors {
-	public static void main(String[] args) {
-		
-	}
-}

@@ -1,7 +1,7 @@
 /*
-		A variable is a name you give to a memory location where you store data 
+		A variable is a name we give to a memory location where we store data 
 			(like numbers, names, etc.).
-		👉 Think of a variable like a box with a label. we can put something in it, 
+		👉 Think of a variable like a box with a label. We can put something in it, 
 			and use it later.
 
 		*Variables syntax/structure*:
@@ -153,7 +153,7 @@ public class Variables {
 	static String name = "Mohan";											//	static variable
 
 	public static void main(String[] args) {
-		System.out.println("Static variable in static method " + name);		//can access direclty
+		System.out.println("Static variable in static method " + name);		//can access directly
 	}
 }
 

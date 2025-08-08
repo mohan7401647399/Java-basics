@@ -96,6 +96,33 @@ class problems {
 		System.out.println("After Sorting: " + list);
 	}
 }
+
+
+
+package Collections;
+
+import java.util.Arrays;
+
+class problems {
+	public static void main(String[] args) {
+		int[] list = { 5, 2, 3, 4, 1 };
+
+		for (int i = 0; i < list.length; i++) {
+			for (int j = 0; j < list.length - 1; j++) {
+				if (list[j] < list[j + 1]) {
+					int temp = list[j];
+					list[j] = list[j + 1];
+					list[j + 1] = temp;
+				}
+			}
+		}
+		System.out.println(Arrays.toString(list));
+		for (int num : list) {
+			System.out.println(num);
+		}
+	}
+}
+
  */
 
 package Collections;
@@ -104,17 +131,18 @@ class problems {
 	public static void main(String[] args) {
 		String input = "a1b2c3d4";
 		StringBuilder result = new StringBuilder();
-		
-		for(int i = 0; i < input.length(); i += 2) {
+
+		for (int i = 0; i < input.length(); i += 2) {
 			char ch = input.charAt(i);
+			int count = input.charAt(i + 1) - '0';
 			System.out.println("ch: " + ch);
-			int count = Character.getNumericValue(input.charAt(i+1));
-			System.out.print("count : " + count + "\n");
-			for(int j = 0 ; j < count; j++) {
+//			int count = Character.getNumericValue(input.charAt(i + 1));
+//			System.out.print("count : " + count + "\n");
+			for (int j = 0; j < count; j++) {
 				result.append(ch);
 			}
 		}
-		
+
 		System.out.println("Expanded String: " + result.toString());
 	}
 }

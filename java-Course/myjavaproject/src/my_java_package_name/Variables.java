@@ -143,6 +143,39 @@ public class Variables {
 		* Is declared using the static keyword
 
 
+i. Static vs Instance: The Core Difference
+		| Feature           | **Static**                                                          | **Instance**                             |
+		| ----------------- | ------------------------------------------------------------------- | ---------------------------------------- |
+		| Belongs to        | **Class** itself (not an object)                                    | Each **object** of the class             |
+		| Memory allocation | Only **one copy** in memory, shared by all objects                  | **Separate copy** for each object        |
+		| Access            | Can be accessed **without creating** an object (`ClassName.member`) | Requires an object (`obj.member`)        |
+		| Lifecycle         | Exists for the **entire program** once the class is loaded          | Exists only as long as the object exists |
+
+
+ii. When to Use Static Variables
+	You use static variables when the value should be the same for all objects.
+		class Employee {
+		    static String companyName = "TechCorp"; // shared by all employees
+		    String name; // unique for each employee
+		}
+	
+	Why static here?
+		Every employee works for the same company, so no need to store multiple copies in each object.
+
+iii. When to Use Static Methods
+	You use static methods when the method:
+		Does not depend on instance variables.
+		Works with only static data or performs utility functions.
+		class MathUtil {
+	    	static int square(int num) {
+	        	return num * num;
+	    	}
+		}
+	Why static here?
+		Squaring a number is a general function — it doesn’t care about any object state.
+
+
+
 1. Static Variables in a Static Method
 		* Because static methods and static variables both belong to the class, 
 				they can access each other directly.

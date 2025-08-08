@@ -75,7 +75,6 @@ class Main {
         g1.pay();
     }
 }
- */
 
 
 package my_java_package_name;
@@ -107,5 +106,45 @@ public class Interfaces {
 		PhonePay p1 = new PhonePay();
 		p1.display();
 		g1.defaultMethod();
+	}
+}
+
+ */
+
+package my_java_package_name;
+
+interface Office {
+	void method();
+
+	default void display() {
+		System.out.println("default method in Office interface");
+	}
+
+	static void view() {
+		System.out.println("static method in office interface");
+	}
+}
+
+class Employee implements Office {
+	public void method() {
+		System.out.println("method fn in Employee class implements office interface");
+	}
+}
+
+class HR implements Office {
+	public void method() {
+		System.out.println("method fn in HR class implements office interface");
+	}
+}
+
+class Interfaces {
+	public static void main(String[] args) {
+		Employee e1 = new Employee();
+		HR h1 = new HR();
+		e1.display();
+		e1.method();
+		h1.display();
+		h1.method();
+		Office.view();
 	}
 }

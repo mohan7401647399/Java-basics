@@ -76,3 +76,40 @@ public class Constructors {
 	}
 }
  */
+
+
+
+package my_java_package_name;
+
+class Constructors {
+	String name;
+	int age = 29;
+
+	public Constructors() {
+		System.out.println("No-para constructor");
+	}
+
+	public Constructors(String name) {
+		this.name = name;
+		System.out.println("single para constructor" + name);
+	}
+
+	public Constructors(String name, int age) {
+		this.name = name;
+		this.age = age;
+		System.out.println("double para constructor" + name + age);
+	}
+	
+	public Constructors(Constructors con) {
+		this.name = con.name;
+		this.age = con.age;
+	}
+
+	public static void main(String[] args) {
+		Constructors c1 = new Constructors("Mohan", 29);
+		System.out.println(c1.name);
+		System.out.println(c1.age);
+		Constructors c2 = new Constructors(c1);
+		System.out.println(c2.age);
+	}
+}

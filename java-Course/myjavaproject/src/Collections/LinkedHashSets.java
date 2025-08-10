@@ -32,7 +32,7 @@
 			| Null elements    | ✅ One allowed | ✅ One allowed       |
 			| Backed by        | HashMap       | HashMap + Linked List |
 
- */
+
 
 package Collections;
 
@@ -56,5 +56,61 @@ public class LinkedHashSets {
 		System.out.println("Total elements - " + names.size());
 		names.addFirst("0");
 		System.out.println(names);
+	}
+}
+
+*/
+
+import java.util.LinkedHashSet;
+import java.util.Iterator;
+
+public class LinkedHashSets {
+	public static void main(String[] args) {
+		// Create LinkedHashSet
+		LinkedHashSet<String> set = new LinkedHashSet<>();
+
+		// add()
+		set.add("Apple");
+		set.add("Banana");
+		set.add("Cherry");
+		set.add("Apple"); // Duplicate - ignored
+
+		System.out.println("After add(): " + set);
+
+		// contains()
+		System.out.println("Contains 'Banana'? " + set.contains("Banana"));
+
+		// remove()
+		set.remove("Banana");
+		System.out.println("After remove(): " + set);
+
+		// addAll()
+		LinkedHashSet<String> otherSet = new LinkedHashSet<>();
+		otherSet.add("Date");
+		otherSet.add("Elderberry");
+		set.addAll(otherSet);
+		System.out.println("After addAll(): " + set);
+
+		// retainAll()
+		LinkedHashSet<String> retainSet = new LinkedHashSet<>();
+		retainSet.add("Apple");
+		retainSet.add("Date");
+		set.retainAll(retainSet);
+		System.out.println("After retainAll(): " + set);
+
+		// size() & isEmpty()
+		System.out.println("Size: " + set.size());
+		System.out.println("Is empty? " + set.isEmpty());
+
+		// iterator()
+		System.out.print("Iterating: ");
+		Iterator<String> itr = set.iterator();
+		while (itr.hasNext()) {
+			System.out.print(itr.next() + " ");
+		}
+
+		// clear()
+		set.clear();
+		System.out.println("\nAfter clear(): " + set);
 	}
 }

@@ -213,5 +213,50 @@ class Main{
     }
 }
 
-
 */
+
+import java.util.*;
+
+public class Stacks {
+    public static void main(String[] args) {
+        // Stack reference
+        Stack<String> stack = new Stack<>();
+
+        // Push elements (stack-specific)
+        stack.push("Apple");
+        stack.push("Banana");
+        stack.push("Cherry");
+        System.out.println("Stack: " + stack);
+
+        // Peek at top element
+        System.out.println("Top element: " + stack.peek());
+
+        // Pop element
+        System.out.println("Popped: " + stack.pop());
+        System.out.println("Stack after pop: " + stack);
+
+        // Search element
+        System.out.println("Position of Apple from top: " + stack.search("Apple"));
+
+        // Check if empty
+        System.out.println("Is empty? " + stack.empty());
+
+        // Using List interface methods
+        stack.add("Mango"); // behaves like Vector add()
+        stack.add(1, "Grapes");
+        System.out.println("After List add: " + stack);
+
+        System.out.println("Element at index 1: " + stack.get(1));
+
+        stack.remove("Apple");
+        System.out.println("After remove: " + stack);
+
+        // Convert to array
+        String[] arr = stack.toArray(new String[0]);
+        System.out.println("Array: " + Arrays.toString(arr));
+
+        // Clear stack
+        stack.clear();
+        System.out.println("After clear: " + stack);
+    }
+}

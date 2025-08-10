@@ -33,7 +33,7 @@
 		| Custom sorting    | ❌             | ❌                 | ✅ Yes          |
 
 
- */
+
 
 package Collections;
 
@@ -58,5 +58,54 @@ public class TreeSets {
 		System.out.println(names.isEmpty());	//	Returns true if this set contains no element
 		System.out.println(names.remove("3"));	//	Removes the elements in this set if it is present
 		System.out.println(names);
+	}
+}
+
+
+*/
+
+import java.util.*;
+
+public class TreeSets {
+	public static void main(String[] args) {
+		// Creating TreeSet
+		TreeSet<Integer> numbers = new TreeSet<>();
+
+		// Adding elements
+		numbers.add(50);
+		numbers.add(20);
+		numbers.add(40);
+		numbers.add(10);
+		numbers.add(30);
+
+		System.out.println("TreeSet: " + numbers); // [10, 20, 30, 40, 50] (sorted)
+
+		// Removing element
+		numbers.remove(20);
+		System.out.println("After removing 20: " + numbers);
+
+		// Accessing first and last elements
+		System.out.println("First element: " + numbers.first());
+		System.out.println("Last element: " + numbers.last());
+
+		// Higher and lower
+		System.out.println("Higher than 30: " + numbers.higher(30));
+		System.out.println("Lower than 30: " + numbers.lower(30));
+
+		// Ceiling and floor
+		System.out.println("Ceiling of 25: " + numbers.ceiling(25));
+		System.out.println("Floor of 25: " + numbers.floor(25));
+
+		// Poll methods
+		System.out.println("Poll First: " + numbers.pollFirst());
+		System.out.println("Poll Last: " + numbers.pollLast());
+		System.out.println("After polling: " + numbers);
+
+		// Iterating in descending order
+		System.out.print("Descending order: ");
+		Iterator<Integer> descItr = numbers.descendingIterator();
+		while (descItr.hasNext()) {
+			System.out.print(descItr.next() + " ");
+		}
 	}
 }

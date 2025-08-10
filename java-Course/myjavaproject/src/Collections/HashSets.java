@@ -18,7 +18,7 @@
 
 	
 	
- */
+
 
 package Collections;
 
@@ -52,5 +52,60 @@ public class HashSets {
 				System.out.println(i.next());
 			}
 			
+	}
+}
+ */
+
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class HashSets {
+	public static void main(String[] args) {
+		// Create HashSet
+		HashSet<String> set = new HashSet<>();
+
+		// Add elements
+		set.add("Apple");
+		set.add("Banana");
+		set.add("Cherry");
+		set.add("Apple"); // duplicate - will be ignored
+
+		System.out.println("HashSet: " + set);
+
+		// Contains
+		System.out.println("Contains Banana ? " + set.contains("Banana"));
+
+		// Remove
+		set.remove("Banana");
+		System.out.println("After removal: " + set);
+
+		// Size
+		System.out.println("Size: " + set.size());
+
+		// Iterating
+		System.out.print("Iterating: ");
+		Iterator<String> it = set.iterator();
+		while (it.hasNext()) {
+			System.out.print(it.next() + " ");
+		}
+
+		// Add all from another set
+		HashSet<String> newSet = new HashSet<>();
+		newSet.add("Mango");
+		newSet.add("Grapes");
+		set.addAll(newSet);
+		System.out.println("\nAfter addAll: " + set);
+
+		// Retain common elements
+		HashSet<String> retainSet = new HashSet<>();
+		retainSet.add("Apple");
+		retainSet.add("Mango");
+		set.retainAll(retainSet);
+		System.out.println("retainSet : " + retainSet);
+		System.out.println("After retainAll: " + set);
+
+		// Clear
+		set.clear();
+		System.out.println("After clear: " + set);
 	}
 }

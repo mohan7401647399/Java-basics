@@ -295,4 +295,43 @@ class Main{
 }
  */
 
+import java.util.*;
 
+class ArrayLists {
+    public static void main(String[] args) {
+        ArrayList<String> names = new ArrayList<>();
+
+        names.add("Mohan");
+        names.add("john");
+        names.add("jack");
+        names.add("roman");
+
+        System.out.println("names: " + names);
+
+        System.out.println("Element at index - 2 " + names.get(2)); // Get element
+
+        names.set(1, "R Mohan");// Update element
+
+        System.out.println("After updates : " + names);
+
+        System.out.println(names.contains("jack"));// Check contains
+
+        names.remove("jack");// Remove by value
+        System.out.println("After updates : " + names);
+
+        names.remove(2);// Remove by value
+        System.out.println("After updates : " + names);
+
+        System.out.println("Size : " + names.size()); // size
+        System.out.println("Size : " + names.isEmpty()); // isEmpty
+
+        List<String> list = names.subList(0, 2);
+        System.out.println("subList : " + list); // subList
+
+        String[] arr = names.toArray(new String[0]); // Convert to array
+        System.out.println(Arrays.toString(arr));
+
+        names.clear();
+        System.out.println("After updates : " + names);
+    }
+}

@@ -51,7 +51,7 @@
 		| Common use         | Scheduling, priority tasks     |
 
 	
- */
+
 
 package Collections;
 import java.util.*;
@@ -88,4 +88,60 @@ public class PriorityQueues {
 		
 		System.out.println(pq);
 	}
+}
+ */
+
+
+ import java.util.*;
+
+public class PriorityQueues {
+    public static void main(String[] args) {
+        // Min-heap (default)
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        // Add elements
+        pq.add(50);
+        pq.add(20);
+        pq.add(40);
+        pq.offer(10);
+        pq.offer(30);
+
+        System.out.println("PriorityQueue: " + pq); // not in sorted order
+
+        // Peek at head
+        System.out.println("Head element: " + pq.peek());
+
+        // Poll removes head
+        System.out.println("Polled: " + pq.poll());
+        System.out.println("After poll: " + pq);
+
+        // Contains
+        System.out.println("Contains 20? " + pq.contains(20));
+
+        // Remove specific element
+        pq.remove(40);
+        System.out.println("After remove 40: " + pq);
+
+        // Size
+        System.out.println("Size: " + pq.size());
+
+        // Iterate (order is not guaranteed)
+        System.out.print("Iterating: ");
+        for (Integer num : pq) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        // Clear
+        pq.clear();
+        System.out.println("After clear: " + pq);
+
+		
+
+        // Max-heap example
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+        maxHeap.addAll(Arrays.asList(50, 20, 40, 10, 30));
+        System.out.println("MaxHeap (PriorityQueue): " + maxHeap);
+        System.out.println("Poll from MaxHeap: " + maxHeap.poll());
+    }
 }

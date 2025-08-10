@@ -1,8 +1,8 @@
 /*
 	* In Java, LinkedList is a class in the Collections Framework that implements both the List and Deque interfaces.
 	* It is used to store elements in a doubly-linked list structure.
-	
-	
+
+
 	🔹 When to Use LinkedList
 		| Use Case                                     | Recommendation            |
 		| -------------------------------------------- | ------------------------- |
@@ -108,4 +108,60 @@ public class LinkedLists {
 }
  */
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
+public class LinkedLists {
+	public static void main(String[] args) {
+		List<String> list = new LinkedList<>();
+
+		System.out.println(list);
+
+		list.add("Mohan"); // add an element to the end
+		list.add("jack"); // add an element to the end
+		list.add("john"); // add an element to the end
+		list.add("Roman"); // add an element to the end
+		System.out.println(list);
+
+		System.out.println(list.get(2)); // gets elements at index
+
+		list.set(1, "R Mohan");// Update element
+		System.out.println(list);
+
+		System.out.println("Contains 0 elements : " + list.contains("Mohan")); // Check contains
+
+		System.out.println("Remove by index : " + list.remove(0)); // Remove by index
+
+		System.out.println("size : " + list.size()); // size
+
+		System.out.println("isEmpty : " + list.isEmpty()); // isEmpty
+
+		List<String> subList = list.subList(0, 2);
+		System.out.println("subList : " + subList);
+
+		String[] arr = list.toArray(new String[0]);
+		System.out.println("Convert arrays : " + Arrays.toString(arr)); // convert to array
+
+		list.add(1, "mickel"); // insert at specific index
+		System.out.println("After updates: " + list);
+
+		System.out.println("remove : " + list.remove(1)); // Removes elemtents at index
+
+		LinkedList<String> linked = new LinkedList<>();
+
+		linked.addFirst("Start"); // inserts the elements at the beginning of this list
+		linked.addLast("End"); // Appnds the specified elements to the end of this list
+		linked.offerFirst("Head");
+		linked.offerLast("Tail");
+		System.out.println(linked);
+
+		System.out.println("getFirst : " + linked.getFirst()); // Returns the first elements in this list
+		System.out.println("getLast : " + linked.getLast()); // Returns the last elements in this list
+
+		linked.removeFirst(); // Removed the returns the first elements from this list
+		linked.removeLast(); // Removed the returns the last elements from this list
+
+		System.out.println(linked);
+	}
+}

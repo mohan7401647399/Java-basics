@@ -89,7 +89,7 @@ public class ArrayDequeues {
 		System.out.println(queue);
 	}
 }
- */
+
 
 package Collections;
 import java.util.*;
@@ -110,5 +110,35 @@ public class ArrayDequeues {
 	
 		System.out.println(stack.pop());
 		
+	}
+}
+
+
+*/
+
+import java.util.*;
+
+public class ArrayDequeues {
+	public static void main(String[] args) {
+		// Create ArrayDeque as Queue
+		Queue<String> queue = new ArrayDeque<>();
+
+		// Adding elements
+		queue.add("Apple"); // Throws exception if fails
+		queue.offer("Banana"); // Returns false if fails
+		queue.offer("Cherry");
+		queue.offer(null);// Throws error
+
+		System.out.println("Queue: " + queue);
+
+		// Access head element
+		System.out.println("Head (element): " + queue.element()); // Exception if empty
+		System.out.println("Head (peek): " + queue.peek()); // null if empty
+
+		// Removing elements
+		System.out.println("Removed (remove): " + queue.remove()); // Exception if empty
+		System.out.println("Removed (poll): " + queue.poll()); // null if empty
+
+		System.out.println("Queue after removals: " + queue);
 	}
 }

@@ -60,32 +60,95 @@
 		| Performance | ❌ Slower due to sync   | ✅ Faster in single-threaded   |
 		| Introduced  | Java 1.0 (legacy class) | Java 1.2 (part of Collections) |
 
- */
+
+
 
 
 package Collections;
+
 import java.util.Vector;
 
 public class Vectors {
-	public static void main(String[] args){
-        Vector<String> vector = new Vector<>();
-        System.out.println(vector);
-        
-        vector.add("Mohan");
-        vector.add("John");
-        vector.add("Mickel");
-        
-        System.out.println(vector);
-        
-        System.out.println("get - " + vector.get(2));
-        vector.set(1, "cena");
-        System.out.println("After set - " + vector);      
-        
-        System.out.println("firstElement - " +vector.firstElement());
-        System.out.println("lastElement - " + vector.lastElement());
-        System.out.println("size - " + vector.size());
-        System.out.println("capacity - " + vector.capacity());
-        vector.remove(1);
-        System.out.println("After removal - " + vector);
-    }
+	public static void main(String[] args) {
+		Vector<String> vector = new Vector<>();
+		System.out.println(vector);
+
+		vector.add("Mohan");
+		vector.add("John");
+		vector.add("Mickel");
+
+		System.out.println(vector);
+
+		System.out.println("get - " + vector.get(2));
+		vector.set(1, "cena");
+		System.out.println("After set - " + vector);
+
+		System.out.println("firstElement - " + vector.firstElement());
+		System.out.println("lastElement - " + vector.lastElement());
+		System.out.println("size - " + vector.size());
+		System.out.println("capacity - " + vector.capacity());
+		vector.remove(1);
+		System.out.println("After removal - " + vector);
+	}
+}
+*/
+
+import java.util.*;
+
+public class Vectors {
+	public static void main(String[] args) {
+		// Using List reference
+		List<String> fruits = new Vector<>();
+
+		// Add elements
+		fruits.add("Apple");
+		fruits.add("Banana");
+		fruits.add("Cherry");
+		fruits.add(1, "Mango"); // Insert at index 1
+		System.out.println("Fruits: " + fruits);
+
+		// Get element
+		System.out.println("Element at index 2: " + fruits.get(2));
+
+		// Update element
+		fruits.set(2, "Grapes");
+		System.out.println("After update: " + fruits);
+
+		// Check contains
+		System.out.println("Contains Banana? " + fruits.contains("Banana"));
+
+		// Remove by value
+		fruits.remove("Banana");
+
+		// Remove by index
+		fruits.remove(0);
+		System.out.println("After removals: " + fruits);
+
+		// Size and isEmpty
+		System.out.println("Size: " + fruits.size());
+		System.out.println("Is empty? " + fruits.isEmpty());
+
+		// Sublist
+		List<String> sub = fruits.subList(0, 1);
+		System.out.println("Sublist: " + sub);
+
+		// Convert to array
+		String[] arr = fruits.toArray(new String[0]);
+		System.out.println("Array: " + Arrays.toString(arr));
+
+		// Clear list
+		fruits.clear();
+		System.out.println("After clear: " + fruits);
+
+		// Vector-specific methods
+		Vector<String> vec = new Vector<>();
+		vec.addElement("One");
+		vec.addElement("Two");
+		vec.addElement("Three");
+		System.out.println("First element: " + vec.firstElement());
+		System.out.println("Last element: " + vec.lastElement());
+		System.out.println("Capacity: " + vec.capacity());
+		vec.trimToSize();
+		System.out.println("Capacity after trim: " + vec.capacity());
+	}
 }

@@ -109,7 +109,7 @@ public class Interfaces {
 	}
 }
 
- */
+
 
 package my_java_package_name;
 
@@ -148,3 +148,111 @@ class Interfaces {
 		Office.view();
 	}
 }
+
+
+***** Interface types *****
+
+💡 Summary Table
+	| Type                     | Key Feature                             | Example Use              |
+	| ------------------------ | --------------------------------------- | ------------------------ |
+	| **Normal Interface**     | General contracts with multiple methods | `List`, `Runnable`       |
+	| **Functional Interface** | Exactly one abstract method             | `Comparator`, `Runnable` |
+	| **Marker Interface**     | No methods, only tagging                | `Serializable`           |
+	| **Nested Interface**     | Defined inside another class/interface  | `Map.Entry`              |
+
+
+
+	Marker interface
+		An empty interface with no methods.
+		Used to mark a class for special behavior (often in frameworks or serialization).
+		Examples in Java: Serializable, Cloneable.
+
+package my_java_package_name;
+
+interface Inface{};				//	no body
+
+class Interfaces implements Inface{
+	//	Markers tells something to JVM or frameword
+}
+
+
+
+
+
+	Functional Interface
+		Has exactly one abstract method (can have multiple default/static methods).
+		Used in lambda expressions and method references.
+		Marked with @FunctionalInterface annotation (optional but recommended).
+
+
+package my_java_package_name;
+
+interface Calculator {
+	int add(int a, int b);
+	public default void m1() {
+		System.out.println("m1 method");
+	};
+};
+
+class Interfaces {
+	public static void main(String[] args) {
+		Calculator c = (x, y) -> x + y;		//	lambda expression
+		System.out.println(c.add(5, 9));
+		c.m1();
+	}
+}
+
+
+
+
+
+
+	Normal Interface
+		Contains only abstract methods (before Java 8) and constants.
+		
+		From Java 8 onward, it can also have:			
+			Default methods (with default keyword)			
+			Static methods			
+			Private methods (Java 9+)
+	
+	
+package my_java_package_name;
+
+interface Animal {
+	void sound();		//	abstract method
+	
+};
+
+class Interfaces {
+	public void sound() {
+		System.out.println("Bark");
+	}
+}
+
+
+
+
+
+	Nested Interface (Member Interface)
+		An interface declared inside another interface or class.
+		Can be public, private, or protected (inside a class), but public static when inside another interface.
+
+
+
+
+
+package my_java_package_name;
+
+class Outer{
+	interface Animal {
+		void sound();		//	abstract method
+	};
+}
+
+class Interfaces implements Outer.Animal {
+	public void sound() {
+		System.out.println("Bark");
+	}
+}
+
+ */

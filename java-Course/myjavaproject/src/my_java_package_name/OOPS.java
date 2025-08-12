@@ -1,3 +1,4 @@
+package my_java_package_name;
 /*
 					Class -> Blueprint
 					Object -> Real item from class

@@ -100,8 +100,9 @@ public class Features {
 		System.out.println(p.test(22));
 		
 		Predicate<Integer> p2 = new Predicate<Integer>() {
-			public void test(Integer a) {
+			public boolean test(Integer a) {
 				System.out.println(a);
+				return true;
 			}
 		};
 		Predicate<String> p3 = new Predicate<String>() {

@@ -66,9 +66,14 @@ public class DefaultStatic {
 		Vehicle.method1();
 	}
 }
- */
+
+
+
+
 
 package java8;
+ */
+
 
 interface Vehicle {
 	static void method1() {

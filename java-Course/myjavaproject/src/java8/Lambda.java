@@ -333,3 +333,59 @@ public class Lambda {
 }
 
  */
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
+
+public class Lambda {
+	public static void main(String[] args) {
+		// 1. Lambda with no parameters
+		Runnable r = () -> System.out.println("No parameter lambda");
+		r.run();
+
+		// 2. Lambda with one parameter
+		Function<Integer, Integer> fn = a -> a * a;
+		System.out.println(fn.apply(5));
+
+		// 3. Lambda with two parameters
+		BiFunction<Integer, Integer, Integer> fn2 = (a, b) -> a + b;
+		System.out.println(fn2.apply(5, 10));
+
+		// 4. Lambda replacing anonymous class
+		// Before (Anonymous class):
+		Runnable r1 = new Runnable() {
+			public void run() {
+				System.out.println("Running ...");
+			};
+		};
+		r1.run();
+		// After (Lambda):
+		Runnable r2 = () -> System.out.println("Running with lambda.....");
+		r2.run();
+
+		// 5. Lambda with List + forEach
+		List<String> lists = Arrays.asList("Mohan", "john", "james");
+		lists.forEach(s -> System.out.println(s));
+
+		// 6. Using built-in Predicate
+		Predicate<Integer> p1 = a -> a % 2 == 0;
+		System.out.println(p1.test(5));
+
+		// 7. Using built-in Consumer
+		Consumer<Integer> printer = a -> System.out.println(a);
+		printer.accept(10);
+
+		// 8. Lambda with UnaryOperator
+		UnaryOperator<String> names = name -> name.toUpperCase();
+		System.out.println(names.apply("mohan"));
+
+		// 9. Stream + lambda combined
+		List<Integer> nums = Arrays.asList(1, 4, 8, 3, 5);
+		nums.stream().filter(n -> n % 2 == 0).forEach(System.out::println);
+	}
+};

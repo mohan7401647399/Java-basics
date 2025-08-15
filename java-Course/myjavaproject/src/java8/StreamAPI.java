@@ -1,14 +1,15 @@
 /*
 	
-	The **Stream API** in Java is a feature introduced in **Java 8** that lets you process data (like from collections, arrays, or I/O channels) in a **functional, declarative, and pipeline-like** way instead of writing loops manually.
 
-It’s mainly in **`java.util.stream`** package.
+1. What is a Stream?
 
----
+    Definition:
+        The Stream API (introduced in Java 8, in java.util.stream) is a functional programming tool for processing data in a declarative, pipeline-based way.
 
-## **1️⃣ What is a Stream?**
+        A Stream is not a collection — it’s a sequence of data elements supporting aggregate operations like map, filter, reduce, collect.
 
-A **Stream** is **not** a data structure; it’s a **sequence of elements** from a source (like a list) that supports **aggregate operations** (like filtering, mapping, reducing).
+        Example in one line:
+            list.stream().filter(x -> x > 5).map(x -> x * 2).forEach(System.out::println);
 
 **Key points:**
 
@@ -16,9 +17,118 @@ A **Stream** is **not** a data structure; it’s a **sequence of elements** from
 * Can be **sequential** or **parallel**
 * Operations are either **intermediate** (return another stream) or **terminal** (produce a result)
 
----
 
-## **2️⃣ Stream Pipeline Structure**
+
+
+2. Why use Stream API?
+
+    | Reason               | Benefit                                                      |
+    | -------------------- | ------------------------------------------------------------ |
+    | **Less boilerplate** | No need for long loops, `if` checks, and temp lists          |
+    | **Functional style** | Uses lambdas for concise, readable code                      |
+    | **Pipelining**       | Can chain multiple operations (`map` → `filter` → `collect`) |
+    | **Parallelism**      | Easy multi-threaded processing using `parallelStream()`      |
+    | **Clear intent**     | Code reads like "what to do" instead of "how to do"          |
+
+
+Example:
+    Before Streams:
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class StreamAPI {
+    public static void main(String[] args) {
+        List<String> names = List.of("mohan", "jack", "john");
+        List<String> list = new ArrayList<>();
+        for (String name : names) {
+            if (name.startsWith("j")) {
+                list.add(name.toUpperCase());
+            }
+        }
+        System.out.println(list);
+    }
+}
+
+
+
+    With Streams:
+
+import java.util.List;
+
+public class StreamAPI {
+    public static void main(String[] args) {
+        List<String> names = List.of("mohan", "jack", "john");
+        names.stream().filter(n -> n.startsWith("j")).map(String::toUpperCase).forEach(System.out::println);
+    }
+}
+
+
+
+
+3️. How does Stream API work?
+
+It works in three stages:
+
+    1.Source — Create the stream
+        Stream<String> stream = list.stream();
+    Sources can be:
+        Collections (list.stream(), set.stream())
+        Arrays (Arrays.stream(array))
+        Static methods (Stream.of(...))
+        Files / I/O (Files.lines(path))
+
+
+    2.Intermediate Operations — Transform/filter the stream
+
+        Don’t execute immediately (lazy evaluation)
+        Return another Stream
+        Examples: filter(), map(), distinct(), sorted(), limit()
+    
+    stream.filter(s -> s.length() > 3).map(String::toUpperCase)
+
+
+    3.Terminal Operation — Produce the final result
+
+        Triggers execution of the pipeline
+        Examples: collect(), forEach(), reduce(), count()
+
+             .forEach(System.out::println);
+
+
+
+4️. When should you use Stream API?
+
+✅ Good situations:
+
+    You need to process collections with multiple transformations/filters
+    You want parallel execution without manual threading
+    You prefer functional style over imperative loops
+    You want cleaner, shorter code for bulk data processing
+
+🚫 Avoid Streams when:
+
+    You need index-based access (Streams don’t give element indexes directly)
+    You are working with very small datasets where normal loops are simpler and more readable
+    You need to modify the original collection in place (Streams are for producing new data, not mutating existing structures)
+
+
+
+
+5.Summary Table
+
+    | Question | Answer                                                                               |
+    | -------- | ------------------------------------------------------------------------------------ |
+    | **What** | A Java 8 feature for functional-style data processing using pipelines                |
+    | **Why**  | Cleaner, shorter, parallelizable code for complex data transformations               |
+    | **How**  | Build a pipeline: `source → intermediate ops → terminal op`                          |
+    | **When** | When processing large/complex datasets or when you want functional, declarative code |
+
+
+
+
+
+6. Stream Pipeline Structure
 
 A Stream API pipeline has **three parts**:
 
@@ -28,7 +138,6 @@ A Stream API pipeline has **three parts**:
 
 **Example:**
 
-```java
 import java.util.Arrays;
 import java.util.List;
 
@@ -43,18 +152,9 @@ public class Main {
              .forEach(System.out::println);        // 3. Terminal
     }
 }
-```
 
-**Output:**
 
-```
-RAHUL
-RAVI
-```
-
----
-
-## **3️⃣ Common Stream Operations**
+7.Common Stream Operations
 
 ### **Intermediate (return another Stream)**
 
@@ -69,7 +169,6 @@ RAVI
 | `skip(n)`           | Skip first n elements                    |
 | `peek(Consumer)`    | Perform action without changing elements |
 
----
 
 ### **Terminal (end the stream pipeline)**
 
@@ -85,11 +184,9 @@ RAVI
 | `noneMatch(Predicate)`      | Check if none match              |
 | `findFirst()` / `findAny()` | Get element                      |
 
----
 
-## **4️⃣ Example: Numbers with Stream**
+8.Example: Numbers with Stream
 
-```java
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -106,41 +203,332 @@ public class Main {
         System.out.println(evenSquares); // [4, 16, 36, 64]
     }
 }
-```
 
----
 
-## **5️⃣ Parallel Streams**
+9.Parallel Streams
 
 You can process data in **parallel** for faster execution on multi-core systems:
 
-```java
 numbers.parallelStream()
        .filter(n -> n % 2 == 0)
        .forEach(System.out::println);
-```
 
----
 
-## **6️⃣ Summary Table**
 
-| Feature              | Benefit                            |
-| -------------------- | ---------------------------------- |
-| Declarative style    | Less boilerplate, cleaner code     |
-| Functional approach  | Uses lambdas and method references |
-| Supports pipelining  | Chain multiple operations          |
-| Supports parallelism | Easy multi-core processing         |
 
----
 
-If you want, I can make you a **single Java program that demonstrates all major Stream API methods (`map`, `filter`, `reduce`, `collect`, etc.)** so you can learn them in one place with output. That way you won’t have to piece it together from multiple examples.
+                                        1. Filter: Keep matching elements
 
-	
-	
- */
-
-package java8;
+import java.util.Arrays;
+import java.util.List;
 
 public class StreamAPI {
+    public static void main(String[] args) {
+        List<String> lists = Arrays.asList("mohan", "john", "jack", "mickel");
 
+        lists.stream().filter(n -> n.startsWith("j")).forEach(System.out::println);
+        lists.stream().filter(n -> n.length() > 4).forEach( System.out::println);
+        lists.stream().filter(n -> n.contains("mohan")).forEach( System.out::println);
+    }
 }
+
+
+
+
+
+
+                                        2. Map: Transform each element
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class StreamAPI {
+    public static void main(String[] args) {
+        List<String> lists = Arrays.asList("Mohan", "John", "Jack", "Mickel");
+
+        lists.stream().forEach(System.out::println);
+
+        List<String> upperLists = lists.stream().map(String::toUpperCase).collect(Collectors.toList());
+        System.out.println(upperLists);
+
+        List<String> lowerLists = lists.stream().map(String::toLowerCase).collect(Collectors.toList());
+        System.out.println(lowerLists);
+
+        List<String> toLists = lists.stream().map(String::toLowerCase).toList();
+        System.out.println(toLists);
+
+        List<String> newLists = lists.stream().toList();
+        System.out.println(newLists);
+    }
+}
+
+
+
+
+
+                                    3. Collect: Convert stream to list/set
+                            
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class StreamAPI {
+    public static void main(String[] args) {
+        List<Integer> nums = Arrays.asList(1, 5, 7, 9, 6, 5, 7);
+
+        Set<Integer> squares = nums.stream().map(n -> n * n).collect(Collectors.toSet());
+        System.out.println(squares);
+
+        Set<Integer> newSet = nums.stream().filter(n -> n == 5).collect(Collectors.toSet());
+        System.out.println(newSet);
+    };
+}
+    
+
+
+
+
+
+                                4. Sorted: Sort elements
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class StreamAPI {
+    public static void main(String[] args) {
+        List<Integer> nums = Arrays.asList(1, 5, 7, 9, 6, 5, 7);
+
+        nums.stream().sorted().forEach(System.out::println);
+
+        System.out.println("total count is : " + nums.stream().count());
+
+        System.out.println("distinct count is : " + nums.stream().distinct().count());
+
+        nums.stream().distinct().forEach(System.out::println);
+    };
+}
+    
+
+
+
+
+                                        5. Distinct: Remove duplicates
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class StreamAPI {
+    public static void main(String[] args) {
+        List<Integer> nums = Arrays.asList(1, 5, 7, 9, 6, 5, 7);
+
+        nums.stream().distinct().forEach(System.out::println);
+
+        System.out.println("distinct list : " + nums.stream().distinct().toList());
+
+        System.out.println("distinct nums count is : " + nums.stream().distinct().count());
+
+        List<Integer> distinctLists = nums.stream().distinct().collect(Collectors.toList());
+        System.out.println(distinctLists);
+    };
+}
+    
+
+
+
+
+
+                                        6. Limit & Skip
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class StreamAPI {
+    public static void main(String[] args) {
+        List<Integer> nums = Arrays.asList(1, 5, 7, 9, 6, 5, 7);
+
+        nums.stream().limit(3).forEach(System.out::println);
+
+        nums.stream().skip(3).forEach(System.out::println);
+    };
+}
+    
+
+
+
+
+
+                                        7. Count
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class StreamAPI {
+    public static void main(String[] args) {
+        List<Integer> nums = Arrays.asList(1, 5, 7, 9, 6, 5, 7);
+
+        System.out.println("count is : " + nums.stream().count());
+
+        long countNums = nums.stream().filter(n -> n.equals(5)).count();
+        System.out.println(countNums);
+    };
+}
+    
+
+
+
+
+
+
+                                        8. Reduce: Combine elements to a single value
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class StreamAPI {
+    public static void main(String[] args) {
+        List<Integer> nums = Arrays.asList(1, 5, 7, 9, 6, 5, 7);
+
+        System.out.println("reduce num is : " + nums.stream().reduce(0, (a, b) -> a + b));
+    };
+}
+    
+
+
+
+
+
+                                        9. AllMatch / AnyMatch / NoneMatch
+
+ import java.util.Arrays;
+import java.util.List;
+
+public class StreamAPI {
+    public static void main(String[] args) {
+        List<Integer> nums = Arrays.asList(2, 4, 6);
+
+        boolean allEven = nums.stream().allMatch(n -> n % 2 == 0);
+        System.out.println("All Even nums is : " + allEven);
+
+        boolean anyEven = nums.stream().anyMatch(n -> n % 2 == 0);
+        System.out.println("Any Even nums is : " + anyEven);
+
+        boolean allOdd = nums.stream().allMatch(n -> n % 2 != 0);
+        System.out.println("All Even nums is : " + allOdd);
+
+        boolean anyOdd = nums.stream().anyMatch(n -> n % 2 != 0);
+        System.out.println("Any Odd nums is : " + anyOdd);
+
+        boolean noneMatch = nums.stream().noneMatch(n -> n % 2 == 0);
+        System.out.println("None nums is : " + noneMatch);
+    };
+}
+    
+
+
+
+
+
+
+
+                                        10. Stream from Array
+
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamAPI {
+    public static void main(String[] args) {
+        String[] names = {"mohan", "john", "mic"};
+        
+        Arrays.stream(names).filter(name -> name.length() > 4).forEach(System.out::println);
+    };
+}
+    
+
+
+
+
+
+                                        11. FlatMap: Flatten nested structures
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StreamAPI {
+    public static void main(String[] args) {
+        List<List<String>> lists = Arrays.asList(Arrays.asList("a", "b"), Arrays.asList("c", "d"));
+
+        System.out.println(lists);
+
+        List<String> flatList = lists.stream().flatMap(list -> list.stream()).collect(Collectors.toList());
+        System.out.println(flatList);
+    };
+}
+    
+
+
+
+
+
+
+                                        12. Parallel Stream
+
+ Note: parallelStream() executes in multiple threads for performance on large datasets.
+ 
+ import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StreamAPI {
+    public static void main(String[] args) {
+        List<Integer> nums = Arrays.asList(1,4,6,2,3);
+
+        nums.parallelStream().map(n -> n * 2).forEach(System.out::println);
+    };
+}
+
+
+
+
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+class Person {
+    String name;
+    int age;
+
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+public class StreamAPI {
+    public static void main(String[] args) {
+        List<Person> list = Arrays.asList(new Person("Mohan", 29), new Person("john", 30), new Person("Mickel", 15));
+        List<String> result = list.stream().filter(p -> p.age > 25).map(p -> p.name).collect(Collectors.toList());
+        System.out.println(result);
+    };
+}
+*/

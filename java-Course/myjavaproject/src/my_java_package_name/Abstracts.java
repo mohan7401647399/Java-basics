@@ -1,29 +1,52 @@
 /*
-		In Java, an abstract method is a method that is declared without a body — meaning it only has a method signature (name, parameters, and return type) but no implementation.
-It is meant to be overridden in a subclass to provide the actual behavior.
+
+	✅ What is an abstract method?
+
+		A method without a body (no implementation).
+		Declared with the keyword abstract.
+		Ends with a semicolon ;.
+
+				abstract void draw();
+
+		It just tells: "Every subclass must implement this method."
+
+ 
+	✅ Why we use abstract methods?
+		To force child classes to provide their own implementation.
+		To create a common structure or blueprint for many classes.
+		For polymorphism and code reusability.
+
+	Example: Animal → sound()
+	Every animal makes sound, but each animal makes it differently.
+	So sound() should be abstract.
 
 
-	Key points about abstract methods
-		Declaration		
-			Use the abstract keyword in the method declaration.		
-			End the declaration with a semicolon ; (no {} block).
+	✅ How to use abstract methods?
+		Declare it inside an abstract class or interface.
+		Subclass must implement it (using @Override).
+		If subclass doesn't implement it → subclass must also become abstract.
+
+		abstract class Shape {
+			abstract void area(); // abstract method
+		}
+
+		class Circle extends Shape {
+			@Override
+			void area() {
+				System.out.println("Area of Circle");
+			}
+		}
+
+
+	✅ When to use abstract methods?
+		Use abstract methods when:
+			You have a common parent class, but the behavior (method) is different for each child.
+			You only want to provide basic structure, not the full code.
+			You want to enforce certain methods in all subclasses.
+
+
+
 		
-		Where it can exist		
-			Abstract methods can only be declared inside an abstract class or an interface.		
-			If a class has even one abstract method, that class must be declared abstract.
-		
-		Purpose		
-			To force subclasses to implement specific methods.		
-			Useful for defining a common API for different implementations.
-
-	Rules to remember
-		No body → abstract methods have only a declaration.		
-		Subclass responsibility → all non-abstract subclasses must implement the abstract method.		
-		No final or static → abstract methods cannot be final, static, or private because they must be overridden.
-		Polymorphism → enables different subclass behaviors while sharing the same method signature.
-
- */
-
 package my_java_package_name;
 
 abstract class Hotel {
@@ -56,3 +79,4 @@ public class Abstracts {
 		d1.place();
 	}
 }
+*/

@@ -45,13 +45,13 @@ public class Constructors {
 
 	//	No constructor is defined so java provides a default constructor
 
-	public Constructors() {										//	no parameter constructor
+	public Constructors() {										//	no-argument constructor
 		this.name = "Mickel";									//	refer to the current class instance
 	}	
-	public Constructors(String name) {							//	single parameter constructor
+	public Constructors(String name) {							//	parameterized constructor
 		this.name = name;										//	refers to the current class instance
 	}
-	public Constructors(String name, int age) {					//	double parameter constructor
+	public Constructors(String name, int age) {					//	parameterized constructor
 		this.name = name;										//	refers to the current class instance
 		this.age = age;											//	refers to the current class instance
 	}

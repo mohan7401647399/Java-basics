@@ -19,7 +19,6 @@
 			camelCase - first letter only lowercase then next words first letter starts with uppercase
 */
 
-
 /*
  									*****1. Local variables*****
  	 
@@ -308,7 +307,7 @@ public class Variables {
 	
 	public static void main(String[] args) {
 		Variables v1 = new Variables();
-		v1.display();
+		v1.display();								//	call with object
 	}
 }
 
@@ -326,7 +325,7 @@ public class Variables {
 	}
 
 	public static void main(String[] args) {
-		Variables obj = new Variables();
+		Variables obj = new Variables();									//	call with object
 		obj.display();
 	}
 }

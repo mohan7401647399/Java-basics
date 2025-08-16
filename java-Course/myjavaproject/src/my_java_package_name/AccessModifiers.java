@@ -1,14 +1,49 @@
 /*
-		Access Modifiers in Java control where our variables, methods,
-			or classes can be accessed from.
+		Access Modifiers in Java control where our variables, methods, or classes can be accessed from.
+
+		Access modifiers are keywords in Java that define how much access other classes/objects have to variables, methods, and classes.
 
 
-		| Modifier               | Access Level                 |
-		| ---------------------- | ---------------------------- |
-		| `public`               | Everywhere                   |
-		| `private`              | Only within the same class   |
-		| `protected`            | Same package + child classes |
-		| *default* (no keyword) | Same package only            |
+	❓ Why do we use Access Modifiers?
+		To control visibility of code.
+		To protect data from unwanted access and modification.
+		To implement encapsulation (core OOP principle).
+		To reduce errors and misuse of internal code.
+
+
+	⚙ How to use Access Modifiers?
+		You write them before the data type or return type:
+			public class Student {
+				private int id;            // accessed only inside this class
+				public String name;        // accessed from anywhere
+				protected int marks;       // accessed by subclasses or within same package
+						String grade;      // default/package-private
+		}
+
+
+	📅 When should we use each one?
+		| Modifier                 | When to Use                                                                           |
+		| ------------------------ | ------------------------------------------------------------------------------------- |
+		| **public**               | If something should be accessible from anywhere. Eg: API methods, utility classes.    |
+		| **private**              | If data/methods are internal to the class. Eg: variables, helper methods.             |
+		| **protected**            | When you want to allow child classes to access but not other classes outside package. |
+		| **default (no keyword)** | When it's only needed inside the same package, not outside.                           |
+
+
+	💡 Quick Summary
+
+		Use private for data hiding.
+		Use public for global access.
+		Use protected for inheritance but controlled access.
+		Default is automatically used when no modifier is written.
+
+
+		| Modifier               | Access Level                 			|
+		| ---------------------- | ---------------------------- 			|
+		| `public`               | Everywhere                   			|
+		| `private`              | Only within the same class   			|
+		| `protected`            | Same class ➜ same package ➜ subclasses  |
+		| *default* (no keyword) | Same package only            			|
 
 
 | Modifier    | Same Class | Same Package | Subclass (other package) | Other Package        |
@@ -17,6 +52,8 @@
 | `private`   | ✅         | ❌           | ❌                       | ❌                   |
 | *default*   | ✅         | ✅           | ❌                       | ❌                   |
 | `protected` | ✅         | ✅           | ✅                       | ❌ (unless inherited)|
+
+
 
 
 

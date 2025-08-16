@@ -72,12 +72,4 @@ Thread 2 --->  |          Stack            |
 * **Old Generation (Tenured)**
 * **Garbage Collector** works across these generations in the heap
 
-Would you like a visual diagram of this or a cheat sheet PDF?
-
  */
-
-package my_java_package_name;
-
-public class Memory {
-
-}

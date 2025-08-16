@@ -2,28 +2,25 @@
 
 	Let’s break down **single-threaded vs multi-threaded** in Java in simple terms — with some real-world analogy so it clicks instantly.
 
----
 
 ## **1. What is a Thread?**
 
-A **thread** is the smallest unit of execution in a Java program.
-Think of it like a **worker** in a company:
+    A **thread** is the smallest unit of execution in a Java program.
+    
+    Think of it like a **worker** in a company:
+        * A **single-threaded** program has **one worker** doing all the tasks in order.
+        * A **multi-threaded** program has **multiple workers** doing tasks at the same time.
 
-* A **single-threaded** program has **one worker** doing all the tasks in order.
-* A **multi-threaded** program has **multiple workers** doing tasks at the same time.
-
----
 
 ## **2. Single-Threaded in Java**
 
-* Only **one thread** (usually the `main` thread) runs.
-* Tasks are executed **one after another**.
-* If one task takes too long, everything else **waits**.
-* Easier to write, but **slower** for large or independent tasks.
+    * Only **one thread** (usually the `main` thread) runs.
+    * Tasks are executed **one after another**.
+    * If one task takes too long, everything else **waits**.
+    * Easier to write, but **slower** for large or independent tasks.
 
 **Example:**
 
-```java
 public class SingleThreadExample {
     public static void main(String[] args) {
         System.out.println("Task 1 started");
@@ -33,11 +30,9 @@ public class SingleThreadExample {
         System.out.println("Task 2 finished");
     }
 }
-```
 
 **Output order is fixed** because only one thread works.
 
----
 
 ## **3. Multi-Threaded in Java**
 
@@ -48,7 +43,6 @@ public class SingleThreadExample {
 
 **Example:**
 
-```java
 public class MultiThreadExample extends Thread {
     public void run() {
         System.out.println(Thread.currentThread().getName() + " is running");
@@ -62,11 +56,9 @@ public class MultiThreadExample extends Thread {
         t2.start(); // starts another thread
     }
 }
-```
 
 **Output order is unpredictable** because both threads run independently.
 
----
 
 ## **4. Comparison Table**
 
@@ -78,7 +70,6 @@ public class MultiThreadExample extends Thread {
 | **Complexity** | Simple to implement        | More complex (need synchronization) |
 | **Best for**   | Small, sequential programs | Large tasks, concurrent processes   |
 
----
 
 💡 **Real-world analogy:**
 
@@ -99,9 +90,3 @@ If you want, I can draw you a **Java thread execution diagram** showing how sing
 
 
  */
-
-package my_java_package_name;
-
-public class Threads {
-
-}

@@ -22,6 +22,29 @@ These are the most basic types built into Java. They store **actual values** and
 > *Technically `boolean` size isn’t fixed in JVM spec; depends on JVM implementation.*
 
 
+package my_java_package_name;
+
+public class DataTypes {
+	public static void main(String[] args) {
+		byte b = 10;
+		System.out.println("byte value is : " + b);
+		short s = 1000;
+		System.out.println("short value is : " + s);
+		int num = 50000;
+		System.out.println("int value is : " + num);
+		long bigNum = 123456789L;
+		System.out.println("long value is : " + bigNum);
+		float f = 10.5f;
+		System.out.println("float value is : " + f);
+		double d = 19.99999;
+		System.out.println("double value is : " + d);
+		char c = 'a';
+		System.out.println("char value is : " + c);
+		boolean isTrue = true;
+		System.out.println("boolean value is : " + isTrue);
+	}
+}
+
 
 
 ##                   **2. Non-Primitive (Reference) Data Types**
@@ -36,6 +59,27 @@ Examples:
 * **Interfaces** → `interface Animal { ... }`
 * **Enums** → `enum Days { MON, TUE, ... }`
 
+
+package my_java_package_name;
+
+import java.util.Arrays;
+
+class Person {
+	String name = "Mohan";
+}
+
+public class DataTypes {
+	public static void main(String[] args) {
+		String name = "Mohan";
+		System.out.println("String value is : " + name);
+		int[] arr = { 1, 2, 3, 4, 5 };
+		System.out.println("arrays is : " + Arrays.toString(arr));
+		Person p = new Person();
+		System.out.println("Class with Object value is : " + p.name);
+	}
+}
+
+
 ### **Key Differences Between Primitive and Non-Primitive**
 
 | Feature        | Primitive               | Non-Primitive                          |
@@ -48,8 +92,4 @@ Examples:
 
  */
 
-package my_java_package_name;
 
-public class DataTypes {
-
-}

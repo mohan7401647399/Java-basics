@@ -48,10 +48,10 @@
 * You can manually add strings to the pool using `.intern()`:
 
 
-  String s4 = new String("hello").intern();
+String s4 = new String("hello").intern();
 
 
-  ✅ Now `s4` will refer to the string from the **pool**, not the heap.
+✅ Now `s4` will refer to the string from the **pool**, not the heap.
 
 
 

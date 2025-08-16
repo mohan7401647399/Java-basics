@@ -3,7 +3,7 @@
 	In Java, exceptions are unexpected events or
 		errors that occur during the execution of a program,
 			disrupting the normal flow of the program.
-			
+
 
 🔹 Types of Exceptions
 	1. Checked Exceptions (Compile-Time)
@@ -43,7 +43,7 @@
 
 🔹 Handling Exceptions:
 						1. try-catch block
-	* In Java, try-catch is used to handle exceptions (errors) without crashing your program.
+	* In Java, try-catch is used to handle exceptions (errors) without crashing our program.
 
 package my_java_package_name;
 
@@ -98,7 +98,7 @@ public class Exceptions {
 }
 
 
-🔹 throw - Method 01
+🔹 throw - Method 02
 
 package my_java_package_name;
 

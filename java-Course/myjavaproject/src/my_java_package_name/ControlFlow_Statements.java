@@ -3,7 +3,6 @@
 	In Java, **control flow statements** determine the order in which instructions are executed in a program.
 They are divided into **three main categories**:
 
----
 
 ## **1. Decision-making statements** (Branching)
 
@@ -17,7 +16,6 @@ Used to decide which block of code should run based on conditions.
 
 Example:
 
-```java
 if (score >= 50) {
     System.out.println("Pass");
 } else {
@@ -29,35 +27,28 @@ if (score >= 50) {
 
 Executes a block of code if a condition is `true`.
 
-```java
 int age = 18;
 
 if (age >= 18) {
     System.out.println("You are an adult.");
 }
-```
 
----
 
 ## **2. `if-else` Statement**
 
 Executes one block if the condition is `true`, otherwise executes another block.
 
-```java
 if (age >= 18) {
     System.out.println("Adult");
 } else {
     System.out.println("Minor");
 }
-```
 
----
 
 ## **3. `if-else-if` Ladder**
 
 Tests multiple conditions in sequence.
 
-```java
 int marks = 85;
 
 if (marks >= 90) {
@@ -69,15 +60,12 @@ if (marks >= 90) {
 } else {
     System.out.println("Fail");
 }
-```
 
----
 
 ## **4. Nested `if` Statement**
 
 `if` statement inside another `if`.
 
-```java
 if (age >= 18) {
     if (age >= 60) {
         System.out.println("Senior Citizen");
@@ -85,16 +73,13 @@ if (age >= 18) {
         System.out.println("Adult");
     }
 }
-```
 
----
 
 ## **5. `switch` Statement**
 
 Selects one block of code from multiple options.
 Best for discrete values (e.g., integers, characters, enums, strings).
 
-```java
 int day = 3;
 
 switch (day) {
@@ -110,9 +95,7 @@ switch (day) {
     default:
         System.out.println("Invalid day");
 }
-```
 
----
 
 ### **Key Notes**
 
@@ -133,13 +116,12 @@ Used to execute a block of code repeatedly.
 
 Example:
 
-```java
 for (int i = 1; i <= 5; i++) {
     System.out.println(i);
 }
-```
 
----
+
+
 
 ## **3. Jump statements** (Branch control)
 
@@ -151,24 +133,10 @@ Used to change the normal sequence of execution.
 
 Example:
 
-```java
 for (int i = 1; i <= 5; i++) {
     if (i == 3) continue; // skips printing 3
     if (i == 5) break;    // stops loop
     System.out.println(i);
 }
-```
 
----
-
-If you want, I can prepare a **single diagram** that shows **all Java control flow statements** grouped together for quick revision.
-Do you want me to prepare that?
-
-
- */
-
-package my_java_package_name;
-
-public class ControlFlow_Statements {
-
-}
+*/

@@ -5,9 +5,9 @@
 	
 	✅ Key Features of HashSet
 		* Implements Set interface
-		* No duplicates allowed		
-		* Unordered: Doesn't guarantee insertion order		
-		* Allows one null element		
+		* No duplicates allowed
+		* Unordered: Doesn't guarantee insertion order	
+		* Allows one null element
 		* Fast performance for operations like add, remove, contains (average time complexity: O(1))
 
 	🔸 HashSet Class Hierarchy

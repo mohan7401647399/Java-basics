@@ -79,4 +79,45 @@ public class Abstracts {
 		d1.place();
 	}
 }
+
+
+
+
+
+
+
+
+abstract class Animal {
+	abstract void sound();
+}
+
+class Dog extends Animal {
+	public void sound() {
+		System.out.println("sound method implement in Dog class extends abstract Animal class");
+	}
+}
+
+class Cat extends Animal {
+	public void sound() {
+		System.out.println("sound method implement in Cat class extends abstract Animal class");
+	}
+}
+
+public class Abstracts {
+	public static void main(String[] args) {
+		Animal a1 = new Animal() { // anonymous inner class
+			public void sound() {
+				System.out.println("Animal abstract class");
+			}
+		};
+		a1.sound(); // prints Animal abstract class
+
+		Dog d1 = new Dog();
+		d1.sound(); // prints Dog class
+
+		Cat c1 = new Cat();
+		c1.sound();	// prints Cat class
+	}
+}
 */
+

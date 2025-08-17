@@ -4,10 +4,10 @@
 
 
 	✅ Key Features:
-		* Not FIFO-based — elements are processed by priority		
-		* Does not allow null elements		
-		* Duplicates are allowed		
-		* Unordered when printed (but retrieval is always priority-based)		
+		* Not FIFO-based — elements are processed by priority
+		* Does not allow null elements
+		* Duplicates are allowed
+		* Unordered when printed (but retrieval is always priority-based)
 		* Backed by a min-heap
 
 	✅ When to Use PriorityQueue?
@@ -109,24 +109,24 @@ public class PriorityQueues {
         System.out.println("PriorityQueue: " + pq); // not in sorted order
 
         // Peek at head
-        System.out.println("Head element: " + pq.peek());
+        System.out.println("Head element : " + pq.peek());
 
         // Poll removes head
         System.out.println("Polled: " + pq.poll());
-        System.out.println("After poll: " + pq);
+        System.out.println("After poll : " + pq);
 
         // Contains
-        System.out.println("Contains 20? " + pq.contains(20));
+        System.out.println("Contains 20 ? " + pq.contains(20));
 
         // Remove specific element
         pq.remove(40);
-        System.out.println("After remove 40: " + pq);
+        System.out.println("After remove 40 : " + pq);
 
         // Size
-        System.out.println("Size: " + pq.size());
+        System.out.println("Size : " + pq.size());
 
         // Iterate (order is not guaranteed)
-        System.out.print("Iterating: ");
+        System.out.print("Iterating : ");
         for (Integer num : pq) {
             System.out.print(num + " ");
         }
@@ -134,14 +134,14 @@ public class PriorityQueues {
 
         // Clear
         pq.clear();
-        System.out.println("After clear: " + pq);
+        System.out.println("After clear : " + pq);
 
 		
 
         // Max-heap example
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         maxHeap.addAll(Arrays.asList(50, 20, 40, 10, 30));
-        System.out.println("MaxHeap (PriorityQueue): " + maxHeap);
-        System.out.println("Poll from MaxHeap: " + maxHeap.poll());
+        System.out.println("MaxHeap (PriorityQueue) : " + maxHeap);
+        System.out.println("Poll from MaxHeap : " + maxHeap.poll());
     }
 }

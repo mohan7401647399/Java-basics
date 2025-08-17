@@ -14,13 +14,13 @@
 	
 	
 	✅ Class Hierarchy
-		Object
-		  ▲
-		AbstractCollection<E>
-		  ▲
-		    Deque<E> (extends Queue<E>)
-		       ▲
-		   ArrayDeque<E>
+			Object
+			▲
+	AbstractCollection<E>
+			▲
+	Deque<E> (extends Queue<E>)
+			▲
+		ArrayDeque<E>
 
 
 	✅ When to Use ArrayDeque?

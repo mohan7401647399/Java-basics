@@ -1,10 +1,38 @@
 /*
-	In Java, an interface is a reference type, similar to a class, that is a collection of abstract methods. 
-	It is used to define a contract that classes must follow. 
-	Interfaces help in abstraction and multiple inheritance.
 
-	Why we use interface:-
-		In Java, interfaces are used to define a contract or blueprint for classes without specifying the implementation.
+	✅ What is an interface in Java?
+			An interface is a blueprint of a class that contains abstract methods, and from Java 8 onwards it can also contain default and static methods. It defines what a class must do, not how it does it.
+
+			interface Animal {
+				void sound();  // abstract method
+			}
+
+
+	✅ Why do we use interface?
+		We use interfaces for 3 main reasons:
+			Abstraction – Hide implementation details.
+			Multiple Inheritance – Java doesn't support multiple inheritance with classes, but you can implement multiple interfaces.
+			Loose Coupling – Makes your code flexible and maintainable, especially in large applications.
+
+
+	✅ How to use interface?
+		We declare an interface using the interface keyword, and use the implements keyword in a class to provide body for all interface methods.
+
+		interface Animal {
+			void sound();
+		}
+
+		class Dog implements Animal {
+			public void sound() {
+				System.out.println("Bark");
+			}
+		}
+
+
+	✅ When should we use interface?
+			You need to define a common behavior for multiple unrelated classes (e.g., Dog, Car, Robot all can move()).
+			You want to achieve multiple inheritance.
+			You want to create a contract for future developers (e.g., all payment types must implement pay()).
 
 	Key points:-
 		Interface cannot have a constructor.

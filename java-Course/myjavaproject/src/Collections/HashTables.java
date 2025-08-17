@@ -1,5 +1,11 @@
 /*
 
+
+    * Old class, synchronized (thread-safe)
+    * No null keys, no null values (will throw NullPointerException)
+    * Slower than HashMap
+    * Rarely used in new code, replaced by ConcurrentHashMap
+
 	Hashtable in Java
 		Package: java.util		
 		Implements: Map<K, V>, Cloneable, Serializable		

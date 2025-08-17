@@ -59,8 +59,6 @@ public class Main {
         }
     }
 }
-
-
 This works because `ArrayList` implements `Iterable`.
 
 

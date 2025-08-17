@@ -1,8 +1,7 @@
 /*
 
 	🔷 What is Collection Interface in Java?
-		In Java, the Collection<E> interface is part of the Java Collections Framework and is the root interface for working with groups of objects,
-		it extends the Iterable interface.
+		In Java, the Collection<E> interface is part of the Java Collections Framework and is the root interface for working with groups of objects, it extends the Iterable interface.
 
 	🔹 Package:
 		java.util.Collection
@@ -30,7 +29,7 @@
 
 
 	🔹 Subinterfaces of Collection
-		| Subinterface | Description                             |
+		| Sub-interface | Description                             |
 		| ------------ | --------------------------------------- |
 		| `List<E>`    | Ordered collection, allows duplicates   |
 		| `Set<E>`     | Unordered, no duplicates                |
@@ -49,8 +48,6 @@
 
 */
 
-package Collections;
-
 import java.util.*;
 
 public class Collection {
@@ -61,8 +58,8 @@ public class Collection {
 		names.add("jack");
 		names.add("mickel");
 		System.out.println(names);
-		
-		for(String name : names) {				//	for-each loop
+
+		for (String name : names) { // for-each loop
 			System.out.println(name);
 		}
 	}

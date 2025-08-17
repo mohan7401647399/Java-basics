@@ -16,7 +16,6 @@
 
 
 	🔸 When to Use TreeSet?
-		Use TreeSet when:
 			You need sorted elements			
 			You want no duplicates			
 			You don't need null elements			

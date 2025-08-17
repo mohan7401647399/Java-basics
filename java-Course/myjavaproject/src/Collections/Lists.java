@@ -1,15 +1,11 @@
 /*
 
-
 	🔷 What is List Interface in Java Collections Framework?
 		* The List interface is part of the Java Collections Framework. 
-		* It is a subinterface of Collection and represents an ordered collection (sequence)
-			of elements that can contain duplicates.
-
+		* It is a sub-interface of Collection and represents an ordered collection (sequence) of elements that can contain duplicates.
 
 	🔹 Package:
 		java.util.List
-	
 	
 	🔹 Declaration:
 		public interface List<E> extends Collection<E>
@@ -62,6 +58,24 @@
 		* Index-based access		
 		* Allows duplicates		
 		* Used when position of elements matters
+
+
+
+
+	✅ Comparison Table
+| Feature / Class    | ArrayList     | LinkedList         | Vector            | Stack                  |
+| ------------------ | ------------- | ------------------ | ----------------- | ---------------------- |
+| Internal Structure | Dynamic Array | Doubly Linked List | Dynamic Array     | Dynamic Array (Vector) |
+| Order Maintained   | ✅ Yes         | ✅ Yes              | ✅ Yes             | ✅ Yes                  |
+| Allows Duplicates  | ✅ Yes         | ✅ Yes              | ✅ Yes             | ✅ Yes                  |
+| Thread-safe        | ❌ No          | ❌ No               | ✅ Yes             | ✅ Yes                  |
+| Fast Access (get)  | ✅ Very Fast   | ❌ Slow             | ✅ Fast            | ✅ Fast                 |
+| Fast Insert/Delete | ❌ Slow        | ✅ Fast             | ❌ Slow            | ❌ Slow                 |
+| Legacy?            | ❌ No          | ❌ No               | ✅ Yes             | ✅ Yes                  |
+| Special Use        | General List  | List + Queue       | Synchronized List | LIFO Stack             |
+
+
+
 
 
 
@@ -246,8 +260,3 @@ public class Lists {
 	}
 }
  */
-package Collections;
-
-
-
-

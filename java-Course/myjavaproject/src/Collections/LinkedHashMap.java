@@ -1,6 +1,10 @@
 /*
+    * Maintains insertion order
+    * Slightly slower than HashMap due to extra linked list
+    * Allows null key and null values
+    * Good when you want predictable iteration order
 
-
+    
     LinkedHashMap in Java
         Package: java.util
         Implements: Map<K,V>, Cloneable, Serializable

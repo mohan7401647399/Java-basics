@@ -9,10 +9,10 @@
 		* Allows at most one null element (in some implementations like HashSet)
 
 
-	🔸 When to Use Set?		
-			* We want to prevent duplicates			
-			* We don’t care about the order (use HashSet)			
-			* We want insertion order preserved (use LinkedHashSet)			
+	🔸 When to Use Set?
+			* We want to prevent duplicates
+			* We don’t care about the order (use HashSet)
+			* We want insertion order preserved (use LinkedHashSet)
 			* We need sorted data (use TreeSet)
 
 
@@ -37,14 +37,19 @@
 
 
 
-	
-	
-	
-	
-package Collections;
 
-public class Sets {
-	
-}
+		✅ Comparison Table:
+| Feature / Class     | **HashSet**            | **LinkedHashSet**            | **TreeSet**                   |
+| ------------------- | ---------------------- | ---------------------------- | ----------------------------- |
+| Order               | No order (random)      | Insertion order kept         | Sorted order (ascending)      |
+| Data Structure      | Hash table             | Hash table + Linked list     | Red-Black Tree (balanced BST) |
+| Duplicate Allowed?  | ❌ No                   | ❌ No                         | ❌ No                          |
+| Performance (Speed) | FASTEST (O(1) ops)     | Slightly slower than HashSet | SLOWEST (O(log n) ops)        |
+| Allows Null?        | ✅ Yes (1 null element) | ✅ Yes (1 null)               | ❌ No (null → exception)       |
+| Sorting Supported?  | ❌ No                   | ❌ No                         | ✅ Yes (natural or custom)     |
+| Use case            | Fast unique values     | Unique + maintain order      | Unique + sorted retrieval     |
+
+
+
+
  */
-

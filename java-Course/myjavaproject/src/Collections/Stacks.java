@@ -1,8 +1,6 @@
 /*
-	* In Java, Stack is a class that is a part of the Collections Framework and extends Vector,
-		which in turn implements the List interface.
-	* Stack follows the Last-In-First-Out (LIFO) principle —
-		the last element added is the first one to be removed.
+	* In Java, Stack is a class that is a part of the Collections Framework and extends Vector,	which in turn implements the List interface.
+	* Stack follows the Last-In-First-Out (LIFO) principle — the last element added is the first one to be removed.
 
 	🔹 Declaration:
 		public class Stack<E> extends Vector<E>
@@ -46,7 +44,7 @@ public class Stacks {
 	public static void main(String[] args) {
 		Stack<String> stack = new Stack<>();
 		System.out.println(stack);
-		
+
 		stack.push("Mohan");						//	Add an item to the top
 		stack.push("john");							//	Add an item to the top
 		stack.push("jack");							//	Add an item to the top
@@ -58,7 +56,7 @@ public class Stacks {
 		System.out.println(stack.peek());			//	Returns the top item without removing it
 		System.out.println(stack.isEmpty());		//	check if the stack is empty
 		System.out.println(stack.search("john"));	//	Return 1-based position from the top
-		
+
 		//	Vector/List-methods
 		System.out.println(stack.size());			//	Returns the number of components in the vector
 		System.out.println(stack.get(0));			//	Returns the elements at the specified position in this vector

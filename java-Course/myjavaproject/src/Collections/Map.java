@@ -6,15 +6,15 @@
 
 	✅ Key Points about Map Interface:
 		Keys are unique: No duplicate keys are allowed.		
-		Values can be duplicated.		
-		Each key maps to one value.		
+		Values can be duplicated.
+		Each key maps to one value.
 		It does not extend the Collection interface, but is part of the Collections Framework.
 
 
 	✅ When to Use Map?	
 		You want to associate keys with values (like dictionary/lookup table).		
 		You need to retrieve values based on keys quickly.
-		
+
 
 	✅ Common Implementations of Map:
 		| Class           | Characteristics                                                 |
@@ -43,7 +43,13 @@
 	
 	
 	
-	
+		✅ Comparison Table:
+| Class             | Order Maintained?       | Allows null keys/values?               | Thread Safe?         | Underlying Structure                                |
+| ----------------- | ----------------------- | -------------------------------------- | -------------------- | --------------------------------------------------- |
+| **HashMap**       | ❌ No (random order)     | ✅ Yes (1 null key, many null values)   | ❌ No                 | Hash Table (bucket array + linked list/binary tree) |
+| **LinkedHashMap** | ✅ Yes (insertion order) | ✅ Yes                                  | ❌ No                 | Hash Table + Doubly Linked List                     |
+| **Hashtable**     | ❌ No                    | ❌ No (no null keys or values allowed)  | ✅ Yes (synchronized) | Hash Table                                          |
+| **TreeMap**       | ✅ Yes (sorted by keys)  | ✅ Yes (but null keys ❌, null values ✔) | ❌ No                 | Red Black Tree (Balanced BST)                       |
 	
 	
 	

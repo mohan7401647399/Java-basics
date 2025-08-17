@@ -1,7 +1,9 @@
 /*
 	* In Java, LinkedList is a class in the Collections Framework that implements both the List and Deque interfaces.
 	* It is used to store elements in a doubly-linked list structure.
-
+	* Best for insertions/removals at start, end, or middle.
+	* Not suitable for frequent random access (use ArrayList instead).
+	* It it stores multiple null values.
 
 	🔹 When to Use LinkedList
 		| Use Case                                     | Recommendation            |
@@ -9,13 +11,7 @@
 		| Frequent insertion/removal in middle or ends | ✅ Use `LinkedList`        |
 		| Fast random access needed                    | ❌ Use `ArrayList` instead |
 
-	
-	✅ Summary
-		* LinkedList is a doubly-linked list implementation of List and Deque.
-		* Best for insertions/removals at start, end, or middle.
-		* Not suitable for frequent random access (use ArrayList instead).
-	
-	
+		
 	🔹 Declaration
 			public class LinkedList<E>
 	    		extends AbstractSequentialList<E>
@@ -106,7 +102,11 @@ public class LinkedLists {
 		System.out.println(list);
 	}
 }
- */
+
+
+
+
+
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -118,10 +118,12 @@ public class LinkedLists {
 
 		System.out.println(list);
 
-		list.add("Mohan"); // add an element to the end
-		list.add("jack"); // add an element to the end
-		list.add("john"); // add an element to the end
-		list.add("Roman"); // add an element to the end
+		list.add("Mohan"); // Inserts the specified elements to the end of this list
+		list.add("jack"); // Inserts the specified elements to the end of this list
+		list.add("john"); // Inserts the specified elements to the end of this list
+		list.add("Roman"); // Inserts the specified elements to the end of this list
+		list.add(null); // Inserts the specified elements to the end of this list
+		list.add(null); // Inserts the specified elements to the end of this list
 		System.out.println(list);
 
 		System.out.println(list.get(2)); // gets elements at index
@@ -146,14 +148,14 @@ public class LinkedLists {
 		list.add(1, "mickel"); // insert at specific index
 		System.out.println("After updates: " + list);
 
-		System.out.println("remove : " + list.remove(1)); // Removes elemtents at index
+		System.out.println("remove : " + list.remove(1)); // Removes elements at index
 
 		LinkedList<String> linked = new LinkedList<>();
 
 		linked.addFirst("Start"); // inserts the elements at the beginning of this list
-		linked.addLast("End"); // Appnds the specified elements to the end of this list
-		linked.offerFirst("Head");
-		linked.offerLast("Tail");
+		linked.addLast("End"); // Appends the specified elements to the end of this list
+		linked.offerFirst("Head"); // Inserts the specified element at the front of this list
+		linked.offerLast("Tail"); // Inserts the specified element at the end of this list
 		System.out.println(linked);
 
 		System.out.println("getFirst : " + linked.getFirst()); // Returns the first elements in this list
@@ -165,3 +167,8 @@ public class LinkedLists {
 		System.out.println(linked);
 	}
 }
+
+
+
+
+ */

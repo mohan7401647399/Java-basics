@@ -97,7 +97,7 @@ import java.util.*;
 
 public class Vectors {
 	public static void main(String[] args) {
-		// Using List reference
+		// List specific interface
 		List<String> fruits = new Vector<>();
 
 		// Add elements
@@ -140,7 +140,7 @@ public class Vectors {
 		fruits.clear();
 		System.out.println("After clear: " + fruits);
 
-		// Vector-specific methods
+		// Vector-specific class methods
 		Vector<String> vec = new Vector<>();
 		vec.addElement("One");
 		vec.addElement("Two");

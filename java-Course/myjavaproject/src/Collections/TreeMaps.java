@@ -1,4 +1,9 @@
 /*
+    * Keeps keys sorted (ascending) using natural ordering or custom Comparator
+    * Does not allow null keys, but allows null values
+    * Useful when you need sorted data
+    * Slower — operations are O(log n)
+    
 
     Package: java.util
     Implements: Map<K, V>, Cloneable, Serializable

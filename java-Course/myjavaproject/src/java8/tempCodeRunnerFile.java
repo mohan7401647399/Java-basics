@@ -1,1 +1,2 @@
-nums.stream().distinct().close()
+
+		// System.out.println("value get : " + opName2.get());

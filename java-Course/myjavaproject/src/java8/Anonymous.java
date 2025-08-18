@@ -17,7 +17,7 @@
 			You use anonymous classes:			
 				Inside a method, constructor, or block.			
 				When implementing an interface for one-time use.			
-				When subclassing an abstract or concrete class for quick behavior change.			
+				When sub-classing an abstract or concrete class for quick behavior change.			
 				Common places:			
 					Event handling (e.g., in Java Swing / AWT).			
 					Thread creation with Runnable.			

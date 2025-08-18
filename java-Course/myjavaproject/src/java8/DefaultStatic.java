@@ -9,6 +9,7 @@ Key Differences
 	| Purpose      | Provide default behavior to implementers | Utility/helper methods |
 
 
+	
 
 	1. Default Methods
 		Declared in an interface using the default keyword.		
@@ -18,7 +19,13 @@ Key Differences
 		Purpose:-		
 			Add new methods to interfaces without forcing all implementing classes to implement them.
 			Provide a default behavior.
-	
+
+
+| What - Interfaces can have concrete method with body using default keyword. |
+| Why - To add new methods to interfaces without breaking existing implementation. |
+| When - When you need pre-defined method in interface for backward compatibility. |
+| How - default void methodName() { ... } |	
+
 
 package java8;
 
@@ -52,6 +59,11 @@ public class DefaultStatic {
 		Called using the interface name, not the object.
 
 
+	| What - Interfaces can include static utility methods too. |
+	| Why - For helper methods related to interface functionality. |
+	| When - When behavior is common and doesn't depend on instance. |
+	| How - Write static method inside interface. |
+
 
 package java8;
 
@@ -72,7 +84,7 @@ public class DefaultStatic {
 
 
 package java8;
- */
+ 
 
 
 interface Vehicle {
@@ -94,3 +106,5 @@ public class DefaultStatic {
 		Vehicle.method1();
 	}
 }
+
+*/

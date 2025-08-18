@@ -11,17 +11,11 @@
 		Shorter and cleaner code (no need to write anonymous classes)
 		Makes working with functional interfaces easier (like Runnable, Comparator, Predicate)
 		Useful in Streams API for filtering, mapping, reducing data
-	
-	✅ Key Points to Remember
-
-		Works only with functional interfaces		
-		Removes the need for anonymous classes in many cases		
-		Often used in Streams API and event handling		
-		Syntax: (parameters) -> expression or (parameters) -> { statements }
 		
 		
 	3️⃣ Functional Interface Requirement
 		A lambda expression can only be used where there’s a functional interface.
+		
 		
 Example:-
 		

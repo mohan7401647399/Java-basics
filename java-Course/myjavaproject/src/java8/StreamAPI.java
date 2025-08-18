@@ -1,7 +1,6 @@
 /*
-	
 
-1. What is a Stream?
+    1. What is a Stream?
 
     Definition:
         The Stream API (introduced in Java 8, in java.util.stream) is a functional programming tool for processing data in a declarative, pipeline-based way.
@@ -249,7 +248,8 @@ public class StreamAPI {
         List<String> lists = Arrays.asList("Mohan", "John", "Jack", "Mickel");
 
         lists.stream().forEach(System.out::println);
-
+        
+        List<String> upperLists = lists.stream().map(n -> n.toUpperCase()).collect(Collectors.toList());
         List<String> upperLists = lists.stream().map(String::toUpperCase).collect(Collectors.toList());
         System.out.println(upperLists);
 
@@ -444,7 +444,7 @@ public class StreamAPI {
     
 
 
-
+list = lists.stream().flatMap(name -> name.stream()).collection(collectors.toList() )
 
 
 

@@ -1,15 +1,18 @@
 /*
 
+	* What:-
 	A Functional Interface in Java is an interface that has exactly one abstract method (SAM — Single Abstract Method).
 	It can have any number of default methods, static methods, and private methods, but only one abstract method.
 
-	Key Points:-
+
+	* Key Points:-
 		Single Abstract Method → makes it usable with Lambda Expressions and Method References.
 		Marked with the @FunctionalInterface annotation (optional but recommended to prevent accidental changes).
 		Part of the java.util.function package in Java 8+, which provides many built-in functional interfaces like Predicate, Function, Supplier, Consumer.
 		Improves readability and supports functional programming in Java.
 
-	Why Use Functional Interface?
+
+	* Why Use Functional Interface?
 		Enables cleaner, shorter code with lambdas.		
 		Promotes functional programming style in Java.		
 		Helps pass behavior (logic) as a parameter.
@@ -94,18 +97,157 @@ public class FunctionalInterfaces {
 	}
 }
 
- */
+
+
+
+		* Lambda with Java Built-in Functional Interfaces
+
+	1. Function — Takes input, returns output
 
 package java8;
 
-interface Calculator {
-	int add(int a, int b);
-}
+import java.util.function.Function;
 
-public class FunctionalInterfaces {
+public class Lambda {
 	public static void main(String[] args) {
-		Calculator calc = (a, b) -> a + b;
-		System.out.println(calc.add(5, 10));
+		Function<String, Integer> lengthFunction = s -> s.length();
+		System.out.println(lengthFunction.apply("Hello world"));
 	}
-
 }
+
+
+
+	2. BiFunction — Takes two inputs, returns output
+	
+package java8;
+
+import java.util.function.BiFunction;
+
+public class Lambda {
+	public static void main(String[] args) {
+		BiFunction<Integer, Integer, Integer> sum = (a, b) -> a + b;
+		System.out.println(sum.apply(5, 5));
+	}
+}
+
+
+	3. Predicate — Takes input, returns boolean
+	
+package java8;
+
+import java.util.function.Predicate;
+
+public class Lambda {
+	public static void main(String[] args) {
+		Predicate<Integer> sum = a -> a < 18;
+		System.out.println(sum.test(5));
+	}
+}
+
+
+
+	4. BiPredicate — Takes two inputs, returns boolean
+
+package java8;
+
+import java.util.function.BiPredicate;
+
+public class Lambda {
+	public static void main(String[] args) {
+		BiPredicate<Integer, Integer> sum = (a, b) -> a < b;
+		System.out.println(sum.test(5, 6));
+		BiPredicate<String, String> sum2 = (a,b) -> a == b;
+		System.out.println(sum2.test("Hello", null));
+	}
+}
+
+
+
+	5. Consumer — Takes input, returns nothing
+	
+package java8;
+
+import java.util.function.Consumer;
+
+public class Lambda {
+	public static void main(String[] args) {
+		Consumer<String> printer = a -> System.out.println(a);
+		printer.accept("Hello world Java!");
+	}
+}
+
+
+
+	6. BiConsumer — Takes two inputs, returns nothing
+	
+package java8;
+
+import java.util.function.BiConsumer;
+
+public class Lambda {
+	public static void main(String[] args) {
+		BiConsumer<String, Integer> printer = (name, age) -> System.out
+				.println("name is " + name + " and " + "age is " + age);
+		printer.accept("Mohan", 29);
+	}
+}
+
+
+	7. Supplier — Takes no input, returns output
+	
+package java8;
+
+import java.util.function.Supplier;
+
+public class Lambda {
+	public static void main(String[] args) {
+		Supplier<Double> randomValue = () -> Math.random();
+		System.out.println(randomValue.get());
+	}
+}
+
+
+
+
+			8. *****UnaryOperator*****
+			
+	Input and output types are the same.
+	Takes 1 parameter and returns a value of the same type.
+
+
+package java8;
+
+import java.util.function.UnaryOperator;
+
+public class Lambda {
+	public static void main(String[] args) {
+		UnaryOperator<Integer> square = n -> n * n;
+		System.out.println(square.apply(5));
+		
+		UnaryOperator<String> toUpper = n -> n.toUpperCase();
+		System.out.println(toUpper.apply("hello"));
+	}
+}
+
+
+
+
+			9. *****BinaryOperator*****
+			
+	Takes 2 parameters (same type) and returns a value of the same type.
+
+
+package java8;
+
+import java.util.function.BinaryOperator;
+
+public class Lambda {
+	public static void main(String[] args) {
+		BinaryOperator<Integer> square = (a, b) -> a * b;
+		System.out.println(square.apply(5, 5));
+
+		BinaryOperator<String> concat = (a, b) -> a + b;
+		System.out.println(concat.apply("hello ", "world"));
+	}
+}
+ */

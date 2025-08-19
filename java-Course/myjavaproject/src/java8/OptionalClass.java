@@ -1,11 +1,11 @@
 /*
-	
+
 	✅ What is Optional in Java?
 
 	Optional<T> is a class in java.util package introduced in Java 8.
 	It is a container object which may or may not contain a non-null value.
 	It helps in avoiding NullPointerException by providing a way to check value is present or not.
-	
+
 
 	✅ Why use Optional?
 

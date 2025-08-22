@@ -23,6 +23,7 @@ It provides factory methods to create common collectors which are used with the 
  */
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -48,5 +49,28 @@ public class Collectorss {
         System.out.println(sum);
         double avg = list.stream().collect(Collectors.averagingInt(n -> n));
         System.out.println(avg);
+
+        // 5. Partitioning
+        List<Integer> partionList = List.of(1, 6, 7, 8, 9);
+        System.out.println(partionList);
+        Map<Boolean, List<Integer>> partionId = partionList.stream()
+                .collect(Collectors.partitioningBy(n -> n % 2 == 0));
+        System.out.println(partionId);
+
+        // 6. Grouping by field
+        List<User> user = List.of(new User("Mohan", 29), new User("john", 25), new User("jack", 30));
+
+        Map<String, List<User>> groupId = user.stream().collect(Collectors.groupingBy(u -> u.name));
+        System.out.println(groupId);
+    }
+}
+
+class User {
+    String name;
+    int age;
+
+    User(String name, int age) {
+        this.name = name;
+        this.age = age;
     }
 }

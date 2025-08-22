@@ -532,3 +532,51 @@ public class StreamAPI {
     };
 }
 */
+
+package java8;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Set;
+
+public class StreamAPI {
+	public static void main(String[] args) {
+		String name = "Mohan java";
+		System.out.println(name);
+//		List<String> list = Arrays.asList("mohan");
+//		list.add("r");
+//		System.out.println(list);
+//		list.stream().filter(n -> n.contains("j")).forEach(System.out::println);
+//		list.stream().map(n -> n.toLowerCase()).forEach(t -> );
+//		list.stream().filter(n -> n.length() == 3).forEach(System.out::println);
+//		list.stream().filter(n -> n.indexOf("john") == 0).forEach(System.out::println);
+//		list.stream().filter(n -> n.lastIndexOf("john") == 1).forEach(System.out::println);
+//		System.out.println(list.stream().allMatch((n) -> n.contains("mohan")));
+//		List<Integer> listInt = List.of(5, 1, 4, 5, 9);
+		List<Integer> listInt = new ArrayList<>();
+		listInt.add(20);
+		listInt.add(10);
+		listInt.add(5);
+		System.out.println(listInt);
+		System.out.println(listInt.size());
+//		System.out.println(listInt.contains(4));
+//		System.out.println(listInt.isEmpty());
+//		System.out.println(listInt);
+//		listInt.stream().filter(n -> n < 5).map(a -> a * 10).forEach(System.out::println);
+//		listInt.stream().map(n -> n * 2).forEach(System.out::println);
+		Queue<String> queue = new ArrayDeque<>();
+		queue.add("4");
+		queue.add("1");
+		queue.add("3");
+		queue.add("2");
+		System.out.println(queue);
+		Set<Integer> set = new HashSet<>();
+		set.add(1);
+		System.out.println(set);
+	}
+}

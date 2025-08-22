@@ -195,7 +195,7 @@ public class MethodReference {
         f2.printer("jack");
     }
 }
-*/
+
 
 
 interface FunctionalInterface {
@@ -219,3 +219,4 @@ public class MethodReference {
         f2.printer("jack");
     }
 }
+*/

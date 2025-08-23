@@ -342,3 +342,18 @@ class ArrayLists {
 
  */
 
+import java.util.ArrayList;
+
+class ArrayLists {
+  public static void main(String[] args) {
+    ArrayList<Integer> aList = new ArrayList<>();
+    aList.add(1);
+    aList.add(2);
+    aList.add(null);
+    aList.add(null);
+    aList.add(1);
+    System.out.println(aList);
+    System.out.println(aList.size());
+    System.out.println(aList.get(3));
+  }
+}

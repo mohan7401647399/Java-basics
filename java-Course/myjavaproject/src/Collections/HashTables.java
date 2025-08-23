@@ -16,7 +16,7 @@
 			
 	
 	
- */
+ 
 
  
 	import java.util.Hashtable;
@@ -63,5 +63,21 @@ public class HashTables {
         System.out.println("Is Hashtable empty? " + table.isEmpty());
     }
 }
-
 	
+*/
+
+import java.util.Hashtable;
+
+class HashTables {
+    public static void main(String[] args) {
+        Hashtable<String, Integer> hTable = new Hashtable<>();
+        System.out.println(hTable);
+        // hTable.put(null, 29);
+        hTable.put("mohan", 29);
+        hTable.put("john", 25);
+        // hTable.put(null, 29);
+        System.out.println(hTable.get("mohan"));
+        System.out.println(hTable.isEmpty());
+        System.out.println(hTable.entrySet());
+    }
+}

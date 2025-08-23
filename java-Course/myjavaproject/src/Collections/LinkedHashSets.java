@@ -59,7 +59,7 @@ public class LinkedHashSets {
 	}
 }
 
-*/
+
 
 import java.util.LinkedHashSet;
 import java.util.Iterator;
@@ -112,5 +112,25 @@ public class LinkedHashSets {
 		// clear()
 		set.clear();
 		System.out.println("\nAfter clear(): " + set);
+	}
+}
+*/
+
+import java.util.*;
+
+class LinkedHashSets {
+	public static void main(String[] args) {
+		LinkedHashSet<Integer> hSet = new LinkedHashSet<>();
+		hSet.add(1);
+		hSet.add(4);
+		hSet.add(null);
+		hSet.add(3);
+		hSet.add(2);
+		hSet.add(2);
+		hSet.add(null);
+		System.out.println(hSet);
+		System.out.println(hSet.size());
+		System.out.println(hSet.getFirst());
+		System.out.println(hSet.getLast());
 	}
 }

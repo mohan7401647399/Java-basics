@@ -169,6 +169,24 @@ public class LinkedLists {
 }
 
 
-
-
  */
+
+import java.util.LinkedList;
+
+class LinkedLists {
+	public static void main(String[] args) {
+		LinkedList<Integer> Llist = new LinkedList<>();
+		System.out.println(Llist);
+		Llist.add(1);
+		Llist.add(null);
+		Llist.add(null);
+		Llist.add(3);
+		Llist.add(2);
+		Llist.add(1);
+		System.out.println(Llist);
+		System.out.println(Llist.size());
+		System.out.println(Llist.get(3));
+		System.out.println(Llist.set(3, 6));
+		System.out.println(Llist);
+	}
+}

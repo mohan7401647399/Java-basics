@@ -89,7 +89,7 @@ public class PriorityQueues {
 		System.out.println(pq);
 	}
 }
- */
+ 
 
 
  import java.util.*;
@@ -143,5 +143,27 @@ public class PriorityQueues {
         maxHeap.addAll(Arrays.asList(50, 20, 40, 10, 30));
         System.out.println("MaxHeap (PriorityQueue) : " + maxHeap);
         System.out.println("Poll from MaxHeap : " + maxHeap.poll());
+    }
+}
+*/
+
+
+
+import java.util.*;
+
+class PriorityQueues{
+    public static void main(String[] args){
+        PriorityQueue<Integer> pQueue = new PriorityQueue<>();
+        // pQueue.add(null);
+        pQueue.add(3);
+        pQueue.add(1);
+        pQueue.add(2);
+        pQueue.add(2);
+        pQueue.add(5);
+        System.out.println(pQueue);
+        // System.out.println(pQueue.poll());
+        // System.out.println(pQueue.peek());
+        System.out.println(pQueue.remove());
+        System.out.println(pQueue);
     }
 }

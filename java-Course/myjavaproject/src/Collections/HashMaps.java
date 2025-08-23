@@ -85,7 +85,7 @@ public class HashMaps {
 	}
 }
 
-*/
+
 
 
 import java.util.HashMap;
@@ -142,4 +142,23 @@ public class HashMaps {
         map.clear();
         System.out.println("After clear: " + map);
     }
+}
+
+
+*/
+
+import java.util.*;
+
+class HashMaps {
+	public static void main(String[] args) {
+		HashMap<String, Integer> hMap = new HashMap<>();
+		System.out.println(hMap);
+		hMap.put("mohan", 29);
+		hMap.put("john", 30);
+		hMap.put("mick", 27);
+		hMap.put("mohan", 29);
+		hMap.put(null, 29);
+		hMap.put(null, 30);
+		System.out.println(hMap);
+	}
 }

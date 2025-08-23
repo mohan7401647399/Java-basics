@@ -54,7 +54,7 @@ public class HashSets {
 			
 	}
 }
- */
+
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -107,5 +107,25 @@ public class HashSets {
 		// Clear
 		set.clear();
 		System.out.println("After clear: " + set);
+	}
+}
+
+*/
+
+import java.util.*;
+
+class HashSets {
+	public static void main(String[] args) {
+		HashSet<Integer> hSet = new HashSet<>();
+		hSet.add(1);
+		hSet.add(4);
+		hSet.add(null);
+		hSet.add(3);
+		hSet.add(2);
+		hSet.add(2);
+		hSet.add(null);
+		System.out.println(hSet);
+		System.out.println(hSet.isEmpty());
+		System.out.println(hSet.size());
 	}
 }

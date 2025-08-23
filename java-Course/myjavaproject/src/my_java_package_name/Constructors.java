@@ -75,7 +75,7 @@ public class Constructors {
 		c1.display();
 	}
 }
- */
+
 
 
 
@@ -113,3 +113,29 @@ class Constructors {
 		System.out.println(c2.age);
 	}
 }
+
+ */
+
+
+
+ class Student{
+	String name;
+	int age;
+
+	Student(String name, int age){
+		this.name = name;
+		this.age = age;
+	}
+
+	void display(){
+		System.out.println(name + age);
+	}
+ }
+
+ class Constructors {
+	public static void main(String[] args){
+		Student s1 = new Student("Mohan", 29);
+		System.out.println(s1);
+		s1.display();
+	}
+ }

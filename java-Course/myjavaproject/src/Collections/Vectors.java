@@ -91,7 +91,7 @@ public class Vectors {
 		System.out.println("After removal - " + vector);
 	}
 }
-*/
+
 
 import java.util.*;
 
@@ -150,5 +150,25 @@ public class Vectors {
 		System.out.println("Capacity: " + vec.capacity());
 		vec.trimToSize();
 		System.out.println("Capacity after trim: " + vec.capacity());
+	}
+}
+
+*/
+
+import java.util.Vector;
+
+class Vectors {
+	public static void main(String[] args) {
+		Vector<Integer> vList = new Vector<>();
+		System.out.println(vList);
+		vList.add(1);
+		vList.add(2);
+		vList.add(null);
+		vList.add(5);
+		vList.add(4);
+		vList.add(null);
+		System.out.println(vList);
+		System.out.println(vList.size());
+		System.out.println(vList.get(3));
 	}
 }

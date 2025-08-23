@@ -61,7 +61,7 @@ public class TreeSets {
 }
 
 
-*/
+
 
 import java.util.*;
 
@@ -107,4 +107,23 @@ public class TreeSets {
 			System.out.print(descItr.next() + " ");
 		}
 	}
+}
+
+
+*/
+
+import java.util.*;
+
+class TreeSets{
+    public static void main(String[] args){
+        TreeSet<Integer> tSet = new TreeSet<>();
+        System.out.println(tSet);
+        tSet.add(1);
+        // tSet.add(null);
+        tSet.add(3);
+        tSet.add(2);
+        // tSet.add(null);
+        tSet.add(3);
+        System.out.println(tSet);
+    }
 }

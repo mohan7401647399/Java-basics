@@ -114,7 +114,7 @@ public class ArrayDequeues {
 }
 
 
-*/
+
 
 import java.util.*;
 
@@ -141,4 +141,25 @@ public class ArrayDequeues {
 
 		System.out.println("Queue after removals: " + queue);
 	}
+}
+*/
+
+
+import java.util.*;
+
+class ArrayDequeues{
+    public static void main(String[] args){
+        ArrayDeque<Integer> pQueue = new ArrayDeque<>();
+        // pQueue.add(null);
+        pQueue.add(3);
+        pQueue.add(1);
+        pQueue.add(2);
+        pQueue.add(2);
+        pQueue.add(5);
+        System.out.println(pQueue);
+        System.out.println(pQueue.isEmpty());
+        System.out.println(pQueue.getFirst());
+        System.out.println(pQueue.getLast());
+        System.out.println(pQueue.peek());
+    }
 }

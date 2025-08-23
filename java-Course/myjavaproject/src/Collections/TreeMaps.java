@@ -14,7 +14,7 @@
         Not synchronized (use Collections.synchronizedMap() for thread safety).
         Order of elements is not guaranteed.    
 
- */
+
 
 import java.util.*;
 
@@ -68,5 +68,27 @@ public class TreeMaps {
         // clear()
         map.clear();
         System.out.println("After clear: " + map);
+    }
+}
+*/
+
+import java.util.TreeMap;
+
+class TreeMaps {
+    public static void main(String[] args) {
+        TreeMap<String, Integer> tMap = new TreeMap<>();
+        System.out.println(tMap);
+        // tMap.put(null, 5);
+        tMap.put("mohan", 29);
+        tMap.put("john", 5);
+        tMap.put("mohan", 29);
+        tMap.put("mick", 20);
+        System.out.println(tMap);
+        System.out.println(tMap.firstKey());
+        System.out.println(tMap.floorKey("mohan"));
+        System.out.println(tMap.size());
+        System.out.println(tMap.entrySet());
+        System.out.println(tMap.firstEntry());
+        System.out.println(tMap);
     }
 }

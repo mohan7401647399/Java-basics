@@ -314,7 +314,7 @@ public class Problems {
 		}
 	}
 }
- */
+ 
 
 package my_java_package_name;
 
@@ -337,3 +337,13 @@ public class Problems {
 		}
 	}
 }
+
+
+
+
+
+
+String Occurance, second min and max, using object type data stored, comparable and comparators
+
+
+*/

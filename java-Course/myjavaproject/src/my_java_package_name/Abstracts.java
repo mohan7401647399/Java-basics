@@ -10,7 +10,7 @@
 
 		It just tells: "Every subclass must implement this method."
 
- 
+
 	✅ Why we use abstract methods?
 		To force child classes to provide their own implementation.
 		To create a common structure or blueprint for many classes.
@@ -46,7 +46,7 @@
 
 
 
-		
+
 package my_java_package_name;
 
 abstract class Hotel {
@@ -121,3 +121,42 @@ public class Abstracts {
 }
 */
 
+abstract class College {
+	abstract void studentMethod();
+}
+
+class Student extends College {
+	void studentMethod() {
+		System.out.println("studentMethod method in Student class");
+	}
+}
+
+class Teacher extends College {
+	void studentMethod() {
+		System.out.println("studentMethod method in Teacher class");
+	}
+}
+
+class Abstracts {
+	public static void main(String[] args) {
+		Student s1 = new Student();
+		Teacher t1 = new Teacher();
+
+		s1.studentMethod();
+		t1.studentMethod();
+
+		College c1 = new Student();
+		c1.studentMethod();
+
+		College c2 = new Teacher();
+		c2.studentMethod();
+
+		College[] c = new College[2];
+		c[0] = new Student();
+		c[1] = new Teacher();
+
+		for (College clg : c) {
+			clg.studentMethod();
+		}
+	}
+}

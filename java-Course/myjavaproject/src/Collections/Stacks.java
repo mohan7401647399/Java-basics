@@ -211,7 +211,7 @@ class Main{
     }
 }
 
-*/
+
 
 import java.util.*;
 
@@ -256,5 +256,31 @@ public class Stacks {
         // Clear stack
         stack.clear();
         System.out.println("After clear: " + stack);
+    }
+}
+
+*/
+
+import java.util.Stack;
+
+class Stacks {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        System.out.println(stack);
+        stack.add(1);
+        stack.add(2);
+        stack.add(null);
+        stack.add(3);
+        stack.add(2);
+        stack.add(null);
+        System.out.println(stack);
+        System.out.println(stack.get(2));
+        System.out.println(stack.size());
+        System.out.println(stack.remove(2));
+        System.out.println(stack.capacity());
+        System.out.println(stack.firstElement());
+        System.out.println(stack.lastElement());
+        System.out.println(stack.peek());
+        System.out.println(stack.pop());
     }
 }

@@ -35,6 +35,7 @@
 			You want to create a contract for future developers (e.g., all payment types must implement pay()).
 
 	Key points:-
+		We must declared variable inside the interface
 		Interface cannot have a constructor.
 		We cannot create the object for interface.
 		We create the methods in interface that's call as abstract method(do not have a body).
@@ -284,3 +285,34 @@ class Interfaces implements Outer.Animal {
 }
 
  */
+
+interface First {
+	void firstMethod();
+
+	default void secondMethod() {
+		System.out.println("second method called in First interface");
+	}
+}
+
+class Second implements First {
+	public void firstMethod() {
+		System.out.println("firstMethod called in Second class");
+	}
+}
+
+class Third implements First {
+	public void firstMethod() {
+		System.out.println("firstMethod called in Third interface");
+	}
+}
+
+class Interfaces {
+	public static void main(String[] args) {
+		First f1 = new Second();
+		First f2 = new Third();
+		f1.firstMethod();
+		f1.secondMethod();
+		f2.firstMethod();
+		f2.secondMethod();
+	}
+}

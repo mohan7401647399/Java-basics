@@ -220,3 +220,23 @@ public class MethodReference {
     }
 }
 */
+
+import java.util.ArrayList;
+
+class First {
+    public void method(String name) {
+        System.out.println("name is : " + name);
+    }
+}
+
+class MethodReference {
+    public static void main(String[] args){
+        First f1 = new First();
+        ArrayList<String> list = new ArrayList<>();
+        list.add("mohan");
+        list.add("john");
+        list.add("kevin");
+        list.add("james");
+        list.forEach(f1::method);
+    }
+}

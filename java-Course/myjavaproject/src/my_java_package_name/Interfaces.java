@@ -44,6 +44,20 @@
 
 
 
+🔹 Key Differences: Abstract Class vs Interface
+
+	| Feature              | Abstract Class                                                                                     | Interface                                                                                                                                    |
+	| -------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+	| **Keyword**          | Declared using `abstract`                                                                          | Declared using `interface`                                                                                                                   |
+	| **Object Creation**  | Cannot create object                                                                               | Cannot create object                                                                                                                         |
+	| **Methods**          | Can have **abstract methods** and **concrete methods**                                             | Java 7 and earlier: only **abstract methods** <br> Java 8+: can have **default & static methods** <br> Java 9+: can have **private methods** |
+	| **Variables**        | Can have **instance variables** (normal variables)                                                 | All variables are **public, static, final** (constants) by default                                                                           |
+	| **Constructors**     | Can have constructors                                                                              | Cannot have constructors                                                                                                                     |
+	| **Inheritance**      | A class can **extend only one abstract class** (single inheritance)                                | A class can **implement multiple interfaces** (multiple inheritance)                                                                         |
+	| **Access Modifiers** | Abstract methods can have **any visibility** (public, protected, etc.)                             | All methods are **public** (by default)                                                                                                      |
+	| **Use Case**         | Used when classes share a common base and want to provide **partial abstraction** + **code reuse** | Used to define a **contract/behavior** without caring about implementation                                                                   |
+	| **Polymorphism**     | Achieved by extending                                                                              | Achieved by implementing                                                                                                                     |
+
 
 
 package my_java_package_name;
@@ -284,7 +298,7 @@ class Interfaces implements Outer.Animal {
 	}
 }
 
- */
+ 
 
 interface First {
 	void firstMethod();
@@ -314,5 +328,28 @@ class Interfaces {
 		f1.secondMethod();
 		f2.firstMethod();
 		f2.secondMethod();
+	}
+}
+
+*/
+
+interface A {
+	void display();
+}
+
+interface B {
+	void display();
+}
+
+class C implements A, B {
+	public void display() {
+		System.out.println("C class");
+	}
+}
+
+class Interfaces {
+	public static void main(String[] args) {
+		C c1 = new C();
+		c1.display();
 	}
 }

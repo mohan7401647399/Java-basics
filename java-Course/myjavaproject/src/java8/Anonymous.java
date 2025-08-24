@@ -37,7 +37,6 @@
 
 	Implementing an Interface
 	
-	
 
 package java8;
 
@@ -271,9 +270,6 @@ public class Anonymous {
 
 Same examples using Lambda (anonymous function)
 
-
- */
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -302,5 +298,36 @@ public class Anonymous {
 		};
 		g1.greet();
 
+	}
+}
+ */
+
+interface First {
+	void display();
+}
+
+class Second {
+	public void show() {
+		System.out.println("show method in Second class");
+	}
+}
+
+class Anonymous {
+	public static void main(String[] args) {
+		First f1 = new First() {
+			public void display() {
+				System.out.println("display method using anonymous class");
+			}
+		};
+		Second s1 = new Second() {
+			public void show() {
+				System.out.println("show method overriding used anonymous class");
+			}
+		};
+		f1.display();
+		s1.show();
+		
+		First f2 = () -> System.out.println("lambda expression in First interface");
+		f2.display();
 	}
 }

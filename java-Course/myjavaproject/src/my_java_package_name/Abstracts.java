@@ -39,10 +39,25 @@
 
 
 	✅ When to use abstract methods?
-		Use abstract methods when:
 			You have a common parent class, but the behavior (method) is different for each child.
 			You only want to provide basic structure, not the full code.
 			You want to enforce certain methods in all subclasses.
+
+
+
+🔹 Key Differences: Abstract Class vs Interface
+
+	| Feature              | Abstract Class                                                                                     | Interface                                                                                                                                    |
+	| -------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+	| **Keyword**          | Declared using `abstract`                                                                          | Declared using `interface`                                                                                                                   |
+	| **Object Creation**  | Cannot create object                                                                               | Cannot create object                                                                                                                         |
+	| **Methods**          | Can have **abstract methods** and **concrete methods**                                             | Java 7 and earlier: only **abstract methods** <br> Java 8+: can have **default & static methods** <br> Java 9+: can have **private methods** |
+	| **Variables**        | Can have **instance variables** (normal variables)                                                 | All variables are **public, static, final** (constants) by default                                                                           |
+	| **Constructors**     | Can have constructors                                                                              | Cannot have constructors                                                                                                                     |
+	| **Inheritance**      | A class can **extend only one abstract class** (single inheritance)                                | A class can **implement multiple interfaces** (multiple inheritance)                                                                         |
+	| **Access Modifiers** | Abstract methods can have **any visibility** (public, protected, etc.)                             | All methods are **public** (by default)                                                                                                      |
+	| **Use Case**         | Used when classes share a common base and want to provide **partial abstraction** + **code reuse** | Used to define a **contract/behavior** without caring about implementation                                                                   |
+	| **Polymorphism**     | Achieved by extending                                                                              | Achieved by implementing                                                                                                                     |
 
 
 
@@ -119,7 +134,7 @@ public class Abstracts {
 		c1.sound();	// prints Cat class
 	}
 }
-*/
+
 
 abstract class College {
 	abstract void studentMethod();
@@ -158,5 +173,76 @@ class Abstracts {
 		for (College clg : c) {
 			clg.studentMethod();
 		}
+	}
+}
+
+
+package my_java_package_name;
+
+abstract class Company{
+	String name;
+	abstract void project();
+	Company(String name){
+		this.name = name;
+		System.out.println("constructor");
+	}
+	void place() {
+		System.out.println("place method");
+	}
+}
+
+class Employee extends Company{
+	Employee(String name){
+		super(name);
+	}
+	
+	public void project() {
+		System.out.println("project method declared in Employee class " + name);
+	}
+}
+
+class Abstracts {
+	public static void main(String[] args) {
+		Company c1 = new Employee("Mohan");
+		c1.project();
+		c1.place();
+	}
+
+}
+
+
+
+*/
+
+
+package my_java_package_name;
+
+abstract class AbstractClass{
+	abstract void abstractMethod();
+	void normalMethod() {
+		System.out.println("normal method in abstract class");
+	}
+}
+
+class NormalClass extends AbstractClass{
+	public void abstractMethod() {
+		System.out.println("abstract method in NormalClass class");
+	}
+}
+
+ class Abstracts{
+	public static void main(String[] args) {
+		AbstractClass a1 = new NormalClass();
+		a1.abstractMethod();
+		a1.normalMethod();
+		AbstractClass a2 = new AbstractClass() {
+			
+			@Override
+			void abstractMethod() {
+				System.out.println("abstract method called in main class");
+				
+			}
+		};
+		a2.abstractMethod();
 	}
 }

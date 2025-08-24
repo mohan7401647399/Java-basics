@@ -1,4 +1,8 @@
 /*
+String Occurance, second min and max, using object type data stored, comparable and comparators
+
+
+
 1.Reverse a string
 	Method 01
 
@@ -343,7 +347,272 @@ public class Problems {
 
 
 
-String Occurance, second min and max, using object type data stored, comparable and comparators
+		Add Two Numbers with User Input
+
+import java.util.Scanner;
+
+class Problems {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Plase enter the first number : ");
+		int x = scanner.nextInt();
+		System.out.println("Plase enter the another number : ");
+		int y = scanner.nextInt();
+		System.out.println("Plase enter the another number : ");
+		int sum = x + y;
+		System.out.println("Sum number is : " + sum);
+	}
+}
 
 
+
+
+
+		Count Number of Words in a String
+
+class Problems {
+	public static void main(String[] args) {
+		String name = "hello java";
+		System.out.println("Total letter is : " + name.length());
+		System.out.println("Total word is : " + name.split("\\s").length);
+	}
+}
+	
+
+
+
+
+	Calculate the Sum of an Array
+
+class Problems {
+	public static void main(String[] args) {
+		int[] array = { 1, 5, 6, 7, 5 };
+		int temp = 0;
+		for (int i = 0; i < array.length; i++) {
+			temp += array[i];
+		}
+		System.out.println(temp);
+	}
+}
+
+
+
+
+
+
+
+		Convert a String to an Array
+
+class Problems {
+	public static void main(String[] args) {
+		String name = "hello";
+		char[] str = name.toCharArray();
+		System.out.println(str);
+		System.out.println(str[0]);
+	}
+}
+
+
+
+
+
+
+
+		How To Sort an Array
+
+class Problems {
+	public static void main(String[] args) {
+		String[] cars = { "BMW", "Toyota", "Maruti", "Volvo" };
+		Arrays.sort(cars);
+		for (String car : cars) {
+			System.out.println(car);
+		}
+	}
+}
+
+
+
+
+
+
+
+		How To Calculate the Average of Array Elements
+
+class Problems {
+	public static void main(String[] args) {
+		int[] ages = { 20, 22, 18, 35, 48, 26, 87, 70 };
+
+		float avg, sum = 0;
+
+		int length = ages.length;
+
+		for (int age : ages) {
+			sum += age;
+		}
+
+		avg = length / sum;
+
+		System.out.println("Array average is : " + avg);
+	}
+}
+
+
+
+
+
+
+
+
+		How To Find the Smallest Element in an Array
+
+class Problems {
+	public static void main(String[] args) {
+		int[] ages = { 20, 22, 18, 35, 48, 26, 87, 70 };
+		int smallInt = ages[0];
+
+		for (int age : ages) if (age < smallInt)	smallInt = age;
+		System.out.println(smallInt);
+	}
+}
+
+
+
+
+
+
+
+		Loop Through an ArrayList
+
+class Problems {
+	public static void main(String[] args) {
+		ArrayList<String> cars = new ArrayList<>();
+		cars.add("BMW");
+		cars.add("Toyota");
+		cars.add("Maruti");
+		cars.add("Volvo");
+		cars.add("Lamboghini");
+		for (String car : cars) {
+			System.out.println(car);
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+		Loop Through a HashMap
+
+import java.util.HashMap;
+
+class Problems {
+	public static void main(String[] args) {
+		HashMap<String, Integer> names = new HashMap<>();
+		names.put("mohan", 29);
+		names.put("john", 24);
+		names.put("james", 35);
+		names.put("daniel", 20);
+		for (String name : names.keySet()) {
+			System.out.println(name);
+		}
+		for (Integer age : names.values()) {
+			System.out.println(age);
+		}
+	}
+}
+
+
+
+
+
+
+		Loop Through an Enum
+
+enum Level {
+	LOW, MEDIUM, HIGH
+}
+
+class Problems {
+	public static void main(String[] args) {
+		for( Level myVar : Level.values()){
+			System.out.println(myVar);
+		}
+	}
+}
+
+
+
+
+
+
+
+		Area of Rectangle
+
+class Problems {
+	public static void main(String[] args) {
+		int length = 10;
+		int width = 5;
+		int area = length * width;
+		System.out.println("Area of rectangle : " + area);
+	}
+}
+
+
+
+
+
+
+
+		Check Whether a Number is Even or Odd
+
+class Problems {
+	public static void main(String[] args) {
+		int number = 5;
+		if(number % 2 == 0){
+			System.out.println("Even number");
+		} else {
+			System.out.println("Odd Number");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+		Find Out if a Number is Positive or Negative
+
+class Problems {
+	public static void main(String[] args) {
+		int number = 5;
+		if (number > 0) {
+			System.out.println("Number is positive");
+		} else if (number < 0) {
+			System.out.println("Number is negative");
+		} else {
+			System.out.println("Number is 0");
+		}
+	}
+}
+
+
+
+
+
+
+		Square Root of a Number & random
+
+class Problems {
+	public static void main(String[] args) {
+		System.out.println(Math.sqrt(3));
+		System.out.println(Math.random());
+	}
+}
 */

@@ -305,9 +305,317 @@ public class Final {
 		p1.show();
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+						***** Comparator vs Comparable *****
+
+
+✅ Comparator (Custom Ordering)
+	Defined in java.util package.
+	Used to define multiple different sorting orders for objects.
+	A separate Comparator class (or lambda) implements Comparator<T> and overrides compare().
+	You can create multiple Comparators for different sort logics.
+
+Syntax:
+	class MyComparator implements Comparator<MyClass> {
+    @Override
+    public int compare(MyClass a, MyClass b) {
+        // return negative if a < b
+        // return zero if a == b
+        // return positive if a > b
+    	}	
+	}
+
+
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class AllImportant {
+	public static void main(String[] args) {
+		List<Integer> list = new ArrayList<>();
+		list.add(2);
+		list.add(1);
+		list.add(9);
+		list.add(4);
+
+		Comparator<Integer> com = new Comparator<Integer>() {
+			public int compare(Integer i, Integer j) {
+				if (i % 2 > j % 2) {
+					return 1;
+				} else {
+					return -1;
+				}
+			}
+		};
+
+		Collections.sort(list);
+		System.out.println(list);
+		Collections.sort(list, com);
+		System.out.println(list);
+	}
+}
+
+
+
+
+
+
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Student {
+	String name;
+	int age;	
+
+	public Student(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	public String toString() {
+		return "Student Name is : " + name + " Student Age is : " + age;
+	}
+	
+};
+
+class AllImportant {
+	public static void main(final String[] args) {
+		List<Student> list = new ArrayList<>();
+		list.add(new Student("Mohan", 29));
+		list.add(new Student("john", 20));
+		list.add(new Student("alen", 15));
+		list.add(new Student("James", 30));
+
+		final Comparator<Student> com = new Comparator<Student>() {
+			public int compare(Student i,  Student j) {
+				if (i.age > j.age) {
+					return 1;
+				} else {
+					return -1;
+				}
+			}
+		};
+
+		Collections.sort(list, com);
+
+		for(Student s : list){
+			System.out.println(s);
+		}
+	}
+}
+
+
+
+
+
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Student {
+	String name;
+	int age;
+
+	public Student(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	public String toString() {
+		return "Student Name is : " + name + " Student Age is : " + age;
+	}
+
+};
+
+class AllImportant {
+	public static void main(final String[] args) {
+		List<Student> list = new ArrayList<>();
+		list.add(new Student("Mohan", 29));
+		list.add(new Student("john", 20));
+		list.add(new Student("alen", 15));
+		list.add(new Student("James", 30));
+
+		Comparator<Student> com = (i, j) -> i.age > j.age ? 1 : -1;
+
+		Collections.sort(list, com);
+
+		for (Student s : list) {
+			System.out.println(s);
+		}
+	}
+}
+
+
+
+
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Cars {
+	String name;
+	int year;
+
+	Cars(String name, int year) {
+		this.name = name;
+		this.year = year;
+	}
+
+	public String display() {
+		return " Car name is : " + name + " Year is : " + year;
+	}
+}
+
+class AllImportant {
+	public static void main(String[] args) {
+		List<Cars> car = new ArrayList<>();
+		car.add(new Cars("BMW", 2000));
+		car.add(new Cars("Volvo", 2010));
+		car.add(new Cars("Toyoto", 2005));
+		car.add(new Cars("Suzuki", 2020));
+
+		Comparator<Cars> cars = (i, j) -> i.year > j.year ? 1 : -1;
+
+		Collections.sort(car, cars);
+
+		for (Cars c : car) {
+			System.out.println(c.display());
+		}
+	}
+}
+
+
+
+
+
+
+
+✅ Comparable (Natural Ordering)
+	Defined in java.lang package.
+	Used to define the default (natural) sorting order of objects.
+	A class implements Comparable<T> and overrides the compareTo() method.
+	Only one compareTo() method can be defined in a class.
+
+Syntax:
+	class MyClass implements Comparable<MyClass> {
+    @Override
+    public int compareTo(MyClass other) {
+        // return negative if this < other
+        // return zero if this == other
+        // return positive if this > other
+    	}
+	}
+
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Student implements Comparable<Student> {
+	String name;
+	int age;
+
+	public Student(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	public String toString() {
+		return "Student Name is : " + name + " Student Age is : " + age;
+	}
+
+	@Override
+	public int compareTo(Student that) {
+		return this.age > that.age ? 1 : -1;
+	}
+
+	
+
+};
+
+class AllImportant {
+	public static void main(final String[] args) {
+		List<Student> list = new ArrayList<>();
+		list.add(new Student("Mohan", 29));
+		list.add(new Student("john", 20));
+		list.add(new Student("alen", 15));
+		list.add(new Student("James", 30));
+
+		Collections.sort(list);
+
+		for (Student s : list) {
+			System.out.println(s);
+		}
+	}
+}
+
+
+
+
+
+
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+class Cars implements Comparable<Cars> {
+	String name;
+	int year;
+
+	Cars(String name, int year) {
+		this.name = name;
+		this.year = year;
+	}
+
+	public String display() {
+		return " Car name is : " + name + " Year is : " + year;
+	}
+
+	public int compareTo(Cars y) {
+		return this.year > y.year ? 1 : -1;
+	}
+}
+
+class AllImportant {
+	public static void main(String[] args) {
+		List<Cars> car = new ArrayList<>();
+		car.add(new Cars("BMW", 2000));
+		car.add(new Cars("Volvo", 2010));
+		car.add(new Cars("Toyoto", 2005));
+		car.add(new Cars("Suzuki", 2020));
+
+		Collections.sort(car);
+
+		for (Cars c : car) {
+			System.out.println(c.display());
+		}
+	}
+}
  */
-
-
-
-*/
-

@@ -531,7 +531,11 @@ public class StreamAPI {
         System.out.println(result);
     };
 }
-*/
+
+
+
+
+
 
 package java8;
 
@@ -580,3 +584,39 @@ public class StreamAPI {
 		System.out.println(set);
 	}
 }
+*/
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+class StreamAPI {
+    public static void main(String[] args) {
+        // 1. From collection
+        // Collections in java have a stream() method
+        List<String> names = Arrays.asList("Mohan", "john", "mock", "kevin");
+        names.stream().forEach(System.out::println);
+
+        // 2. From Arrays
+        // Arrays.stream() to create a stream from an array
+        int[] nums = { 4, 1, 6, 3, 9, 6, 4 };
+        IntStream intNums = Arrays.stream(nums);
+        intNums.forEach(System.out::println);
+
+        // 3. Using Stream.of()
+        // Stream.of() creates a elements from individual elements or an array
+        Stream<String> fruitStream = Stream.of("Apple", "Banana", "Orange");
+        fruitStream.forEach(System.out::println);
+
+        // 4. Generating streams
+        // Stream.generate() to Create an infinite stream of values.
+        Stream<String> genStream = Stream.generate(() -> "Hello").limit(3);
+        genStream.forEach(System.out::println);
+
+        //  5. Creating a stream with Stream.iterate()
+        //  Example : generating numbers from 5
+        Stream<Integer> numbStream = Stream.iterate(5, n -> n + 1).limit(3);
+        numbStream.forEach(System.out::println);
+    }
+}   

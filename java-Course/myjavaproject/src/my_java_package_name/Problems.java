@@ -615,4 +615,338 @@ class Problems {
 		System.out.println(Math.random());
 	}
 }
+
+
+
+
+
+
+		Multiple objects - 01
+
+package my_java_package_name;
+
+class Person {
+	String name;
+	int age;
+
+	Person(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	public void getPerson() {
+		System.out.println("Name is : " + name + " age is : " + age);
+	}
+}
+
+public class Problems {
+	public static void main(String[] args) {
+		Object obj1 = "Mohan";
+		Object obj2 = 'c';
+		Object obj3 = 100;
+		Object obj4 = 10.0f;
+		Object obj5 = 10.0d;
+		Object obj6 = new int[] { 1, 2, 3 };
+		Object obj7 = false;
+		Object obj8 = new Person("mohan", 29);
+
+		String str = (String) obj1;
+		int num = (Integer) obj3;
+		char charStr = (Character) obj2;
+		double d = (Double) obj5;
+		float f = (Float) obj4;
+		int[] arr = (int[]) obj6;
+		boolean isFalse = (Boolean) obj7;
+		Person p = (Person) obj8;
+
+		System.out.println(str);
+		System.out.println(num);
+		System.out.println(charStr);
+		System.out.println(d);
+		System.out.println(f);
+		System.out.println(arr[0]);
+		System.out.println(isFalse);
+		p.getPerson();
+	}
+}
+
+
+
+
+
+
+		Multiple objects - 02
+
+package my_java_package_name;
+
+class Person {
+	String name;
+	int age;
+
+	Person(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	public void getPerson() {
+		System.out.println("Name is : " + name + " age is : " + age);
+	}
+}
+
+public class Problems {
+	public static void main(String[] args) {
+		Object objs[] = new Object[3];
+
+		objs[0] = "Mohan";
+		objs[1] = 100;
+		objs[2] = new Person("Mohan", 29);
+
+		System.out.println((String) objs[0]);
+		System.out.println((Integer) objs[1]);
+		((Person) objs[2]).getPerson();
+	}
+}
+
+
+
+
+
+
+
+
+
+package my_java_package_name;
+
+import java.util.ArrayList;
+
+class Person {
+	String name;
+	int age;
+
+	Person(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	public void getPerson() {
+		System.out.println("Name is : " + name + " age is : " + age);
+	}
+}
+
+public class Problems {
+	public static void main(String[] args) {
+		Object objs = new ArrayList<>();
+
+		((ArrayList<String>) objs).add("mohan");
+		((ArrayList<Integer>) objs).add(100);
+		((ArrayList<Person>) objs).add(new Person("mohan", 29));
+
+		for (Object obj : (ArrayList<Object>) objs) {
+			System.out.println(obj);
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+		Find first occurrence
+
+class Problems {
+	public static void main(String[] args) {
+		String name = "Java is a programming of Java";
+
+		int firstIndex = name.indexOf("Java");
+
+		System.out.println("first index is : " + firstIndex);
+	}
+}
+	
+
+
+
+
+
+
+
+		Find last occurrence
+
+class Problems {
+	public static void main(String[] args) {
+		String name = "Java is a programming of Java";
+
+		int firstIndex = name.lastIndexOf("Java");
+
+		System.out.println("first index is : " + firstIndex);
+	}
+}
+
+
+
+
+
+
+
+		Find all occurrences with positions
+
+class Problems {
+	public static void main(String[] args) {
+		String name = "Java is a programming of Java";
+		String word = "Java";
+		int index = name.indexOf(word);
+
+		while (index != -1) {
+			System.out.println("Found index at : " + index);
+			index = name.indexOf(word, index + 1);
+			System.out.println(index);
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+		Count how many times a substring appears
+
+class Problems {
+	public static void main(String[] args) {
+		String str = "Java is a programming of Java";
+		String word = "Java";
+		int count = 0;
+		int index = str.indexOf(word);
+
+		while (index != -1) {
+			count++;
+			index = str.indexOf(word, index + word.length());
+		}
+
+		System.out.println("Total occurrence of " + word + " is " + count);
+
+	}
+}
+
+
+
+
+
+
+
+class Problems {
+	public static void main(String[] args) {
+		String str = "Java is a programming of Java";
+		String word = "a";
+		int count = 0;
+		int index = str.indexOf(word);
+
+		while (index != -1) {
+			count++;
+			System.out.println("counts " + count + " index is : " + index);
+			index = str.indexOf(word, index + word.length());
+		}
+		System.out.println("Total occurrence of " + word + " is " + count);
+	}
+}
+
+
+
+
+
+
+
+
+
+		Using Sorting
+
+import java.util.Arrays;
+
+class Problems {
+	public static void main(String[] args) {
+		int[] arr = { 10, 4, 3, 9, 11, 1 };
+		Arrays.sort(arr);
+
+		int firstNum = arr[1];
+		int lastNum = arr[arr.length - 2];
+
+		System.out.println("second min num : " +  firstNum);
+		System.out.println("second max num : " + lastNum);
+	}
+}
+
+
+
+
+
+
+		Using TreeSet (short & easy)
+
+import java.util.TreeSet;
+
+class Problems {
+	public static void main(String[] args) {
+		int[] arr = { 10, 4, 9, 5, 1, 3, 4, 9 };
+		TreeSet<Integer> set = new TreeSet<>();
+
+		for (int num : arr)
+			set.add(num);
+
+		System.out.println(set);
+
+		System.out.println(set.higher(set.first()));
+		System.out.println(set.lower(set.last()));
+
+		System.out.println(set.higher(1));
+	}
+}
+
+
+
+
+
+
+
+
+		Using Loop (handles duplicates)
+
+
 */
+
+import java.util.TreeSet;
+
+class Problems {
+	public static void main(String[] args) {
+		int[] arr = { 10, 4, 9, 5, 1, 3, 4, 9 };
+
+		Integer min = Integer.MAX_VALUE, secondMin = Integer.MAX_VALUE;
+		Integer max = Integer.MIN_VALUE, secondMax = Integer.MIN_VALUE;
+
+		for (int num : arr) {
+			// minimum
+			if (num < min) {
+				secondMin = min;
+				min = num;
+			} else if (num > min && num < secondMin) {
+				secondMin = min;
+			}
+
+			// maximum
+			if (num > max) {
+				secondMax = max;
+				max = num;
+			} else if (num < max && num > secondMax) {
+				secondMax = num;
+			}
+		}
+		System.out.println("second min : " + secondMin);
+		System.out.println("second max : " + secondMax);
+	}
+}

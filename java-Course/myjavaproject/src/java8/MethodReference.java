@@ -219,7 +219,10 @@ public class MethodReference {
         f2.printer("jack");
     }
 }
-*/
+
+
+
+
 
 import java.util.ArrayList;
 
@@ -240,3 +243,4 @@ class MethodReference {
         list.forEach(f1::method);
     }
 }
+*/

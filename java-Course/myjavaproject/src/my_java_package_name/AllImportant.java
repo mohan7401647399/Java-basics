@@ -57,7 +57,7 @@ System.out.println(list); // [Java, 100, 45.67, true]
 				*****enum*****
 
 	In Java, an enum (short for enumeration) is a special data type used to define a collection of constants (fixed set of values).
-				
+
  ✅ When to use Enum?
 		When you need a fixed set of related constants (like days of week, directions, status codes, colors, etc.).
 		Makes code readable, type-safe, and organized.

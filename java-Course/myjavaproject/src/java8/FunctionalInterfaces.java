@@ -164,7 +164,7 @@ public class Lambda {
 
 
 	5. Consumer — Takes input, returns nothing
-	
+
 package java8;
 
 import java.util.function.Consumer;

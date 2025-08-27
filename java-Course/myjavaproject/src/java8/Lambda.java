@@ -23,12 +23,12 @@ package java8;
 
 @FunctionalInterface
 interface MyFunction {
-	void sayHello(); // MyFunction has only one abstract method (sayHello).
+	void sayHello(); 	// MyFunction interface has only one abstract method (sayHello).
 }
 
 public class Lambda {
 	public static void main(String[] args) {
-		MyFunction m1 = () -> System.out.println("Hi");// Lambda expression
+		MyFunction m1 = () -> System.out.println("Hi");		// Lambda expression
 		m1.sayHello();
 	}
 }	

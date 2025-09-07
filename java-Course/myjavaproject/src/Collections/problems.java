@@ -123,9 +123,12 @@ class problems {
 	}
 }
 
- */
+
+
 
 package Collections;
+ */
+
 
 class problems {
 	public static void main(String[] args) {
@@ -134,8 +137,9 @@ class problems {
 
 		for (int i = 0; i < input.length(); i += 2) {
 			char ch = input.charAt(i);
+			System.out.println("ch : " + ch);
 			int count = input.charAt(i + 1) - '0';
-			System.out.println("ch: " + ch);
+			System.out.println("count : " + count);
 //			int count = Character.getNumericValue(input.charAt(i + 1));
 //			System.out.print("count : " + count + "\n");
 			for (int j = 0; j < count; j++) {

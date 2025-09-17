@@ -1,0 +1,28 @@
+1. DataTypes - Done
+2. Looping - Done
+3. Variables - Done
+4. Operators - Done
+5. TypeCasting - Done
+6. Naming convention - Done
+7. Strings -> String, StringBuffer, StringBuilder - Done
+8. Array - Done
+9. Class - Done
+10. Object - Done
+11. Method - Done
+12. AccessModifiers - Done
+13. Final - Done
+14. This Key - Done
+15. Exceptions - Done
+16. Constructor - Done
+17. Control flow statements - Done
+18. Memory Management - Done
+19. Thread - Done
+20. abstraction - Done
+21. Interface - Done
+22. OOPS -> Encapsulation -> Inheritance -> Polymorphism -> Abstraction - Done
+23. Up-casting and Down-casting - Done
+24. Collections -> Interfable -> Collection -> List -> ArrayList -> LinkedList -> Vector -> Stack
+											   Queue -> PriorityQueue -> Deque -> ArrayDequeue -> LinkedList
+											   Set -> HashSet -> LinkedHashSet -> SortedSet -> Treeset
+											   Map -> HashTable -> LinkedHashMap -> HashMap -> SortedMap -> TreeMap
+25. Java8 -> Default, static keyword -> Functional Interface -> Lambda -> Stream API -> Method Reference 

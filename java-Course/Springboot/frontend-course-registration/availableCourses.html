@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Available courses</title>
+  <script type="text/javascript" src="index.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 50px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: auto;
+      width: 80%;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      padding: 12px 15px;
+      text-align: center;
+    }
+
+    th {
+      background: #4a90e2;
+      color: white;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    tr:nth-child(even) {
+      background: #f2f6fc;
+    }
+
+    tr:nth-child(odd) {
+      background: #ffffff;
+    }
+
+    tr:hover {
+      background: #e0efff;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    td {
+      color: #333;
+      font-size: 15px;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      table {
+        width: 100%;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h1>Available Course Details</h1>
+
+    <table>
+      <tr>
+        <th width="100">Course Id</th>
+        <th width="150">Course Name</th>
+        <th width="150">Course Trainer</th>
+        <th width="150">Duration In Weeks</th>
+      </tr>
+      <tbody id="courseTable"></tbody>
+    </table>
+
+    <script type="text/javascript">
+      window.onload = () => {
+        showCourses();
+      }
+    </script>
+  </div>
+</body>
+
+</html>

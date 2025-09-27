@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>User Form</h1>
+    <a href="/Register.html"><button>Register Now</button> </a>
+    <button onclick="getAllUser()">Dashboard</button>
+    
+    <div id="userTable" style="padding: 10px;"></div>
+
+    <script>
+        function getAllUser() {
+            fetch("http://localhost:8080/user/getAllUsers")
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error("Network response was not ok " + res.status)
+                    }
+                    return res.json()
+                })
+                .then((data) => {
+                    console.log(data)
+                    let html = "<table border='1' cellpadding='5'><tr><th>ID</th><th>Name</th><th>Age</th><th>Email</th><th>Mobile</th></tr>";
+                    data.forEach(user => {
+                        html += `<tr>
+                                        <td>${user.id}</td>
+                                        <td>${user.name}</td>
+                                        <td>${user.age}</td>
+                                        <td>${user.email}</td>
+                                        <td>${user.mobile_no}</td>
+                                        <td>${user.salary}</td>
+                                        </tr>`
+                    })
+                    html += "</table>";
+                    document.getElementById("userTable").innerHTML = html;
+                })
+                .catch((err) => console.log(err))
+
+        }
+    </script>
+</body>
+
+</html>

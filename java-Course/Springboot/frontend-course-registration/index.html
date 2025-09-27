@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Registration</title>
+  <style>
+    /* Reset default browser spacing */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h1 {
+      color: aqua;
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button {
+      background-color: #444;
+      color: white;
+      padding: 15px 25px;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 80%;
+      max-width: 250px;
+    }
+
+    button:hover {
+      background-color: aqua;
+      color: black;
+      transform: scale(1.05);
+      box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Course Dashboard</h1>
+    <a href="/registration.html"><button>Register a Course</button></a>
+    <a href="/availableCourses.html"><button>Available Courses</button></a>
+    <a href="/enrolled.html"><button>Enrolled Students</button></a>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrolled</title>
+    <script type="text/javascript" src="index.js"></script>
+    <style>
+        /* Reset & Base */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #f0f9ff, #cbebff);
+            margin: 0;
+            padding: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0d47a1;
+            margin-bottom: 30px;
+        }
+
+        /* Table Container */
+        table {
+            border-collapse: collapse;
+            margin: auto;
+            width: 80%;
+            max-width: 900px;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        th, td {
+            padding: 14px 18px;
+            text-align: center;
+        }
+
+        /* Table Header */
+        th {
+            background: #0288d1;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Table Rows */
+        td {
+            background: #f9fbfd;
+            color: #333;
+        }
+
+        tr:nth-child(even) td {
+            background: #e8f4fd;
+        }
+
+        tr:hover td {
+            background: #bbdefb;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            tr {
+                margin-bottom: 15px;
+            }
+
+            th {
+                display: none;
+            }
+
+            td {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                border-bottom: 1px solid #ccc;
+                background: #f9fbfd !important;
+            }
+
+            td:before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: #0288d1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Enrolled Students</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th width="150">Name</th>
+                    <th width="150">Email Id</th>
+                    <th width="150">Course Name</th>
+                </tr>
+            </thead>
+            <tbody id="enrolledTable">
+                <!-- JS will insert rows here -->
+                <!-- Example static rows -->
+                <tr>
+                    <td data-label="Name">John Doe</td>
+                    <td data-label="Email Id">john@example.com</td>
+                    <td data-label="Course Name">React JS</td>
+                </tr>
+                <tr>
+                    <td data-label="Name">Jane Smith</td>
+                    <td data-label="Email Id">jane@example.com</td>
+                    <td data-label="Course Name">Node JS</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = () => {
+            enrolledCourses();
+        }
+    </script>
+</body>
+</html>

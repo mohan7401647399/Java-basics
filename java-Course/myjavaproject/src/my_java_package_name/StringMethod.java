@@ -14,6 +14,27 @@
 | **Predefined Class** | `String` is a **class**, not a primitive type, but Java makes it easy to use.   |
 | **Char Sequence**    | Internally, it's a sequence of **characters (char[])**.                        |
 
+
+		String s = "mohan";
+		System.out.println("s name is " + s);
+
+		String s1 = s;
+		System.out.println("s1 name is " + s1);
+		System.out.println(s == s1);				//	true
+
+		String s2 = s;
+		System.out.println("s2 name is " + s2);
+		System.out.println(s == s2);				//	true
+		
+		System.out.println(s1 == s2);				//	true
+
+		s = "Mohan R";
+		System.out.println("s name is " + s);
+		System.out.println(s == s1);				//	false
+
+		System.out.println(s + " " + s1 + " " + s2);
+
+
 	
 								*****String memory management*****
 ### 🔹 **1. String Pool (String Constant Pool - SCP)**
@@ -155,7 +176,25 @@ When to Use StringBuffer!
 
 		StringBuffer sb = new StringBuffer();					//	empty buffer
 		StringBuffer sb2 = new StringBuffer("Java");			//	with initial value
-		
+
+
+
+		StringBuffer s = new StringBuffer();
+		s.append("mohan");
+		System.out.println(s);
+
+		StringBuffer s1 = s;
+		System.out.println(s1);
+		System.out.println(s == s1);				//	true
+
+		StringBuffer s2 = s;
+		System.out.println(s2);
+		System.out.println(s == s2);				//	true
+
+		s.append(" r");
+		System.out.println(s + " " + " " + s1 + " " + s2);
+
+
 		
 
 package my_java_package_name;
@@ -226,6 +265,25 @@ When to Use StringBuilder
 | `reverse()`                  | Reverses the entire string                |
 | `length()`                   | Returns number of characters              |
 | `capacity()`                 | Returns buffer size (default is 16 + str) |
+
+
+
+
+		StringBuilder s = new StringBuilder();
+		s.append("mohan");
+		System.out.println(s);
+
+		StringBuilder s1 = s;
+		System.out.println(s1);
+		System.out.println(s == s1);				//	true
+
+		StringBuilder s2 = s;
+		System.out.println(s2);
+		System.out.println(s == s2);				//	true
+
+		s.append(" r");
+		System.out.println(s + " " + " " + s1 + " " + s2);
+
 
 
 

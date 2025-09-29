@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.model.User;
 import com.example.demo.repository.Repository;
 
+import jakarta.transaction.Transactional;
+
 @org.springframework.stereotype.Service
 //	same class name
 public class Service {
@@ -57,9 +59,24 @@ public class Service {
 		return "All users deleted";
 	}
 
+	// delete by name
+	public String deleteByName(String name) {
+		long deletedCount = repo.deleteByName(name);
+		if (deletedCount > 0) {
+			return deletedCount + "user deleted with name of " + name;
+		} else {
+			return "no user found with name of " + name;
+		}
+	}
+
 	// find by name
-	public User findByName(String name) {
-		return repo.findByName(name);
+	public List<User> findByName() {
+//		return repo.findByName(name);
+//		return repo.readByName(name);
+//		return repo.readByName(name);
+//		return repo.countByName(name);
+//		return repo.existsByName(name);
+		return repo.findAllByOrderByNameAsc();
 	}
 
 	// find by all Id's
@@ -86,9 +103,9 @@ public class Service {
 	public String getUserByName(int id) {
 		return repo.getUserById(id);
 	}
-	
+
 	// all HQL - queries
-	public int getAllUserQueries(int id, int salary){
+	public int getAllUserQueries(int id, int salary) {
 		return repo.getAllUserQueries(id, salary);
 	}
 }

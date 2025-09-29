@@ -69,9 +69,15 @@ public class Controller {
 		return "All users deleted";
 	}
 
-	@GetMapping("/findName/{name}")
-	public User findByUserName(@PathVariable String name) {
-		return service.findByName(name);
+	@GetMapping("/findName")
+	public List<User> findByUserName() {
+		return service.findByName();
+	}
+	
+	@DeleteMapping("/deleteByName/{name}")
+	public String deleteByName(@PathVariable String name) {
+		service.deleteByName(name);
+		return "user deleted";
 	}
 
 	@GetMapping("/by-ids")

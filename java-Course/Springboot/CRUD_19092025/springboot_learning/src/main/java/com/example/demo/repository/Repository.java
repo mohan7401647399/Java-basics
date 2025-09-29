@@ -15,8 +15,16 @@ import jakarta.transaction.Transactional;
 @org.springframework.stereotype.Repository
 public interface Repository extends JpaRepository<User, Integer> {
 
-	// custom method
+	// custom method - Derived query
 	public User findByName(String name);
+	public User readByName(String name);
+	public User getByName(String name);
+	public int countByName(String name);
+	public boolean existsByName(String name);
+	public List<User> findAllByOrderByNameAsc();
+	@Transactional
+	public Long deleteByName(String name);
+	
 
 	// Native query
 	@Query(value = "select * from user where name =:name and age =:age", nativeQuery = true)
@@ -26,6 +34,8 @@ public interface Repository extends JpaRepository<User, Integer> {
 	@Query(value = "select * from user where name =:name or age =:age", nativeQuery = true)
 	public List<User> findByNameAge(@RequestParam("name") String name, @RequestParam("age") int age);
 
+	
+	
 	// HQL - hybernate query language
 //	@Query("from User u where u.age > :age")
 //	public List<User> getByAge(int age);

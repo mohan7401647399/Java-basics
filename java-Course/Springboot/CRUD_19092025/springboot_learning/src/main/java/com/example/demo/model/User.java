@@ -1,9 +1,16 @@
 package com.example.demo.model;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-//import jakarta.persistence.GeneratedValue;
-//import jakarta.persistence.GenerationType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,14 +22,24 @@ import lombok.NoArgsConstructor;
 public class User {
 
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
 	private String name;
 	private int age;
 	private String email;
 	private Long mobile_no;
 	private int salary;
+	private boolean active;
 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JsonManagedReference
+	private Address address;
+	
+//	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)	
+//	private List<Project> projects;
+
+}
 //	public User() {
 //	};
 //
@@ -82,5 +99,3 @@ public class User {
 //	public void setSalary(int salary) {
 //		this.salary = salary;
 //	}
-
-}

@@ -13,26 +13,14 @@ import com.example.demo.model.User;
 import jakarta.transaction.Transactional;
 
 @org.springframework.stereotype.Repository
-public interface Repository extends JpaRepository<User, Integer> {
+public interface Repository extends JpaRepository<User, Integer> {	
 
-	// custom method - Derived query
-	public User findByName(String name);
-	public User readByName(String name);
-	public User getByName(String name);
-	public int countByName(String name);
-	public boolean existsByName(String name);
-	public List<User> findAllByOrderByNameAsc();
-	@Transactional
-	public Long deleteByName(String name);
-	
-
-	// Native query
+	// Native queries
 	@Query(value = "select * from user where name =:name and age =:age", nativeQuery = true)
 	public List<User> findByNameAndAge(@RequestParam("name") String name, @RequestParam("age") int age);
 
-	// Native query
 	@Query(value = "select * from user where name =:name or age =:age", nativeQuery = true)
-	public List<User> findByNameAge(@RequestParam("name") String name, @RequestParam("age") int age);
+	public List<User> findByNameOrAge(@RequestParam("name") String name, @RequestParam("age") int age);
 
 	
 	

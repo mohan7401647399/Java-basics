@@ -69,30 +69,9 @@ public class Controller {
 		return "All users deleted";
 	}
 
-	@GetMapping("/findName")
-	public List<User> findByUserName() {
-		return service.findByName();
-	}
-	
-	@DeleteMapping("/deleteByName/{name}")
-	public String deleteByName(@PathVariable String name) {
-		service.deleteByName(name);
-		return "user deleted";
-	}
-
 	@GetMapping("/by-ids")
 	public List<User> findByAllIds(@RequestParam List<Integer> ids) {
 		return service.findByAllIds(ids);
-	}
-
-	@GetMapping("/nameandage")
-	public List<User> findByNameAndAge(@RequestParam String name, @RequestParam int age) {
-		return service.findByNameAndAge(name, age);
-	}
-
-	@GetMapping("/nameorage")
-	public List<User> findByNameOrAge(@RequestParam String name, @RequestParam int age) {
-		return service.findByNameAndAge(name, age);
 	}
 
 	@GetMapping("/getByAge/{age}")
@@ -110,4 +89,37 @@ public class Controller {
 		int deletedId = service.getAllUserQueries(id, salary);
 		return deletedId > 0 ? "User has been deleted" : "User not found";
 	}
+
+	/*
+	 * @GetMapping("/derivedQueries/{age1}/between/{age2}") public List<User>
+	 * derivedMethods(@PathVariable int age1, @PathVariable int age2) { return
+	 * service.DerivedAllQueries(age1, age2); }
+	 * 
+	 * @DeleteMapping("/derivedQueries/{name}") public String
+	 * deleteByName(@PathVariable String name) { service.deleteByName(name); return
+	 * "user deleted"; }
+	 * 
+	 * @GetMapping("/nameandage") public List<User> findByNameAndAge(@RequestParam
+	 * String name, @RequestParam int age) { return service.findByNameAndAge(name,
+	 * age); }
+	 * 
+	 * @GetMapping("/nameorage") public List<User> findByNameOrAge(@RequestParam
+	 * String name, @RequestParam int age) { return service.findByNameOrAge(name,
+	 * age); }
+	 * 
+	 * @GetMapping("/derivedQueries/{age}") public List<User>
+	 * derivedMethods(@PathVariable int age) { return
+	 * service.DerivedAllQueries(age); }
+	 * 
+	 * @GetMapping("/derivedQueries/{name}") public List<User>
+	 * derivedMethods(@PathVariable String name) { return
+	 * service.DerivedAllQueries(name); }
+	 * 
+	 * @GetMapping("/derivedQueries/{name}") public List<User>
+	 * derivedMethods(@PathVariable List<String> name) { return
+	 * service.DerivedAllQueries(name); }
+	 * 
+	 * @GetMapping("/derivedQueries") public List<User> derivedMethods() { return
+	 * service.DerivedAllQueries(); }
+	 */
 }

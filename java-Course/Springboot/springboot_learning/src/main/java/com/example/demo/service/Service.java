@@ -1,34 +1,63 @@
 package com.example.demo.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.model.Address;
+import com.example.demo.model.Department;
+import com.example.demo.model.Projects;
 import com.example.demo.model.User;
 import com.example.demo.repository.AddressRepository;
+import com.example.demo.repository.DeptRepository;
 import com.example.demo.repository.DerivedQueryRepository;
+import com.example.demo.repository.ProjectRepository;
 import com.example.demo.repository.Repository;
 
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 @org.springframework.stereotype.Service
-@AllArgsConstructor
 //	same class name
 public class Service {
 
 	@Autowired
-	private final Repository repo;
+	private Repository repo;
 
 	@Autowired
-	private final DerivedQueryRepository dqrepo;
+	private DerivedQueryRepository dqrepo;
+
+	@Autowired
+	private AddressRepository addressRepo;
+
+	@Autowired
+	private DeptRepository deptRepository;
+
+	@Autowired
+	private ProjectRepository projectRepository;
 
 	// create
+	// address linking
 	public User createUser(User user) {
+		if (user.getAddress() != null && user.getAddress().getId() != null) {
+			Address existingAddress = addressRepo.findById(user.getAddress().getId()).orElseThrow();
+			user.setAddress(existingAddress);
+		}
+		return repo.save(user);
+	}
+
+	// department linking
+	public User createUserWithDept(User user, Long deptId) {
+		Department department = deptRepository.findById(deptId).orElseThrow();
+		user.setDepartment(department);
+		return repo.save(user);
+	}
+
+	//	Assign project to a user
+	public User assignProjectToUser(Long userId, List<Long> ProjectIds) {
+		User user = repo.findById(userId).orElseThrow(() -> new RuntimeException("user not found"));
+		List<Projects> projects = projectRepository.findAllById(ProjectIds);
+		user.getProjects().addAll(projects);
+
 		return repo.save(user);
 	}
 
@@ -38,42 +67,48 @@ public class Service {
 	}
 
 	// get single user
-	public User getUser(int id) {
+	public User getUser(Long id) {
 //		return repo.findById(id).orElse(new User());
 		return repo.findById(id).orElse(null);
 	}
 
 	// update user
-	public User updateUser(int id, User user) {
+	public User updateUser(Long id, User user) {
 
-		//	get existing user
+		// get existing user
 		User existingUser = repo.findById(id).orElseThrow(() -> new EntityNotFoundException("User not found"));
 
-		//	update basis fields
-		if(user.getName() != null) existingUser.setName(user.getName());
-		if(user.getAge() != 0) existingUser.setAge(user.getAge());		
-		if(user.getEmail() != null) existingUser.setEmail(user.getEmail());
-		if(user.getMobile_no() != null) existingUser.setMobile_no(user.getMobile_no());
-		if(user.getSalary() != 0) existingUser.setSalary(user.getSalary());
+		// update basis fields
+		if (user.getName() != null)
+			existingUser.setName(user.getName());
+		if (user.getAge() != 0)
+			existingUser.setAge(user.getAge());
+		if (user.getEmail() != null)
+			existingUser.setEmail(user.getEmail());
+		if (user.getMobile_no() != null)
+			existingUser.setMobile_no(user.getMobile_no());
+		if (user.getSalary() != 0)
+			existingUser.setSalary(user.getSalary());
 		existingUser.setActive(user.isActive());
 
-		//	update address
-		if(user.getAddress() != null) {
+		// update address
+		if (user.getAddress() != null) {
 			Address existingAddress = existingUser.getAddress();
 			Address newAddress = user.getAddress();
-			
-			if(existingAddress == null) {
+
+			if (existingAddress == null) {
 				newAddress.setUser(existingUser);
 				existingUser.setAddress(newAddress);
 			} else {
-				if(newAddress.getCity() != null) existingAddress.setCity(newAddress.getCity());
+				if (newAddress.getCity() != null)
+					existingAddress.setCity(newAddress.getCity());
 			}
-		}		
+		}
 		return repo.save(existingUser);
 	}
 
 	// delete user
-	public String deleteUser(int id) {
+	public String deleteUser(Long id) {
 		repo.deleteById(id);
 		return "User deleted";
 	}
@@ -130,7 +165,7 @@ public class Service {
 	}
 
 	// find by all Id's
-	public List<User> findByAllIds(List<Integer> ids) {
+	public List<User> findByAllIds(List<Long> ids) {
 		return repo.findAllById(ids);
 	}
 

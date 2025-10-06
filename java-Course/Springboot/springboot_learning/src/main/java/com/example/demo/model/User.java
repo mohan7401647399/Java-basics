@@ -1,7 +1,9 @@
 package com.example.demo.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -9,7 +11,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +28,7 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	
 	private String name;
 	private int age;
@@ -33,12 +38,21 @@ public class User {
 	private boolean active;
 
 	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id")
 	@JsonManagedReference
 	private Address address;
 	
-//	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)	
-//	private List<Project> projects;
-
+	@ManyToOne
+	@JoinColumn(name = "dept_id")
+	@JsonBackReference
+	private Department department;
+	
+	@ManyToMany
+	@JoinTable(name = "user_project",							//	Join table name
+	joinColumns = @JoinColumn(name = "user_id"),				//	FK for user
+	inverseJoinColumns = @JoinColumn(name = "project_id"))		//	FK for project
+	private List<Projects> projects = new ArrayList<>();
+	
 }
 //	public User() {
 //	};

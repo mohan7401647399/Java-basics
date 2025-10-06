@@ -13,7 +13,7 @@ import com.example.demo.model.User;
 import jakarta.transaction.Transactional;
 
 @org.springframework.stereotype.Repository
-public interface Repository extends JpaRepository<User, Integer> {	
+public interface Repository extends JpaRepository<User, Long> {	
 
 	// Native queries
 	@Query(value = "select * from user where name =:name and age =:age", nativeQuery = true)

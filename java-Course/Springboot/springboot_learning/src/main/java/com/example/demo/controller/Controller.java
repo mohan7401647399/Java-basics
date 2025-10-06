@@ -33,9 +33,19 @@ public class Controller {
 	}
 
 	@PostMapping("/create")
-//	public User createUser(@RequestBody User user) {
-	public User createUser(@ModelAttribute User user) {
+//	  public User createUser(@ModelAttribute User user) {
+	public User createUser(@RequestBody User user) {
 		return service.createUser(user);
+	}
+
+	@PostMapping("/create/{deptId}")
+	public User createUserWithDept(@RequestBody User user, @PathVariable Long deptId) {
+		return service.createUserWithDept(user, deptId);
+	}
+
+	@PostMapping("/{userId}/projects")
+	public User assignProjectToUser(@PathVariable Long userId, @RequestBody List<Long> projectIds) {
+		return service.assignProjectToUser(userId, projectIds);
 	}
 
 	@GetMapping("/getAllUsers")
@@ -44,7 +54,7 @@ public class Controller {
 	}
 
 	@GetMapping("/getUser/{id}")
-	public ResponseEntity<User> getUser(@PathVariable int id) {
+	public ResponseEntity<User> getUser(@PathVariable Long id) {
 		User s1 = service.getUser(id);
 		if (s1 == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -53,12 +63,12 @@ public class Controller {
 	}
 
 	@PutMapping("/update/{id}")
-	public User updateUser(@PathVariable int id, @RequestBody User user) {
+	public User updateUser(@PathVariable Long id, @RequestBody User user) {
 		return service.updateUser(id, user);
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public String deleteUser(@PathVariable int id) {
+	public String deleteUser(@PathVariable Long id) {
 		service.deleteUser(id);
 		return "user has been deleted";
 	}
@@ -70,7 +80,7 @@ public class Controller {
 	}
 
 	@GetMapping("/by-ids")
-	public List<User> findByAllIds(@RequestParam List<Integer> ids) {
+	public List<User> findByAllIds(@RequestParam List<Long> ids) {
 		return service.findByAllIds(ids);
 	}
 

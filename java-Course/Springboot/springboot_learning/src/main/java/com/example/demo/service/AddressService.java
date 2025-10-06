@@ -12,7 +12,7 @@ public class AddressService {
 	@Autowired
 	private AddressRepository addressRepository;
 
-	public Address getAddress(int id) {
+	public Address getAddress(Long id) {
 		return addressRepository.findById(id).orElse(null);
 	}
 }

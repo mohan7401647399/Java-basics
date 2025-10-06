@@ -10,14 +10,13 @@ import com.example.demo.model.Address;
 import com.example.demo.service.AddressService;
 
 @RestController
-@RequestMapping("/user")
 public class AddressController {
 	
 	@Autowired
 	private AddressService addressService;
 	
 	@GetMapping("/address/{id}")
-	public Address getAddress(@PathVariable int id) {
+	public Address getAddress(@PathVariable Long id) {
 		return addressService.getAddress(id);
 	}
 	

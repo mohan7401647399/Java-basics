@@ -1,5 +1,7 @@
 package com.example.demo.DTO;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,11 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommentDTO {
+public class StudentDTO {
 
-	private int commentId;
+	private int studentId;
+
+	private String studentName;
 	
-	private String comment;
-	
-	private int videoId;
+	private List<Integer> courseIds;
 }

@@ -4,10 +4,11 @@ import java.util.Collections;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.core.userdetails.User;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.UserEntity;
 import com.example.demo.repository.UserRepository;
@@ -17,6 +18,7 @@ import com.example.demo.repository.UserRepository;
  * class is responsible for loading user-specific data from the database when a
  * user attempts to authenticate (login).
  */
+@Service
 public class CustomUserDetailsServices implements UserDetailsService {
 
 	// Injecting UserRepository to access user data from the database
@@ -25,8 +27,9 @@ public class CustomUserDetailsServices implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		
 		// Fetch the user from the database using the repository
-		UserEntity user = userRepository.findByUsername(username);
+		UserEntity user = userRepository.findByUsername(username).orElseThrow();
 
 		// If the user does not exist, throw an exception
 		if (user == null) {

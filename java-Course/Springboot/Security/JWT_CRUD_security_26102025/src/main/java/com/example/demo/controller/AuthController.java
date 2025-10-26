@@ -1,7 +1,8 @@
 package com.example.demo.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,15 +16,15 @@ import com.example.demo.service.AuthService;
 public class AuthController {
 
 	@Autowired
-	private AuthService authService;
-
+	private AuthService service;
+	
 	@PostMapping("/register")
-	public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity user) {
-		return ResponseEntity.ok(authService.createUser(user));
+	public UserEntity registerUser(@RequestBody UserEntity user) {
+		return service.register(user);
 	}
-
+	
 	@PostMapping("/login")
-	public String loginUser(@RequestBody UserEntity user) {
-		return authService.loginUser(user);
+	public Map<String, String> loginUser(@RequestBody UserEntity user) {
+		return service.login(user);
 	}
 }

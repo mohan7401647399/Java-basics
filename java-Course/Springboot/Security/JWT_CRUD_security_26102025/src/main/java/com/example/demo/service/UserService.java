@@ -12,31 +12,29 @@ import com.example.demo.repository.UserRepository;
 public class UserService {
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserRepository repository;
 
 	public List<UserEntity> getAllUsers() {
-		return userRepository.findAll();
+		return repository.findAll();
 	}
 
-	public UserEntity getUserById(int id) {
-		return userRepository.findById(id).orElseThrow();
+	public UserEntity getUser(int id) {
+		return repository.findById(id).orElseThrow();
 	}
 
 	public UserEntity updateUser(int id, UserEntity user) {
-		UserEntity existingUser = userRepository.findById(id).orElseThrow();
+		UserEntity existingUser = repository.findById(id).orElseThrow();
 
 		if (existingUser != null) {
 			existingUser.setUsername(user.getUsername());
-			existingUser.setRole(user.getRole());
-
-			return userRepository.save(existingUser);
+			return repository.save(existingUser);
 		}
 		return null;
 	}
 
 	public String deleteUser(int id) {
-		userRepository.deleteById(id);
-
+		repository.deleteById(id);
 		return "User has been deleted";
 	}
+
 }

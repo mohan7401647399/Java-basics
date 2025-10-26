@@ -14,30 +14,39 @@ import com.example.demo.repository.UserRepository;
 @Service
 public class AuthService {
 
-	@Autowired
-	private UserRepository repository;
+    @Autowired
+    private UserRepository repository;
 
-	@Autowired
-	private PasswordEncoder encoder;
+    @Autowired
+    private PasswordEncoder encoder;
 
-	@Autowired
-	private AuthenticationManager manager;
+    @Autowired
+    private AuthenticationManager manager;
 
-	@Autowired
-	private JwtUtil jwtUtil;
+    @Autowired
+    private JwtUtil jwtUtil;
 
-	private CustomUserDetailsService userDetailsService;
+    @Autowired
+    private CustomUserDetailsService userDetailsService;
+    
+    // Create a new user with encrypted password
+    public UserEntity createUser(UserEntity user) {
+        user.setPassword(encoder.encode(user.getPassword()));
+        return repository.save(user);
+    }
 
-	public UserEntity createUser(UserEntity user) {
-		user.setPassword(encoder.encode(user.getPassword()));
-		return repository.save(user);
-	}
+    // Authenticate user and generate JWT token
+    public String loginUser(UserEntity user) {
+        // 1️. Authenticate credentials
+        manager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 
-	public String LoginUser(UserEntity user) {
-		manager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+        // 2️. Load user details
+        UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
 
-		UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
+        // 3️. Generate token
+        String token = jwtUtil.generateToken(userDetails);
 
-		return jwtUtil.generateToken(userDetails);
-	}
+        // 4️. Return token
+        return token;
+    }
 }

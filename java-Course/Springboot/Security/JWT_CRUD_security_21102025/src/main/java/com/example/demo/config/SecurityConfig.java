@@ -16,42 +16,57 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 public class SecurityConfig {
-	
-	private JwtAuthFilter jwtAuthFilter;
 
-	@Autowired
-	private UserDetailsService userDetailsService;
+    @Autowired
+    private JwtAuthFilter jwtAuthFilter; // Custom JWT filter
 
-	@Bean
-	public AuthenticationManager authenticationManager(UserDetailsService userDetailsService,
-			PasswordEncoder passwordEncoder) {
-		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+    @Autowired
+    private UserDetailsService userDetailsService; // Loads users from DB
 
-		provider.setUserDetailsService(userDetailsService);
-		provider.setPasswordEncoder(passwordEncoder);
+   //	AuthenticationManager bean — uses DaoAuthenticationProvider for DB-based authentication
+    @Bean
+    public AuthenticationManager authenticationManager() {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(userDetailsService);
+        provider.setPasswordEncoder(passwordEncoder());
+        return new ProviderManager(provider);
+    }
 
-		return new ProviderManager(provider);
-	}
+     //	BCrypt encoder for password hashing
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+    /**
+     * Main security configuration — defines public and protected routes,
+     * adds JWT filter, and disables session state.
+     */
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            // Disable CSRF since we're using token-based authentication
+            .csrf(csrf -> csrf.disable())
 
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http
-		.csrf(csrf -> csrf.disable())
-		.authorizeHttpRequests(
-				auth -> auth.requestMatchers("/auth/**").permitAll()
-				.requestMatchers("/users/all").hasRole("ADMIN")
-				.requestMatchers("/users/**").hasAnyRole("USER", "ADMIN")
-				.anyRequest().authenticated()			
-		)
-		.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-		.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-		
-		
-		return http.build();
-	}
+            // Authorize requests based on URL and roles
+            .authorizeHttpRequests(auth -> auth
+                // Public end-points
+                .requestMatchers("/auth/register", "/auth/login", "/auth/**").permitAll()
 
+                // Role-based access control
+                .requestMatchers("/users/all").hasRole("ADMIN")
+                .requestMatchers("/users/**").hasAnyRole("USER", "ADMIN")
+
+                // Everything else must be authenticated
+                .anyRequest().authenticated()
+            )
+
+            // Use stateless session — every request must carry a JWT
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+
+            // Add our custom JWT filter before UsernamePasswordAuthenticationFilter
+            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
+    }
 }

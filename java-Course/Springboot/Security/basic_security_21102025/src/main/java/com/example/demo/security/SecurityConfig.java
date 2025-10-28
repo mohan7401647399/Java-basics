@@ -14,7 +14,9 @@ public class SecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.csrf(csrf -> csrf.disable()) // disable CSRF for testing with Postman
 				.authorizeHttpRequests(
-						auth -> auth.requestMatchers("/api/employees/**").authenticated().anyRequest().permitAll())
+						auth -> auth
+						.requestMatchers("/api/employees/**").authenticated()
+						.anyRequest().permitAll())
 				.httpBasic();	//	Enable basic authentication
 
 		return http.build();

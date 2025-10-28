@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,9 +27,8 @@ public class UserController {
 		return service.registerUser(user);
 	}
 
-	@PostMapping("/login")
-	public String loginUser() {
-		return service.loginUser();
-	}	
-
+	@GetMapping("/getAll")
+	public List<UserEntity> getAllUsers(){
+		return service.getAll();
+	}
 }

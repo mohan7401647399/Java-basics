@@ -5,27 +5,27 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import com.example.demo.model.UserEntity;
 import com.example.demo.repository.UserRepository;
 
-@Service
+@Component
 public class CustomUserDetailsService implements UserDetailsService {
-
+	
 	@Autowired
 	private UserRepository repository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		UserEntity user = repository
-									.findByUsername(username)
-									.orElseThrow(() -> new UsernameNotFoundException("Username not found " + username));
-
-		return User
-				.withUsername(user.getUsername())
-				.password(user.getPassword())
-				.authorities("USER")					//	no roles, default authority
-				.build();
-	}
+		UserEntity user = repository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User name not found " + username));
+		
+		UserDetails userDetails = User
+									.builder()
+									.username(user.getUsername())
+									.password(user.getPassword())
+									.roles(user.getRole().toUpperCase())
+									.build();		
+		return userDetails;
+	}	
 }

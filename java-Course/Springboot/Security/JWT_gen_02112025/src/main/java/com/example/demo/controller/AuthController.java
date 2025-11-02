@@ -1,17 +1,18 @@
 package com.example.demo.controller;
 
-import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.UserEntity;
 import com.example.demo.service.AuthService;
 
 @RestController
+@RequestMapping("/auth")
 public class AuthController {
 
 	@Autowired
@@ -22,14 +23,8 @@ public class AuthController {
 		return authService.registerUser(user);
 	}
 
-	// get users
-	@GetMapping("/user/get")
-	public List<UserEntity> getUsers() {
-		return authService.getUsers();
-	}
-
-	@GetMapping("/admin/get")
-	public List<UserEntity> getUsersAll() {
-		return authService.getUsersAll();
+	@PostMapping("/login")
+	public Map<String, String> loginUser(@RequestBody UserEntity user) {
+		return authService.loginUser(user);
 	}
 }

@@ -330,3 +330,6 @@ public class Variables {
 	}
 }
  */
+package core_java;
+
+

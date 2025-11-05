@@ -104,6 +104,7 @@ public class InnerClass {
 
         package my_java_package_name;
  */
+package core_java;
 
 abstract class Outer {
     abstract void inner();

@@ -62,6 +62,7 @@
 
         package my_java_package_name;
  */
+package core_java;
 
 public class WrapperClass {
     public static void main(String[] args) {

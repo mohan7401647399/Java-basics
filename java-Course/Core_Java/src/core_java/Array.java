@@ -105,3 +105,18 @@ public class Arrays {
 	}
 }
  */
+package core_java;
+
+public class Array{
+	public static void main(String[] args) {
+		System.out.println("hi");
+		int[] arrays = new int[5];
+		System.out.println(arrays.length);
+		String[] arrays1 = new String[5];
+		System.out.println(arrays1.length);
+		int[] arrays2 = {1,2,3,4,5};
+		System.out.println(arrays2[0]);
+		String[] arrays3 = {"a", "b", "c", "d", "d" };
+		System.out.println(arrays3[0]);
+	}
+}

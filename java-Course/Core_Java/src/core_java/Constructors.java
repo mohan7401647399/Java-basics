@@ -115,10 +115,9 @@ class Constructors {
 }
 
  */
+package core_java;
 
-
-
- class Student{
+class Student{
 	String name;
 	int age;
 

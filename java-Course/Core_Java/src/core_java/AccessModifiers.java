@@ -66,7 +66,7 @@ public class AccessModifiers {
 	//	We can access name and show() from any class, even in other packages.
 	public String name = "Mohan";								//	public variable
 	
-	public void show() {										//	public method
+	public void show() {											//	public method
 		System.out.println("name is " + name);
 	}
 	
@@ -136,7 +136,7 @@ public class AccessModifiers {
 		PrivateClass n1 = new PrivateClass();							//	create on object
 		n1.display();													//	call method
 		//	we cannot call the private data into the another class
-		n1.name;														//	call variable
+		n1.name;															//	call variable
 	}
 }
 
@@ -176,7 +176,7 @@ public class AccessModifiers {
 
 	public static void main(String[] args) {
 		PrivateClass n1 = new PrivateClass();							//	create on object
-		System.out.println(n1.name);									//	call variable
+		System.out.println(n1.name);										//	call variable
 		n1.display();													//	call method
 	}
 }
@@ -216,7 +216,7 @@ public class AccessModifiers {
 
 	public static void main(String[] args) {
 		ProtectedClass n1 = new ProtectedClass();						//	create on object
-		System.out.println(n1.name);									//	call variable
+		System.out.println(n1.name);										//	call variable
 		n1.display();													//	call method
 	}
 }
@@ -229,8 +229,8 @@ class ProtectedClass{
 }
 
 
-
-package my_java_package_name;
+*/
+package core_java;
 
 public class AccessModifiers {
 	
@@ -239,7 +239,7 @@ public class AccessModifiers {
 	public static void main(String[] args) {
 		ProtectedClass n1 = new ProtectedClass();						//	create on object
 		n1.display();													//	call method
-		System.out.println(n1.name);									//	print another class variable using extends
+		System.out.println(n1.name);										//	print another class variable using extends
 	}
 }
 
@@ -250,4 +250,4 @@ class ProtectedClass extends AccessModifiers{
 	}
 }
 
- */
+ 

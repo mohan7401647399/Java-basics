@@ -62,7 +62,8 @@ for (int i = 1; i <= 5; i++) {
 	
  */
 
-// package my_java_package_name;
+// package core_java;
+package core_java;
 
 public class Looping {
     public static void main(String[] args) {

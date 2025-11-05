@@ -16,20 +16,21 @@ Key characteristics of a Java class:
   		A class is declared using the class keyword, followed by the class name and a block of code enclosed in curly braces, which contains the class members (fields, methods, constructors, etc.). 
 
 	class syntax/structure:- 
+	
 		class className {
 			//	fields(variables/properties)
-			//	methods(actions/behaviour)
+			//	methods(actions/behavior)
 		}
 		
 
 Example - 1
-package my_java_package_name;
+package core_java;
 
 public class Classes {
 	String name;													//	fields(state)
 	int age;														//	fields(state)
 	
-	public void showDetails() {										// method(behaviour)
+	public void showDetails() {										// method(behavior)
 		System.out.println("Name is " + name + " age is " + age);
 	}
 	
@@ -39,33 +40,34 @@ public class Classes {
 		c1.age = 29;
 		c1.showDetails();											//	call method
 	}
-
+	
 }
 
 
 
 
 Example - 2
-package my_java_package_name;
+ */
+package core_java;
 
 public class Classes {
-	String name;													//	fields(state)
-	int age;														//	fields(state)
-	
-	//	constructor - 	No need to assign values one by one after creating the object
-	public Classes(String name, int age) {							
-		this.name = name;
-		this.age = age;
-	}
-	
-	public void showDetails() {										// method(behaviour)
-		System.out.println("Name is " + name + " age is " + age);
-	}
-	
-	public static void main(String[] args) {
-		Classes c1 = new Classes("Mohan", 29);						//	create an object
-		c1.showDetails();											//	call method
-	}
+
+    String name;													//	fields(state)
+    int age;														//	fields(state)
+
+    //	constructor - 	No need to assign values one by one after creating the object
+    public Classes(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void showDetails() {										// method(behavior)
+        System.out.println("Name is " + name + " age is " + age);
+    }
+
+    public static void main(String[] args) {
+        Classes c1 = new Classes("Mohan", 29);						//	create an object
+        c1.showDetails();											//	call method
+    }
 
 }
-*/

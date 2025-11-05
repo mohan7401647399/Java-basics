@@ -4,7 +4,6 @@
 
 		A method without a body (no implementation).
 		Declared with the keyword abstract.
-		Ends with a semicolon ;.
 
 				abstract void draw();
 
@@ -62,7 +61,7 @@
 
 
 
-package my_java_package_name;
+package core_java;
 
 abstract class Hotel {
 	abstract void display();
@@ -177,7 +176,7 @@ class Abstracts {
 }
 
 
-package my_java_package_name;
+package core_java;
 
 abstract class Company{
 	String name;
@@ -212,37 +211,40 @@ class Abstracts {
 
 
 
-*/
+ */
+package core_java;
 
+abstract class AbstractClass {
 
-package my_java_package_name;
+    abstract void abstractMethod();
 
-abstract class AbstractClass{
-	abstract void abstractMethod();
-	void normalMethod() {
-		System.out.println("normal method in abstract class");
-	}
+    void normalMethod() {
+        System.out.println("normal method in abstract class");
+    }
 }
 
-class NormalClass extends AbstractClass{
-	public void abstractMethod() {
-		System.out.println("abstract method in NormalClass class");
-	}
+class NormalClass extends AbstractClass {
+
+    @Override
+    public void abstractMethod() {
+        System.out.println("abstract method in NormalClass class");
+    }
 }
 
- class Abstracts{
-	public static void main(String[] args) {
-		AbstractClass a1 = new NormalClass();
-		a1.abstractMethod();
-		a1.normalMethod();
-		AbstractClass a2 = new AbstractClass() {
-			
-			@Override
-			void abstractMethod() {
-				System.out.println("abstract method called in main class");
-				
-			}
-		};
-		a2.abstractMethod();
-	}
+public class Abstracts {
+
+    public static void main(String[] args) {
+        AbstractClass a1 = new NormalClass();
+        a1.abstractMethod();
+        a1.normalMethod();
+        AbstractClass a2 = new AbstractClass() {
+
+            @Override
+            void abstractMethod() {
+                System.out.println("abstract method called in main class");
+
+            }
+        };
+        a2.abstractMethod();
+    }
 }

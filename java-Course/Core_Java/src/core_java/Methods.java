@@ -32,7 +32,7 @@ Key components of a Java method:
 
 			
 */
-package my_java_package_name;
+package core_java;
 
 public class Methods {
 
@@ -53,11 +53,11 @@ public class Methods {
 	}
 
 	public static void main(String[] args) {
-		Methods m1 = new Methods(); // create object
-		System.out.println(m1.name); // print instance variable
-		System.out.println(m1.age); // print instance variable
-		m1.withOutParaMethod(); // call method
-		m1.addition(5, 50); // call method
+		Methods m1 = new Methods(); 							// create object
+		System.out.println(m1.name); 							// print instance variable
+		System.out.println(m1.age); 							// print instance variable
+		m1.withOutParaMethod(); 								// call method
+		m1.addition(5, 50); 									// call method
 		System.out.println("squared value is " + m1.square(5)); // call method
 	}
 }

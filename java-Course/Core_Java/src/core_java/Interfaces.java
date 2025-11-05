@@ -332,6 +332,7 @@ class Interfaces {
 }
 
 */
+package core_java;
 
 interface A {
 	void display();

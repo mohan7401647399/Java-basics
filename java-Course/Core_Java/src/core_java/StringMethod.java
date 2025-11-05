@@ -343,3 +343,6 @@ public class StringMethod {
 | **Use Case**      | Constant text                   | Multi-threaded updates           | Single-threaded updates |
 | **Introduced in** | Java 1.0                        | Java 1.0                         | Java 1.5                |
  */
+package core_java;
+
+

@@ -45,3 +45,6 @@ public class Objects {									//	class(blueprint)
 	}
 }		
 */
+package core_java;
+
+

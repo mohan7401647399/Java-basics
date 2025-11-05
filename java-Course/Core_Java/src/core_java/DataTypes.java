@@ -22,7 +22,7 @@ These are the most basic types built into Java. They store **actual values** and
 > *Technically `boolean` size isn’t fixed in JVM spec; depends on JVM implementation.*
 
 
-package my_java_package_name;
+package core_java;
 
 public class DataTypes {
 	public static void main(String[] args) {
@@ -60,7 +60,7 @@ Examples:
 * **Enums** → `enum Days { MON, TUE, ... }`
 
 
-package my_java_package_name;
+package core_java;
 
 import java.util.Arrays;
 
@@ -91,5 +91,7 @@ public class DataTypes {
 
 
  */
+
+
 
 

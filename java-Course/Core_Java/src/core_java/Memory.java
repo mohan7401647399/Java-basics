@@ -73,3 +73,5 @@ Thread 2 --->  |          Stack            |
 * **Garbage Collector** works across these generations in the heap
 
  */
+package core_java;
+

@@ -1,4 +1,4 @@
-package my_java_package_name;
+package core_java;
 
 public class NamingConverntion_TypeCasting {
 		int age = 10;
@@ -46,8 +46,7 @@ public class NamingConverntion_TypeCasting {
 		
 		/*
 		 Naming Convention / Developer standard rule
-		 ProjectName & ClassName - PascalCase
-		 MethodName & VariableName - camelCase
+
 		 ProjectName : Each Word first letter should be capital - PascalCase
 		 ClassName : Each Word first letter should be capital - PascalCase
 		 MethodName : first letter only lowercase then Each word first letter should be uppercase - camelCase

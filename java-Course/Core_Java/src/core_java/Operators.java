@@ -109,7 +109,7 @@ double y = 10;      // widening
  */
 
 
-package my_java_package_name;
+package core_java;
 
 public class Operators {
 

@@ -37,11 +37,12 @@
 
 	
 								*****String memory management*****
+								
 ### 🔹 **1. String Pool (String Constant Pool - SCP)**
 
 * Java maintains a special memory area called the **String Pool** inside the **heap memory**.
 
-* Whenever you create a string using **string literals**, Java checks the pool first:
+* Whenever we create a string using **string literals**, Java checks the pool first:
 
   String s1 = "hello";
   String s2 = "hello";  									// Reuses the same object from pool
@@ -54,7 +55,7 @@
 
 ### 🔹 **2. Heap Memory**
 
-* If you create a string using the `new` keyword, it will **always create a new object** in heap memory:
+* If we create a string using the `new` keyword, it will **always create a new object** in heap memory:
 
 
   String s3 = new String("hello");
@@ -66,7 +67,7 @@
 
 ### 🔹 **3. Interning Strings**
 
-* You can manually add strings to the pool using `.intern()`:
+* we can manually add strings to the pool using `.intern()`:
 
 
 String s4 = new String("hello").intern();

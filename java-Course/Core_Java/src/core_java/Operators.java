@@ -16,6 +16,8 @@ Used for basic mathematical operations.
 | `%`      | Modulus (remainder) | `a % b` |
 
 
+
+
 ## **2. Unary Operators**
 
 Operate on a single operand.
@@ -28,6 +30,8 @@ Operate on a single operand.
 | `--`     | Decrement by 1               | `a--` (post), `--a` (pre) |
 | `!`      | Logical NOT                  | `!true` → `false`         |
 | `~`      | Bitwise NOT (inverts bits)   | `~a`                      |
+
+
 
 
 ## **3. Assignment Operators**
@@ -44,6 +48,8 @@ Used to assign values.
 | `%=`     | `a %= b` | `a = a % b`   |
 
 
+
+
 ## **4. Relational (Comparison) Operators**
 
 Used to compare values, returns `boolean`.
@@ -58,6 +64,8 @@ Used to compare values, returns `boolean`.
 | `<=`     | Less than or equal to    | `a <= b` |
 
 
+
+
 ## **5. Logical Operators**
 
 Work with boolean values.
@@ -67,6 +75,8 @@ Work with boolean values.
 | `&&`     | Logical AND | `(a > b) && (b > c)`   |
 | `\|\|`   | Logical OR  | `(a > b) \|\| (b > c)` |
 | `!`      | Logical NOT | `!(a > b)`             |
+
+
 
 
 ## **6. Bitwise Operators**
@@ -84,12 +94,16 @@ Work at the bit level.
 | `>>>`    | Unsigned right shift | `a >>> 2` |
 
 
+
+
 ## **7. Ternary Operator**
 
 Shorthand for if-else.
 
 condition ? value_if_true : value_if_false
 int result = (a > b) ? a : b;
+
+
 
 
 ## **8. Instanceof Operator**
@@ -99,18 +113,17 @@ Checks if an object is an instance of a class/subclass.
 if (obj instanceof String) { ... }
 
 
+
+
 ## **9. Type Cast Operator**
 
 Used to convert one data type to another.
 
-int x = (int) 5.7;  // narrowing
 double y = 10;      // widening
+int x = (int) 5.7;  // narrowing
+	
+	
+	
+	
 	
  */
-
-
-package core_java;
-
-public class Operators {
-
-}

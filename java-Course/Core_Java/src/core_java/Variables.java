@@ -1,8 +1,6 @@
 /*
-		A variable is a name we give to a memory location where we store data 
-			(like numbers, names, etc.).
-		👉 Think of a variable like a box with a label. We can put something in it, 
-			and use it later.
+		A variable is a name we give to a memory location where we store data (like numbers, names, etc.).
+		👉 Think of a variable like a box with a label. We can put something in it, and use it later.
 
 		*Variables syntax/structure*:
 			dataType variableName = values;
@@ -72,6 +70,7 @@ v
 
 
  									*****2. Instance variables*****
+ 									
  		* Is declared inside a class, but outside any method
  		* Belongs to the object (instance) of the class
 		* Each object gets its own copy
@@ -137,6 +136,7 @@ public class Variables {
 
 
  									*****3. static variables *****
+ 									*
 		* Belongs to the class, not to individual objects
 		* Is shared across all objects
 		* Is declared using the static keyword

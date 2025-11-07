@@ -14,6 +14,17 @@
 
 	✅ What is this?
 		this is a reference variable that refers to the current object of the class.
+			It is used within an instance method or a constructor to access members of the current object
+
+  	this() method - Calls another constructor in same class used inside a constructor only
+  	****Note - this() must be the first line in the constructor****
+  
+
+Uses of the this keyword:
+	*Differentiating between instance variables and local variables*:
+		When a method or constructor parameter has the same name as an instance variable,
+			this is used to explicitly refer to the instance variable.
+
 
 	✅ When to use this?
 		When local variables (method parameters) hide instance variables (shadowing problem).

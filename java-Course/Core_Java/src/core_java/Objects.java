@@ -20,8 +20,8 @@ Key characteristics of Java objects:
 		Objects interact with each other by invoking methods and accessing fields. This interaction forms the basis of program logic in object-oriented applications. 
  	*Encapsulation*:
 		Objects encapsulate their data and methods within a single unit, promoting data hiding and controlled access to internal state.
-		In essence, objects are the concrete realizations of the abstract definitions provided by classes, allowing developers to model real-world entities and build modular, reusable, and maintainable software components. 
-	
+		In essence, objects are the concrete realizations of the abstract definitions provided by classes, allowing developers to model real-world entities and build modular, reusable, and maintainable software components.
+
 	
 	*object syntax/structure:- *
 		className objectName = new ClassName(arguments);
@@ -45,6 +45,4 @@ public class Objects {									//	class(blueprint)
 	}
 }		
 */
-package core_java;
-
 

@@ -15,7 +15,7 @@
 
 		2. Where is it Used?
 			You use anonymous classes:			
-				Inside a method, constructor, or block.			
+				Inside a method, constructor, or block.
 				When implementing an interface for one-time use.			
 				When sub-classing an abstract or concrete class for quick behavior change.			
 				Common places:			
@@ -302,6 +302,8 @@ public class Anonymous {
 }
  */
 
+package java8;
+
 interface First {
 	void display();
 }
@@ -327,6 +329,7 @@ class Anonymous {
 		f1.display();
 		s1.show();
 		
+		//	lambda
 		First f2 = () -> System.out.println("lambda expression in First interface");
 		f2.display();
 	}

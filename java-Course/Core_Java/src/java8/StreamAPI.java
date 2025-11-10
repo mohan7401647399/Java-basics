@@ -83,7 +83,7 @@ It works in three stages:
         Don’t execute immediately (lazy evaluation)
         Return another Stream
         Examples: filter(), map(), distinct(), sorted(), limit()
-    
+
     stream.filter(s -> s.length() > 3).map(String::toUpperCase)
 
 
@@ -585,6 +585,10 @@ public class StreamAPI {
 	}
 }
 */
+
+
+
+package java8;
 
 import java.util.Arrays;
 import java.util.List;

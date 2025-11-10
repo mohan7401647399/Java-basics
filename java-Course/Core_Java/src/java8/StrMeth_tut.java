@@ -14,10 +14,10 @@ interface Join {
 }
 
 interface ReturnClass {
-	public abstract StrMeth get();
+	public abstract StrMeth_tut get();
 }
 
-public class StrMeth {
+public class StrMeth_tut {
 
 	public static void main(String[] args) {
 		m1();
@@ -49,7 +49,7 @@ public class StrMeth {
 		Join j2 = String::toLowerCase;// instance MR
 		System.out.println(j1.get("HELLO"));
 		System.out.println(j2.get("JAVA"));
-		ReturnClass j3 = () -> new StrMeth();
-		ReturnClass j4 = StrMeth::new;// constructor MR
+		ReturnClass j3 = () -> new StrMeth_tut();
+		ReturnClass j4 = StrMeth_tut::new;// constructor MR
 	}
 }

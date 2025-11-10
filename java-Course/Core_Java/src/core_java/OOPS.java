@@ -11,16 +11,16 @@
 
 		OOPS Pillars:
 			- Encapsulation (Data hiding)
-			- Inheritance   (Reusability)
+			- Inheritance   (Re-usability)
 			- Polymorphism  (Flexibility)
 			- Abstraction   (Hiding details)
 
-| Concept          | Meaning (Easy Explanation)                                          |
-| ---------------- | ------------------------------------------------------------------- |
-| 1. Encapsulation | Keep data safe using private variables + public methods             |
-| 2. Inheritance   | One class can use properties/methods of another class               |
-| 3. Polymorphism  | One thing behaves in different ways (method overloading/overriding) |
-| 4. Abstraction   | Show only necessary details, hide unnecessary ones                  |
+		| Concept           | Meaning                                             					| Example Use                                  |
+		| ----------------- | --------------------------------------------------- 					| -------------------------------------------- |
+		| **Encapsulation** | Keep data safe using private variables + public methods 				| `private variables + public getters/setters` |
+		| **Inheritance**   | One class can use properties/methods of another class            		| `class Dog extends Animal`                   |
+		| **Polymorphism**  | One thing behaves in different ways (method overloading/overriding)   | `method overloading`, `method overriding`    |
+		| **Abstraction**   | Show only necessary details, hide unnecessary ones         			| `abstract class`, `interface`                |
 
 
 	✅ Why OOPS?
@@ -49,14 +49,6 @@
 			You want to follow real-world modeling (like Car is a Vehicle)
 			You want your code to be easy to maintain or extend
 
-
-	🔍 Quick Breakdown of 4 Pillars
-		| Concept           | Meaning                                             | Example Use                                  |
-		| ----------------- | --------------------------------------------------- | -------------------------------------------- |
-		| **Encapsulation** | Wrapping data and methods together (like a capsule) | `private variables + public getters/setters` |
-		| **Inheritance**   | One class inherits properties of another            | `class Dog extends Animal`                   |
-		| **Polymorphism**  | Same method behaves differently                     | `method overloading`, `method overriding`    |
-		| **Abstraction**   | Hiding internal details, showing only logic         | `abstract class`, `interface`                |
 
 
 
@@ -151,21 +143,20 @@ class OOPS {
 
 	✅ What is Inheritance?
 		Java Inheritance is a fundamental concept in object-oriented programming that allows a new class to inherit properties and behaviors (fields and methods) from an existing class. 
-		This promotes code reusability and establishes a hierarchical relationship between classes.
+		This promotes code re-usability and establishes a hierarchical relationship between classes.
 
 		Parent class = superclass
 		Child class = subclass
 
 	* we cannot inherit private, block and constructor
 	* we can inherit variables and methods
-	* Five types of inheritance available -> single, multi, hierarchical, multiple, hybrid
+	* Five types of inheritance available -> single, multilevel, hierarchical, multiple, hybrid
 	* multiple and hybrid inheritance not support using class*
 
 
 
 	✅ Why Inheritance?
-		Main objectives:
-			Reusability – No need to write same code again
+			Re-usability – No need to write same code again
 			Readability – Organizes classes in a logical hierarchy
 			Maintenance – Update code in one place (parent class)
 			Extensibility – Easily add new features by extending existing class
@@ -244,8 +235,7 @@ public class OOPS extends Hotels {
 
 
 						ii. Multilevel - chain of inheritance
-		* A class inherit from another class, that class inherit from another
-							class is known as multi-level inheritance
+		* A class inherit from another class, that class inherit from another class is known as multi-level inheritance
 
 package my_java_package_name;
 
@@ -397,8 +387,7 @@ class OOPS extends C implements A, B {
 
 	✅ What is Polymorphism?
 		* Polymorphism means "many forms".
-		* Polymorphism refers to the ability of an object to take many forms specifically,
-				- in Java, it means that a method can have the same name but different implementations is known as polymorphism.
+		* In Java, it means that a method can have the same name but different implementations is known as polymorphism.
 
 
 	✅ Why Polymorphism?
@@ -423,10 +412,12 @@ class OOPS extends C implements A, B {
 				2. Run time polymorphism(or)dynamic binding (Method Overriding).
 
 	✅ How do we implement Polymorphism?
+	
 		* Compile-time Polymorphism (Method Overloading):
 			1. This occurs when a class has multiple methods with the same name but different parameters (number, type, or order of arguments).
 			2. The correct method to be executed is determined by the compiler based on the arguments passed during the method call.
-			3. Example: Having multiple add methods in a class, one for integers (add(int a, int b)) and another for doubles (add(double a, double b)).
+			
+			Example: Having multiple add methods in a class, one for integers (add(int a, int b)) and another for doubles (add(double a, double b)).
 
 
 a. Method Overloading (same name, different parameters)
@@ -434,14 +425,14 @@ a. Method Overloading (same name, different parameters)
 package my_java_package_name;
 
 public class OOPS{
-	
+
 	void add(int a, int b) {
 		System.out.println(a + b);
 	}
 	void add(double a, double b) {
 		System.out.println(a + b);
 	}
-	
+
 	public static void main(String[] args) {
 		OOPS intNums = new OOPS();
 		intNums.add(5, 2);
@@ -451,9 +442,10 @@ public class OOPS{
 
 
 			* Runtime Polymorphism (Method Overriding):
-				* This occurs when a subclass provides a specific implementation for a method that is already defined in its superclass. 
-				* The method to be executed is determined at runtime based on the actual object type being referred to by the reference variable (Dynamic Method Dispatch). 
-				* This typically involves using the @Override annotation for clarity and compiler checks.
+				1. This occurs when a subclass provides a specific implementation for a method that is already defined in its superclass.
+				2. The method to be executed is determined at runtime based on the actual object type being referred to by the reference variable (Dynamic Method Dispatch). 
+				3. This typically involves using the @Override annotation for clarity and compiler checks.
+
 				* Example: A Shape class with a draw() method, and Circle and Square subclasses that override draw() to provide their specific drawing logic. A Shape reference variable holding a Circle object will call Circle's draw() method at runtime.
 
 
@@ -605,5 +597,5 @@ class Main {
     }
 }
 */
-package core_java;
+
 

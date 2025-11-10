@@ -44,13 +44,13 @@ public class FunctionalInterfaces {
 Core Functional Interfaces
 	| Interface               | Abstract Method          | Description                                                          | Example                     |
 	| ----------------------- | ------------------------ | -------------------------------------------------------------------- | --------------------------- |
-	| **`Predicate<T>`**      | `boolean test(T t)`      | Tests a condition and returns `true` or `false`.                     | Filtering                   |
 	| **`Function<T,R>`**     | `R apply(T t)`           | Takes an input and returns a result.                                 | Mapping                     |
-	| **`Consumer<T>`**       | `void accept(T t)`       | Performs an action on the input but returns nothing.                 | Printing/logging            |
-	| **`Supplier<T>`**       | `T get()`                | Supplies (produces) a value without input.                           | Generating data             |
-	| **`BiPredicate<T,U>`**  | `boolean test(T t, U u)` | Predicate with two inputs.                                           | Comparing two values        |
 	| **`BiFunction<T,U,R>`** | `R apply(T t, U u)`      | Function with two inputs and a result.                               | Merging                     |
+	| **`Predicate<T>`**      | `boolean test(T t)`      | Tests a condition and returns `true` or `false`.                     | Filtering                   |
+	| **`BiPredicate<T,U>`**  | `boolean test(T t, U u)` | Predicate with two inputs.                                           | Comparing two values        |
+	| **`Consumer<T>`**       | `void accept(T t)`       | Performs an action on the input but returns nothing.                 | Printing/logging            |
 	| **`BiConsumer<T,U>`**   | `void accept(T t, U u)`  | Consumer with two inputs.                                            | Processing two values       |
+	| **`Supplier<T>`**       | `T get()`                | Supplies (produces) a value without input.                           | Generating data             |
 	| **`UnaryOperator<T>`**  | `T apply(T t)`           | Special case of `Function` where input and output types are same.    | Increment, string uppercase |
 	| **`BinaryOperator<T>`** | `T apply(T t1, T t2)`    | Special case of `BiFunction` where inputs and output types are same. | Sum, min, max               |
 

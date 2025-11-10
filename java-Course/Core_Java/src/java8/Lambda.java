@@ -1,5 +1,5 @@
 /*
-	1️⃣ Basic Syntax
+	1️. Basic Syntax
 		(parameters) -> { body }
 
 	Examples:
@@ -7,13 +7,13 @@
 		x -> x * x;                                     // One parameter, single expression
 		(a, b) -> a + b;                                // Multiple parameters
 
-	2️⃣ Why Use Lambda Expressions?
+	2️. Why Use Lambda Expressions?
 		Shorter and cleaner code (no need to write anonymous classes)
 		Makes working with functional interfaces easier (like Runnable, Comparator, Predicate)
 		Useful in Streams API for filtering, mapping, reducing data
 		
 		
-	3️⃣ Functional Interface Requirement
+	3️. Functional Interface Requirement
 		A lambda expression can only be used where there’s a functional interface.
 		
 		
@@ -310,7 +310,6 @@ public class Lambda {
 	With Collections.min() / Collections.max()
 		These are useful with comparators:
 
-package java8;
 
 import java.util.Comparator;
 import java.util.function.BinaryOperator;
@@ -326,7 +325,9 @@ public class Lambda {
 	}
 }
 
+ */
  
+package java8;
 
 import java.util.Arrays;
 import java.util.List;
@@ -383,5 +384,3 @@ public class Lambda {
 		nums.stream().filter(n -> n % 2 == 0).forEach(System.out::println);
 	}
 };
-
-*/

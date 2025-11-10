@@ -10,7 +10,7 @@ interface Calc {
 	public void add(int a, int b);
 }
 
-public class Lam {
+public class Lam_tut {
 	public static void main(String[] args) {
 		m2();
 	}

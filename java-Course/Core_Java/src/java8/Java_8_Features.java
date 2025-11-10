@@ -77,8 +77,3 @@
 	
  */
 
-package Collections;
-
-public class Java_8_Features {
-
-}

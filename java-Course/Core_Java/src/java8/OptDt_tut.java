@@ -18,7 +18,7 @@ import java.util.Set;
  * Optional class
  * Date and Time API
  */
-public class OptDt {
+public class OptDt_tut {
 	public static void main(String[] args) {
 		opt();
 	}

@@ -60,7 +60,7 @@ class Circle implements Shape {
 	}
 }
 
-public class Features {
+public class Features_tur {
 
 	public static void main(String[] args) {
 		predefFI();

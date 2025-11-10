@@ -83,9 +83,8 @@ public class DefaultStatic {
 
 
 
+ */
 package java8;
- 
-
 
 interface Vehicle {
 	static void method1() {
@@ -95,16 +94,14 @@ interface Vehicle {
 
 class Car implements Vehicle {
 	public void method1() {
-		System.out.println("method1 override");
+		System.out.println("method1 override in Car class");
 	}
 }
 
 public class DefaultStatic {
 	public static void main(String[] args) {
+		Vehicle.method1();
 		Car c1 = new Car();
 		c1.method1();
-		Vehicle.method1();
 	}
 }
-
-*/

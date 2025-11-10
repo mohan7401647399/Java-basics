@@ -9,7 +9,7 @@
 	Fixed size (you can't change its length after creation)
 	Zero-based indexing (first element is at index 0)
 	Same data type for all elements (e.g., all int, or all String)
-	
+
 
 
 🔸 Array Declaration & Initialization

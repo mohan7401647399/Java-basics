@@ -1,7 +1,7 @@
 /*
 		A variable is a name we give to a memory location where we store data (like numbers, names, etc.).
 		👉 Think of a variable like a box with a label. We can put something in it, and use it later.
-
+  
 		*Variables syntax/structure*:
 			dataType variableName = values;
 
@@ -14,7 +14,7 @@
 
 
 		*Variables naming convention*
-			camelCase - first letter only lowercase then next words first letter starts with uppercase
+			camelCase - first letter only lowerCase then next words first letter starts with uppercase
 */
 
 /*
@@ -136,7 +136,7 @@ public class Variables {
 
 
  									*****3. static variables *****
- 									*
+ 									
 		* Belongs to the class, not to individual objects
 		* Is shared across all objects
 		* Is declared using the static keyword
@@ -176,8 +176,7 @@ iii. When to Use Static Methods
 
 
 1. Static Variables in a Static Method
-		* Because static methods and static variables both belong to the class, 
-				they can access each other directly.
+		* Because static methods and static variables both belong to the class, they can access each other directly.
 				
 package my_java_package_name;
 
@@ -192,8 +191,7 @@ public class Variables {
 
 
 2. Static Variables in an Instance Method
-		* Instance methods can also access static variables because they belong to the class,
-		 		and the method belongs to an object.
+		* Instance methods can also access static variables because they belong to the class, and the method belongs to an object.
 
 
 package my_java_package_name;
@@ -330,6 +328,4 @@ public class Variables {
 	}
 }
  */
-package core_java;
-
 

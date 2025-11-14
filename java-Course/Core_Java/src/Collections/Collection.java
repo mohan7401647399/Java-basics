@@ -36,6 +36,7 @@
 		| `Queue<E>`   | Used to hold elements before processing |
 
 
+
 	🔹 Diagram: Collection Interface Hierarchy
 	
 	               Iterable<E>
@@ -46,7 +47,10 @@
 
 
 
-*/
+
+
+
+
 
 import java.util.*;
 
@@ -64,3 +68,5 @@ public class Collection {
 		}
 	}
 }
+
+ */

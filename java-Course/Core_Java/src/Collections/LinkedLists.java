@@ -167,9 +167,9 @@ public class LinkedLists {
 		System.out.println(linked);
 	}
 }
-
-
  */
+
+package Collections;
 
 import java.util.LinkedList;
 

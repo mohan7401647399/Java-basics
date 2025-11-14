@@ -259,7 +259,9 @@ public class Stacks {
     }
 }
 
-*/
+
+
+
 
 import java.util.Stack;
 
@@ -284,3 +286,4 @@ class Stacks {
         System.out.println(stack.pop());
     }
 }
+ */

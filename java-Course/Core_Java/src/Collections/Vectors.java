@@ -35,7 +35,7 @@
 		| Legacy Class      | Introduced before Java Collections Framework (`Java 1.0`) |
 
 
-	
+
 	🔹 Important Methods in Vector
 		| Method                            | Description                            |
 		| --------------------------------- | -------------------------------------- |
@@ -59,8 +59,6 @@
 		| Thread-safe | ✅ Yes (synchronized)   | ❌ No (not synchronized)       |
 		| Performance | ❌ Slower due to sync   | ✅ Faster in single-threaded   |
 		| Introduced  | Java 1.0 (legacy class) | Java 1.2 (part of Collections) |
-
-
 
 
 
@@ -153,7 +151,6 @@ public class Vectors {
 	}
 }
 
-*/
 
 import java.util.Vector;
 
@@ -172,3 +169,4 @@ class Vectors {
 		System.out.println(vList.get(3));
 	}
 }
+ */

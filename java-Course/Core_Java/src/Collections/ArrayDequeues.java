@@ -1,7 +1,7 @@
 /*
 	The ArrayDeque class is part of Java’s Collections Framework.
-	It implements both the Queue and Deque interfaces and is used to create double-ended queues using resizable arrays.
-	
+	It implements both the Queue and De-que interfaces and is used to create double-ended queues using re-sizable arrays.
+
 	✅ Key Features of ArrayDeque
 		Allows insertion and deletion from both ends (head and tail)		
 		Faster than LinkedList for stack/queue operations		
@@ -142,8 +142,12 @@ public class ArrayDequeues {
 		System.out.println("Queue after removals: " + queue);
 	}
 }
-*/
 
+
+
+
+ */
+package Collections;
 
 import java.util.*;
 

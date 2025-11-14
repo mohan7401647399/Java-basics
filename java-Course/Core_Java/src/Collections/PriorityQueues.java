@@ -147,7 +147,7 @@ public class PriorityQueues {
 }
 */
 
-
+package Collections;
 
 import java.util.*;
 

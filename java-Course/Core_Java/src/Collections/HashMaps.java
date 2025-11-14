@@ -145,7 +145,9 @@ public class HashMaps {
 }
 
 
-*/
+
+
+
 
 import java.util.*;
 
@@ -162,3 +164,4 @@ class HashMaps {
 		System.out.println(hMap);
 	}
 }
+ */

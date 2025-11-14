@@ -1,5 +1,5 @@
 /*
-	* In Java, ArrayList is a resizable array implementation of the List interface.
+	* In Java, ArrayList is a re-sizable array implementation of the List interface.
 	* It allows you to store elements dynamically and access them by index, just like an array — but with more powerful features.
 	* It's the most commonly used collection in Java.
 	* Fast for read operations, but slower for inserting/removing in the middle.
@@ -11,7 +11,7 @@
 		| **Ordered**           | Maintains insertion order                              |
 		| **Allows Duplicates** | Yes                                                    |
 		| **Indexed Access**    | Fast access via index (like an array)                  |
-		| **Resizable**         | Automatically grows when full                          |
+		| **Re-sizable**         | Automatically grows when full                          |
 		| **Not Thread-safe**   | Use `Collections.synchronizedList()` for thread safety |
 		| **Efficient**         | Best for random access and add/remove at end           |
 
@@ -19,7 +19,7 @@
 	🔹 ArrayList vs Array
 		| Feature     | Array                | ArrayList                        |
 		| ----------- | -------------------- | -------------------------------- |
-		| Size        | Fixed                | Dynamic (resizable)              |
+		| Size        | Fixed                | Dynamic (re-sizable)              |
 		| Methods     | Basic (length, loop) | Rich (add, remove, etc.)         |
 		| Type        | Can store primitives | Only objects (use wrapper types) |
 		| Flexibility | Less                 | More                             |
@@ -340,7 +340,9 @@ class ArrayLists {
     }
 }
 
- */
+
+
+
 
 import java.util.ArrayList;
 
@@ -357,3 +359,4 @@ class ArrayLists {
     System.out.println(aList.get(3));
   }
 }
+ */

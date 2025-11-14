@@ -1,7 +1,6 @@
 /*
 	The Queue interface in Java represents a First-In-First-Out (FIFO) data structure.
-	It is part of the java.util package and is used when order of processing matters 
-		— like in task scheduling, print jobs, or breadth-first search in graphs.
+	It is part of the java.util package and is used when order of processing matters — like in task scheduling, print jobs, or breadth-first search in graphs.
 
 
 	✅ Queue Interface Hierarchy
@@ -33,19 +32,19 @@ ConcurrentLinkedQueue – For multi-threaded environments
 		| Null Allowed?       | ❌ In some implementations (e.g., `PriorityQueue`) |
 		| Common Classes      | `LinkedList`, `ArrayDeque`, `PriorityQueue`       |
 
-	
-		
+
+
 	✅ Comparison Table:
 | Feature / Class      | **PriorityQueue**                               | **LinkedList**                       | **ArrayDeque**                           |
 | -------------------- | ----------------------------------------------- | ------------------------------------ | ---------------------------------------- |
 | Ordering Rule        | Elements sorted by priority (natural or custom) | Maintains insertion order (FIFO)     | Maintains insertion order (FIFO or LIFO) |
-| Allows null?         | ❌ No                                            | ✅ Yes                                | ❌ No                                     |
-| Duplicates Allowed?  | ✅ Yes                                           | ✅ Yes                                | ✅ Yes                                    |
-| Allows random access | ❌ No                                            | ❌ No                                 | ❌ No                                     |
+| Allows null?         | ❌ No                                           | ✅ Yes                               | ❌ No                                     |
+| Duplicates Allowed?  | ✅ Yes                                          | ✅ Yes                               | ✅ Yes                                    |
+| Allows random access | ❌ No                                           | ❌ No                                | ❌ No                                     |
 | Implements           | Queue, Collection                               | List, Queue, Deque                   | Deque, Queue                             |
-| Works as Stack?      | ❌ No                                            | ✅ Yes (via push/pop)                 | ✅ Yes (fast push/pop)                    |
+| Works as Stack?      | ❌ No                                           | ✅ Yes (via push/pop)                | ✅ Yes (fast push/pop)                    |
 | Performance          | Good for prioritized tasks                      | Slower than ArrayDeque for queue ops | Faster than LinkedList                   |
-| Thread-safe?         | ❌ No                                            | ❌ No                                 | ❌ No                                     |
+| Thread-safe?         | ❌ No                                           | ❌ No                                | ❌ No                                     |
 | Ordering Type        | Automatically sorted (like min-heap)            | Insertion order                      | Insertion order                          |
 
 

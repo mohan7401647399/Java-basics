@@ -182,11 +182,11 @@ public class Lists{
         names.add("Mohan");
         System.out.println(names);
         names.remove(0);						//	remove elements at the specified index
-        names.remove("Mohan");				//	removes first occurance of the object
-        names.removeAll(names);				//	removes all matching elements
+        names.remove("Mohan");					//	removes first occurance of the object
+        names.removeAll(names);					//	removes all matching elements
         names.removeFirst();					//	removes and returns the first element of this collection
         names.removeIf(null);					//	removes all the elements of this collection
-        names.removeLast();					//	removes and returns the last elements of this collection
+        names.removeLast();						//	removes and returns the last elements of this collection
         names.clear();							//	removes all the elements from this list
         System.out.println(names);
     }

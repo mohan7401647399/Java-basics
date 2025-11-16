@@ -22,7 +22,7 @@
 			You need range views or navigation methods (e.g., subSet, ceiling)
 
 
-	🔸 TreeSet vs HashSet vs LinkedHashSet
+	🔸  HashSet vs LinkedHashSet vs TreeSet
 		| Feature           | HashSet        | LinkedHashSet      | TreeSet         |
 		| ----------------- | -------------  | -----------------  | --------------  |
 		| Order             | ❌ Unordered   | ✅ Insertion order | ✅ Sorted order |
@@ -112,6 +112,10 @@ public class TreeSets {
 
 */
 
+
+
+package Collections;
+
 import java.util.*;
 
 class TreeSets{
@@ -121,9 +125,12 @@ class TreeSets{
         tSet.add(1);
         // tSet.add(null);
         tSet.add(3);
+        tSet.add(0);
         tSet.add(2);
         // tSet.add(null);
         tSet.add(3);
         System.out.println(tSet);
+        System.out.println(tSet.isEmpty());
+        System.out.println(tSet.size());
     }
 }

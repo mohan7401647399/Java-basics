@@ -3,7 +3,7 @@
 ## **1. What is a Thread?**
 
     A **thread** is the smallest unit of execution in a Java program.
-    
+
     Think of it like a **worker** in a company:
         * A **single-threaded** program has **one worker** doing all the tasks in order.
         * A **multi-threaded** program has **multiple workers** doing tasks at the same time.

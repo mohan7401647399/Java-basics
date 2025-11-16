@@ -12,19 +12,19 @@
 
 
 	✅ When to Use Map?	
-		You want to associate keys with values (like dictionary/lookup table).		
-		You need to retrieve values based on keys quickly.
+		We want to associate keys with values (like dictionary/lookup table).		
+		We need to retrieve values based on keys quickly.
 
 
 	✅ Common Implementations of Map:
 		| Class           | Characteristics                                                 |
 		| --------------- | --------------------------------------------------------------- |
+		| `Hash-table`     | Thread-safe (legacy class), doesn't allow `null` key or values. |
 		| `HashMap`       | Unordered, allows one `null` key and multiple `null` values.    |
 		| `LinkedHashMap` | Maintains insertion order.                                      |
 		| `TreeMap`       | Sorted by natural order or custom comparator.                   |
-		| `Hashtable`     | Thread-safe (legacy class), doesn't allow `null` key or values. |
 
-	
+
 	✅ Common Methods in Map Interface:
 		| Method                        | Description                                        |
 		| ----------------------------- | -------------------------------------------------- |
@@ -46,11 +46,11 @@
 		✅ Comparison Table:
 | Class             | Order Maintained?       | Allows null keys/values?               | Thread Safe?         | Underlying Structure                                |
 | ----------------- | ----------------------- | -------------------------------------- | -------------------- | --------------------------------------------------- |
+| **Hashtable**     | ❌ No                    | ❌ No (no null keys or values allowed)  | ✅ Yes (synchronized) | Hash Table                                          |
 | **HashMap**       | ❌ No (random order)     | ✅ Yes (1 null key, many null values)   | ❌ No                 | Hash Table (bucket array + linked list/binary tree) |
 | **LinkedHashMap** | ✅ Yes (insertion order) | ✅ Yes                                  | ❌ No                 | Hash Table + Doubly Linked List                     |
-| **Hashtable**     | ❌ No                    | ❌ No (no null keys or values allowed)  | ✅ Yes (synchronized) | Hash Table                                          |
 | **TreeMap**       | ✅ Yes (sorted by keys)  | ✅ Yes (but null keys ❌, null values ✔) | ❌ No                 | Red Black Tree (Balanced BST)                       |
-	
+
 	
 	
 package Collections;

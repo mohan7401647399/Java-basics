@@ -4,6 +4,7 @@ String Occurance, second min and max, using object type data stored, comparable 
 
 
 1.Reverse a string
+
 	Method 01
 
 package my_java_package_name;
@@ -289,6 +290,24 @@ public class Problems {
 		}
 	}
 }
+
+
+
+	Method 06
+	
+package core_java;
+
+public class Problems {
+
+	public static void main(String[] args) {
+		m1();
+	}
+	public static void m1() {
+		String name = "Mohan is a Java developer";
+		String result =  name.contains("Java") ? "name found" : "name not found";
+		System.out.println(result);
+	}
+}
 ___________________________________________________________________
 
 
@@ -319,6 +338,9 @@ public class Problems {
 	}
 }
  
+ 
+ 
+	Method 02
 
 package my_java_package_name;
 
@@ -347,7 +369,7 @@ public class Problems {
 
 
 
-		Add Two Numbers with User Input
+4. Add Two Numbers with User Input
 
 import java.util.Scanner;
 
@@ -368,7 +390,7 @@ class Problems {
 
 
 
-		Count Number of Words in a String
+5. Count Number of Words in a String
 
 class Problems {
 	public static void main(String[] args) {
@@ -382,7 +404,7 @@ class Problems {
 
 
 
-	Calculate the Sum of an Array
+6. Calculate the Sum of an Array
 
 class Problems {
 	public static void main(String[] args) {
@@ -401,7 +423,7 @@ class Problems {
 
 
 
-		Convert a String to an Array
+7. Convert a String to an Array
 
 class Problems {
 	public static void main(String[] args) {
@@ -418,7 +440,7 @@ class Problems {
 
 
 
-		How To Sort an Array
+8. How To Sort an Array
 
 class Problems {
 	public static void main(String[] args) {
@@ -436,7 +458,7 @@ class Problems {
 
 
 
-		How To Calculate the Average of Array Elements
+9. How To Calculate the Average of Array Elements
 
 class Problems {
 	public static void main(String[] args) {
@@ -463,7 +485,7 @@ class Problems {
 
 
 
-		How To Find the Smallest Element in an Array
+10. How To Find the Smallest Element in an Array
 
 class Problems {
 	public static void main(String[] args) {
@@ -481,7 +503,7 @@ class Problems {
 
 
 
-		Loop Through an ArrayList
+11. Loop Through an ArrayList
 
 class Problems {
 	public static void main(String[] args) {
@@ -505,7 +527,7 @@ class Problems {
 
 
 
-		Loop Through a HashMap
+12. Loop Through a HashMap
 
 import java.util.HashMap;
 
@@ -530,7 +552,7 @@ class Problems {
 
 
 
-		Loop Through an Enum
+13. Loop Through an Enum
 
 enum Level {
 	LOW, MEDIUM, HIGH
@@ -550,7 +572,7 @@ class Problems {
 
 
 
-		Area of Rectangle
+14. Area of Rectangle
 
 class Problems {
 	public static void main(String[] args) {
@@ -567,7 +589,7 @@ class Problems {
 
 
 
-		Check Whether a Number is Even or Odd
+15. Check Whether a Number is Even or Odd
 
 class Problems {
 	public static void main(String[] args) {
@@ -587,7 +609,7 @@ class Problems {
 
 
 
-		Find Out if a Number is Positive or Negative
+16. Find Out if a Number is Positive or Negative
 
 class Problems {
 	public static void main(String[] args) {
@@ -607,7 +629,7 @@ class Problems {
 
 
 
-		Square Root of a Number & random
+17. Square Root of a Number & random
 
 class Problems {
 	public static void main(String[] args) {
@@ -616,6 +638,247 @@ class Problems {
 	}
 }
 
+
+
+18. Find first occurrence
+
+class Problems {
+	public static void main(String[] args) {
+		String name = "Java is a programming of Java";
+
+		int firstIndex = name.indexOf("Java");
+
+		System.out.println("first index is : " + firstIndex);
+	}
+}
+	
+
+
+
+
+19. Find last occurrence
+
+class Problems {
+	public static void main(String[] args) {
+		String name = "Java is a programming of Java";
+
+		int firstIndex = name.lastIndexOf("Java");
+
+		System.out.println("first index is : " + firstIndex);
+	}
+}
+
+
+
+
+20. Find all occurrences with positions
+
+class Problems {
+	public static void main(String[] args) {
+		String name = "Java is a programming of Java";
+		String word = "Java";
+		int index = name.indexOf(word);
+
+		while (index != -1) {
+			System.out.println("Found index at : " + index);
+			index = name.indexOf(word, index + 1);
+			System.out.println(index);
+		}
+
+	}
+}
+
+
+
+
+21. Count how many times a substring appears
+
+class Problems {
+	public static void main(String[] args) {
+		String str = "Java is a programming of Java";
+		String word = "Java";
+		int count = 0;
+		int index = str.indexOf(word);
+
+		while (index != -1) {
+			count++;
+			index = str.indexOf(word, index + word.length());
+		}
+
+		System.out.println("Total occurrence of " + word + " is " + count);
+
+	}
+}
+
+
+
+
+class Problems {
+	public static void main(String[] args) {
+		String str = "Java is a programming of Java";
+		String word = "a";
+		int count = 0;
+		int index = str.indexOf(word);
+
+		while (index != -1) {
+			count++;
+			System.out.println("counts " + count + " index is : " + index);
+			index = str.indexOf(word, index + word.length());
+		}
+		System.out.println("Total occurrence of " + word + " is " + count);
+	}
+}
+
+
+
+
+
+
+22. Using Sorting
+
+import java.util.Arrays;
+
+class Problems {
+	public static void main(String[] args) {
+		int[] arr = { 10, 4, 3, 9, 11, 1 };
+		Arrays.sort(arr);
+
+		int firstNum = arr[1];
+		int lastNum = arr[arr.length - 2];
+
+		System.out.println("second min num : " +  firstNum);
+		System.out.println("second max num : " + lastNum);
+	}
+}
+
+
+
+
+23. Using TreeSet (short & easy)
+
+import java.util.TreeSet;
+
+class Problems {
+	public static void main(String[] args) {
+		int[] arr = { 10, 4, 9, 5, 1, 3, 4, 9 };
+		TreeSet<Integer> set = new TreeSet<>();
+
+		for (int num : arr)
+			set.add(num);
+
+		System.out.println(set);
+
+		System.out.println(set.higher(set.first()));
+		System.out.println(set.lower(set.last()));
+
+		System.out.println(set.higher(1));
+	}
+}
+
+
+
+
+
+
+
+
+24. Using Loop (handles duplicates)
+
+
+package core_java;
+
+import java.util.TreeSet;
+
+class Problems {
+	public static void main(String[] args) {
+		int[] arr = { 10, 4, 9, 5, 1, 3, 4, 9 };
+
+		Integer min = Integer.MAX_VALUE, secondMin = Integer.MAX_VALUE;
+		Integer max = Integer.MIN_VALUE, secondMax = Integer.MIN_VALUE;
+
+		for (int num : arr) {
+			// minimum
+			if (num < min) {
+				secondMin = min;
+				min = num;
+			} else if (num > min && num < secondMin) {
+				secondMin = min;
+			}
+
+			// maximum
+			if (num > max) {
+				secondMax = max;
+				max = num;
+			} else if (num < max && num > secondMax) {
+				secondMax = num;
+			}
+		}
+		System.out.println("second min : " + secondMin);
+		System.out.println("second max : " + secondMax);
+	}
+}
+
+
+
+
+
+
+25. star patterns
+
+method - 01
+
+package core_java;
+
+class Problems{
+	public static void main(String[] args) {
+		int star = 5;
+		for(int i = 1; i <= star; i++) {
+			for(int j = 1; j <= i; j++) {
+				System.out.println("*");
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+
+method - 02
+
+package core_java;
+
+class Problems{
+	public static void main(String[] args) {
+		int star = 5;
+		for(int i = star; i >= 1; i--) {
+			for(int j = 1; j <= i; j++) {
+				System.out.println("*");
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+method - 03
+
+package core_java;
+
+class Problems{
+	public static void main(String[] args) {
+		int star = 5;
+		for(int i = 1; i <= star; i++) {
+			for(int j = 1; j <= i; j++) {
+				if(i == 1 || i == star || j == 1) {
+					System.out.println("*");
+				} else {
+					System.out.println(" ");
+				}
+			}
+			System.out.println();
+		}
+	}
+}
 
 
 
@@ -750,204 +1013,14 @@ public class Problems {
 
 
 
+ */
 
-
-
-
-
-		Find first occurrence
-
-class Problems {
-	public static void main(String[] args) {
-		String name = "Java is a programming of Java";
-
-		int firstIndex = name.indexOf("Java");
-
-		System.out.println("first index is : " + firstIndex);
-	}
-}
-	
-
-
-
-
-
-
-
-		Find last occurrence
-
-class Problems {
-	public static void main(String[] args) {
-		String name = "Java is a programming of Java";
-
-		int firstIndex = name.lastIndexOf("Java");
-
-		System.out.println("first index is : " + firstIndex);
-	}
-}
-
-
-
-
-
-
-
-		Find all occurrences with positions
-
-class Problems {
-	public static void main(String[] args) {
-		String name = "Java is a programming of Java";
-		String word = "Java";
-		int index = name.indexOf(word);
-
-		while (index != -1) {
-			System.out.println("Found index at : " + index);
-			index = name.indexOf(word, index + 1);
-			System.out.println(index);
-		}
-
-	}
-}
-
-
-
-
-
-
-
-
-		Count how many times a substring appears
-
-class Problems {
-	public static void main(String[] args) {
-		String str = "Java is a programming of Java";
-		String word = "Java";
-		int count = 0;
-		int index = str.indexOf(word);
-
-		while (index != -1) {
-			count++;
-			index = str.indexOf(word, index + word.length());
-		}
-
-		System.out.println("Total occurrence of " + word + " is " + count);
-
-	}
-}
-
-
-
-
-
-
-
-class Problems {
-	public static void main(String[] args) {
-		String str = "Java is a programming of Java";
-		String word = "a";
-		int count = 0;
-		int index = str.indexOf(word);
-
-		while (index != -1) {
-			count++;
-			System.out.println("counts " + count + " index is : " + index);
-			index = str.indexOf(word, index + word.length());
-		}
-		System.out.println("Total occurrence of " + word + " is " + count);
-	}
-}
-
-
-
-
-
-
-
-
-
-		Using Sorting
-
-import java.util.Arrays;
-
-class Problems {
-	public static void main(String[] args) {
-		int[] arr = { 10, 4, 3, 9, 11, 1 };
-		Arrays.sort(arr);
-
-		int firstNum = arr[1];
-		int lastNum = arr[arr.length - 2];
-
-		System.out.println("second min num : " +  firstNum);
-		System.out.println("second max num : " + lastNum);
-	}
-}
-
-
-
-
-
-
-		Using TreeSet (short & easy)
-
-import java.util.TreeSet;
-
-class Problems {
-	public static void main(String[] args) {
-		int[] arr = { 10, 4, 9, 5, 1, 3, 4, 9 };
-		TreeSet<Integer> set = new TreeSet<>();
-
-		for (int num : arr)
-			set.add(num);
-
-		System.out.println(set);
-
-		System.out.println(set.higher(set.first()));
-		System.out.println(set.lower(set.last()));
-
-		System.out.println(set.higher(1));
-	}
-}
-
-
-
-
-
-
-
-
-		Using Loop (handles duplicates)
-
-
-*/
 package core_java;
 
-import java.util.TreeSet;
+public class Problems {
 
-class Problems {
 	public static void main(String[] args) {
-		int[] arr = { 10, 4, 9, 5, 1, 3, 4, 9 };
-
-		Integer min = Integer.MAX_VALUE, secondMin = Integer.MAX_VALUE;
-		Integer max = Integer.MIN_VALUE, secondMax = Integer.MIN_VALUE;
-
-		for (int num : arr) {
-			// minimum
-			if (num < min) {
-				secondMin = min;
-				min = num;
-			} else if (num > min && num < secondMin) {
-				secondMin = min;
-			}
-
-			// maximum
-			if (num > max) {
-				secondMax = max;
-				max = num;
-			} else if (num < max && num > secondMax) {
-				secondMax = num;
-			}
-		}
-		System.out.println("second min : " + secondMin);
-		System.out.println("second max : " + secondMax);
+		
 	}
+
 }

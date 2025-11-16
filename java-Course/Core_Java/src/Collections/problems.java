@@ -130,6 +130,8 @@ package Collections;
  */
 
 
+package Collections;
+
 class problems {
 	public static void main(String[] args) {
 		String input = "a1b2c3d4";

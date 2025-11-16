@@ -82,18 +82,19 @@ public class Exceptions {
 🔹 			3. throw - Method 01
 	* In Java, throw is a keyword used to manually throw an exception in your code.
 
-package my_java_package_name;
+package core_java;
 
 public class Exceptions {
 	public static void main(String[] args) {
-		int age = 30;
+		int age = 20;
 		try {
 			if(age < 10) {
 				throw new Exception("Not eligible");
 			}
 		} catch (Exception e) {
-			System.out.println("Age is lesser or greater than the " + age);
+			System.out.println("Age is lesser or greater than the " + age + e);
 		}
+		System.out.println("age is " + age);
 	}
 }
 
@@ -143,6 +144,3 @@ public class Exceptions {
 
 
  */
-package core_java;
-
-

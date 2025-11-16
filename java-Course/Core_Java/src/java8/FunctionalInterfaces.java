@@ -17,6 +17,29 @@
 		Promotes functional programming style in Java.		
 		Helps pass behavior (logic) as a parameter.
 
+
+
+
+package java8;
+
+@FunctionalInterface
+interface A{
+	void show();
+}
+
+class FunctionalInterfaces {
+	public static void main(String[] args) {
+		A obj = new A() {
+			public void show() {
+				System.out.println("in show method");
+			}
+		};
+		obj.show();
+	}
+}
+
+
+
 package java8;
 
 interface Calculator{
@@ -30,6 +53,21 @@ public class FunctionalInterfaces {
 	}
 }
 
+
+
+package java8;
+
+@FunctionalInterface
+interface A {
+	void show();
+}
+
+class FunctionalInterfaces {
+	public static void main(String[] args) {
+		A obj = () -> System.out.println("In show method");
+		obj.show();
+	}
+}
 
 
 
@@ -251,3 +289,4 @@ public class Lambda {
 	}
 }
  */
+

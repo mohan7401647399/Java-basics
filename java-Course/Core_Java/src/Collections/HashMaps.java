@@ -1,8 +1,7 @@
 /*
 	
 	The HashMap class is one of the most commonly used implementations of the Map interface in Java.
-		It stores key-value pairs
-			and allows fast retrieval, insertion, and deletion based on keys.
+		It stores key-value pairs and allows fast retrieval, insertion, and deletion based on keys.
 	
 	
 	📦 Package:
@@ -20,7 +19,7 @@
 			
 	⚠️ Notes:
 		HashMap is not sorted. If you want a sorted map, use TreeMap.
-		It is not thread-safe. For multithreaded scenarios, use:		
+		It is not thread-safe. For multi-threaded scenarios, use:		
 			Map<K, V> syncMap = Collections.synchronizedMap(new HashMap<>());
 
 
@@ -145,7 +144,8 @@ public class HashMaps {
 }
 
 
-
+ */
+package Collections;
 
 
 
@@ -164,4 +164,3 @@ class HashMaps {
 		System.out.println(hMap);
 	}
 }
- */

@@ -19,7 +19,8 @@
  
 
  
-	import java.util.Hashtable;
+
+import java.util.Hashtable;
 import java.util.Map;
 
 public class HashTables {
@@ -65,6 +66,8 @@ public class HashTables {
 }
 	
 */
+
+package Collections;
 
 import java.util.Hashtable;
 

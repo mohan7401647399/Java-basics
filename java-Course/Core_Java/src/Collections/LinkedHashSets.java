@@ -116,11 +116,16 @@ public class LinkedHashSets {
 }
 */
 
+
+
+package Collections;
+
 import java.util.*;
 
 class LinkedHashSets {
 	public static void main(String[] args) {
 		LinkedHashSet<Integer> hSet = new LinkedHashSet<>();
+		System.out.println(hSet);
 		hSet.add(1);
 		hSet.add(4);
 		hSet.add(null);

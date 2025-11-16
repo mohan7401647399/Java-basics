@@ -43,6 +43,7 @@ package my_java_package_name;
 		
 public class ThisKey {
 	int value;
+	
 	public ThisKey(int value) {
 		this.value = value; 			// 'this.value' refers to the instance variable
 										//	'value' refers to the local parameter
@@ -61,6 +62,7 @@ public class ThisKey {
 package my_java_package_name;
 
 public class ThisKey {
+
 	public void method1() {
 		System.out.println("method 1");
 	}
@@ -143,6 +145,7 @@ class ThisKey {
 package my_java_package_name;
 
 public class ThisKey {
+
 	String name;
 	
 	public ThisKey(String name) {
@@ -170,6 +173,63 @@ public class ThisKey {
 
 
 
+
+
+package core_java;
+
+public class ThisKey_SuperKey {
+
+	String name;
+	int age;
+
+	public ThisKey_SuperKey() {
+		System.out.println("Default Constructor");
+	}
+
+	public ThisKey_SuperKey(String name) {
+		this.name = name; 					// 'this.name' refers to the instance variable & 'name' refers to the local parameter
+	}
+
+	public ThisKey_SuperKey(String name, int age) {
+		this(name);							 // Calls the constructor with one parameter argument
+		this.age = age;
+	}
+
+	public void method1() {
+		System.out.println("method1");
+	}
+
+	public void method2() {
+		this.method1();						// Invokes method1 of the current object
+	}
+	
+	public void display() {
+		System.out.println("name is " + name + " and the age is " + age);
+	}
+	
+	public void currObj(ThisKey_SuperKey ts) {
+		ts.display();
+	}
+	
+	public void invokeCurrObj() {
+		currObj(this);						//	Passing the current object as an argument
+	}
+
+	public static void main(String[] args) {
+		ThisKey_SuperKey t1 = new ThisKey_SuperKey();
+		System.out.println(t1.name);
+
+		ThisKey_SuperKey t2 = new ThisKey_SuperKey("Mohan");
+		System.out.println(t2.name);
+		
+		t1.method2();
+		
+		ThisKey_SuperKey t3 = new ThisKey_SuperKey("Mohan", 29);
+		t3.display();
+		
+		t3.invokeCurrObj();
+	}
+}
 
 
 
@@ -273,6 +333,44 @@ class ThisKey_SuperKey {
 }
 
 */
+
 package core_java;
 
+class Class1 {
+	Class1(String name){
+		System.out.println("One parameter constructor - name is : " + name);
+	}
+	
+	String name = "mohan";
+	
+	void method1() {
+		System.out.println("Method in Class1");
+	}
+}
 
+class Class2 extends Class1 {
+	
+	Class2() {
+		super("Mohan R");
+		System.out.println("parent class constructor called in current class with super key");
+	}
+
+	String name = "Rockabye";
+	
+	void method1() {
+		System.out.println("parent class variable called " + super.name);		//	Access parent class variable
+		System.out.println("current class variable called " + name);		
+	}
+	
+	void display() {
+		super.method1(); 													//	Access parent class method				
+	}
+}
+
+public class ThisKey_SuperKey{
+	public static void main(String[] args) {
+		Class2 c1 = new Class2();
+		c1.method1();
+		c1.display();
+	}
+}

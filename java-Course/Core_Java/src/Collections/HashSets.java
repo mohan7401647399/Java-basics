@@ -112,11 +112,15 @@ public class HashSets {
 
 */
 
+
+package Collections;
+
 import java.util.*;
 
 class HashSets {
 	public static void main(String[] args) {
 		HashSet<Integer> hSet = new HashSet<>();
+		System.out.println(hSet);
 		hSet.add(1);
 		hSet.add(4);
 		hSet.add(null);

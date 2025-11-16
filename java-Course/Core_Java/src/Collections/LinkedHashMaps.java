@@ -62,6 +62,8 @@ public class LinkedHashMap {
 
 */
 
+package Collections;
+
 import java.util.*;
 
 public class LinkedHashMaps {
@@ -72,7 +74,7 @@ public class LinkedHashMaps {
         hMap.put("john", 30);
         hMap.put("mohan", 29);
         hMap.put(null, 29);
-        hMap.put(null, 29);
+        hMap.put(null, 28);
         System.out.println(hMap.get("mohan"));
         System.out.println(hMap.entrySet());
         System.out.println(hMap.firstEntry());

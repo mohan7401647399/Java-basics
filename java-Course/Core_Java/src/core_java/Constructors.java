@@ -114,7 +114,6 @@ class Constructors {
 	}
 }
 
- */
 package core_java;
 
 class Student{
@@ -138,3 +137,46 @@ class Student{
 		s1.display();
 	}
  }
+ */
+
+
+
+package core_java;
+
+public class Constructors {
+	
+	private String name;
+	private int age;
+	
+	public Constructors() {
+		System.out.println("Default Constructor");
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	public int getAge() {
+		return age;
+	}
+	
+	public static void main(String[] args) {
+		Constructors obj = new Constructors();
+		System.out.println(obj.name);
+		System.out.println(obj.age);
+		System.out.println(obj.getName());
+		System.out.println(obj.getAge());
+		obj.setName("mohan");
+		obj.setAge(29);
+		System.out.println(obj.getName());
+		System.out.println(obj.getAge());
+	}
+}

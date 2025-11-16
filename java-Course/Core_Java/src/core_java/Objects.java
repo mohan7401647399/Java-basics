@@ -26,7 +26,7 @@ Key characteristics of Java objects:
 	*object syntax/structure:- *
 		className objectName = new ClassName(arguments);
 
-		
+
 package my_java_package_name;
 
 public class Objects {									//	class(blueprint)

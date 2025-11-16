@@ -3,14 +3,14 @@
     * Does not allow null keys, but allows null values
     * Useful when you need sorted data
     * Slower — operations are O(log n)
-    
+
 
     Package: java.util
     Implements: Map<K, V>, Cloneable, Serializable
     Key Points:
         Stores key-value pairs.
         No duplicate keys allowed; values can be duplicated.
-        Allows one null key and multiple null values.
+        Not allowed null key and multiple null values.
         Not synchronized (use Collections.synchronizedMap() for thread safety).
         Order of elements is not guaranteed.    
 
@@ -72,23 +72,25 @@ public class TreeMaps {
 }
 */
 
+package Collections;
+
 import java.util.TreeMap;
 
 class TreeMaps {
-    public static void main(String[] args) {
-        TreeMap<String, Integer> tMap = new TreeMap<>();
-        System.out.println(tMap);
-        // tMap.put(null, 5);
-        tMap.put("mohan", 29);
-        tMap.put("john", 5);
-        tMap.put("mohan", 29);
-        tMap.put("mick", 20);
-        System.out.println(tMap);
-        System.out.println(tMap.firstKey());
-        System.out.println(tMap.floorKey("mohan"));
-        System.out.println(tMap.size());
-        System.out.println(tMap.entrySet());
-        System.out.println(tMap.firstEntry());
-        System.out.println(tMap);
-    }
+	public static void main(String[] args) {
+		TreeMap<String, Integer> tMap = new TreeMap<>();
+		System.out.println(tMap);
+//		tMap.put(null, 5)';
+		tMap.put("mohan", 29);
+		tMap.put("john", 5);
+		tMap.put("mohan", 29);
+		tMap.put("mick", null);
+		System.out.println(tMap);
+		System.out.println(tMap.firstKey());
+		System.out.println(tMap.floorKey("mohan"));
+		System.out.println(tMap.size());
+		System.out.println(tMap.entrySet());
+		System.out.println(tMap.firstEntry());
+		System.out.println(tMap);
+	}
 }

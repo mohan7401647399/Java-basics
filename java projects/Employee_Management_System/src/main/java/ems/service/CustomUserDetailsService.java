@@ -1,0 +1,36 @@
+package ems.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import ems.entity.Role;
+import ems.entity.UserEntity;
+import ems.repository.UserRepository;
+
+@Service
+public class CustomUserDetailsService implements UserDetailsService {
+
+	@Autowired
+	private UserRepository repository;
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		UserEntity user = repository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Username not found " + username));
+		
+        // Convert Set<Role> to String[]
+		String[] roleNames = user.getRoles().stream().map(Role::getName).toArray(String[]::new);
+		
+		
+		return User
+				.withUsername(user.getUsername())
+				.password(user.getPassword())
+				.roles(roleNames)
+				.build();
+	}
+	
+	
+}

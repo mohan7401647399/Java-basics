@@ -69,6 +69,8 @@ jwt.expiration=3600000
 mvn clean install
 mvn spring-boot:run
 
+---
+
 **API Usage**
 
 Access Swagger UI for API documentation and testing:

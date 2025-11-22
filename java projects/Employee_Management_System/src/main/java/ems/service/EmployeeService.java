@@ -11,69 +11,94 @@ import ems.dto.EmployeeDTO;
 import ems.entity.Employee;
 import ems.repository.EmployeeRepository;
 
-@Service
+@Service   // Marks this class as a Spring service (business logic layer)
 public class EmployeeService {
 
 	@Autowired
-	private EmployeeRepository employeeRepository;
+	private EmployeeRepository employeeRepository; // Injecting Repository object
 
-	//	get all employees
+	// ---------------------------------------------------------------
+	// GET ALL EMPLOYEES (only active employees)
+	// ---------------------------------------------------------------
 	public List<EmployeeDTO> getAllEmployees() {
-		return employeeRepository.findByActiveTrue().stream().map(this::EntityToDTO).collect(Collectors.toList());
+		return employeeRepository
+				.findByActiveTrue()          // fetch only active employees
+				.stream()
+				.map(this::EntityToDTO)      // convert each entity to DTO
+				.collect(Collectors.toList());
 	}
 
-	//	get employee by id
+	// ---------------------------------------------------------------
+	// GET EMPLOYEE BY ID (only if active)
+	// ---------------------------------------------------------------
 	public Optional<EmployeeDTO> getEmployeeById(Long id) {
-		return employeeRepository.findById(id).filter(Employee::getActive).map(this::EntityToDTO);
+		return employeeRepository
+				.findById(id)               // find employee by id
+				.filter(Employee::getActive) // return only active employees
+				.map(this::EntityToDTO);     // convert entity to DTO
 	}
 
-	//	create employee
+	// ---------------------------------------------------------------
+	// CREATE NEW EMPLOYEE
+	// ---------------------------------------------------------------
 	public EmployeeDTO createEmployee(EmployeeDTO dto) {
-		Employee employee = DTOtoEntity(dto);
-
-		Employee savedEmployee = employeeRepository.save(employee);
-
-		return EntityToDTO(savedEmployee);
+		Employee employee = DTOtoEntity(dto);     // convert DTO to entity
+		Employee savedEmployee = employeeRepository.save(employee); // save into DB
+		return EntityToDTO(savedEmployee);        // return saved employee as DTO
 	}
-	
-	//	update employee
+
+	// ---------------------------------------------------------------
+	// UPDATE EMPLOYEE
+	// ---------------------------------------------------------------
 	public Optional<EmployeeDTO> updateEmployee(Long id, EmployeeDTO employeeDTO) {
-        return employeeRepository.findById(id)
+        return employeeRepository.findById(id)     // find employee
                 .map(existingEmployee -> {
-                    updateEntityFromDTO(existingEmployee, employeeDTO);
-                    Employee updatedEmployee = employeeRepository.save(existingEmployee);
-                    return EntityToDTO(updatedEmployee);
+                    updateEntityFromDTO(existingEmployee, employeeDTO); // update fields
+                    Employee updatedEmployee = employeeRepository.save(existingEmployee); // save changes
+                    return EntityToDTO(updatedEmployee); // return updated data as DTO
                 });
     }
 
-	//	delete employee
+	// ---------------------------------------------------------------
+	// DELETE EMPLOYEE (soft delete → set active = false)
+	// ---------------------------------------------------------------
     public boolean deleteEmployee(Long id) {
         return employeeRepository.findById(id)
                 .map(employee -> {
-                    employee.setActive(false);
+                    employee.setActive(false); // mark as inactive instead of deleting record
                     employeeRepository.save(employee);
                     return true;
                 })
-                .orElse(false);
+                .orElse(false); // return false if employee not found
     }
 
-    //get employee by department
+    // ---------------------------------------------------------------
+    // GET EMPLOYEES BY DEPARTMENT
+    // ---------------------------------------------------------------
     public List<EmployeeDTO> getEmployeesByDepartment(String department) {
-        return employeeRepository.findByDepartment(department).stream()
-                .filter(Employee::getActive)
+        return employeeRepository
+        		.findByDepartment(department)
+        		.stream()
+                .filter(Employee::getActive)  // include only active employees
                 .map(this::EntityToDTO)
                 .collect(Collectors.toList());
     }
 
-    //	search by employee
+    // ---------------------------------------------------------------
+    // SEARCH EMPLOYEES (by first name or last name)
+    // ---------------------------------------------------------------
     public List<EmployeeDTO> searchEmployees(String keyword) {
-        return employeeRepository.findByFirstNameContainingOrLastNameContaining(keyword, keyword).stream()
-                .filter(Employee::getActive)
+        return employeeRepository
+        		.findByFirstNameContainingOrLastNameContaining(keyword, keyword)
+        		.stream()
+                .filter(Employee::getActive)  // search only active employees
                 .map(this::EntityToDTO)
                 .collect(Collectors.toList());
     }
-	
-    //	convert entity to DTO
+
+	// ---------------------------------------------------------------
+	// ENTITY → DTO (Convert DB object to response object)
+	// ---------------------------------------------------------------
 	private EmployeeDTO EntityToDTO(Employee employee) {
 		EmployeeDTO dto = new EmployeeDTO();
 
@@ -90,9 +115,12 @@ public class EmployeeService {
 		return dto;
 	}
 
-	//	convert DTO to Entity
+	// ---------------------------------------------------------------
+	// DTO → ENTITY (Convert request object into DB object)
+	// ---------------------------------------------------------------
 	private Employee DTOtoEntity(EmployeeDTO dto) {
 		Employee employee = new Employee();
+
 		employee.setFirstName(dto.getFirstName());
 		employee.setLastName(dto.getLastName());
 		employee.setEmail(dto.getEmail());
@@ -100,25 +128,32 @@ public class EmployeeService {
 		employee.setDepartment(dto.getDepartment());
 		employee.setPosition(dto.getPosition());
 		employee.setSalary(dto.getSalary());
-		employee.setHireDate(java.time.LocalDateTime.now());
 
 		return employee;
 	}
 
-	//	update DTO to Entity
+	// ---------------------------------------------------------------
+	// UPDATE ENTITY FROM DTO (only update provided fields)
+	// ---------------------------------------------------------------
 	private void updateEntityFromDTO(Employee employee, EmployeeDTO dto) {
 		if (dto.getFirstName() != null)
 			employee.setFirstName(dto.getFirstName());
+
 		if (dto.getLastName() != null)
 			employee.setLastName(dto.getLastName());
+
 		if (dto.getEmail() != null)
 			employee.setEmail(dto.getEmail());
+
 		if (dto.getPhoneNumber() != null)
 			employee.setPhoneNumber(dto.getPhoneNumber());
+
 		if (dto.getDepartment() != null)
 			employee.setDepartment(dto.getDepartment());
+
 		if (dto.getPosition() != null)
 			employee.setPosition(dto.getPosition());
+
 		if (dto.getSalary() != null)
 			employee.setSalary(dto.getSalary());
 	}

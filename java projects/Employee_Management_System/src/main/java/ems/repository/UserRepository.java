@@ -7,12 +7,15 @@ import org.springframework.stereotype.Repository;
 
 import ems.entity.UserEntity;
 
-@Repository
+@Repository  // Marks this interface as a Spring bean for database operations
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-	Optional<UserEntity> findByUsername(String username);
+    // Finds a user by username. Returns Optional because user may or may not exist.
+    Optional<UserEntity> findByUsername(String username);
 
-	Boolean existsByUsername(String username);
+    // Checks if a username already exists in the database (useful for validation)
+    Boolean existsByUsername(String username);
 
-	Boolean existsByEmail(String email);
+    // Checks if an email already exists in the database (useful for validation)
+    Boolean existsByEmail(String email);
 }

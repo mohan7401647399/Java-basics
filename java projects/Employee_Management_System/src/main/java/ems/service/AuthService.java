@@ -11,51 +11,60 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import ems.entity.UserEntity;
-import ems.repository.RoleRepository;
 import ems.repository.UserRepository;
 import ems.util.JwtUtils;
-
 
 @Service
 public class AuthService {
 
+	// Injecting UserRepository to interact with the database
 	@Autowired
 	private UserRepository repository;
-	
-	@Autowired
-	private RoleRepository roleRepository;
 
+	// Used to authenticate username & password during login
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
+	// Loads user details from DB for authentication
 	@Autowired
 	private UserDetailsService userDetailsService;
 
+	// Utility class for generating JWT tokens
 	@Autowired
 	private JwtUtils jwtUtil;
-	
+
+	// Used to encode (hash) passwords before saving to DB
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	
-	// register user
+	// -------------------- REGISTER USER --------------------
 	public UserEntity registerUser(UserEntity user) {
-		String plainPassword = user.getPassword();
-		String encryptedPassword = passwordEncoder.encode(plainPassword);
-		user.setPassword(encryptedPassword);
+
+		// Encode the raw password before saving for security
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+		// Save the user to database and return saved object
 		return repository.save(user);
-	} 
+	}
 
-
-	//	login user
+	// ---------------------- LOGIN USER ----------------------
 	public Map<String, String> loginUser(UserEntity user) {
-		authenticationManager
-				.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 
+		// Authenticate username and password
+		authenticationManager.authenticate(
+				new UsernamePasswordAuthenticationToken(
+						user.getUsername(),
+						user.getPassword()
+				)
+		);
+
+		// Load user details from DB
 		UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
+
+		// Generate JWT token using user details
 		String token = jwtUtil.generateToken(userDetails);
 
-		return Map.of("token", token);
+    // Return token + success message as response
+		return Map.of("token", token, "message", "Login Successful");
 	}
 }
-

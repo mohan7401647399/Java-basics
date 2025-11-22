@@ -69,7 +69,7 @@ jwt.expiration=3600000
 mvn clean install
 mvn spring-boot:run
 
-4. **API Usage**
+**API Usage**
 
 Access Swagger UI for API documentation and testing:
 http://localhost:8080/swagger-ui/index.html
@@ -85,7 +85,7 @@ Authorization: Bearer <token>
 
 Manage employees via endpoints under /api/employees
 
-5. **Project Structure**
+**Project Structure**
 
 src/main/java/ems
 ├── config              # Security and Swagger configurations

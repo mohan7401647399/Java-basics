@@ -1,5 +1,8 @@
 package java8;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -43,4 +46,25 @@ public class Problems{
 		System.out.println(result);
 	}
 }
+
+
+
+
+
+
+	Sort The List In Reverse Order
+	
  */
+
+public class Problems{
+	public static void main(String[] args) {
+		List<Integer> lists = new ArrayList<>();
+		lists.add(1);
+		lists.add(2);
+		lists.add(3);
+		lists.add(4);
+		
+		System.out.println(lists);
+		lists.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+	}
+}

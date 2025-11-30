@@ -1,11 +1,13 @@
 package java8;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /* 
  
@@ -54,8 +56,6 @@ public class Problems{
 
 	Sort The List In Reverse Order
 	
- */
-
 public class Problems{
 	public static void main(String[] args) {
 		List<Integer> lists = new ArrayList<>();
@@ -66,5 +66,54 @@ public class Problems{
 		
 		System.out.println(lists);
 		lists.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+	}
+}
+
+
+
+
+
+
+	Print Multiples Of 5 From The List
+
+public class Problems{
+	public static void main(String[] args) {
+		List<Integer> lists = new ArrayList<>();
+		lists.add(5);
+		lists.add(1);
+		lists.add(1);
+		lists.add(4);
+		lists.add(10);
+		lists.add(50);
+		lists.add(60);
+		lists.add(20);
+		
+		System.out.println(lists);
+		
+		lists.stream().filter(i -> i % 5 == 0).forEach(System.out::println);
+	}
+}
+
+
+
+
+
+	Merge Two Unsorted Arrays Into Single Sorted Array
+	
+	
+
+ */
+
+public class Problems {
+	public static void main(String[] args) {
+		int[] a = { 2, 1, 3, 6 };
+		int[] b = { 6, 7, 9, 3 };
+
+		IntStream.concat(Arrays.stream(a), Arrays.stream(b)).forEach(System.out::println);
+		
+		IntStream.concat(Arrays.stream(a), Arrays.stream(b)).sorted().forEach(System.out::println);
+		
+		int[] result = IntStream.concat(Arrays.stream(a), Arrays.stream(b)).sorted().toArray();
+		System.out.println(Arrays.toString(result));
 	}
 }

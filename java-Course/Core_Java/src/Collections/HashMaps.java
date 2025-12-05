@@ -2,12 +2,12 @@
 	
 	The HashMap class is one of the most commonly used implementations of the Map interface in Java.
 		It stores key-value pairs and allows fast retrieval, insertion, and deletion based on keys.
-	
-	
+
+
 	📦 Package:
 		import java.util.HashMap;
 
-	
+
 	✅ Key Characteristics of HashMap:
 		Stores key-value pairs.
 		Keys are unique, but values can be duplicated.

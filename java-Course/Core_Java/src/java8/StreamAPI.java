@@ -11,10 +11,9 @@
             list.stream().filter(x -> x > 5).map(x -> x * 2).forEach(System.out::println);
 
 **Key points:**
-
-* Doesn’t store elements — works on a data source
-* Can be **sequential** or **parallel**
-* Operations are either **intermediate** (return another stream) or **terminal** (produce a result)
+    * Doesn’t store elements — works on a data source
+    * Can be **sequential** or **parallel** 
+    * Operations are either **intermediate** (return another stream) or **terminal** (produce a result)
 
 
 

@@ -98,11 +98,8 @@ public class Problems{
 
 
 
-	Merge Two Unsorted Arrays Into Single Sorted Array
-	
-	
+	Merge Two Unsorted Arrays Into Single Sorted Array	
 
- */
 
 public class Problems {
 	public static void main(String[] args) {
@@ -117,3 +114,23 @@ public class Problems {
 		System.out.println(Arrays.toString(result));
 	}
 }
+
+
+
+
+
+	Merge Two Unsorted Arrays Into SIngle Sorted Array Without Duplicates
+
+
+public class Problems{
+	public static void main(String args[]) {
+		System.out.println("hi");
+		int[] a = { 2, 1, 3, 6 };
+		int[] b = { 6, 7, 9, 3 };
+		
+		int[] result = IntStream.concat(Arrays.stream(a), Arrays.stream(b)).sorted().distinct().toArray();
+		System.out.println(Arrays.toString(result));
+	}
+}
+ */
+

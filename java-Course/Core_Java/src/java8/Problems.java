@@ -132,5 +132,53 @@ public class Problems{
 		System.out.println(Arrays.toString(result));
 	}
 }
+
+
+
+
+
+	Three Max Numbers From The List
+
+public class Problems {
+	public static void main(String[] args) {
+		List<Integer> lists = new ArrayList<>();
+		lists.add(5);
+		lists.add(1);
+		lists.add(6);
+		lists.add(4);
+		lists.add(7);
+		lists.add(2);
+		lists.add(0);
+		System.out.println(lists.toString());
+
+		lists.stream().sorted(Comparator.reverseOrder()).limit(3).forEach(System.out::println);
+	}
+}
+
+
+
+
+
+		Three  Min Numbers From The List
+
+
+public class Problems {
+	public static void main(String[] args) {
+		List<Integer> lists = new ArrayList<>();
+		lists.add(5);
+		lists.add(1);
+		lists.add(6);
+		lists.add(4);
+		lists.add(7);
+		lists.add(2);
+		lists.add(0);
+		System.out.println(lists.toString());
+
+		lists.stream().sorted().limit(3).forEach(System.out::println);
+
+	}
+}
  */
+
+
 

@@ -1013,14 +1013,36 @@ public class Problems {
 
 
 
- */
 
 package core_java;
 
 public class Problems {
 
 	public static void main(String[] args) {
-		
+		for (int i = 1; i <= 15; i++) {
+			for (int k = 14; k >= i; k--) {
+				System.out.println(" ");
+			}
+			for (int j = 1; j <= i; j++) {
+				System.out.println(j + " ");
+			}
+			System.out.println("\n");
+		}
 	}
+}
+ */
 
+
+package core_java;
+
+import java.util.Scanner;
+
+public class Problems{
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter a number : ");
+		int num = scanner.nextInt();
+		System.out.println("You entered : " + num);
+		scanner.close();
+	}
 }

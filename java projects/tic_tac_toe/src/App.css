@@ -1,0 +1,128 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* App container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Title */
+.title {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* Game board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+/* Each square */
+.square {
+  width: 100px;
+  height: 100px;
+  font-size: 36px;
+  cursor: pointer;
+  border-radius: 12px;
+  border: none;
+  background: #ffffff;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.square:hover {
+  background: #e0e0e0;
+  transform: scale(1.05);
+}
+
+/* Game status text */
+.status {
+  color: #ffffff;
+  margin: 10px 0;
+}
+
+.win {
+  color: #00ff9d;
+  font-weight: bold;
+}
+
+.draw {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+/* Reset button */
+.reset-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: #ff7675;
+  color: white;
+  margin-top: 10px;
+}
+
+.reset-btn:hover {
+  background: #d63031;
+}
+
+/* Loading text */
+.loading {
+  color: white;
+  text-align: center;
+}

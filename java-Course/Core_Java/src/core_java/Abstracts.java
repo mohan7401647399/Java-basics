@@ -21,7 +21,7 @@
 
 
 	✅ How to use abstract methods?
-		Declare it inside an abstract class or interface.
+		Declare it inside an abstract class or interface.,
 		Subclass must implement it (using @Override).
 		If subclass doesn't implement it → subclass must also become abstract.
 
@@ -211,8 +211,8 @@ class Abstracts {
 
 
 
- */
 package core_java;
+ */
 
 abstract class AbstractClass {
 

@@ -47,8 +47,9 @@ public class Classes {
 
 
 Example - 2
- */
+
 package core_java;
+ */
 
 public class Classes {
 

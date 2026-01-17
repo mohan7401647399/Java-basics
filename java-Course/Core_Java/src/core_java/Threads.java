@@ -32,7 +32,6 @@ public class SingleThreadExample {
         System.out.println("Task 2 finished");
     }
 }
-
 **Output order is fixed** because only one thread works.
 
 
@@ -58,11 +57,10 @@ public class MultiThreadExample extends Thread {
         t2.start(); // starts another thread
     }
 }
-
 **Output order is unpredictable** because both threads run independently.
 
 
-## **4. Comparison Table**
+##                      Comparison Table
 
 | Feature        | Single-Threaded            | Multi-Threaded                      |
 | -------------- | -------------------------- | ----------------------------------- |

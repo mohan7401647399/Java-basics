@@ -16,8 +16,9 @@
 		this is a reference variable that refers to the current object of the class.
 			It is used within an instance method or a constructor to access members of the current object
 
-  	this() method - Calls another constructor in same class used inside a constructor only
-  	****Note - this() must be the first line in the constructor****
+  		this() method - Calls another constructor in same class used inside a constructor only
+
+  		****Note - this() must be the first line in the constructor****
   
 
 Uses of the this keyword:
@@ -332,9 +333,9 @@ class ThisKey_SuperKey {
 	}
 }
 
+package core_java;
 */
 
-package core_java;
 
 class Class1 {
 	Class1(String name){

@@ -28,7 +28,7 @@
 		| **private**              | If data/methods are internal to the class. Eg: variables, helper methods.             |
 		| **protected**            | When you want to allow child classes to access but not other classes outside package. |
 		| **default (no keyword)** | When it's only needed inside the same package, not outside.                           |
-
+.
 
 	💡 Quick Summary
 

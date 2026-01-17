@@ -145,68 +145,6 @@ class AllImportant {
 --------------------------------------------------------------------------------------------------------------------------------------
 
 
-				*****Inner class*****
-
-
-	In Java, an inner class is simply a class defined inside another class.
-	It helps group classes that are only used in one place, making your code more readable, logical, and encapsulated.
-
-
-✅ Why use Inner Classes?
-	Encapsulation → Group logically related classes.
-	Code readability → Keeps helper classes inside main class.
-	Access private members → Inner class can access outer class’s private fields.
-	Useful in GUI & multithreading → Anonymous inner classes often used with event listeners.
-
-
-class Outer {
-	void outerDisplay() {
-		System.out.println("outerDisplay method in Outer class");
-	}
-
-	class Inner {
-		void innerDisplay() {
-			System.out.println("innerDisplay method in Inner class inside the Outer class");
-		}
-	}
-
-	static class staticInner {
-		void staticInnerDisplay() {
-			System.out.println("staticInnerDisplay method in staticInner class inside the Outer class");
-		}
-	}
-
-	void outerMethod(){
-		class Inner1{
-			void show(){
-				System.out.println("show method in Inner1 class inside the outerMethod inside Outer class");
-			}
-		}
-		Inner1 inner1 = new Inner1();
-		inner1.show();
-	}
-}
-
-class AllImportant {
-	public static void main(String[] args) {
-		Outer o1 = new Outer();
-		o1.outerDisplay();
-		Outer.Inner i1 = o1.new Inner();	//	normal inner class
-		i1.innerDisplay();
-		Outer.staticInner i2 = new Outer.staticInner();	//	static class
-		i2.staticInnerDisplay();
-
-		new Outer().outerMethod(); 	//	Local inner class
-	}
-}
-
-
-
-
---------------------------------------------------------------------------------------------------------------------------------------
-
-
-
 				*****Varargs - Variable Arguments*****
 
 
@@ -273,7 +211,7 @@ class AllImportant {
 
 
 /*
-		In Java, the final keyword is used to restrict modification. 
+		In Java, the final keyword is used to restrict modification.
 	It can be applied to:
 
 
@@ -669,7 +607,8 @@ class AllImportant {
 
 
 
---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------
+-----------------------------------------------------------------------------------------------
 
  								***** Type casting *****
 
@@ -1086,13 +1025,21 @@ public class WrapperClass {
 --------------------------------------------------------------------------------------------------------------------------------------
 
 
- 									*****Inner Class*****
+				*****Inner class*****
+
 
 
 	✅ What is an Inner Class?
         An inner class is a class defined inside another class.
-        It is used to logically group classes, increase encapsulation, and sometimes to access members of the outer class more easily.
+	It helps group classes that are only used in one place, making your code more readable, logical, and encapsulated.
 	
+
+✅ Why use Inner Classes?
+	Encapsulation → Group logically related classes.
+	Code readability → Keeps helper classes inside main class.
+	Access private members → Inner class can access outer class’s private fields.
+	Useful in GUI & multithreading → Anonymous inner classes often used with event listeners.
+
 	
     🔹 Types of Inner Classes in Java
             | Type of Inner Class          | Description                                                      |
@@ -1101,6 +1048,50 @@ public class WrapperClass {
             | 2. **Static Nested Class**   | Static class inside another class                                |
             | 3. **Local Inner Class**     | Class defined inside a method                                    |
             | 4. **Anonymous Inner Class** | Class with no name (used for instant override or implementation) |
+
+		
+
+class Outer {
+	void outerDisplay() {
+		System.out.println("outerDisplay method in Outer class");
+	}
+
+	class Inner {
+		void innerDisplay() {
+			System.out.println("innerDisplay method in Inner class inside the Outer class");
+		}
+	}
+
+	static class staticInner {
+		void staticInnerDisplay() {
+			System.out.println("staticInnerDisplay method in staticInner class inside the Outer class");
+		}
+	}
+
+	void outerMethod(){
+		class Inner1{
+			void show(){
+				System.out.println("show method in Inner1 class inside the outerMethod inside Outer class");
+			}
+		}
+		Inner1 inner1 = new Inner1();
+		inner1.show();
+	}
+}
+
+class AllImportant {
+	public static void main(String[] args) {
+		Outer o1 = new Outer();
+		o1.outerDisplay();
+		Outer.Inner i1 = o1.new Inner();	//	normal inner class
+		i1.innerDisplay();
+		Outer.staticInner i2 = new Outer.staticInner();	//	static class
+		i2.staticInnerDisplay();
+
+		new Outer().outerMethod(); 	//	Local inner class
+	}
+}
+
 
 
 

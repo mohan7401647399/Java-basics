@@ -104,8 +104,10 @@ public class Arrays {
 		}
 	}
 }
- */
+
+
 package core_java;
+ */
 
 public class Array{
 	public static void main(String[] args) {

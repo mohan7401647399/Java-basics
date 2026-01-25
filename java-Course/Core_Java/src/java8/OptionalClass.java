@@ -18,7 +18,7 @@
 			Optional<String> opName = Optional.ofNullable(name);
 			System.out.println(opName);
 			if(opName.isPresent()) System.out.println(opName.get().length());
-	
+
 	It helps you to write safe and clean code when dealing with nullable values.
 
 

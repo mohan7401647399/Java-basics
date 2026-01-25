@@ -4,10 +4,10 @@
 	Let’s break your question into What, Where, and Why:
 
 		1. What is a Nameless (Anonymous) Class?
-			A local inner class with no name.			
-			Defined and instantiated in a single statement.			
-			Used to override methods of:			
-				Interfaces				
+			A local inner class with no name.
+			Defined and instantiated in a single statement.
+			Used to override methods of:
+				Interfaces
 				Abstract classes				
 				Concrete classes			
 			Cannot have explicit constructors (since there’s no name).			
@@ -32,7 +32,46 @@
 				Cannot be reused.				
 				Hard to read for complex logic.				
 				Cannot have multiple constructors.
-	
+
+
+
+				*****Before anonymous functions*****
+
+class MyPrinter {
+	public void printMessage() {
+		System.out.println("printMessage method in MyPrinter class");
+	}
+}
+
+public class Anonymous {
+	public static void main(String[] args) {
+		MyPrinter mp = new MyPrinter();
+		mp.printMessage();
+	}
+}
+
+
+				*****anonymous functions*****
+
+interface MyPrinter {
+	void greet();
+}
+
+public class Anonymous {
+	public static void main(String[] args) {
+		MyPrinter mp = new MyPrinter() {
+			public void greet() {
+				System.out.println("greet method in MyPrinter interface");
+			}
+		};
+		mp.greet();
+
+		MyPrinter mp1 = () -> System.out.println("mp1 method in MyPrinter interface");
+		mp1.greet();
+	}
+}
+
+
 
 
 	Implementing an Interface
@@ -134,53 +173,6 @@ public class Annonymus {
 		t3.next();
 	}
 }
-
-
-
-
-
-
-
-*****Before anonymous functions*****
-
-class MyPrinter {
-	public void printMessage() {
-		System.out.println("printMessage method in MyPrinter class");
-	}
-}
-
-public class Anonymous {
-	public static void main(String[] args) {
-		MyPrinter mp = new MyPrinter();
-		mp.printMessage();
-	}
-}
-
-
-
-
-
-*****anonymous functions*****
-
-interface MyPrinter {
-	void greet();
-}
-
-public class Anonymous {
-	public static void main(String[] args) {
-		MyPrinter mp = new MyPrinter() {
-			public void greet() {
-				System.out.println("greet method in MyPrinter interface");
-			}
-		};
-		mp.greet();
-
-		MyPrinter mp1 = () -> System.out.println("mp1 method in MyPrinter interface");
-		mp1.greet();
-	}
-}
-
-
 
 
 

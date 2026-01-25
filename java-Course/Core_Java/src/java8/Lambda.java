@@ -1,8 +1,16 @@
 /*
+						What is Lambda Expression?
+
+					Lambda is an anonymous function.
+						No method name
+						No return type
+						Used to implement functional interfaces
+
+
 	1️. Basic Syntax
 		(parameters) -> { body }
 
-	Examples:
+	Types of Lambda Parameters:
 		() -> System.out.println("Hello Lambda!");      // No parameters
 		x -> x * x;                                     // One parameter, single expression
 		(a, b) -> a + b;                                // Multiple parameters
@@ -11,8 +19,8 @@
 		Shorter and cleaner code (no need to write anonymous classes)
 		Makes working with functional interfaces easier (like Runnable, Comparator, Predicate)
 		Useful in Streams API for filtering, mapping, reducing data
-		
-		
+
+
 	3️. Functional Interface Requirement
 		A lambda expression can only be used where there’s a functional interface.
 		

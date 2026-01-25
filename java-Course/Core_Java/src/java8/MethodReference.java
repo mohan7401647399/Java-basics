@@ -1,4 +1,4 @@
-/*
+ /*
 
     1. What are Method References?
         A method reference is a shorthand for writing a lambda expression that simply calls an existing method.
@@ -21,9 +21,9 @@
         Basically, if your lambda just calls another method with the same parameters, use a method reference.
 
         Example:
-                        
+   
             names.forEach(name -> printName(name)); // Lambda
-            
+
             names.forEach(MyClass::printName); // Method reference
 
 

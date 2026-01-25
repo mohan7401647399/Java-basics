@@ -138,13 +138,13 @@ public class StringMethod {
  											*****StringBuffer*****
 
 🔹 What is StringBuffer in Java?
-	StringBuffer is a mutable, thread-safe class used to create and manipulate strings.
-	Unlike String (which is immutable), a StringBuffer can be modified without creating a new object.
+		StringBuffer is a mutable, thread-safe class used to create and manipulate strings.
+		Unlike String (which is immutable), a StringBuffer can be modified without creating a new object.
 
 
-When to Use StringBuffer!
-	When you need to modify strings frequently (e.g., in loops).
-	When you need thread safety (multiple threads modifying the same string).
+🔹 When to Use StringBuffer!
+		When you need to modify strings frequently (e.g., in loops).
+		When you need thread safety (multiple threads modifying the same string).
 
 
 🔸 Key Differences from String
@@ -230,11 +230,10 @@ public class StringMethod {
 ✅ Use StringBuilder when working with strings in a single-threaded environment.
 
 
-
-When to Use StringBuilder
-	When you need fast string manipulation.
-	When thread-safety is not required.
-	When working inside loops or large data processing.
+🔹 When to Use StringBuilder
+		When you need fast string manipulation.
+		When thread-safety is not required.
+		When working inside loops or large data processing.
 
 
 🔸 Key Features of StringBuilder
@@ -247,12 +246,9 @@ When to Use StringBuilder
 | **Introduced in**   | Java 1.5                                        |
 
 
-
 🔹 How to Create a StringBuilder
 		StringBuilder sb = new StringBuilder();						//	empty builder
 		StringBuilder sb2 = new StringBuilder("Java");				//	with initital text
-
-
 
 
 🔹 Common Methods
@@ -344,6 +340,9 @@ public class StringMethod {
 | **Use Case**      | Constant text                   | Multi-threaded updates           | Single-threaded updates |
 | **Introduced in** | Java 1.0                        | Java 1.0                         | Java 1.5                |
  */
+
+
+
 package core_java;
 
 

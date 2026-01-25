@@ -3,17 +3,15 @@
 			OOPS stands for Object-Oriented Programming System.
 			Java is an object-oriented language, meaning: - We build programs using objects and classes instead of just functions.
 			Java is fully based on OOPS.
-
-		Class -> Blueprint
-		Object -> Real item from class
-		
-		* Main Pillars of OOPS*
-
-		OOPS Pillars:
-			- Encapsulation (Data hiding)
-			- Inheritance   (Re-usability)
-			- Polymorphism  (Flexibility)
-			- Abstraction   (Hiding details)
+			
+			OOPS Pillars:
+				Class -> Blueprint
+				Object -> Real item from class 
+					4 Main Concepts of OOPS:  
+						Encapsulation (Data hiding)
+						Inheritance   (Re-usability)
+						Polymorphism  (Flexibility)
+						Abstraction   (Hiding details)
 
 		| Concept           | Meaning                                             					| Example Use                                  |
 		| ----------------- | --------------------------------------------------- 					| -------------------------------------------- |
@@ -23,7 +21,8 @@
 		| **Abstraction**   | Show only necessary details, hide unnecessary ones         			| `abstract class`, `interface`                |
 
 
-	✅ Why OOPS?
+
+	✅ Why OOPS? 
 		To make code more organized and modular
 		To reuse code (Inheritance)
 		To hide data (Encapsulation)
@@ -34,7 +33,7 @@
 
 	✅ How OOPS works in Java?
 			We create classes → blueprints
-			We create objects → real instances       
+			We create objects → real instances 
 			Use access modifiers (private, public)
 			Use methods, constructors, inheritance keywords, interfaces, abstract classes, etc.
 			Enable encapsulation using setters/getters
@@ -172,7 +171,8 @@ class OOPS {
 
 
 	✅ How does Inheritance work in Java?
-		We use the keyword extends for classes.
+
+		* We use the keyword extends for classes.
 
 		class Animal {
 			void eat() {
@@ -189,8 +189,8 @@ class OOPS {
 		public class Test {
 			public static void main(String[] args) {
 				Dog d1 = new Dog();
-				d1.eat();   // inherited
-				d1.bark();  // own method
+				d1.eat();   								// inherited
+				d1.bark();  								// own method
 			}
 		}
 
@@ -507,10 +507,10 @@ class Main {
 			* It’s a key part of abstraction and inheritance in object-oriented programming.
 
 	✅ When to use Abstraction?
-		You want to define a common template/skeleton for classes
-		You want to force child classes to implement certain methods
-		You need loose coupling and flexible code design
-		You are designing frameworks or base classes
+			* You want to define a common template/skeleton for classes
+			* You want to force child classes to implement certain methods
+			* You need loose coupling and flexible code design
+			* You are designing frameworks or base classes
 
 
 		* Key rules:- 
@@ -599,3 +599,25 @@ class Main {
 */
 
 
+ class A {
+void m1() {
+    int a = 10 / 0;
+}
+
+void m2() {
+    m1();
+}
+
+void m3() {
+    m2();
+}
+
+}
+
+public class OOPS {
+	public static void main(String args[]){
+		System.out.println("OOPS in Java");
+		A a = new A();
+		a.m1();
+	}
+}

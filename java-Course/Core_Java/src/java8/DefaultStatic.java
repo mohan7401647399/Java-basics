@@ -83,8 +83,8 @@ public class DefaultStatic {
 
 
 
- */
 package java8;
+ */
 
 interface Vehicle {
 	static void method1() {

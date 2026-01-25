@@ -100,6 +100,7 @@ public class Variables {
 		* Not directly allowed.
 		* Static methods cannot access instance variables directly — because they don’t belong to any object.
 		* But you can access them using an object.
+
 package my_java_package_name;
 
 public class Variables {
@@ -229,6 +230,8 @@ public class Variables {
 
 
 4. Static Variables in a static Block
+		 	Static blocks are executed when the class is loaded, and they can access static variables directly.
+
 package my_java_package_name;
 
 public class Variables {
@@ -249,6 +252,8 @@ public class Variables {
 
 
 5. Static Variables call with className
+		You can access static variables using the class name directly.
+
 package my_java_package_name;
 
 public class Variables {
@@ -262,6 +267,8 @@ public class Variables {
 
 
 6. Static Variables call with object
+	 	Although not common practice, you can access static variables using an object reference.
+
 package my_java_package_name;
 
 public class Variables {
@@ -276,6 +283,8 @@ public class Variables {
 
 
 7. Static Variables in a instance method using className
+	 	You can access static variables in an instance method using the class name.
+
 package my_java_package_name;
 
 public class Variables {
@@ -295,6 +304,9 @@ public class Variables {
 
 
 8. Static method call instance method using object
+	 	Static methods cannot directly call instance methods because instance methods belong to objects.
+		However, you can create an object and use it to call the instance method.
+
 package my_java_package_name;
 
 public class Variables {
@@ -312,6 +324,8 @@ public class Variables {
 
 
 9. Instance method call static variable using object
+	 	Instance methods can access static variables directly or via an object.
+
 package my_java_package_name;
 
 public class Variables {

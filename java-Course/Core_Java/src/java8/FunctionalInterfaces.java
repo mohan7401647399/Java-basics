@@ -1,8 +1,8 @@
 /*
 
-	* What:-
-	A Functional Interface in Java is an interface that has exactly one abstract method (SAM — Single Abstract Method).
-	It can have any number of default methods, static methods, and private methods, but only one abstract method.
+	What is Functional Interface:-
+		A Functional Interface in Java is an interface that has exactly one abstract method (SAM — Single Abstract Method).
+		It can have any number of default methods, static methods, and private methods, but only one abstract method.
 
 
 	* Key Points:-
@@ -43,7 +43,7 @@ class FunctionalInterfaces {
 package java8;
 
 interface Calculator{
-	int add(int a, int b);			//	single abstract method
+	int add(int a, int b);			//	single abstract method( SAM )
 }
 
 public class FunctionalInterfaces {

@@ -58,6 +58,18 @@ public class Exceptions {
 	}
 }
 
+public class Exceptions {
+
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;
+            System.out.println(result);
+        } catch (ArithmeticException e) {				//	Runtime exception
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
 
 🔹 			2. finally block
 	* The finally block in Java is used to write code that should always run, whether an exception occurs or not.

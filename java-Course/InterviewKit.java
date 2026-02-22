@@ -1,4 +1,6 @@
 /*
+                                                    *****Java*****
+
 What is Java?
 
 	Java is a platform-independent, object-oriented, high-level programming language used to build web, desktop, mobile and enterprise applications.
@@ -2965,7 +2967,7 @@ What is Effectively Final?
 
     
 
--------------------------------------------------------------------------------------------------------------------------------------------------
+-
 
 
 
@@ -3622,7 +3624,767 @@ Integration tests usually start only the required services and dependencies.
 
     
 
--------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+                                        *****MySQL*****
+
+
+
+What is MySQL and how is it typically used in real projects?
+
+    MySQL is an open-source relational database management system (RDBMS).
+    It stores data in tables and uses SQL to manage and query that data.
+
+    In real applications (like your Spring Boot or MERN projects), MySQL is mostly used for:
+
+        * transactional systems
+        * CRUD APIs
+        * reporting queries
+        * authentication & user data
+        * business data storage
+
+    It follows the relational model and enforces:
+
+        * structured schema
+        * data integrity
+        * relationships between tables
+
+    ### Real example
+
+    In your Spring Boot application:
+
+        Employee → employee table  
+        Department → department table
+
+    REST APIs read/write data into MySQL.
+
+
+What are SQL datatypes?
+
+    ### 1. Numeric Types
+        | Data Type         | Storage | Range (Signed)                    | Range (Unsigned)                       |
+        | ----------------- | ------- | --------------------------------- | -------------------------------------- |
+        | **TINYINT**       | 1 byte  | -128 to 127                       | 0 to 255                               |
+        | **SMALLINT**      | 2 bytes | -32,768 to 32,767                 | 0 to 65,535                            |
+        | **MEDIUMINT**     | 3 bytes | -8,388,608 to 8,388,607           | 0 to 16,777,215                        |
+        | **INT / INTEGER** | 4 bytes | -2,147,483,648 to 2,147,483,647   | 0 to 4,294,967,295                     |
+        | **BIGINT**        | 8 bytes | -2^63 to 2^63-1                   | 0 to 2^64-1                            |
+        | **DECIMAL(p,s)**  | Varies  | Exact fixed-point                 | e.g., DECIMAL(5,2) → -999.99 to 999.99 |
+        | **FLOAT**         | 4 bytes | Approximate, ~7 digits precision  |                                        |
+        | **DOUBLE / REAL** | 8 bytes | Approximate, ~15 digits precision |                                        |
+
+
+    ### 2. Character (String) Types
+
+        | Data Type      | Storage         | Notes                                                                                 |
+        | -------------- | --------------- | ------------------------------------------------------------------------------------- |
+        | **CHAR(n)**    | Fixed (0–255)   | Always uses n characters (pads with spaces if shorter)                                |
+        | **VARCHAR(n)** | 0–65535         | Variable length, max depends on row size (commonly up to 65535, but practical ~65532) |
+        | **TEXT**       | 0–65,535        | Large text (65 KB)                                                                    |
+        | **TINYTEXT**   | 0–255           | Small text                                                                            |
+        | **MEDIUMTEXT** | 0–16,777,215    | Medium text (16 MB)                                                                   |
+        | **LONGTEXT**   | 0–4,294,967,295 | Very large text (4 GB)                                                                |
+
+
+    ### 3. Date & Time Types
+
+        | Data Type     | Storage | Format              | Range                                      |
+        | ------------- | ------- | ------------------- | ------------------------------------------ |
+        | **DATE**      | 3 bytes | YYYY-MM-DD          | 1000-01-01 to 9999-12-31                   |
+        | **TIME**      | 3 bytes | HH:MM:SS            | -838:59:59 to 838:59:59                    |
+        | **DATETIME**  | 8 bytes | YYYY-MM-DD HH:MM:SS | 1000-01-01 00:00:00 to 9999-12-31 23:59:59 |
+        | **TIMESTAMP** | 4 bytes | YYYY-MM-DD HH:MM:SS | 1970-01-01 UTC to 2038-01-19 UTC           |
+        | **YEAR**      | 1 byte  | YYYY                | 1901 to 2155                               |
+
+
+    ### 4. Binary Types
+
+        | Data Type        | Storage         | Notes                       |
+        | ---------------- | --------------- | --------------------------- |
+        | **BLOB**         | 0–65,535        | Binary data (images, files) |
+        | **TINYBLOB**     | 0–255           | Very small binary           |
+        | **MEDIUMBLOB**   | 0–16,777,215    | Medium binary               |
+        | **LONGBLOB**     | 0–4,294,967,295 | Very large binary           |
+        | **BINARY(n)**    | Fixed           | Stores exactly n bytes      |
+        | **VARBINARY(n)** | Variable        | Up to n bytes               |
+
+
+    ### 5. Boolean Type
+
+        * **BOOLEAN / BIT(1)** → TRUE or FALSE (stored as 0 or 1 in MySQL)
+
+
+What is SQL Keys?
+
+    Keys are attributes (columns) or a set of attributes used to uniquely identify rows in a table or to establish relationships between tables.
+
+
+
+What is SQL Constraints
+    
+    Rules applied on table columns to maintain accuracy, integrity, and reliability of the data in a database.
+
+    PRIMARY KEY → Unique identifier for each row.
+    FOREIGN KEY → Link between two tables.
+    UNIQUE → Ensures all values in a column are different.
+    NOT NULL → Column cannot have NULL values.
+    CHECK → Adds conditions (e.g., age > 18).
+    DEFAULT → Assigns a default value if none is provided.
+
+    Example:-
+        CREATE TABLE Students (
+        student_id INT PRIMARY KEY,
+        name VARCHAR(100) NOT NULL,
+        age INT CHECK (age >= 18),
+        email VARCHAR(100) UNIQUE,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
+
+What are the main storage engines in MySQL and why does it matter?
+
+    MySQL supports multiple storage engines.
+
+    The two most important are:
+        * InnoDB (default and recommended)
+        * MyISAM (older, rarely used now)
+
+    ### Key differences
+
+    | Feature | InnoDB | MyISAM |
+    Transactions | Yes | No
+    Row level locking | Yes | No (table lock)
+    Foreign keys | Yes | No
+    Crash recovery | Yes | Weak
+
+    ### Interview important point
+
+        In almost all real projects today, we use:
+            InnoDB
+
+    ### Example
+
+        CREATE TABLE orders (
+        id INT PRIMARY KEY,
+        amount DECIMAL(10,2)
+        ) ENGINE=InnoDB;
+
+
+Explain primary key, unique key and foreign key with examples
+
+    ### Primary key
+
+        * uniquely identifies each row
+        * cannot be NULL
+
+        CREATE TABLE users(
+        id INT PRIMARY KEY,
+        email VARCHAR(100)
+        );
+
+    ### Unique key
+
+        * enforces uniqueness
+        * allows NULL
+
+        ALTER TABLE users ADD UNIQUE(email);
+
+    ### Foreign key
+
+        * enforces relationship between two tables
+
+        CREATE TABLE orders(
+        id INT PRIMARY KEY,
+        user_id INT,
+        CONSTRAINT fk_user
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        );
+
+    This prevents inserting orders for a non-existing user.
+
+
+What is normalization and why is it important?
+
+    Normalization is the process of organizing data to:
+
+        * remove duplication
+        * reduce anomalies
+        * improve data consistency
+
+    ### Example (not normalized)
+
+        order_id | user_name | user_phone | product
+
+    User data is repeated for every order.
+
+    ### Normalized design
+
+        users(id, name, phone)
+        orders(id, user_id, product)
+
+    ### Interview note
+
+    Normalization avoids:
+        * update anomaly
+        * insert anomaly
+        * delete anomaly
+
+
+What is Indexes?
+
+    An index is like a shortcut / pointer in a database that helps queries run faster.
+    Works like an index in a book → instead of reading every page, you jump directly to the right page.
+
+    Create Index
+        CREATE INDEX idx_name ON Students(name);
+
+    CREATE INDEX idx_name ON Students(name);
+
+
+What is Subqueries?
+
+    A subquery is a query written inside another SQL query.
+    The result of the subquery is used by the main query.
+
+    Subquery in WHERE clause (most common)
+        SELECT name
+        FROM Students
+        WHERE marks > (SELECT AVG(marks) FROM Students);
+
+
+What is Joins?
+
+    A JOIN is used to combine rows from two or more tables based on a related column (usually primary key ↔ foreign key).
+
+    1. INNER JOIN
+        Returns only the matching rows between two tables.
+
+            SELECT Students.name, Orders.order_id
+            FROM Students
+            INNER JOIN Orders ON Students.student_id = Orders.student_id;
+
+    2. LEFT JOIN (LEFT OUTER JOIN)
+        Returns all rows from the left table + matching rows from right table.
+        If no match, right side will be NULL.
+
+            SELECT Students.name, Orders.order_id
+            FROM Students
+            LEFT JOIN Orders ON Students.student_id = Orders.student_id;
+
+    3. RIGHT JOIN (RIGHT OUTER JOIN)
+        Returns all rows from the right table + matching rows from left table.
+        If no match, left side will be NULL.
+
+            SELECT Students.name, Orders.order_id
+            FROM Students
+            RIGHT JOIN Orders ON Students.student_id = Orders.student_id;
+
+    4. FULL JOIN (FULL OUTER JOIN)
+        Returns all rows when there is a match in either left or right table.
+        Not supported directly in MySQL (but can be achieved with UNION).
+
+            SELECT Students.name, Orders.order_id
+            FROM Students
+            LEFT JOIN Orders ON Students.student_id = Orders.student_id
+            UNION
+            SELECT Students.name, Orders.order_id
+            FROM Students
+            RIGHT JOIN Orders ON Students.student_id = Orders.student_id;
+
+    5. CROSS JOIN
+        Returns cartesian product (every row from table A with every row from table B).
+
+            SELECT Students.name, Courses.course_name
+            FROM Students
+            CROSS JOIN Courses;
+
+
+Explain different types of JOINs in MySQL with examples
+
+    Joins combine rows from multiple tables.
+
+    ### INNER JOIN
+
+        SELECT u.name, o.id
+        FROM users u
+        INNER JOIN orders o ON u.id = o.user_id;
+
+    Returns only matching rows.
+
+    ### LEFT JOIN
+
+        SELECT u.name, o.id
+        FROM users u
+        LEFT JOIN orders o ON u.id = o.user_id;
+
+    Returns all users even if they have no orders.
+
+    ### RIGHT JOIN
+
+        SELECT u.name, o.id
+        FROM users u
+        RIGHT JOIN orders o ON u.id = o.user_id;
+
+    Returns all orders even if user is missing.
+
+
+What is the difference between WHERE and HAVING?
+
+    WHERE filters rows **before grouping**.
+    HAVING filters rows **after aggregation**.
+
+    ### Example
+
+        SELECT user_id, COUNT(*) AS cnt
+        FROM orders
+        GROUP BY user_id
+        HAVING COUNT(*) > 3;
+
+    You cannot use WHERE for aggregate conditions.
+
+
+What is Aggregate Functions?
+
+    Aggregate functions perform calculations on a set of rows and return a single value.
+    Used for summarizing data in reports and analytics.
+
+    | Function     | Purpose                         |
+    | ------------ | ------------------------------- |
+    | **COUNT()**  | Count rows                      |
+    | **SUM()**    | Add values                      |
+    | **AVG()**    | Average value                   |
+    | **MIN()**    | Smallest value                  |
+    | **MAX()**    | Largest value                   |
+    | **GROUP BY** | Group rows for aggregate        |
+    | **HAVING**   | Filter groups after aggregation |
+
+
+
+What is an index and how does it improve performance?
+
+    An index is a separate data structure that allows MySQL to locate rows faster.
+
+    Without index → full table scan
+    With index → fast lookup
+
+    ### Example
+
+        CREATE INDEX idx_email ON users(email);
+
+    ### Interview important point
+
+        Index helps in:
+
+            * WHERE
+            * JOIN
+            * ORDER BY
+            * GROUP BY
+
+    But index also:
+
+        * increases storage
+        * slows down INSERT/UPDATE slightly
+
+
+What are composite indexes and when should we use them?
+
+    Composite index is an index on multiple columns.
+
+    ### Example
+
+        CREATE INDEX idx_user_status
+        ON orders(user_id, status);
+
+    This is efficient for:
+
+        WHERE user_id = ?
+        AND status = ?
+
+    ### Important rule
+
+        Index follows left-most prefix.
+
+    This index works well for:
+        (user_id)
+        (user_id, status)
+
+
+    But not efficiently for:
+        (status only)
+
+
+How does EXPLAIN help in query optimization?
+
+    EXPLAIN shows how MySQL executes a query.
+
+    ### Example
+
+        EXPLAIN
+        SELECT * FROM orders WHERE user_id = 10;
+
+    Important columns to observe:
+        * type
+        * possible_keys
+        * key
+        * rows
+
+    ### Interview note
+        If you see:
+            type = ALL
+
+    It usually means full table scan → performance issue.
+
+
+What is a subquery and how is it different from a join?
+
+    A subquery is a query inside another query.
+
+    ### Example
+
+        SELECT *
+        FROM orders
+        WHERE user_id IN (
+        SELECT id FROM users WHERE city='Chennai'
+        );
+
+    ### Difference
+
+        Subquery:
+            * executed logically inside outer query
+
+        Join:
+            * combines tables directly
+
+    ### Interview advice
+
+        For large datasets:
+            * joins are usually faster and more readable than subqueries.
+
+
+What are transactions and why are they important?
+
+    A transaction is a group of SQL operations treated as one unit.
+
+    ### Example
+
+        START TRANSACTION;
+
+        INSERT INTO orders VALUES(1,100);
+        INSERT INTO payments VALUES(1,100);
+
+        COMMIT;
+
+    If something fails:
+
+        ROLLBACK;
+
+    This ensures data consistency.
+
+
+Explain ACID properties with MySQL example?
+
+Transactions follow ACID to ensure reliability:
+
+    Atomicity → All or nothing.
+    Consistency → Must keep DB valid.
+    Isolation → Transactions don’t interfere with each other.
+    Durability → Once committed, changes are permanent.
+
+    ### Example
+        START TRANSACTION;
+
+        UPDATE Accounts SET balance = balance - 500 WHERE acc_id = 1;
+        UPDATE Accounts SET balance = balance + 500 WHERE acc_id = 2;
+
+        COMMIT;
+
+    👉 If the second update fails, a ROLLBACK ensures no money is lost.
+
+    | Command               | Purpose             |
+    | --------------------- | ------------------- |
+    | **START TRANSACTION** | Begin a transaction |
+    | **COMMIT**            | Save all changes    |
+    | **ROLLBACK**          | Undo all changes    |
+    | **SAVEPOINT**         | Rollback partially  |
+
+
+
+What are isolation levels in MySQL?
+
+    Isolation levels control how transactions see each other’s data.
+
+    ### Main levels
+        * READ UNCOMMITTED
+        * READ COMMITTED
+        * REPEATABLE READ (default in MySQL InnoDB)
+        * SERIALIZABLE
+
+    ### Example problem
+        Dirty read, non-repeatable read and phantom read occur depending on isolation level.
+
+    ### Interview important
+
+    MySQL default:
+        REPEATABLE READ
+
+
+What is locking in MySQL and how does InnoDB handle it?
+
+Locking protects data during concurrent access.
+
+InnoDB supports:
+
+    * row level locking
+
+### Example
+
+    If one transaction updates a row:
+
+        Another transaction cannot update the same row until commit.
+
+    This gives better concurrency compared to table level locking.
+
+
+What are views and why are they used?
+
+    A view is a virtual table created from a SELECT query.
+    It doesn’t store data itself, it just shows data from one or more tables.
+
+    ### Example
+        CREATE VIEW user_orders AS
+        SELECT u.name, o.id
+        FROM users u
+        JOIN orders o ON u.id = o.user_id;
+
+    Used for:
+    * simplifying complex queries
+    * security (limit visible columns)
+
+
+What are stored procedures and functions?
+
+    Stored procedures are reusable SQL blocks stored in the database.
+
+    ### Example
+        DELIMITER //
+        CREATE PROCEDURE getOrders(IN uid INT)
+        BEGIN
+        SELECT * FROM orders WHERE user_id = uid;
+        END//
+        DELIMITER ;
+
+    Call:
+        CALL getOrders(10);
+
+    ### Difference
+        Functions return a value.
+        Procedures may return multiple result sets.
+
+
+What are triggers and when should we use them?
+
+    Triggers automatically execute when an event occurs on a table(like INSERT, UPDATE, or DELETE).
+
+    ### Example
+
+        CREATE TRIGGER before_order_insert
+        BEFORE INSERT ON orders
+        FOR EACH ROW
+        SET NEW.created_at = NOW();
+
+    ### Interview warning
+
+    Triggers:
+        * hide logic inside DB
+        * can be difficult to debug
+
+    So use carefully.
+
+
+What is SQL Pivot & Unpivot?
+
+    Pivot transforms rows into columns.
+    Useful for creating summary reports where categories become column headers.
+
+    Example:-
+        SELECT Product,
+            SUM(CASE WHEN Month='Jan' THEN Amount ELSE 0 END) AS Jan,
+            SUM(CASE WHEN Month='Feb' THEN Amount ELSE 0 END) AS Feb
+        FROM Sales
+        GROUP BY Product;
+        
+
+What is partitioning in MySQL?
+
+    Partitioning splits a large table into smaller logical parts.
+
+    ### Example
+
+    Partition by year:
+
+        PARTITION BY RANGE (YEAR(order_date))
+
+    Benefits:
+        * faster queries on filtered partitions
+        * easier data management
+
+
+How does MySQL replication work?
+
+    Replication copies data from one server to one or more servers.
+
+    ### Architecture
+        * Primary (source)
+        * Replica (slave)
+
+    ### Use cases
+        * read scaling
+        * backups
+        * reporting
+
+    Writes go to primary.
+    Reads can go to replicas.
+
+
+How do you take backup and restore in MySQL?
+
+    Backup is usually taken using:
+
+        mysqldump -u root -p dbname > db.sql
+
+
+    Restore:
+
+        mysql -u root -p dbname < db.sql
+
+    This is very common in production and migration tasks.
+
+
+What is the difference between DELETE, TRUNCATE and DROP?
+
+    ### DELETE
+
+        * row by row
+        * can be rolled back (inside transaction)
+        * slower
+
+    ### TRUNCATE
+
+        * removes all rows
+        * very fast
+        * cannot be rolled back
+        * resets auto-increment
+
+    ### DROP
+
+        * removes table itself
+
+
+What are window functions in MySQL and when do we use them?
+
+    Window functions perform calculations across a set of rows without collapsing them into groups.
+
+    ### Example
+
+        SELECT
+        user_id,
+        amount,
+        SUM(amount) OVER (PARTITION BY user_id) AS total
+        FROM orders;
+
+    This keeps individual rows while still computing totals.
+
+
+What are Common Table Expressions (CTE)?
+
+    CTE allows writing temporary named result sets.
+
+    ### Example
+
+        WITH recent_orders AS (
+        SELECT * FROM orders WHERE order_date >= CURDATE()-7
+        )
+        SELECT * FROM recent_orders;
+
+    CTEs improve:
+
+        * readability
+        * maintainability
+        * recursive queries
+
+
+How is JSON handled in MySQL?
+
+    MySQL supports native JSON type.
+
+    ### Example
+
+        CREATE TABLE logs(
+        data JSON
+        );
+
+    Query JSON:
+
+        SELECT data->'$.user.name'
+        FROM logs;
+
+    This is useful for semi-structured data.
+
+
+What is full-text search in MySQL?
+
+    Full-text search allows text-based searching.
+
+    ### Example
+        CREATE FULLTEXT INDEX idx_desc ON products(description);
+
+        SELECT *
+        FROM products
+        WHERE MATCH(description) AGAINST('mobile');
+
+    This is better than:
+        LIKE '%mobile%'
+
+    for large text columns.
+
+
+How do you handle performance issues in MySQL in real projects?
+
+Typical steps:
+    1. Identify slow queries
+    2. Use EXPLAIN
+    3. Add or improve indexes
+    4. Rewrite queries
+    5. Avoid SELECT *
+    6. Reduce joins where possible
+    7. Check transaction and lock contention
+
+In production, slow query log is heavily used.
+
+
+What is deadlock and how does MySQL handle it?
+
+    Deadlock happens when two transactions wait for each other.
+
+    ### Example
+        Transaction A locks row 1
+        Transaction B locks row 2
+        A waits for row 2
+        B waits for row 1
+
+    MySQL detects deadlock automatically and rolls back one transaction.
+
+    Application should retry the transaction.
+
+
+What are common mistakes developers make with MySQL?
+
+    Common mistakes:
+        * missing indexes on foreign keys
+        * using SELECT *
+        * using functions on indexed columns in WHERE
+        * sharing database between services
+        * long running transactions
+        * ignoring isolation and locking behavior
 
 
 

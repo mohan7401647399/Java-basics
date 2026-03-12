@@ -369,6 +369,23 @@ What are data types in Java?
         Enums → enum Days { MON, TUE, ... }    
 
 
+Can the main() method be overloaded? How?
+
+    ✅ Yes, main() method can be overloaded
+
+    ❌ But JVM will only call this method:-
+            public static void main(String[] args)
+
+
+Why is the main() method static in Java?
+
+    JVM needs to call main() without creating an object
+    Static methods belong to class, not object
+    If main() was non-static, object creation would be required
+
+    👉 Hence main() is static
+
+
 Can we override a private methods in java?
 
     ❌ No, private methods cannot be overridden.
@@ -1463,8 +1480,9 @@ What is reflection in Java?
 
 	Ability to inspect and modify classes, methods, and fields at runtime.
 
-    Class<?> c = Class.forName("com.app.Employee");
-    Object obj = c.getDeclaredConstructor().newInstance();
+    Example:-
+        Class<?> c = Class.forName("com.app.Employee");
+        Object obj = c.getDeclaredConstructor().newInstance();
 
 
 How can we create object dynamically at runtime in Java ?
@@ -1568,7 +1586,6 @@ How do you break a singleton pattern?
                                 Cloning
 
     Reflection example idea:-
-
         Constructor<Singleton> c = Singleton.class.getDeclaredConstructor();
         c.setAccessible(true);
         Singleton s2 = c.newInstance();
@@ -1603,7 +1620,7 @@ How do you prevent a singleton from breaking?
                 }
 
 
-What is deadlock?
+What is deadlock ?
 
     Deadlock occurs when two or more threads wait forever for each other’s resources.
 
@@ -1612,13 +1629,16 @@ What is deadlock?
         Thread2 → Resource B → waits for A
 
 
-What is fail-fast and fail-safe?
+What is fail-fast and fail-safe ?
 
-    Fail-fast → throws ConcurrentModificationException
-    Fail-safe → works on cloned copy
+    Fail-fast:-
+        Collections that throw ConcurrentModificationException if modified while iterating.
+
+    Fail-safe:-
+        Collections that work on a cloned copy and do not throw ConcurrentModificationException.
 
 
-What is ClassLoader?
+What is ClassLoader ?
 
     ClassLoader is a part of JVM that loads .class files into memory.
 
@@ -1636,12 +1656,19 @@ What is ClassLoader?
         👉 Follows Parent Delegation Model
 
 
-Is it possible to load a class by two ClassLoaders
+Is it possible to load a class by two ClassLoaders in Java?
 
     ✅ Yes. The same class name loaded by two different classloaders is treated as different classes.
 
+    Example:-
+        ClassLoader cl1 = new URLClassLoader(...);
+        ClassLoader cl2 = new URLClassLoader(...);
 
-What is serialization?
+        Class<?> c1 = cl1.loadClass("com.app.MyClass");
+        Class<?> c2 = cl2.loadClass("com.app.MyClass");
+
+
+What is serialization in Java?
 
     Converting object into byte stream.
     Used for file storage, network transfer
@@ -1661,16 +1688,12 @@ What happens if a Serializable class has a member which is not serializable?  Ho
             mark that variable as transient.
 
         Example:-
-
             class Address { }
 
             class Employee implements Serializable {
                 private int id;
                 private transient Address address;   // fix
             }
-
-        👉 Interview line:
-                Use transient keyword.
 
 
 Have you used serialization anywhere in your application ?
@@ -1723,17 +1746,12 @@ What is transient keyword?
     Transient prevents a variable from being serialized.
 
 
-Can we serialize static variables?
-
-    ❌ No. Static variables belong to the class, not to the object.
-
-
 What is marker interface?
 
     Marker interfaces are empty interfaces (no methods) used to mark a class.
-
-        JVM uses them to provide special behavior
-        Acts like metadata
+    JVM uses them to provide special behavior
+    Acts like metadata
+    👉 JVM checks marker interface at runtime
 
     Common Marker Interfaces:-
         Serializable
@@ -1743,10 +1761,8 @@ What is marker interface?
         class Employee implements Serializable {
         }
 
-    👉 JVM checks marker interface at runtime
 
-
-What is cloning?
+What is cloning in Java?
 
     Creating a copy of an object using clone() method.
 
@@ -1778,13 +1794,13 @@ What is cloning?
     }
 
 
-What is composition?
+What is composition in Java?
 
     Composition represents a HAS-A relationship.
 
-        One class contains another class object
-        Strong association
-        Preferred over inheritance
+    One class contains another class object
+    Strong association
+    Preferred over inheritance
 
     Example:-
         class Engine {
@@ -1797,7 +1813,8 @@ What is composition?
     👉 If Car is destroyed, Engine is also destroyed
 
 
-Difference between IS-A and HAS-A relationship
+Difference between IS-A and HAS-A relationship ?
+
     | IS-A                        | HAS-A                       |
 
     | Inheritance                 | Composition                 |
@@ -1806,11 +1823,11 @@ Difference between IS-A and HAS-A relationship
     | Reusability via inheritance | Reusability via composition |
 
     IS-A:
-        class Dog extends Animal {}
+        class Dog extends Animal {}     //  inheritance
 
     HAS-A:
         class Car {
-            Engine engine;
+            Engine engine;              //  composition
         }
 
 
@@ -1830,6 +1847,7 @@ Difference between Inheritance and Composition?
 
 Difference between Aggregation and Composition?
 
+    Both represent HAS-A relationship but differ in ownership.
     Aggregation = weak ownership.
     Composition = strong ownership.
 
@@ -1863,9 +1881,9 @@ What is Coupling in OOP and why is it helpful?
     Why loose coupling is helpful:-
 
         Easy maintenance
+        Easier testing
         Better scalability
         Improved reusability
-        Easier testing
 
         Example (Loose coupling):
             interface Engine {
@@ -1892,7 +1910,7 @@ What is tight coupling and loose coupling?
 
 What is volatile keyword?
 
-    volatile ensures visibility of changes across threads.
+    volatile is used to mark a variable as shared across threads.
         Prevents thread-local caching
         Ensures latest value is read
 
@@ -1904,9 +1922,10 @@ What is volatile keyword?
 
 Wrapper Class in Java?
 
-    Wrapper classes convert primitive type → object.
-        | Primitive | Wrapper   |
+    Wrapper classes convert primitive type into an object.
 
+        | Primitive | Wrapper   |
+        -------------------------
         | int       | Integer   |
         | double    | Double    |
         | char      | Character |
@@ -1914,19 +1933,19 @@ Wrapper Class in Java?
 
     ✅ Auto-boxing and Un-boxing
         🟩 Auto-boxing:
-            Automatic conversion of primitive → Wrapper object.
+            Automatic conversion of primitive type into a Wrapper object.
 
             int a = 10;
             Integer obj = a;   // auto-boxing
 
 
         🟥 Un-boxing:
-            Automatic conversion of Wrapper object → primitive.
+            Automatic conversion of Wrapper object into primitive type.
 
             Integer newVersion = Integer.valueOf(1);
             int b = newVersion;	//	Un-boxing    
 
-    👉 Needed for Collections, Generics
+    👉 Needed for Collections, Generics.
 
 
 What is the use of Generics in Java ?
@@ -1943,23 +1962,6 @@ What is the use of Generics in Java ?
 What is try-with-resources?
 
     Automatically closes resources like files and streams.
-
-
-Can the main() method be overloaded? How?
-
-    ✅ Yes, main() method can be overloaded
-
-    ❌ But JVM will only call this method:-
-            public static void main(String[] args)
-
-
-Why is the main() method static in Java?
-
-    JVM needs to call main() without creating an object
-    Static methods belong to class, not object
-    If main() was non-static, object creation would be required
-
-    👉 Hence main() is static
 
 
 Variables declared outside main – how to access in main?
@@ -2071,7 +2073,7 @@ Difference between Heap Memory and JVM?
 
     Heap memory
         Part of JVM memory
-        Used to store objects
+        Used to store objects and instance variables.
 
 
 How are Java objects stored in memory?
@@ -2091,82 +2093,74 @@ Difference between Heap and Stack memory?
     Stack → method calls, local variables
 
 
-
                                                 *****Access Modifiers?*****
 
-		Access Modifiers in Java control where our variables, methods, or classes can be accessed from.
-		Access modifiers are keywords in Java that define how much access other classes/objects have to variables, methods, and classes.
+	Access Modifiers in Java control where our variables, methods, or classes can be accessed from.
+	Access modifiers are keywords in Java that define how much access other classes/objects have to variables, methods, and classes.
 
 	💡 Quick Summary-
-		Use private for data hiding.
-		Use public for global access.
-		Use protected for inheritance but controlled access.
-		Default is automatically used when no modifier is written.
+            Use private for data hiding.
+            Use public for global access.
+            Use protected for inheritance but controlled access.
+            Default is automatically used when no modifier is written.
 
 
 		| Modifier               | Access Level                 			|
-
+        ---------------------------------------------------------------------
 		| `public`               | Everywhere                   			|
 		| `private`              | Only within the same class   			|
-		| `protected`            | Same class ➜ same package ➜ subclasses  |
+		| `protected`            | Same class ➜ same package ➜ subclasses |
 		| *default* (no keyword) | Same package only            			|
 
 
-| Modifier    | Same Class | Same Package | Subclass (other package) | Other Package        |
-
-| `public`    | ✅         | ✅           | ✅                       | ✅                   |
-| `private`   | ✅         | ❌           | ❌                       | ❌                   |
-| *default*   | ✅         | ✅           | ❌                       | ❌                   |
-| `protected` | ✅         | ✅           | ✅                       | ❌ (unless inherited)|
-
+        | Modifier    | Same Class | Same Package | Subclass (other package) | Other Package          |
+        -----------------------------------------------------------------------------------------------
+        | `public`    | ✅         | ✅           | ✅                       | ✅                   |
+        | `protected` | ✅         | ✅           | ✅                       | ❌ (unless inherited)|
+        | *default*   | ✅         | ✅           | ❌                       | ❌                   |
+        | `private`   | ✅         | ❌           | ❌                       | ❌                   |
 
 
  									*****Homogeneous & Heterogeneous*****
 
-⚖️ Summary
+    Homogeneous = same type of data (e.g., ArrayList<String>)
+    Heterogeneous = different types of data (e.g., ArrayList raw type)
 
-Homogeneous = same type of data (e.g., ArrayList<String>)
-Heterogeneous = different types of data (e.g., ArrayList raw type)
-
-👉 Arrays are always homogeneous.
-👉 Collections can be homogeneous (with generics) or heterogeneous (without generics).
+    👉 Arrays are always homogeneous.
+    👉 Collections can be homogeneous (with generics) or heterogeneous (without generics).
 
 
-1. Homogeneous (Hemogenious) Data
+    1. Homogeneous (Hemogenious) Data
 
-		Meaning: All elements in the collection (or array) are of the same type.
-		In Java, arrays are homogeneous by nature.
-		With Generics (like ArrayList<Integer>), collections also become homogeneous.
-		
-✅ Example of Homogeneous:
+            Meaning: All elements in the collection (or array) are of the same type.
+            In Java, arrays are homogeneous by nature.
+            With Generics (like ArrayList<Integer>), collections also become homogeneous.
+            
+        ✅ Example of Homogeneous:
+                // Array of integers - all elements are int
+                int[] numbers = {1, 2, 3, 4, 5};
 
-// Array of integers - all elements are int
-int[] numbers = {1, 2, 3, 4, 5};
+                // Homogeneous ArrayList (only Strings allowed)
+                ArrayList<String> list = new ArrayList<>();
+                list.add("Java");
+                list.add("Python");
+                // list.add(10); // ❌ Error - only Strings allowed
 
-// Homogeneous ArrayList (only Strings allowed)
-ArrayList<String> list = new ArrayList<>();
-list.add("Java");
-list.add("Python");
-// list.add(10); // ❌ Error - only Strings allowed
+    2. Heterogeneous (Heterogenours) Data
 
+        Meaning: The collection (or array) contains different types of data.
+        Before Generics (Java 1.5), collections like ArrayList allowed heterogeneous objects.
+        Even now, if you use a raw type (without generics), you can store heterogeneous elements.
 
+        ✅ Example of Heterogeneous:
+                // Heterogeneous ArrayList (raw type)
+                ArrayList list = new ArrayList();
+                list.add("Java");   // String
+                list.add(100);      // Integer
+                list.add(45.67);    // Double
+                list.add(true);     // Boolean
 
-2. Heterogeneous (Heterogenours) Data
-
-	Meaning: The collection (or array) contains different types of data.
-	Before Generics (Java 1.5), collections like ArrayList allowed heterogeneous objects.
-	Even now, if you use a raw type (without generics), you can store heterogeneous elements.
-
-✅ Example of Heterogeneous:
-
-// Heterogeneous ArrayList (raw type)
-ArrayList list = new ArrayList();
-list.add("Java");   // String
-list.add(100);      // Integer
-list.add(45.67);    // Double
-list.add(true);     // Boolean
-
-System.out.println(list); // [Java, 100, 45.67, true]
+                System.out.println(list); // [Java, 100, 45.67, true]
 
 
 				                                            *****enum*****
@@ -2176,11 +2170,9 @@ System.out.println(list); // [Java, 100, 45.67, true]
     ✅ When to use Enum?
             When you need a fixed set of related constants (like days of week, directions, status codes, colors, etc.).
             Makes code readable, type-safe, and organized.
- 
 
 
-				*****Varargs - Variable Arguments*****
-
+				                                *****Varargs - Variable Arguments*****
 
 	Varargs in Java stands for Variable Arguments.
 	It allows a method to accept zero or multiple arguments of the same type without explicitly defining them as an array.
@@ -2202,37 +2194,31 @@ System.out.println(list); // [Java, 100, 45.67, true]
 
  								***** Type casting *****
 
-
 	Type casting is when we assign a value of one primitive data type to another type.
 
-    In Java, there are two types of casting:
+    Widening Casting:-
 
         * Widening Casting (automatically) - converting a smaller type to a larger type size
-            byte -> short -> char -> int -> long -> float -> double
+        byte -> short -> char -> int -> long -> float -> double
+    
+        public static void main(String[] args) {
+            int myAge = 29;								//	integer type
+            double myDoubleAge = myAge;					//	double(decimal) type
+            System.out.println(myAge);
+            System.out.println(myDoubleAge);
+        }
+    
+    Narrowing Casting:-
 
         * Narrowing Casting (manually) - converting a larger type to a smaller size type
-            double -> float -> long -> int -> char -> short -> byte
-
-Widening Casting:-
-	Widening casting is done automatically when passing a smaller size type to a larger size type:
- 
-	public static void main(String[] args) {
-		int myAge = 29;								//	integer type
-		double myDoubleAge = myAge;					//	double(decimal) type
-		System.out.println(myAge);
-		System.out.println(myDoubleAge);
-	}
- 
-Narrowing Casting
- 	* Narrowing casting must be done manually by placing the type in parentheses () in front of the value.
-	
-	public static void main(String[] args) {
-		double myDoubleAge = 29.5d;					//	double(decimal) type
-		int myAge = (int) myDoubleAge;				//	convert to integer type
-		System.out.println(myDoubleAge);
-		System.out.println(myAge);
-	}
-
+        double -> float -> long -> int -> char -> short -> byte
+        
+        public static void main(String[] args) {
+            double myDoubleAge = 29.5d;					//	double(decimal) type
+            int myAge = (int) myDoubleAge;				//	convert to integer type
+            System.out.println(myDoubleAge);
+            System.out.println(myAge);
+        }
 
 
  									*****Scanner*****
@@ -2246,34 +2232,32 @@ Narrowing Casting
                 Tokenizes input using delimiters (default: whitespace).
 
     Common Input Methods-
+        
+        | Method          | Description                            | Example Input → Output             |
+        | --------------- | -------------------------------------- | ---------------------------------- |
+        | `nextLine()`    | Reads entire line (including spaces)   | `"Java Rocks"` → `"Java Rocks"`    |
+        | `next()`        | Reads single word (until whitespace)   | `"Java Rocks"` → `"Java"`          |
+        | `nextInt()`     | Reads integer value                    | `"25"` → `25`                      |
+        | `nextDouble()`  | Reads double value                     | `"3.14"` → `3.14`                  |
+        | `nextBoolean()` | Reads boolean value (`true` / `false`) | `"true"` → `true`                  |
+        | `hasNextXxx()`  | Checks if next token is of type `Xxx`  | `sc.hasNextInt()` → `true / false` |
 
-    Method	    |                Description             |	        Example Input → Output
-    nextLine()	    Reads entire line (including spaces)	     "Java Rocks" → "Java Rocks"
-    next()	        Reads single word (until whitespace)	     "Java Rocks" → "Java"
-    nextInt()	    Reads int	                                 "25" → 25
-    nextDouble()	    Reads double	                             "3.14" → 3.14
-    nextBoolean()	Reads boolean (true/false)	                 "true" → true
-    hasNextXxx()	    Checks if next token is of type Xxx	         sc.hasNextInt() → true/false
 
+What is an Inner Class?
 
-
-				                    *****Inner class*****
-
-✅ What is an Inner Class?
     An inner class is a class defined inside another class.
     It helps group classes that are only used in one place, making your code more readable, logical, and encapsulated.
 	
-   🔹 Types of Inner Classes in Java
+   🔹 Types of Inner Classes in Java:-
             | Type of Inner Class          | Description                                                      |
-
+            ---------------------------------------------------------------------------------------------------
             | 1. **Member Inner Class**    | Normal class inside another class (non-static)                   |
             | 2. **Static Nested Class**   | Static class inside another class                                |
             | 3. **Local Inner Class**     | Class defined inside a method                                    |
             | 4. **Anonymous Inner Class** | Class with no name (used for instant override or implementation) |
 
 
-
- 							*****package*****
+What is a package in Java?
 
     A Java package is a group of similiar types of classes and interfaces, sub-packages.
 
@@ -2281,18 +2265,20 @@ Narrowing Casting
         * Build-in package
         * User-defined package
 
-    There are many built-in packages such as lang, awt, javax, net ,io, util, sql etc.
+    There are many built-in packages such as lang, awt, javax, net, io , util, sql etc.
 
 
  							***** Upcasting & Downcasting *****
 
-✅ What is Upcasting?
+What is Upcasting?
+
         Upcasting means converting a child class object into a parent class reference.
         ✔ It's done automatically by Java (implicit).
 
             Animal a = new Dog();   // Upcasting
 
-✅ What is Downcasting?
+What is Downcasting?
+
         Downcasting means converting a parent class reference back into a child class reference.
         ⚠ It must be done manually using casting, and it is risky.
 
@@ -2313,8 +2299,20 @@ How to make a class thread-safe?
             ConcurrentHashMap<Integer,String> map = new ConcurrentHashMap<>();
 
     3. Make object immutable
+            final class Employee {
+                private final String name;
+                private final int id;
 
+                public Employee(String name, int id) {
+                    this.name = name;
+                    this.id = id;
+                }
 
+                public String getName() { return name; }
+                public int getId() { return id; }
+            }
+
+            
 How to create a thread-safe Singleton class using double-checked locking?
 
     Double-checked locking ensures that synchronization happens only when the instance is created.
@@ -2358,7 +2356,7 @@ How do you create HTTP POST request in Java?
         client.send(request, HttpResponse.BodyHandlers.ofString());
 
 
-Difference between ClassNotFoundException and NoClassDefFoundError
+What is the difference between ClassNotFoundException and NoClassDefFoundError?
 
     ClassNotFoundException
         Checked exception
@@ -2369,7 +2367,7 @@ Difference between ClassNotFoundException and NoClassDefFoundError
         Class was present at compile time but not found at runtime
 
 
-Difference between sleep() and wait()
+What is the difference between sleep() and wait() in Java?
 
     | sleep()               | wait()                              |
     | --------------------- | ----------------------------------- |
@@ -2456,7 +2454,6 @@ What is ExecutorService?
 What is Callable interface in threads?
 
     👉 Callable is like Runnable, but:
-
             ✔ It can return a value
             ✔ It can throw checked exception
 
@@ -2482,9 +2479,10 @@ What is shutdown hook in Java?
 How can you take a thread dump in Java?
 
     👉 Using command line:
-        jstack <pid>
+            jstack <pid>
 
     👉 Or
+
         jcmd <pid> Thread.print
 
     ✔ Used to analyze deadlocks and thread issues.
@@ -2530,7 +2528,7 @@ What is Log4j in Java?
 
     It is developed and maintained by Apache Software Foundation.
  
-Common log levels in Log4j!!!
+Common log levels in Log4j
 
     | Level | Meaning                     |
     | ----- | --------------------------- |
@@ -2547,7 +2545,6 @@ What was Log4j vulnerability? How to fix it?
 
     Root cause: 
                JNDI lookup inside log messages.
-
     Fix:
         Upgrade Log4j to 2.17.x or later
         Or disable lookups
@@ -2603,12 +2600,10 @@ What is Metaspace in Java 8?
     In Java 8, PermGen is removed and replaced by Metaspace.
 
     Metaspace stores:
-
         class metadata
         method metadata
 
     👉 Difference:
-
         PermGen → fixed size
         Metaspace → grows automatically (uses native memory)
 
@@ -2674,7 +2669,7 @@ What is Optional?
 			if(opName.isPresent()) System.out.println(opName.get().length());
 
 
-Methods present in Optional class?
+Common methods in Optional?
 
     of()
     ofNullable()
@@ -2692,6 +2687,17 @@ What is default method in interface?
 		Declared in an interface using the default keyword.		
 		Have a method body (unlike normal abstract methods).		
 		Can be overridden in implementing classes.
+
+    Example:-
+        interface MyInterface {
+            default void show() {
+                System.out.println("Default method");
+            }
+        }
+
+        class MyClass implements MyInterface {
+            // can override show() if needed
+        }
 
 
 What is Lambda Expression?
@@ -2714,7 +2720,7 @@ How does lambda expression relate to functional interfaces?
 
     Example:
         Runnable r = () -> System.out.println("Run");
-
+        r.run();
     Here:
         Runnable is a functional interface
         run() is implemented by lambda
@@ -2789,7 +2795,7 @@ What is Collectors?
 Difference between Intermediate and Terminal Operations?
 
     | Feature   | Intermediate    | Terminal             |
-
+    ------------------------------------------------------
     | Return    | Stream          | Result               |
     | Execution | Lazy            | Immediate            |
     | Example   | map(), filter() | forEach(), collect() |
@@ -2798,7 +2804,7 @@ Difference between Intermediate and Terminal Operations?
 Difference between Lambda Expression and Method Reference?
 
     | Lambda          | Method Reference      |
-
+    -------------------------------------------
     | More flexible   | More readable         |
     | Custom logic    | Existing method       |
     | `(x)->print(x)` | `System.out::println` |
@@ -2813,18 +2819,24 @@ What are Predefined Functional Interfaces in java 8?
             System.out.println(p.test(15));   // true
 
         2. BiPredicate - Takes two inputs, returns boolean
+            BiPredicate<Integer, String> bp = (n, s) -> n > s.length();
+            System.out.println(bp.test(10, "Java"));   // true
 
         3. Function<T,R> - Takes input, returns output
             Function<String, Integer> f = s -> s.length();
             System.out.println(f.apply("Java"));   // 4
 
         4. BiFunction - Takes two inputs, returns output
+            BiFunction<Integer, Integer, Integer> bf = (a, b) -> a + b;
+            System.out.println(bf.apply(5, 10));   // 15
 
         5. Consumer<T> - Takes input, returns nothing
             Consumer<String> c = s -> System.out.println(s);
             c.accept("Hello");
 
         6. BiConsumer<T> — Takes two inputs, returns nothing
+            BiConsumer<String, Integer> bc = (s, n) -> System.out.println(s + " " + n);
+            bc.accept("Age", 30);
 
         7. Supplier<T> - Takes no input, returns output
             Supplier<Double> s = () -> Math.random();
@@ -2845,7 +2857,7 @@ Default methods in predefined interfaces ?
 Difference between Collection and Stream API?
 
     | Collection  | Stream         |
-
+    --------------------------------
     | Stores data | Processes data |
     | Reusable    | Single-use     |
     | Eager       | Lazy           |
@@ -2874,10 +2886,10 @@ Have you used parallel streams as well?
                 .forEach(System.out::println);
 
 
-Stream vs Parallel Stream
+Difference between Stream and Parallel Stream?
 
     | Stream        | Parallel Stream  |
-
+    ------------------------------------
     | Sequential    | Parallel         |
     | Single thread | Multiple threads |
     | Safe          | Use carefully    |
@@ -2886,24 +2898,24 @@ Stream vs Parallel Stream
 Difference between findFirst and findAny?
 
     | findFirst     | findAny            |
-
+    --------------------------------------
     | First element | Any element        |
     | Ordered       | Unordered          |
     | Slower        | Faster in parallel |
 
 
-Difference between allMatch and anyMatch
+Difference between allMatch and anyMatch?
 
     | allMatch       | anyMatch     |
-
+    ---------------------------------
     | All must match | At least one |
     | Strict         | Flexible     |
 
 
-Difference between map and flatMap
+Difference between map and flatMap?
 
         | map           | flatMap          |
-
+        ------------------------------------
         | One-to-one    | One-to-many      |
         | Nested stream | Flattened stream |
 
@@ -2913,7 +2925,7 @@ Difference between map and flatMap
 Difference between of() and ofNullable()
 
         | of()                | ofNullable() |
-
+        --------------------------------------
         | Does not allow null | Allows null  |
         | Throws NPE          | Safe         |
 
@@ -2921,7 +2933,7 @@ Difference between of() and ofNullable()
 Static, Instance & Constructor Method References ?
 
         | Type        | Example               |
-
+        ---------------------------------------
         | Static      | `Class::staticMethod` |
         | Instance    | `obj::method`         |
         | Constructor | `Class::new`          |
@@ -3026,7 +3038,7 @@ Name: Stack
 | ------------------------- | ----------------- | ------------------ | ------------------------ | ---------------------------   |
 | Implements `List`         | ✅ Yes            | ✅ Yes            | ✅ Yes                   | ❌ No (inherits from Vector) |
 | Inheritance               | Implements `List` | Implements `List`  | Implements `List`        | Extends `Vector`              |
-| Internal data structure   | Dynamic array     | Doubly linked list | Dynamic array            | Same as Vector                |
+| Internal data structure   | Dynamic array     | Doubly linked list | Dynamic array            | Dynamic array                |
 | Thread-safe               | ❌ No             | ❌ No             | ✅ Yes (synchronized)    | ✅ Yes (synchronized)        |
 | Access by index `get(i)`  | ✅ Fast           | ❌ Slow           | ✅ Fast                  | ✅ Fast                      |
 | Insert / delete in middle | ❌ Slow           | ✅ Fast           | ❌ Slow                  | ❌ Slow                      |
@@ -3163,9 +3175,9 @@ Name: LinkedList (also works as Queue/Deque, already covered under List)
 
 | Feature                   | **PriorityQueue**                                                   | **ArrayDeque**                                       |
 | ------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------- |
+| Internal structure        | Heap (priority heap)                                                | Resizable circular array                             |
 | Ordering of elements      | ✅ Based on **priority** (natural order / Comparator)               | ❌ **No sorting** – keeps normal queue order        |
 | Processing order          | Element with **highest priority** (smallest by default) comes first | **FIFO** (First In First Out)                        |
-| Internal structure        | Heap (priority heap)                                                | Resizable circular array                             |
 | Allows duplicate elements | ✅ Yes                                                              | ✅ Yes                                              |
 | Allows `null`             | ❌ No                                                               | ❌ No                                               |
 | Thread-safe               | ❌ No                                                               | ❌ No                                               |
@@ -3272,8 +3284,6 @@ Name: TreeMap
 | Best use case             | Fast lookup, no order needed   | Need fast lookup + insertion order | Thread-safe old code               | Need sorted keys             |
 
 
-
-
 Difference between Stack and Queue?
 
     Stack follows LIFO, Queue follows FIFO.
@@ -3312,7 +3322,7 @@ Which is faster – LinkedList or ArrayList?
 What is the difference between ArrayList and LinkedList?
 
     | Feature                 | ArrayList          | LinkedList         |
-
+    ---------------------------------------------------------------------
     | Data structure          | Dynamic array      | Doubly linked list |
     | Access                  | Fast (index based) | Slow               |
     | Insert/Delete in middle | Slow               | Fast               |
@@ -3338,12 +3348,12 @@ What is HashMap in Java?
 
 Difference between HashMap and Hashtable?
 
-    | Feature        | HashMap   | HashTable     |
-
+    | Feature        | HashMap     | HashTable        |
+    ------------------------------------------------
     | Thread-safe    | ❌ No      | ✅ Yes         |
-    | Performance    | Fast      | Slow          |
+    | Performance    | Fast       | Slow             |
     | Null key/value | ✅ Allowed | ❌ Not allowed |
-    | Introduced     | Java 1.2  | Legacy (1.0)  |
+    | Introduced     | Java 1.2   | Legacy (1.0)     |
 
 
 Difference between HashMap and ConcurrentHashMap?
@@ -3386,8 +3396,15 @@ What is HashMap and WeakHashMap?
 
 What is Iterator and ListIterator?
 
-    Iterator → forward only
-    ListIterator → forward & backward
+    Iterator
+        Works for all collections
+        Unidirectional (forward only)
+        Methods: hasNext(), next(), remove()
+
+    ListIterator
+        Works for List collections
+        Bidirectional (forward and backward)
+        Methods: hasNext(), next(), hasPrevious(), previous(), add(), set()
 
 
 How to remove duplicates from ArrayList?
@@ -3401,10 +3418,10 @@ How to remove duplicates from ArrayList?
         list = list.stream().distinct().collect(Collectors.toList());
 
 
-Difference between HashSet and TreeSet
+Difference between HashSet and TreeSet?
 
     | Feature        | HashSet     | TreeSet           |
-
+    ----------------------------------------------------
     | Ordering       | ❌ No order  | ✅ Sorted order |
     | Null values    | One allowed | ❌ Not allowed    |
     | Performance    | Faster      | Slower            |
@@ -3414,23 +3431,23 @@ Difference between HashSet and TreeSet
     Set<Integer> ts = new TreeSet<>();
 
 
-ConcurrentHashMap vs Collections.synchronizedMap
+Difference between ConcurrentHashMap and SynchronizedMap?
 
     | Feature        | ConcurrentHashMap    | SynchronizedMap |
-
+    -----------------------------------------------------------
     | Thread safety  | High                 | Low             |
     | Locking        | Segment/Bucket level | Whole map       |
     | Performance    | Fast                 | Slow            |
-    | Null key/value | ❌ Not allowed        | Depends on map  |
+    | Null key/value | ❌ Not allowed      | Depends on map   |
 
     Map m1 = new ConcurrentHashMap();
     Map m2 = Collections.synchronizedMap(new HashMap());
 
 
-HashMap vs IdentityHashMap
+Difference between HashMap and IdentityHashMap?
 
     | Feature        | HashMap         | IdentityHashMap    |
-
+    ---------------------------------------------------------
     | Key comparison | equals()        | ==                 |
     | Usage          | General purpose | Reference-based    |
     | Performance    | Normal          | Faster (no equals) |
@@ -3458,8 +3475,8 @@ What is the use of CopyOnWriteArrayList ?
     👉 It is a thread-safe list.
 
     👉 Best when:-
-        reads are very frequent
-        writes are very less
+            reads are very frequent
+            writes are very less
 
     Example:-
         CopyOnWriteArrayList<String> list = new CopyOnWriteArrayList<>();
@@ -3724,8 +3741,7 @@ What are the benefits of IoC?
 
 What is bean wiring in Spring?
 
-    👉 Bean wiring means connecting one bean with another bean
-    (Dependency Injection).
+    👉 Bean wiring means connecting one bean with another bean  (Dependency Injection).
 
     Example:-
         @Autowired
@@ -3752,7 +3768,7 @@ What are Join Point and Pointcut?
     ▶ Join Point
         A join point is:
             👉 a point where advice can be applied (usually a method execution).
-        
+
         Example:-
             public void save() {
                 // this method is a join point
@@ -3870,7 +3886,6 @@ How does Dependency Injection work in Spring Boot?
 What is @Autowired?
 
     👉 It is used for dependency injection in Spring.
-
     Spring automatically injects the object.
 
 
@@ -3897,15 +3912,15 @@ Why use @Autowired when we can use new operator?
     Bad:-
         OrderService service = new OrderService();
 
-    Good:-
-        @Autowired
-        private OrderService service;
-
     👉 With @Autowired, Spring manages:-
             object creation
             dependency injection
             lifecycle
             testing support
+    
+    Good:-
+        @Autowired
+        private OrderService service;
 
 
 When to use @Component annotation vs @Bean annotation ?
@@ -3933,7 +3948,7 @@ Why do we use @Qualifier annotation ?
 
     👉 When multiple beans of the same type are available, @Qualifier tells Spring which bean to inject.
 
-    Example
+    Example:-
 
         @Component
         class SmsService implements NotificationService {}
@@ -3952,7 +3967,7 @@ Why do we use @Primary annotation ?
 
     👉 When multiple beans of the same type are available, @Primary marks one as the default to be injected.
 
-    Example
+    Example:-
 
         @Component
         @Primary
@@ -4008,7 +4023,7 @@ What is Spring Boot and why do we use it?
 What is the main difference between Spring and Spring Boot?
 
     | Spring                     | Spring Boot               |
-
+    ----------------------------------------------------------
     | Needs manual configuration | Auto configuration        |
     | XML / Java config needed   | Almost zero configuration |
     | External server needed     | Embedded server           |
@@ -4115,8 +4130,7 @@ What is Auto-Configuration in Spring Boot?
 
 How does Spring Boot decide which beans to create?
 
-    Spring Boot uses:
-        conditional annotations
+    Spring Boot uses **conditional annotations** to decide which beans to create.
 
     Important ones:
         @ConditionalOnClass
@@ -4202,7 +4216,7 @@ How do you deploy Spring Boot application?
 
 What is Embedded server in Spring Boot?
 
-    We do not deploy WAR manually.
+    We do not deploy WAR files manually to external servers.
 
     Spring Boot provides built-in servers like:
         * Tomcat (default)
@@ -4294,8 +4308,7 @@ How is security managed in your application ?
     * Endpoints protected using security configuration
 
 
-
-What are the Bean scopes available in Spring Boot
+What are the Bean scopes available in Spring Boot ?
 
     singleton (default)
     prototype
@@ -4307,15 +4320,14 @@ What are the Bean scopes available in Spring Boot
 
 How to handle cross-cutting concerns in Spring Boot?
 
-    We use:-
-        👉 AOP (Aspect Oriented Programming)
+    We use **Aspect-Oriented Programming (AOP)**.
 
-    Cross-cutting concerns:
+    AOP allows us to separate cross-cutting concerns like:
         * logging
         * security
         * transactions
 
-    Example
+    Example:-
         @Before("execution(* com.app.service.*.*(..))")
         public void log() {
             System.out.println("Before method call");
@@ -4323,7 +4335,7 @@ How to handle cross-cutting concerns in Spring Boot?
     👉 This avoids duplicate code in every class.
 
 
-Can we create a custom annotation ?
+How to create and use custom annotations in Spring Boot?
 
     ✔ Yes, we can create and use our own annotations.
 
@@ -4390,7 +4402,6 @@ How is an event handled in Spring?
         👉 Application events and listeners.
 
     Example:-
-
         Event publisher
             applicationEventPublisher.publishEvent(new MyEvent(this));
 
@@ -4425,7 +4436,7 @@ How to implement messaging in Spring Boot?
     Messaging is used for asynchronous communication between services.
 
     Common approach:
-        We use message broker (like Kafka / RabbitMQ)
+        We use message broker like Kafka / RabbitMQ.
 
     Simple idea in Spring:
         👉 producer sends message
@@ -4437,23 +4448,7 @@ How to implement messaging in Spring Boot?
             System.out.println(msg);
         }
 
-
-How to implement reactive programming in a Spring Boot application?
-
-    👉 Reactive programming is **non-blocking** and suitable for high-concurrency apps.
-    We use **Spring WebFlux** and reactive types.
-
-    Main classes:
-        * `Mono<T>` → 0 or 1 value only allowed
-        * `Flux<T>` → multiple values allowed
-
-    Example:-
-        @GetMapping("/hello")
-        public Mono<String> hello() {
-            return Mono.just("Hello");
-        }
-
-
+   
 Explain the purpose of Spring WebFlux?
 
     Spring WebFlux is a reactive and non-blocking web framework.
@@ -4477,11 +4472,26 @@ Explain the purpose of Spring WebFlux?
         }
 
 
+How to implement reactive programming in a Spring Boot application?
+
+    👉 Reactive programming is **non-blocking** and suitable for high-concurrency apps.
+    We use **Spring WebFlux** and reactive types.
+
+    Main classes:
+        * `Mono<T>` → 0 or 1 value only allowed
+        * `Flux<T>` → multiple values allowed
+
+    Example:-
+        @GetMapping("/hello")
+        public Mono<String> hello() {
+            return Mono.just("Hello");
+        }
+
+
 How to implement real-time communication in Spring Boot?
 
     Mainly by using:
-        👉 WebSocket
-        👉 or Server-Sent Events (SSE)
+        👉 WebSocket or Server-Sent Events (SSE)
 
     **Example (WebSocket concept)**
         Clients stay connected and receive messages instantly from server.
@@ -4492,10 +4502,9 @@ How to implement real-time communication in Spring Boot?
         * dashboards
 
 
-How to handle WebSocket communication in Spring?
+How to handle WebSocket communication in Spring Boot?
 
-    We use:-
-        👉 Spring WebSocket support with STOMP.
+    We use Spring WebSocket support with STOMP.
 
     Example:-
         @Configuration
@@ -4513,7 +4522,7 @@ How to handle WebSocket communication in Spring?
     👉 Clients subscribe to `/topic/messages` and receive messages in real time.
 
 
-What are the latest specifications supported by Spring?
+What are the latest specifications supported by Spring Boot?
 
     Latest Spring Boot versions support:
             Jakarta EE (instead of old Java EE)
@@ -4581,6 +4590,10 @@ What is application.properties / application.yml?
 
 How can we read properties from a properties file?
 
+    We can read properties using:
+        * @Value annotation
+        * @ConfigurationProperties
+
     @Value("${app.name}")
     private String appName;
 
@@ -4590,8 +4603,8 @@ How can we read properties from a properties file?
 How to manage application properties in Spring Boot?
 
     We manage them using:
-        * `application.properties`
-        * `application.yml`
+        * application.properties
+        * application.yml
         * profile-based property files
 
     Examples
@@ -4666,6 +4679,35 @@ How do you change default server port?
 
 
                                             *****Spring Boot Web / REST API Questions*****
+
+Explain Spring Boot request flow?
+
+    1. Client sends request
+    2. Embedded server receives
+    3. DispatcherServlet handles request
+    4. Finds matching controller
+    5. Calls method
+    6. Converts return value to JSON using HttpMessageConverters
+
+
+How can I create a Spring REST application from scratch ?
+
+        1. Create a Spring Boot project using Spring Initializr
+        2. Add dependencies: spring-boot-starter-web
+        3. Create a REST controller with @RestController annotation
+        4. Define request mappings using the annotations @GetMapping, @PostMapping, etc.
+        5. Run the application and test the endpoints
+
+    Example:-
+        @RestController
+        @RequestMapping("/api")
+        public class EmployeeController {
+
+            @GetMapping("/hello")
+            public String hello() {
+                return "Hello";
+            }
+        }
 
 
 How do you create RESTful APIs using Spring Boot?
@@ -4742,16 +4784,6 @@ What is the difference between @RequestMapping and @GetMapping?
     | Style    | Generic mapping  | Shortcut for GET |
 
 
-Explain Spring Boot request flow?
-
-    1. Client sends request
-    2. Embedded server receives
-    3. DispatcherServlet handles request
-    4. Finds matching controller
-    5. Calls method
-    6. Converts return value to JSON using HttpMessageConverters
-
-
 Role of DispatcherServlet in Spring MVC?
 
     `DispatcherServlet` is the **frontend controller**.
@@ -4769,7 +4801,7 @@ What is the difference between @PathVariable and @RequestParam?
 
     | URL path variable   | Query parameter      |
     | /user/10            | /user?id=10          |
-    | Required by default | Optional by default  |
+    | Required by default | Optional             |
 
 
 Do you know the use of @ModelAttribute?
@@ -4799,30 +4831,23 @@ What is ResponseEntity and its benefit ?
         return ResponseEntity.ok(employee);
 
 
-How can I create a Spring REST application from scratch ?
-
-        1. Create a Spring Boot project using Spring Initializr
-        2. Add dependencies: spring-boot-starter-web
-        3. Create a REST controller with @RestController annotation
-        4. Define request mappings using the annotations @GetMapping, @PostMapping, etc.
-        5. Run the application and test the endpoints
-
-    Example:-
-        @RestController
-        @RequestMapping("/api")
-        public class EmployeeController {
-
-            @GetMapping("/hello")
-            public String hello() {
-                return "Hello";
-            }
-        }
-
-
 
 
                                                         *****REST API & HTTP Concepts*****
 
+
+REST API best practices?
+
+    Use correct HTTP methods like GET, POST, PUT, DELETE
+    Use proper HTTP status codes like 200, 201, 400, 404, 500
+    Use nouns in URLs like /users, not verbs like /getUsers
+    Version your APIs like /api/v1/users
+    Use proper request / response formats (JSON)
+    Use pagination and filtering for large data
+    Secure APIs (JWT / OAuth)
+
+    GET    /api/users/10
+    POST   /api/users
 
 
 Objectives of GET, POST, PUT, DELETE methods?
@@ -4852,20 +4877,6 @@ If insert can be done using PUT, why do we have POST?
 
     POST   /users   → create user
     PUT    /users/1 → update user 1
-
-
-REST API best practices?
-
-    Use correct HTTP methods like GET, POST, PUT, DELETE
-    Use proper HTTP status codes like 200, 201, 400, 404, 500
-    Use nouns in URLs like /users, not verbs like /getUsers
-    Version your APIs like /api/v1/users
-    Use proper request / response formats (JSON)
-    Use pagination and filtering for large data
-    Secure APIs (JWT / OAuth)
-
-    GET    /api/users/10
-    POST   /api/users
 
 
 Can we fetch data using POST?
@@ -4899,9 +4910,9 @@ Can we use GET method to create resources ?
 
 Explain HTTP status codes?
 
-    - 1xx: Informational
+    - 1xx: Informational (100 Continue, 101 Switching Protocols)
     - 2xx: Success (200 OK, 201 Created)
-    - 3xx: Redirect
+    - 3xx: Redirect (301 Moved Permanently, 302 Found)
     - 4xx: Client errors (404 Not Found, 400 Bad Request)
     - 5xx: Server errors (500 Internal Server Error)
 
@@ -4953,10 +4964,10 @@ How to monitor and troubleshoot performance issues in Spring Boot?
         👉 Spring Boot Actuator
 
     Important endpoints:
-        * `/actuator/metrics`
-        * `/actuator/health`
-        * `/actuator/threaddump`
-        * `/actuator/heapdump`
+            * /actuator/metrics
+            * /actuator/health
+            * /actuator/threaddump
+            * /actuator/heapdump
 
     Also:
         * logs
@@ -4988,7 +4999,8 @@ How can you customize Spring Boot Actuator endpoints?
 
 What is JPA in Spring Boot?
 
-    JPA is a specification for ORM.
+    JPA stands for Java Persistence API.
+    JPA is a specification for ORM (Object-Relational Mapping).
     Spring Boot provides integration through Spring Data JPA.
 
     #Example
@@ -5032,10 +5044,10 @@ How do you use JPA in Spring Boot?
         }
 
 
-Difference between JPA and Hibernate
+Difference between JPA and Hibernate in Spring Boot?
 
-    JPA is only a specification for ORM.
-    Hibernate is an implementation of JPA.
+    JPA is only a specification for ORM (Object-Relational Mapping).
+    Hibernate is an implementation of JPA(Java Persistence API).
     Spring Boot uses Hibernate internally when we use Spring Data JPA.
 
 
@@ -5069,10 +5081,10 @@ What is Session in Hibernate? Is it thread-safe?
     Session represents a connection between application and database.
 
     It is used to:-
+        fetch entities
         save
         update
         delete
-        fetch entities
 
     👉 Is it thread safe?
         ❌ No.
@@ -5167,8 +5179,12 @@ What is Lazy loading and Eager loading in JPA?
     
     * Eager → data loaded immediately
 
+    Example
+        @ManyToOne(fetch = FetchType.EAGER)
+        private Department dept;
 
-How do you implement pagination and sorting?
+
+How do you implement pagination and sorting ?
 
     Spring Data provides Pageable interface for pagination and sorting.
 
@@ -5179,9 +5195,9 @@ How do you implement pagination and sorting?
 
 How do you write custom query in Spring Data JPA?
 
-    Using:
-        * method names
-        * @Query
+    We can write custom queries using:
+        * method naming convention
+        * @Query annotation
 
     #Example
         List<Employee> findByName(String name);
@@ -5271,7 +5287,7 @@ What is @Transactional and why is it important?
 
 How does @Transactional work internally?
 
-    Internally, Spring uses AOP (proxy mechanism).
+    Internally, Spring uses AOP (proxy mechanism) to manage transactions.
 
     Flow:-
         A proxy is created around your bean
@@ -5359,7 +5375,7 @@ What is JdbcTemplate and how to use it?
         }
 
 
-What is the difference between PreparedStatement and Statement in JDBC?
+What is the difference between Statement and PreparedStatement in JDBC?
 
     | Statement                 | PreparedStatement      |
 
@@ -5389,6 +5405,22 @@ What are exceptions using Springboot?
             }
         }
     👉 This handles exceptions for all controllers.
+  
+
+Usage of @ControllerAdvice in Spring MVC ?
+
+    @ControllerAdvice is used to handle exceptions globally across all controllers.
+
+    Example:-
+        @ControllerAdvice
+        public class GlobalExceptionHandler {
+
+            @ExceptionHandler(Exception.class)
+            public ResponseEntity<?> handleAllExceptions(Exception e) {
+                return ResponseEntity.status(500).body(e.getMessage());
+            }
+        }
+    This will catch exceptions from any controller and return a 500 response.
 
 
 Usage of @ExceptionHandler in Spring MVC ?
@@ -5411,22 +5443,6 @@ Usage of @ExceptionHandler in Spring MVC ?
     Whenever RuntimeException occurs in this controller, handleError() is executed.
 
 
-Usage of @ControllerAdvice in Spring MVC ?
-
-    @ControllerAdvice is used to handle exceptions globally across all controllers.
-
-    Example:-
-        @ControllerAdvice
-        public class GlobalExceptionHandler {
-
-            @ExceptionHandler(Exception.class)
-            public ResponseEntity<?> handleAllExceptions(Exception e) {
-                return ResponseEntity.status(500).body(e.getMessage());
-            }
-        }
-    This will catch exceptions from any controller and return a 500 response.
-
-
 What is validation in Spring Boot?
 
     Spring Boot integrates Bean Validation.
@@ -5440,6 +5456,88 @@ What is validation in Spring Boot?
 
     Controller:
         public ResponseEntity save(@Valid @RequestBody User user)
+
+
+
+
+                                                    *****Performance, Async & Scheduling*****
+
+
+What is asynchronous processing in Spring Boot?
+
+    It allows method to run in separate thread.
+
+    Example:-
+        @Async
+        public void sendMail() { }
+
+
+How to handle long-running tasks in Spring Boot?
+
+    We use asynchronous processing with @Async annotation.
+
+    Example:-
+        @Async
+        public void processReport() {
+            // long running job
+        }
+
+    Enable it:
+        @EnableAsync
+        @SpringBootApplication
+
+    👉 The request thread is not blocked.
+
+
+How do you implement asynchronous processing in Spring Boot?
+
+    1. Enable async support using @EnableAsync annotation on configuration class   
+            @EnableAsync
+            @SpringBootApplication
+            public class MyApp {
+            }        
+        
+    2. Use @Async annotation on method
+            @Async
+            public void sendMail() {
+                System.out.println("Running in background");
+            }
+
+
+Explain the usage of the @Async annotation?
+
+    @Async makes a method run in a separate thread.
+    The caller will not wait for the method to finish.
+
+    Example:-
+        @Async
+        public void generateReport() {
+            // long running task
+        }
+
+    👉 Used for:-
+            sending emails
+            background jobs
+            long processing tasks
+
+
+How to implement scheduling in Spring Boot?
+
+    Steps:
+        1. Enable scheduling using @EnableScheduling annotation at configuration class
+        2. Use `@Scheduled` annotation on methods
+
+    Example:-
+        @EnableScheduling
+        @SpringBootApplication
+        public class App { }
+
+        @Scheduled(fixedRate = 60000)
+        public void runJob() {
+            System.out.println("Job running every minute");
+        }
+
+
 
 
 
@@ -5493,41 +5591,6 @@ How do you implement security in a Spring Boot application?
 
             return http.build();
 
-
-How JWT authentication works in Spring Boot?
-
-    JWT (JSON Web Token) is used for stateless authentication.
-
-    Flow:
-        1. User logs in
-        2. Server generates token
-        3. Client sends token in every request
-    
-    Contains:
-            * Header
-            * Payload
-            * Signature
-
-    Example header
-        Authorization: Bearer eyJhbGciOiJIUzI1NiJ9...
-
-
-Do you know what is JWT 2.0 and JWT token?
-
-    👉 There is no standard called JWT 2.0.
-
-        There is:
-            OAuth 2.0 (authorization framework)
-            JWT (token format)
-
-        JWT Token
-            JWT is a compact token used to securely transfer user information.
-
-            It contains:-
-                Header
-                Payload
-                Signature
-
                 
 How does Spring Boot support OAuth 2.0?
 
@@ -5537,6 +5600,18 @@ How does Spring Boot support OAuth 2.0?
         * OAuth2 login
         * OAuth2 resource server
         * JWT token validation
+
+
+Explain the concept of Spring Security OAuth?
+
+    Spring Security OAuth helps to implement OAuth2 based authentication and authorization.
+
+    It supports:
+        * authorization server
+        * resource server
+        * token validation
+
+    👉 It is used when authentication is handled by a central identity server.
 
 
 How do you configure Basic Authentication in Spring Security?
@@ -5565,18 +5640,6 @@ What is CSRF protection and how is it implemented?
         http.csrf(csrf -> csrf.disable());
 
 
-Explain the concept of Spring Security OAuth?
-
-    Spring Security OAuth helps to implement OAuth2 based authentication and authorization.
-
-    It supports:
-        * authorization server
-        * resource server
-        * token validation
-
-    👉 It is used when authentication is handled by a central identity server.
-
-
 What is CORS and how do you handle it in Spring Boot?
 
     CORS stands for Cross-Origin Resource Sharing and it allows cross-domain requests using @crossOrigin annotation.
@@ -5585,150 +5648,67 @@ What is CORS and how do you handle it in Spring Boot?
         @CrossOrigin(origins="http://localhost:3000")
 
 
-What is JWT? How to implement it in Spring Boot Security?
+What is JWT and how does JWT authentication work in Spring Boot?
 
-    JWT = JSON Web Token.
-    It is a **stateless token** that contains user information and roles.
+    JWT (JSON Web Token) is a stateless authentication token used to securely transmit user information between client and server.
 
-    Flow:
-        1. User logs in
-        2. Server generates token
-        3. Client sends token in every request
+    It contains three parts:
+        Header
+        Payload
+        Signature
+
+    Example:
+        Authorization: Bearer eyJhbGciOiJIUzI1NiJ9...
+
+    Authentication Flow:
+        1. User logs in 
+        2. Server generates token 
+        3. Client sends token in every request 
         4. Server validates JWT
 
-    Example (concept):-
-        Authorization: Bearer eyJhbGciOi...
+    Spring Boot Implementation (concept):
+        Configure Spring Security
+        Add JWT authentication filter
+        Validate token in SecurityFilterChain
 
-    In Spring Boot:-
-        * configure resource server
-        * validate JWT in security filter chain
-
-    👉 No session is stored on server.
+    👉 No session is stored on the server (stateless authentication).
 
 
+Do you know what is JWT 2.0 and JWT token?
 
-                                                    *****Performance, Async & Scheduling*****
+    👉 There is no standard called JWT 2.0.
 
+        There is:
+            OAuth 2.0 (authorization framework)
+            JWT (token format)
 
-What is asynchronous processing in Spring Boot?
+        JWT Token
+            JWT is a compact token used to securely transfer user information.
 
-    It allows method to run in separate thread.
-
-    Example:-
-        @Async
-        public void sendMail() { }
-
-
-How do you implement asynchronous processing in Spring Boot?
-
-    1. Enable async support using @EnableAsync on configuration class   
-            @EnableAsync
-            @SpringBootApplication
-            public class MyApp {
-            }        
-        
-    2. Use @Async on method
-            @Async
-            public void sendMail() {
-                System.out.println("Running in background");
-            }
+            It contains:-
+                Header
+                Payload
+                Signature
 
 
-Explain the usage of the @Async annotation?
-
-    @Async makes a method run in a separate thread.
-    The caller will not wait for the method to finish.
-
-    Example:-
-        @Async
-        public void generateReport() {
-            // long running task
-        }
-
-    👉 Used for:-
-            sending emails
-            background jobs
-            long processing tasks
-
-
-How to implement scheduling in Spring Boot?
-
-    Steps:
-        1. Enable scheduling using @EnableScheduling annotation at configuration class
-        2. Use `@Scheduled` annotation on methods
-
-    Example:-
-        @EnableScheduling
-        @SpringBootApplication
-        public class App { }
-
-        @Scheduled(fixedRate = 60000)
-        public void runJob() {
-            System.out.println("Job running every minute");
-        }
-
-
-How to handle long-running tasks in Spring Boot?
-
-    We use asynchronous processing with @Async annotation.
-
-    Example:-
-        @Async
-        public void processReport() {
-            // long running job
-        }
-
-    Enable it:
-        @EnableAsync
-        @SpringBootApplication
-
-    👉 The request thread is not blocked.
 
 
                                                                 *****Testing in Spring Boot*****
 
 
-How do you write integration testing in Spring Boot?
+Common Spring Boot test annotations?
 
-    Using:
+        @Test
         @SpringBootTest
+        @MockBean
         @AutoConfigureMockMvc
+        @WebMvcTest
+        @DataJpaTest
 
-    Example:-
-        @SpringBootTest
-        class AppTest {
-        }
-    It loads full context.
-
-
-How do you perform integration testing in Spring Boot?
-
-    Integration testing means:-
-        👉 testing **multiple layers together** (controller + service + DB + config).
-
-    We usually use:-
-            * @SpringBootTest
-            * real Spring context
-            * (optionally) Test database
-
-    Example:-
+        Example:-
             @SpringBootTest
-            class UserIntegrationTest {
-                @Autowired
-                private UserService userService;
-
-                @Test
-                void testSaveUser() {
-                    userService.saveUser(new User("Mohan"));
-                }
+            class UserServiceTest {
             }
-    👉 This loads the full application context.
-
-
-Difference between @SpringBootTest and @WebMvcTest?
-
-    @SpringBootTest → loads entire application
-    @WebMvcTest → loads only controller layer
 
 
 How do you write unit tests for Spring Boot applications?
@@ -5763,28 +5743,12 @@ How do you write unit tests for Spring Boot applications?
         private UserRepository userRepository;
 
 
-When and where do you use @Transactional in testing?
-
-    👉 We want the database changes to be rolled back after each test.
-
-    Example:-
-            @SpringBootTest
-            @Transactional
-            class UserRepositoryTest {
-                @Test
-                void testSave() {
-                    repository.save(user);
-                }
-            }
-    👉 After the test finishes, Spring automatically rolls back the data.
-
-
 Difference between @Mock and @MockBean?
 
     | Feature                 | @Mock      | @MockBean                |
-
+    -------------------------------------------------------------------
     | From                    | Mockito    | Spring Boot              |
-    | Added to Spring context | ❌ No       | ✅ Yes                 |
+    | Added to Spring context | ❌ No      | ✅ Yes                  |
     | Used in                 | Unit tests | Spring integration tests |
 
 
@@ -5804,20 +5768,55 @@ How are mock frameworks like Mockito / EasyMock used in Spring Boot?
     👉 The real `UserRepository` is replaced with a mock.
 
 
-Common Spring Boot test annotations?
+Difference between @SpringBootTest and @WebMvcTest?
 
-        @Test
-        @SpringBootTest
-        @MockBean
-        @AutoConfigureMockMvc
-        @WebMvcTest
-        @DataJpaTest
+    @SpringBootTest → loads entire application
+    @WebMvcTest → loads only controller layer
 
-        Example:-
+
+How do you perform (or write) integration testing in Spring Boot?
+
+    Integration testing means testing multiple layers together such as:
+            Controller
+            Service
+            Repository
+            Database
+            Configuration
+
+    In Spring Boot, integration testing is commonly done using:
             @SpringBootTest
-            class UserServiceTest {
-            }
+            @AutoConfigureMockMvc (for API testing)
+            Real Spring Application Context
+            Optional test database
 
+    Example:-
+            @SpringBootTest
+            class UserIntegrationTest {
+                @Autowired
+                private UserService userService;
+
+                @Test
+                void testSaveUser() {
+                    userService.saveUser(new User("Mohan"));
+                }
+            }
+    👉 @SpringBootTest loads the entire Spring Boot application context, allowing testing of multiple components together.
+
+
+When and where do you use @Transactional in testing?
+
+    👉 We want the database changes to be rolled back after each test.
+
+    Example:-
+            @SpringBootTest
+            @Transactional
+            class UserRepositoryTest {
+                @Test
+                void testSave() {
+                    repository.save(user);
+                }
+            }
+    👉 After the test finishes, Spring automatically rolls back the data.
 
 
 
@@ -6587,14 +6586,14 @@ What are SQL datatypes?
         * **BOOLEAN / BIT(1)** → TRUE or FALSE (stored as 0 or 1 in MySQL)
 
 
-Types of SQL?
+What are the different types of SQL types?
 
     1. DDL (Data Definition Language) – Defines the database structure.
 
         Commands:
             CREATE → create database objects (tables, views, etc.)
             ALTER → modify existing objects
-            DROP → delete objects
+            DROP → delete objects 
             TRUNCATE → remove all records from a table (faster than DELETE)
 
         Example:
@@ -6703,6 +6702,7 @@ What are the main storage engines in MySQL and why does it matter?
     ### Key differences
 
     | Feature          | InnoDB | MyISAM          |
+    -----------------------------------------------
     Transactions       | Yes    | No              |
     Row level locking  | Yes    | No (table lock) |
     Foreign keys       | Yes    | No              |
@@ -6716,7 +6716,7 @@ What are the main storage engines in MySQL and why does it matter?
                 ENGINE=InnoDB;
 
 
-Explain primary key, unique key and foreign key with examples
+Explain primary key, unique key and foreign key with examples?
 
     ### Primary key
 
@@ -6749,7 +6749,7 @@ Explain primary key, unique key and foreign key with examples
     This prevents inserting orders for a non-existing user.
 
 
-Primary Key vs Unique Key differences ?
+What is the difference between primary key and unique key?
 
     | Primary Key             | Unique Key              |
     | ----------------------- | ----------------------- |
@@ -6864,6 +6864,30 @@ What is the difference between WHERE and HAVING?
     We cannot use WHERE for aggregate conditions.
 
 
+
+What is the difference between DELETE, TRUNCATE and DROP?
+
+    ### DELETE
+        * row by row
+        * can be rolled back (inside transaction)
+        * slower
+
+        DELETE FROM tableName WHERE column = 5;
+
+    ### TRUNCATE
+        * removes all rows in a table
+        * very fast
+        * cannot be rolled back
+        * resets auto-increment
+
+        TRUNCATE TABLE tableName;
+
+    ### DROP
+        * removes table itself
+        * Auto Commit
+        * Fast
+
+
 What is Aggregate Functions?
 
     Aggregate functions perform calculations on a set of rows and return a single value.
@@ -6904,7 +6928,7 @@ What is Indexes?
         * slows down INSERT/UPDATE slightly
 
 
-What are composite indexes and when should we use them?
+What are composite indexes and when should we use them ?
 
     Composite index is an index on multiple columns.
 
@@ -7152,32 +7176,6 @@ How do you take backup and restore in MySQL?
     This is very common in production and migration tasks.
 
 
-What is the difference between DELETE, TRUNCATE and DROP?
-
-    ### DELETE
-
-        * row by row
-        * can be rolled back (inside transaction)
-        * slower
-
-        DELETE FROM tableName WHERE column = 5;
-
-    ### TRUNCATE
-
-        * removes all rows
-        * very fast
-        * cannot be rolled back
-        * resets auto-increment
-
-        TRUNCATE TABLE tableName;
-
-    ### DROP
-
-        * removes table itself
-        * Auto Commit
-        * Fast
-
-
 What are window functions in MySQL and when do we use them?
 
     Window functions perform calculations across a set of rows without collapsing them into groups.
@@ -7247,16 +7245,16 @@ What is full-text search in MySQL?
 
 How do you handle performance issues in MySQL in real projects?
 
-Typical steps:
-    1. Identify slow queries
-    2. Use EXPLAIN
-    3. Add or improve indexes
-    4. Rewrite queries
-    5. Avoid SELECT *
-    6. Reduce joins where possible
-    7. Check transaction and lock contention
+    Typical steps:
+        1. Identify slow queries
+        2. Use EXPLAIN
+        3. Add or improve indexes
+        4. Rewrite queries
+        5. Avoid SELECT *
+        6. Reduce joins where possible
+        7. Check transaction and lock contention
 
-In production, slow query log is heavily used.
+    In production, slow query log is heavily used.
 
 
 What is deadlock and how does MySQL handle it?
@@ -7265,7 +7263,7 @@ What is deadlock and how does MySQL handle it?
 
     ### Example
         Transaction A locks row 1
-        Transaction B locks row 2
+        Transactio0n B locks row 2
         A waits for row 2
         B waits for row 1
 
@@ -7296,7 +7294,7 @@ Email field has NOT NULL constraint. How to remove NOT NULL constraint?
 What are Set Operations?
 
     Set operations allow you to combine results of two or more queries into a single result set.
-    Useful when you want union, intersection, or difference of query results.
+    Useful when we want union, intersection, or difference of query results.
 
     UNION → Combines results of two queries and removes duplicates
         SELECT name FROM Students

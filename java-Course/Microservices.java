@@ -144,6 +144,7 @@
         public String fallback(Exception e) {
             return "Service unavailable";
         }
+
 ---
 
 ### 13. What is Config Server?
@@ -157,14 +158,15 @@
     spring:
         cloud:
             config:
-            uri: http://localhost:8888    
+            uri: http://localhost:8888
+            
 ---
 
 ### 14. Why use centralized configuration?
 
-    * Manage config in one place
-    * Avoid redeployment
-    * Environment specific configs
+    - No redeployment for config changes
+    - Environment-specific configs
+    - Consistency across services
 
 ---
 
@@ -178,16 +180,25 @@
 
     Flow:
     Client → API Gateway → Order Service → Payment Service
+
 ---
 
-### 16. What is Saga Pattern?
+### 16. Why Distributed Tracing important?
+
+    Helps identify:
+            * performance bottlenecks
+            * service failures
+
+---
+
+### 17. What is Saga Pattern?
 
     Pattern for managing **distributed transactions** across microservices.
     Each service performs local transaction.
 
     Types:
-        1. **Choreography** – Event-based
-        2. **Orchestration** – Central controller
+        1. **Choreography** – Event-based, Less coupling
+        2. **Orchestration** – Central controller, Easier control
 
     Example:
         Order → Payment → Inventory  
@@ -195,7 +206,7 @@
 
 ---
 
-### 17. How do you maintain data consistency?
+### 18. How do you maintain data consistency?
 
     * Saga pattern
     * Eventual consistency
@@ -203,7 +214,7 @@
 
 ---
 
-### 18. What is Event-Driven Microservices?
+### 19. What is Event-Driven Microservices?
 
     Services communicate using **events** instead of direct calls.
 
@@ -215,7 +226,7 @@
 
 ---
 
-### 19. What is Idempotency?
+### 20. What is Idempotency?
 
     Same request executed multiple times gives **same result**.
 
@@ -226,7 +237,7 @@
 
 ---
 
-### 20. What is Statelessness in Microservices?
+### 21. What is Statelessness in Microservices?
 
     Services do not store session state.
 
@@ -236,14 +247,14 @@
 
 ---
 
-### 21. Why each microservice should have its own DB?
+### 22. Why each microservice should have its own DB?
 
     - Avoid tight coupling
     - Independent scaling
     - Prevent shared failures
 ---
 
-### 22. What is Docker in Microservices?
+### 23. What is Docker in Microservices?
 
     Docker packages application with dependencies into a **container**.
 
@@ -259,7 +270,7 @@
 
 ---
 
-### 23. What is Kubernetes?
+### 24. What is Kubernetes?
 
     Container orchestration platform used to manage containers.
 
@@ -271,7 +282,7 @@
 
 ---
 
-### 24. How do you secure microservices?
+### 25. How do you secure microservices?
 
     * JWT authentication
     * OAuth2
@@ -281,7 +292,7 @@
 
 ---
 
-### 25. What is OAuth2?
+### 26. What is OAuth2?
 
     Authorization framework using **access tokens**.s
 
@@ -290,7 +301,7 @@
 
 ---
 
-### 26. What is JWT?
+### 27. What is JWT?
 
     JSON Web Token used for **stateless authentication**.
 
@@ -301,7 +312,7 @@
 
 ---
 
-### 27. What is Blue-Green Deployment?
+### 28. What is Blue-Green Deployment?
 
     Two environments:
         * Blue (current)
@@ -311,13 +322,15 @@
 
 ---
 
-### 28. What is Canary Deployment?
+### 29. What is Canary Deployment?
 
-    New version released to **small % of users** first.
+    Deploy new version to **small % of users** first.
+
+    If stable → rollout fully.
 
 ---
 
-### 29. What is Versioning in Microservices?
+### 30. What is Versioning in Microservices?
 
     API versioning example:
         /api/v1/users
@@ -325,7 +338,7 @@
 
 ---
 
-### 30. Real-Time Microservices Example?
+### 31. Real-Time Microservices Example?
 
     Banking System:
         * Customer Service
@@ -335,311 +348,231 @@
 
     Flow:
         Customer → API Gateway → Account → Transaction → Notification
-
-        
 ---
 
-### 34. How does Eureka based discovery work in Spring Boot?
+### 32. How does Eureka based discovery work in Spring Boot?
 
-1. Service starts
-2. Registers with Eureka server
-3. Other services request the service name
-4. Eureka provides service instance
-
+    1. Service starts
+    2. Registers with Eureka server
+    3. Other services request the service name
+    4. Eureka provides service instance
 ---
 
-### 35. How is routing handled in Spring Cloud Gateway?
+### 33. How is routing handled in Spring Cloud Gateway?
 
-Routing is configured using **path predicates**.
+    Routing is configured using **path predicates**.
 
-Example:
-
-```
-/api/orders → order-service
-```
+    Example:
+        /api/orders → order-service
 
 ---
 
-### 36. What is client-side load balancing?
+### 34. What is client-side load balancing?
 
-The client chooses which service instance to call.
-Spring Cloud LoadBalancer selects one instance automatically.
-
----
-
-### 37. Do you know what is a circuit breaker?
-
-It detects service failures and **opens the circuit** to stop requests temporarily.
+    The client chooses which service instance to call.
+    Spring Cloud LoadBalancer selects one instance automatically.
 
 ---
 
-### 38. What is a fallback mechanism?
+### 35. What is configuration refresh in microservices?
 
-Alternative response when a remote service fails.
+    Allows configuration updates **without restarting services**.
 
-Example:
-If payment service fails → return "Payment service unavailable".
-
----
-
-### 39. What is centralized configuration in microservices?
-
-All service configurations are stored in **Config Server** and loaded at runtime.
+    Example:-
+        /actuator/refresh
 
 ---
 
-### 40. What is configuration refresh in microservices?
+### 36. How do you implement asynchronous communication in microservices?
 
-Allows configuration updates **without restarting services**.
-
-Example:
-
-```
-/actuator/refresh
-```
+    Using message brokers:-
+                            * Kafka
+                            * RabbitMQ
 
 ---
 
-### 41. What is distributed tracing and why is it important?
+### 37. What is database per service pattern?
 
-Helps identify:
-
-* performance bottlenecks
-* service failures
+    Each microservice manages its own database.
+    Other services cannot access it directly.
 
 ---
 
-### 42. Difference between Orchestration and Choreography in Saga?
+### 38. How do you containerize Spring Boot microservices?
 
-| Orchestration      | Choreography  |
-| ------------------ | ------------- |
-| Central controller | Event driven  |
-| Easier control     | Less coupling |
-
----
-
-### 43. How do you implement asynchronous communication?
-
-Using message brokers:
-
-* Kafka
-* RabbitMQ
+    Using Dockerfile:-
+       
+                FROM openjdk:17
+                COPY app.jar app.jar
+                ENTRYPOINT ["java","-jar","app.jar"]
 
 ---
 
-### 44. What is idempotency and why is it important?
+### 39. Why do we need container orchestration in microservices?
 
-Prevents duplicate processing during retries.
-
----
-
-### 45. What is database per service pattern?
-
-Each microservice manages its own database.
-Other services cannot access it directly.
+    To manage hundreds of containers efficiently.
 
 ---
 
-### 46. How do you containerize Spring Boot microservices?
+### 40. How is JWT propagated across services in microservices?
 
-Using Dockerfile:
+    JWT token passed via HTTP header.
 
-```
-FROM openjdk:17
-COPY app.jar app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
-```
+            Authorization: Bearer token
 
 ---
 
-### 47. Why do we need container orchestration?
+### 41. What is Fault Tolerance in microservices?
 
-To manage hundreds of containers efficiently.
-
----
-
-### 48. How is JWT propagated across services?
-
-JWT token passed via HTTP header.
-
-```
-Authorization: Bearer token
-```
+    System continues functioning even if one service fails.
 
 ---
 
-### 49. What is Fault Tolerance?
+### 42. What do you understand by Domain Driven Design?
 
-System continues functioning even if one service fails.
+    Designing services based on **business domains**.
 
----
-
-### 50. What do you understand by Domain Driven Design?
-
-Designing services based on **business domains**.
-
-Example:
-Order Service, Payment Service.
+    Example:
+        Order Service, Payment Service.
 
 ---
 
-### 51. What is bounded context in microservices?
+### 43. What is bounded context in microservices?
 
-Clear boundary for domain models.
-Each service owns its domain.
-
----
-
-### 52. For logging, what are you doing in microservices?
-
-Using **centralized logging system**.
-
-Example:
-ELK stack.
+    Clear boundary for domain models.
+    Each service owns its domain.
 
 ---
 
-### 53. Suppose there are 10 microservices. How will you debug an issue?
+### 44. Suppose there are 10 microservices. How will you debug an issue?
 
-Using:
-
-* distributed tracing
-* centralized logging
-* traceId
-
----
-
-### 54. When serviceA calls serviceB how is session maintained?
-
-Using **JWT token forwarding**.
+    Using:
+            * distributed tracing
+            * traceId
+            * centralized logging
 
 ---
 
-### 55. Huge load logs many users. How to identify one user logs?
+### 45. When serviceA calls serviceB how is session maintained?
 
-Using:
-
-* traceId
-* userId
-* correlationId
+    Using **JWT token forwarding**.
 
 ---
 
-### 56. Have you worked on event sourcing?
+### 46. Huge load logs many users. How to identify one user logs in microservices?
 
-Event sourcing stores **events instead of current state**.
-
----
-
-### 57. How do you maintain scalability?
-
-* Stateless services
-* Horizontal scaling
-* Container orchestration
+    Using:
+        * traceId
+        * userId
+        * correlationId
 
 ---
 
-### 58. What is health check and readiness?
+### 47. Have you worked on event sourcing in microservices?
 
-Health endpoints monitor service status.
-
-Example:
-
-```
-/actuator/health
-```
+    Event sourcing stores **events instead of current state**.
 
 ---
 
-### 59. What is centralized logging?
+### 48. How do you maintain scalability in microservices?
 
-Collecting logs from all services into one system.
-
----
-
-### 60. How do you monitor microservices?
-
-Using monitoring tools:
-
-* Prometheus
-* Grafana
+    * Stateless services
+    * Horizontal scaling
+    * Container orchestration
 
 ---
 
-### 61. What is contract testing?
+### 49. What is health check and readiness probe in microservices?
 
-Ensures API compatibility between services.
+    Health check: Service is alive.
+    Readiness probe: Service is ready to accept traffic.
 
-Example: Pact testing.
-
----
-
-### 62. How do you avoid cascading failures?
-
-Using:
-
-* circuit breaker
-* timeout
-* retry
-* fallback
+    Example:
+        /actuator/health
+        /actuator/ready
 
 ---
 
-### 63. What is timeout and retry strategy?
+### 50. What is centralized logging in microservices?
 
-Timeout defines waiting time.
-Retry attempts call again if failure occurs.
+    Collecting logs from all services into one system.
 
----
-
-### 64. What is schema evolution?
-
-Safe database schema changes without breaking services.
+    Example:
+        ELK stack.
 
 ---
 
-### 65. What is sidecar pattern?
+### 51. How do you monitor microservices?
 
-Helper container running alongside service.
+    Using monitoring tools:
 
-Example:
-Logging proxy container.
-
----
-
-### 66. What is the strangler pattern?
-
-Used to migrate monolith to microservices gradually.
+            * Prometheus
+            * Grafana
 
 ---
 
-### 67. How do you test microservices?
+### 52. What is contract testing in microservices?
 
-Testing levels:
+    Ensures API compatibility between services.
 
-* Unit tests
-* Integration tests
-* Contract tests
-* End-to-end tests
+    Example: Pact testing.
 
 ---
 
-### 68. What is service mesh?
+### 53. How do you avoid cascading failures in microservices?
 
-Infrastructure layer for service communication.
-
-Example:
-Istio.
+    Using:
+        * circuit breaker
+        * timeout
+        * retry
+        * fallback
 
 ---
 
-### 69. What are the biggest challenges in microservices?
+### 54. What is timeout and retry strategy in microservices?
 
-* Distributed system complexity
-* Debugging difficulty
-* Data consistency
-* Monitoring
+    Timeout defines waiting time.
+    Retry attempts call again if failure occurs.
 
+---
+
+### 55. What is schema evolution in microservices?
+
+    Safe database schema changes without breaking services.
+
+---
+
+### 56. What is sidecar pattern in microservices?
+
+    Helper container running alongside service.
+
+    Example:
+        Logging proxy container.
+
+---
+
+### 57. What is the strangler pattern in microservices?
+
+    Used to migrate monolith to microservices gradually.
+
+---
+
+### 58. How do you test microservices?
+
+    Testing levels:-
+        * Unit tests
+        * Integration tests
+        * Contract tests
+        * End-to-end tests
+
+---
+
+### 59. What is service mesh in microservices?
+
+    Infrastructure layer for service communication.
+
+    Example:-
+        Istio.
 
 
 */

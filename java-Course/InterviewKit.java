@@ -3490,7 +3490,7 @@ What is the use of CopyOnWriteArrayList ?
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
-                                                ******Spring Boot*****
+                                                ******Springboot*****
 
 
                                 *****Spring Core Questions*****
@@ -3523,12 +3523,12 @@ What are the features of Spring Framework?
 
 New features in Spring Framework 4.0 and 5.0?
 
-    ### ✔ Spring 4.0
+    #✔ Spring 4.0
         * Improved Java 8 support
         * Better REST support
         * Improved Web MVC features
 
-    ### ✔ Spring 5.0
+    #✔ Spring 5.0
         * Reactive programming support (WebFlux)
         * Supports Java 8+ baseline
         * Supports new HTTP client
@@ -3557,11 +3557,12 @@ How to create a stateful bean in Spring?
     By default, Spring beans are **stateless singletons**.
 
     To make a bean stateful, we usually use:
+
         👉 `prototype` scope
                     or
         👉 `session` scope (for web apps)
 
-    ### ✔ Prototype bean (new object every time)
+    #✔ Prototype bean (new object every time)
 
         @Component
         @Scope("prototype")
@@ -3570,7 +3571,7 @@ How to create a stateful bean in Spring?
         }
     👉 Each request for this bean gets a new instance.
 
-    ### ✔ Session scoped bean (per user session)
+    #✔ Session scoped bean (per user session)
 
         @Component
         @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
@@ -3581,16 +3582,17 @@ How to create a stateful bean in Spring?
                             
 What are different modules available in Spring Framework?
 
-        Core Container
-        Spring AOP
-        Spring JDBC
-        Spring ORM
-        Spring Web / MVC
-        Spring Test
+    The Spring Framework consists of several modules such as Core Container, Spring AOP, Spring JDBC, Spring ORM, Spring Web/MVC, and Spring Test.
+
+    The Core Container provides dependency injection and bean management.
+    AOP handles cross-cutting concerns like logging and transactions.
+    JDBC and ORM modules simplify database operations.
+    Spring MVC is used for building web applications and REST APIs.
+    Spring Test provides testing support for Spring applications.
 
     Example
         If you build a web application, you mainly use:
-            👉 Core + MVC + JDBC / ORM
+            Core + MVC + ORM (Hibernate/JPA) + Spring Data + Spring Security
 
 
 Explain the bean scopes supported by Spring?
@@ -3674,10 +3676,11 @@ Explain Spring Bean Life Cycle?
 What is ApplicationContext and how is it created?
 
     ApplicationContext is the Spring container that:
-
-        creates beans
-        manages lifecycle
-        injects dependencies
+    
+        manages beans
+        handles dependency injection
+        provides additional features like AOP, events, etc.
+        Manages the entire lifecycle of beans
 
     It is an advanced version of BeanFactory.
 
@@ -3691,7 +3694,7 @@ What is ApplicationContext and how is it created?
         keep beans ready to use
 
 
-Difference between BeanFactory and ApplicationContext?
+Difference between BeanFactory and ApplicationContext in Spring?
 
     | Feature        | BeanFactory   | ApplicationContext         |
 
@@ -3700,16 +3703,14 @@ Difference between BeanFactory and ApplicationContext?
     | Usage          | Rare          | Most commonly used         |
 
 
-Difference between Tight Coupling and Loose Coupling?
+Difference between Tight Coupling and Loose Coupling in Spring?
 
-    🔴 Tight Coupling
-            One class directly depends on another concrete class.
+    🔴 Tight Coupling -  One class directly depends on another concrete class.
 
     Example:-
         PaymentService ps = new PaymentService();
 
-    🟢 Loose Coupling
-            Dependency is provided by Spring.
+    🟢 Loose Coupling -  Dependency is provided by Spring.
 
     Example:-
         @Autowired
@@ -3718,7 +3719,7 @@ Difference between Tight Coupling and Loose Coupling?
     👉 Loose coupling is better for maintenance and testing.
 
 
-What is Inversion Of Control (IOC) ?
+What is Inversion Of Control (IOC) in Spring?
 
     IOC means Spring creates and manages objects instead of us.
     We don’t create objects using new.
@@ -3727,7 +3728,7 @@ What is Inversion Of Control (IOC) ?
         private UserService userService;
 
 
-What are the benefits of IoC?
+What are the benefits of IoC in Spring?
 
     Benefits are:-
         Loose coupling
@@ -3741,7 +3742,7 @@ What are the benefits of IoC?
 
 What is bean wiring in Spring?
 
-    👉 Bean wiring means connecting one bean with another bean  (Dependency Injection).
+    👉 Bean wiring means connecting one bean with another bean (Dependency Injection).
 
     Example:-
         @Autowired
@@ -3766,8 +3767,7 @@ What is Spring AOP ?
 What are Join Point and Pointcut?
 
     ▶ Join Point
-        A join point is:
-            👉 a point where advice can be applied (usually a method execution).
+        A join point is a point where advice can be applied (usually a method execution).
 
         Example:-
             public void save() {
@@ -3775,8 +3775,7 @@ What are Join Point and Pointcut?
             }
 
     ▶ Pointcut
-        Pointcut is:
-            👉 an expression that selects which methods should be intercepted.
+        Pointcut is an expression that selects which methods should be intercepted.
 
         Example:-
             @Pointcut("execution(* com.app.service.*.*(..))")
@@ -3786,8 +3785,7 @@ What are Join Point and Pointcut?
 
 Explain Advice in Spring AOP?
 
-    Advice is:
-        👉 the code that runs at a specific point during method execution.
+    Advice is the code that runs at a specific point during method execution.
 
     Types of advice:
         @Before
@@ -3806,7 +3804,7 @@ Explain Advice in Spring AOP?
 How can we inject beans in Spring?
 
     There are three ways:-
-        Constructor Injection
+        Constructor Injection(recommended)
         Setter Injection
         Field Injection
 
@@ -4091,9 +4089,10 @@ What is @SpringBootApplication and what happens internally?
     #Example:-
 
         If spring-boot-starter-web is present, Spring Boot will automatically:
-            * create DispatcherServlet
-            * configure Tomcat
-            * setup MVC beans
+
+            * Creates DispatcherServlet
+            * Configures embedded Tomcat server
+            * Sets up required Spring MVC beans
 
 
 Difference between @SpringBootApplication and @EnableAutoConfiguration?
@@ -4115,15 +4114,12 @@ What is Auto-Configuration in Spring Boot?
 
     Internally it uses - @EnableAutoConfiguration
 
-    Example
+    Example:-
+        If spring-boot-starter-web is present, Spring Boot will automatically:
 
-        If you add this dependency:
-            spring-boot-starter-data-jpa
-
-        Spring Boot automatically configures:
-            * EntityManagerFactory
-            * DataSource
-            * TransactionManager
+            * Creates DispatcherServlet
+            * Configures embedded Tomcat server
+            * Sets up required Spring MVC beans
 
     We don’t define them manually.
 
@@ -4150,13 +4146,11 @@ What are Spring Boot starters?
     They group multiple dependencies required for a feature.
 
     #Example
-        spring-boot-starter-web
-
-    Contains:
-        * Spring MVC
-        * Jackson
-        * Validation
-        * Embedded Tomcat
+        If you add spring-boot-starter-web, it includes:
+            * spring-web
+            * spring-webmvc
+            * embedded Tomcat
+            * Jackson for JSON
 
 
 Examples of commonly used Spring Boot starters?
@@ -4566,7 +4560,7 @@ How to implement logging in Spring Boot?
 
     👉 Logging level is configured in:-
             properties file:
-                logging.level.root=INFO
+9                logging.level.root=INFO
                 
 
 
@@ -4592,7 +4586,7 @@ How can we read properties from a properties file?
 
     We can read properties using:
         * @Value annotation
-        * @ConfigurationProperties
+        * @ConfigurationProperties annotation
 
     @Value("${app.name}")
     private String appName;
@@ -4714,10 +4708,9 @@ How do you create RESTful APIs using Spring Boot?
 
     We use:-
         * @RestController
-        * Mapping annotations
+        * Mapping annotations like @GetMapping, @PostMapping, etc.
 
-    **Example**
-
+    Example:-
         @RestController
         @RequestMapping("/users")
         public class UserController {
@@ -5127,7 +5120,7 @@ What is JpaRepository and why do we use it?
 
     JpaRepository provides ready-made CRUD and paging methods.
 
-    #Example
+    Example:-
         employeeRepository.findAll();
         employeeRepository.save(emp);
         employeeRepository.findById(1L);
@@ -5274,8 +5267,9 @@ In DB we use UNION / INTERSECTION. How to apply the same in JPA ?
 What is @Transactional and why is it important?
 
     @Transactional manages database transactions automatically.
+    It ensures that a group of operations either all succeed or all fail (atomicity).
 
-    #Example
+    Example:-
         @Transactional
         public void createOrder() {
             saveOrder();
@@ -5447,15 +5441,14 @@ What is validation in Spring Boot?
 
     Spring Boot integrates Bean Validation.
 
-    #Example:-
+    Example:-
+            In Entity
+                @NotNull
+                @Size(min=3)
+                private String name;
 
-    Entity:
-        @NotNull
-        @Size(min=3)
-        private String name;
-
-    Controller:
-        public ResponseEntity save(@Valid @RequestBody User user)
+            In Controller:
+                public ResponseEntity save(@Valid @RequestBody User user)
 
 
 
@@ -5559,7 +5552,7 @@ What is Spring Security?
 
 How do you secure a Spring Boot application?
 
-    Using Spring Security.
+    By implementing Spring Security.
 
     Main concepts:
         * Authentication
@@ -5830,9 +5823,9 @@ When and where do you use @Transactional in testing?
                                             *****Microservices (Java – Spring Boot)*****
 
 
-### 1. What are Microservices?
+#1. What are Microservices?
 
-    **Answer:**
+    
     Microservices architecture is a design approach where an application is broken into **small, independent, loosely-coupled services**, each responsible for a single business capability.
     Each service:
 
@@ -5842,7 +5835,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 2. Difference between Monolithic and Microservices
+#2. Difference between Monolithic and Microservices
 
     | Monolithic         | Microservices                 |
     | ------------------ | ----------------------------- |
@@ -5854,7 +5847,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 3. Advantages of Microservices
+#3. Advantages of Microservices
 
     * Independent deployment
     * Easy scalability
@@ -5864,7 +5857,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 4. Challenges of Microservices
+#4. Challenges of Microservices
 
     * Distributed system complexity
     * Network latency
@@ -5874,14 +5867,14 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 5. How do microservices communicate?
+#5. How do microservices communicate?
 
     1. **Synchronous** – REST APIs (HTTP calls)
     2. **Asynchronous** – Messaging systems (Kafka, RabbitMQ)
 
 ---
 
-### 6. What is Service Discovery?
+#6. What is Service Discovery?
 
     Service discovery allows services to **automatically find other services** without hardcoding URLs.
 
@@ -5894,7 +5887,7 @@ When and where do you use @Transactional in testing?
             register-with-eureka: true
 ---
 
-### 7. What is Eureka Server & Client?
+#7. What is Eureka Server & Client?
 
     * **Eureka Server** → Service registry
     * **Eureka Client** → Registers service with the registry
@@ -5904,7 +5897,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 8. What is API Gateway?
+#8. What is API Gateway?
 
     API Gateway is the **single entry point for all client requests**.
 
@@ -5925,7 +5918,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 9. Why do we need an API Gateway?
+#9. Why do we need an API Gateway?
 
     * Hide internal services
     * Centralized security
@@ -5934,7 +5927,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 10. What is Load Balancing?
+#10. What is Load Balancing?
 
     Load balancing distributes traffic across multiple service instances.
 
@@ -5950,11 +5943,11 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 11. What is Circuit Breaker?
+#11. What is Circuit Breaker?
 
     Prevents cascading failures when a service is down.
 
-    ### Example: Resilience4j
+    #Example: Resilience4j
         @CircuitBreaker(name = "orderService", fallbackMethod = "fallback")
         public String callOrderService() { }
 
@@ -5962,7 +5955,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 12. What is a Fallback Method?
+#12. What is a Fallback Method?
 
     Fallback method executes when a service fails.
 
@@ -5973,7 +5966,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 13. What is Config Server?
+#13. What is Config Server?
 
     Centralized configuration management system.
 
@@ -5988,7 +5981,7 @@ When and where do you use @Transactional in testing?
             
 ---
 
-### 14. Why use centralized configuration?
+#14. Why use centralized configuration?
 
     - No redeployment for config changes
     - Environment-specific configs
@@ -5996,7 +5989,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 15. What is Distributed Tracing?
+#15. What is Distributed Tracing?
 
     Tracking request flow across multiple services.
 
@@ -6009,7 +6002,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 16. Why Distributed Tracing important?
+#16. Why Distributed Tracing important?
 
     Helps identify:
             * performance bottlenecks
@@ -6017,7 +6010,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 17. What is Saga Pattern?
+#17. What is Saga Pattern?
 
     Pattern for managing **distributed transactions** across microservices.
     Each service performs local transaction.
@@ -6032,7 +6025,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 18. How do you maintain data consistency?
+#18. How do you maintain data consistency?
 
     * Saga pattern
     * Eventual consistency
@@ -6040,7 +6033,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 19. What is Event-Driven Microservices?
+#19. What is Event-Driven Microservices?
 
     Services communicate using **events** instead of direct calls.
 
@@ -6052,7 +6045,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 20. What is Idempotency?
+#20. What is Idempotency?
 
     Same request executed multiple times gives **same result**.
 
@@ -6063,7 +6056,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 21. What is Statelessness in Microservices?
+#21. What is Statelessness in Microservices?
 
     Services do not store session state.
 
@@ -6073,14 +6066,14 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 22. Why each microservice should have its own DB?
+#22. Why each microservice should have its own DB?
 
     - Avoid tight coupling
     - Independent scaling
     - Prevent shared failures
 ---
 
-### 23. What is Docker in Microservices?
+#23. What is Docker in Microservices?
 
     Docker packages application with dependencies into a **container**.
 
@@ -6096,7 +6089,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 24. What is Kubernetes?
+#24. What is Kubernetes?
 
     Container orchestration platform used to manage containers.
 
@@ -6108,7 +6101,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 25. How do you secure microservices?
+#25. How do you secure microservices?
 
     * JWT authentication
     * OAuth2
@@ -6118,7 +6111,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 26. What is OAuth2?
+#26. What is OAuth2?
 
     Authorization framework using **access tokens**.s
 
@@ -6127,7 +6120,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 27. What is JWT?
+#27. What is JWT?
 
     JSON Web Token used for **stateless authentication**.
 
@@ -6138,7 +6131,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 28. What is Blue-Green Deployment?
+#28. What is Blue-Green Deployment?
 
     Two environments:
         * Blue (current)
@@ -6148,7 +6141,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 29. What is Canary Deployment?
+#29. What is Canary Deployment?
 
     Deploy new version to **small % of users** first.
 
@@ -6156,7 +6149,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 30. What is Versioning in Microservices?
+#30. What is Versioning in Microservices?
 
     API versioning example:
         /api/v1/users
@@ -6164,7 +6157,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 31. Real-Time Microservices Example?
+#31. Real-Time Microservices Example?
 
     Banking System:
         * Customer Service
@@ -6176,7 +6169,7 @@ When and where do you use @Transactional in testing?
         Customer → API Gateway → Account → Transaction → Notification
 ---
 
-### 32. How does Eureka based discovery work in Spring Boot?
+#32. How does Eureka based discovery work in Spring Boot?
 
     1. Service starts
     2. Registers with Eureka server
@@ -6184,7 +6177,7 @@ When and where do you use @Transactional in testing?
     4. Eureka provides service instance
 ---
 
-### 33. How is routing handled in Spring Cloud Gateway?
+#33. How is routing handled in Spring Cloud Gateway?
 
     Routing is configured using **path predicates**.
 
@@ -6193,14 +6186,14 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 34. What is client-side load balancing?
+#34. What is client-side load balancing?
 
     The client chooses which service instance to call.
     Spring Cloud LoadBalancer selects one instance automatically.
 
 ---
 
-### 35. What is configuration refresh in microservices?
+#35. What is configuration refresh in microservices?
 
     Allows configuration updates **without restarting services**.
 
@@ -6209,7 +6202,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 36. How do you implement asynchronous communication in microservices?
+#36. How do you implement asynchronous communication in microservices?
 
     Using message brokers:-
                             * Kafka
@@ -6217,14 +6210,14 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 37. What is database per service pattern?
+#37. What is database per service pattern?
 
     Each microservice manages its own database.
     Other services cannot access it directly.
 
 ---
 
-### 38. How do you containerize Spring Boot microservices?
+#38. How do you containerize Spring Boot microservices?
 
     Using Dockerfile:-
        
@@ -6234,13 +6227,13 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 39. Why do we need container orchestration in microservices?
+#39. Why do we need container orchestration in microservices?
 
     To manage hundreds of containers efficiently.
 
 ---
 
-### 40. How is JWT propagated across services in microservices?
+#40. How is JWT propagated across services in microservices?
 
     JWT token passed via HTTP header.
 
@@ -6248,13 +6241,13 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 41. What is Fault Tolerance in microservices?
+#41. What is Fault Tolerance in microservices?
 
     System continues functioning even if one service fails.
 
 ---
 
-### 42. What do you understand by Domain Driven Design?
+#42. What do you understand by Domain Driven Design?
 
     Designing services based on **business domains**.
 
@@ -6263,14 +6256,14 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 43. What is bounded context in microservices?
+#43. What is bounded context in microservices?
 
     Clear boundary for domain models.
     Each service owns its domain.
 
 ---
 
-### 44. Suppose there are 10 microservices. How will you debug an issue?
+#44. Suppose there are 10 microservices. How will you debug an issue?
 
     Using:
             * distributed tracing
@@ -6279,13 +6272,13 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 45. When serviceA calls serviceB how is session maintained?
+#45. When serviceA calls serviceB how is session maintained?
 
     Using **JWT token forwarding**.
 
 ---
 
-### 46. Huge load logs many users. How to identify one user logs in microservices?
+#46. Huge load logs many users. How to identify one user logs in microservices?
 
     Using:
         * traceId
@@ -6294,13 +6287,13 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 47. Have you worked on event sourcing in microservices?
+#47. Have you worked on event sourcing in microservices?
 
     Event sourcing stores **events instead of current state**.
 
 ---
 
-### 48. How do you maintain scalability in microservices?
+#48. How do you maintain scalability in microservices?
 
     * Stateless services
     * Horizontal scaling
@@ -6308,7 +6301,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 49. What is health check and readiness probe in microservices?
+#49. What is health check and readiness probe in microservices?
 
     Health check: Service is alive.
     Readiness probe: Service is ready to accept traffic.
@@ -6319,7 +6312,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 50. What is centralized logging in microservices?
+#50. What is centralized logging in microservices?
 
     Collecting logs from all services into one system.
 
@@ -6328,7 +6321,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 51. How do you monitor microservices?
+#51. How do you monitor microservices?
 
     Using monitoring tools:
 
@@ -6337,7 +6330,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 52. What is contract testing in microservices?
+#52. What is contract testing in microservices?
 
     Ensures API compatibility between services.
 
@@ -6345,7 +6338,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 53. How do you avoid cascading failures in microservices?
+#53. How do you avoid cascading failures in microservices?
 
     Using:
         * circuit breaker
@@ -6355,20 +6348,20 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 54. What is timeout and retry strategy in microservices?
+#54. What is timeout and retry strategy in microservices?
 
     Timeout defines waiting time.
     Retry attempts call again if failure occurs.
 
 ---
 
-### 55. What is schema evolution in microservices?
+#55. What is schema evolution in microservices?
 
     Safe database schema changes without breaking services.
 
 ---
 
-### 56. What is sidecar pattern in microservices?
+#56. What is sidecar pattern in microservices?
 
     Helper container running alongside service.
 
@@ -6377,13 +6370,13 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 57. What is the strangler pattern in microservices?
+#57. What is the strangler pattern in microservices?
 
     Used to migrate monolith to microservices gradually.
 
 ---
 
-### 58. How do you test microservices?
+#58. How do you test microservices?
 
     Testing levels:-
         * Unit tests
@@ -6393,7 +6386,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-### 59. What is service mesh in microservices?
+#59. What is service mesh in microservices?
 
     Infrastructure layer for service communication.
 
@@ -6429,7 +6422,7 @@ What is MySQL and how is it typically used in real projects?
         * data integrity
         * relationships between tables
 
-    ### Real example
+    #Real example
 
     In your Spring Boot application:
 
@@ -6441,7 +6434,7 @@ What is MySQL and how is it typically used in real projects?
 
 What are SQL datatypes?
 
-    ### 1. Numeric Types
+    #1. Numeric Types
         | Data Type         | Storage | Range (Signed)                    | Range (Unsigned)                       |
         | ----------------- | ------- | --------------------------------- | -------------------------------------- |
         | **TINYINT**       | 1 byte  | -128 to 127                       | 0 to 255                               |
@@ -6453,7 +6446,7 @@ What are SQL datatypes?
         | **FLOAT**         | 4 bytes | Approximate, ~7 digits precision  |                                        |
         | **DOUBLE / REAL** | 8 bytes | Approximate, ~15 digits precision |                                        |
 
-    ### 2. Character (String) Types
+    #2. Character (String) Types
         | Data Type      | Storage         | Notes                                                                                 |
         | -------------- | --------------- | ------------------------------------------------------------------------------------- |
         | **CHAR(n)**    | Fixed (0–255)   | Always uses n characters (pads with spaces if shorter)                                |
@@ -6463,7 +6456,7 @@ What are SQL datatypes?
         | **MEDIUMTEXT** | 0–16,777,215    | Medium text (16 MB)                                                                   |
         | **LONGTEXT**   | 0–4,294,967,295 | Very large text (4 GB)                                                                |
 
-    ### 3. Date & Time Types
+    #3. Date & Time Types
         | Data Type     | Storage | Format              | Range                                      |
         | ------------- | ------- | ------------------- | ------------------------------------------ |
         | **DATE**      | 3 bytes | YYYY-MM-DD          | 1000-01-01 to 9999-12-31                   |
@@ -6472,7 +6465,7 @@ What are SQL datatypes?
         | **TIMESTAMP** | 4 bytes | YYYY-MM-DD HH:MM:SS | 1970-01-01 UTC to 2038-01-19 UTC           |
         | **YEAR**      | 1 byte  | YYYY                | 1901 to 2155                               |
 
-    ### 4. Binary Types
+    #4. Binary Types
         | Data Type        | Storage         | Notes                       |
         | ---------------- | --------------- | --------------------------- |
         | **BLOB**         | 0–65,535        | Binary data (images, files) |
@@ -6482,7 +6475,7 @@ What are SQL datatypes?
         | **BINARY(n)**    | Fixed           | Stores exactly n bytes      |
         | **VARBINARY(n)** | Variable        | Up to n bytes               |
 
-    ### 5. Boolean Type
+    #5. Boolean Type
         * **BOOLEAN / BIT(1)** → TRUE or FALSE (stored as 0 or 1 in MySQL)
 
 
@@ -6599,7 +6592,7 @@ What are the main storage engines in MySQL and why does it matter?
         * InnoDB (default and recommended)
         * MyISAM (older, rarely used now)
 
-    ### Key differences
+    #Key differences
 
     | Feature          | InnoDB | MyISAM          |
     -----------------------------------------------
@@ -6608,7 +6601,7 @@ What are the main storage engines in MySQL and why does it matter?
     Foreign keys       | Yes    | No              |
     Crash recovery     | Yes    | Weak            |
 
-    ### Example
+    #Example
                 CREATE TABLE orders (
                 id INT PRIMARY KEY,
                 amount DECIMAL(10,2)
@@ -6618,7 +6611,7 @@ What are the main storage engines in MySQL and why does it matter?
 
 Explain primary key, unique key and foreign key with examples?
 
-    ### Primary key
+    #Primary key
 
         * uniquely identifies each row
         * cannot be NULL
@@ -6628,14 +6621,14 @@ Explain primary key, unique key and foreign key with examples?
         email VARCHAR(100)
         );
 
-    ### Unique key
+    #Unique key
 
         * enforces uniqueness
         * allows NULL
 
         ALTER TABLE users ADD UNIQUE(email);
 
-    ### Foreign key
+    #Foreign key
 
         * enforces relationship between two tables
 
@@ -6666,13 +6659,13 @@ What is normalization and why is it important?
         * reduce anomalies(update anomaly, insert anomaly, delete anomaly)
         * improve data consistency
 
-    ### Example (not normalized)
+    #Example (not normalized)
 
         order_id | user_name | user_phone | product
 
     User data is repeated for every order.
 
-    ### Normalized design
+    #Normalized design
 
         users(id, name, phone)
         orders(id, user_id, product)
@@ -6694,7 +6687,7 @@ What is Subqueries?
     For large datasets:
         joins are usually faster and more readable than subqueries.
 
-    ### Difference
+    #Difference
 
         Subquery:
             * executed logically inside outer query
@@ -6767,14 +6760,14 @@ What is the difference between WHERE and HAVING?
 
 What is the difference between DELETE, TRUNCATE and DROP?
 
-    ### DELETE
+    #DELETE
         * row by row
         * can be rolled back (inside transaction)
         * slower
 
         DELETE FROM tableName WHERE column = 5;
 
-    ### TRUNCATE
+    #TRUNCATE
         * removes all rows in a table
         * very fast
         * cannot be rolled back
@@ -6782,7 +6775,7 @@ What is the difference between DELETE, TRUNCATE and DROP?
 
         TRUNCATE TABLE tableName;
 
-    ### DROP
+    #DROP
         * removes table itself
         * Auto Commit
         * Fast
@@ -6832,7 +6825,7 @@ What are composite indexes and when should we use them ?
 
     Composite index is an index on multiple columns.
 
-    ### Example
+    #Example
 
         CREATE INDEX idx_user_status ON orders(user_id, status);
 
@@ -6840,7 +6833,7 @@ What are composite indexes and when should we use them ?
         WHERE user_id = ?
         AND status = ?
 
-    ### Important rule
+    #Important rule
         Index follows left-most prefix.
 
     This index works well for:
@@ -6855,7 +6848,7 @@ How does EXPLAIN help in query optimization?
 
     EXPLAIN shows how MySQL executes a query.
 
-    ### Example
+    #Example
 
         EXPLAIN
         SELECT * FROM orders WHERE user_id = 10;
@@ -6866,7 +6859,7 @@ How does EXPLAIN help in query optimization?
         * key
         * rows
 
-    ### Interview note
+    #Interview note
         If you see:
             type = ALL
 
@@ -6878,7 +6871,7 @@ What are transactions and why are they important?
     A transaction is a sequence of one or more SQL statements executed as a single unit of work.
     Either all statements succeed (COMMIT) or none of them apply (ROLLBACK).
 
-    ### Example
+    #Example
 
         START TRANSACTION;
 
@@ -6903,7 +6896,7 @@ Explain ACID properties with MySQL example?
         Isolation → Transactions don’t interfere with each other.
         Durability → Once committed, changes are permanent.
 
-    ### Example
+    #Example
         START TRANSACTION;
 
         UPDATE Accounts SET balance = balance - 500 WHERE acc_id = 1;
@@ -6925,13 +6918,13 @@ What are isolation levels in MySQL?
 
     Isolation levels control how transactions see each other’s data.
 
-    ### Main levels
+    #Main levels
         * READ UNCOMMITTED
         * READ COMMITTED
         * REPEATABLE READ (default in MySQL InnoDB)
         * SERIALIZABLE
 
-    ### Example problem
+    #Example problem
         Dirty read, non-repeatable read and phantom read occur depending on isolation level.
 
 
@@ -6943,7 +6936,7 @@ What is locking in MySQL and how does InnoDB handle it?
 
         * row level locking
 
-    ### Example
+    #Example
 
         If one transaction updates a row:
 
@@ -6957,7 +6950,7 @@ What are views and why are they used?
     A view is a virtual table created from a SELECT query.
     It doesn’t store data itself, it just shows data from one or more tables.
 
-    ### Example
+    #Example
                 CREATE VIEW student_info AS
                 SELECT student_id, name, age
                 FROM Students
@@ -6979,7 +6972,7 @@ What are stored procedures and functions?
         Helps with modular programming
         Better security (users can execute without knowing SQL details)
 
-    ### Example
+    #Example
                     DELIMITER $$
 
                     CREATE PROCEDURE GetAllEmployees()
@@ -6992,7 +6985,7 @@ What are stored procedures and functions?
     Call:
         CALL GetAllEmployees();
 
-    ### Difference
+    #Difference
         Functions return a value.
         Procedures may return multiple result sets.
 
@@ -7001,7 +6994,7 @@ What are triggers and when should we use them?
 
     Triggers automatically execute when an event occurs on a table(like INSERT, UPDATE, or DELETE).
 
-    ### Example
+    #Example
 
                 CREATE TRIGGER trigger_name
                 {BEFORE | AFTER} {INSERT | UPDATE | DELETE}
@@ -7034,7 +7027,7 @@ What is partitioning in MySQL?
     Partitioning splits a large table into smaller logical parts.
     Each partition is stored separately but behaves like a single table.
 
-    ### Example
+    #Example
 
     Partition by year:
 
@@ -7050,11 +7043,11 @@ How does MySQL replication work?
     Replication is the process of copying data from one MySQL server (master) to one or more servers (slaves).
     Ensures that data is synchronized across multiple servers.
 
-    ### Architecture
+    #Architecture
         * Primary (source)
         * Replica (slave)
 
-    ### Use cases
+    #Use cases
         * read scaling
         * backups
         * reporting
@@ -7080,7 +7073,7 @@ What are window functions in MySQL and when do we use them?
 
     Window functions perform calculations across a set of rows without collapsing them into groups.
 
-    ### Example
+    #Example
 
         SELECT user_id, amount,
             SUM(amount) OVER (PARTITION BY user_id) AS total
@@ -7095,7 +7088,7 @@ What are Common Table Expressions (CTE)?
     A CTE is a temporary result set that you can reference within a SELECT, INSERT, UPDATE, or DELETE statement.
     It improves readability and modularity of complex queries.
 
-    ### Example
+    #Example
 
         WITH recent_orders AS (
         SELECT * FROM orders WHERE order_date >= CURDATE()-7
@@ -7113,7 +7106,7 @@ How is JSON handled in MySQL?
 
     MySQL supports native JSON type.
 
-    ### Example
+    #Example
 
         CREATE TABLE logs(
         data JSON
@@ -7131,7 +7124,7 @@ What is full-text search in MySQL?
 
     Full-text search allows text-based searching.
 
-    ### Example
+    #Example
         CREATE FULLTEXT INDEX idx_desc ON products(description);
 
         SELECT * FROM products
@@ -7161,7 +7154,7 @@ What is deadlock and how does MySQL handle it?
 
     Deadlock happens when two transactions wait for each other.
 
-    ### Example
+    #Example
         Transaction A locks row 1
         Transactio0n B locks row 2
         A waits for row 2
@@ -7221,6 +7214,298 @@ What are Set Operations?
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+                                                    ***** AWS(Amazon Web Services) *****
+
+
+1. What is AWS?
+
+    AWS (Amazon Web Services) is a **cloud computing platform** that provides on-demand services like servers, storage, databases, networking, and security on a **pay-as-you-go** basis.
+
+    Example:-
+        Instead of buying a physical server, we launch an **EC2 instance** in AWS.
+
+---
+
+2. What are the main cloud service models in AWS?
+
+    **IaaS** – Infrastructure as a Service (EC2)  
+    **PaaS** – Platform as a Service (Elastic Beanstalk)  
+    **SaaS** – Software as a Service (Gmail)
+
+---
+
+3. What are the advantages of AWS?
+
+    - Scalability  
+    - High availability  
+    - Pay only for what you use  
+    - Global infrastructure  
+    - Security and compliance  
+
+---
+
+4. What is EC2 and how is it used in real applications?
+  
+    EC2 (Elastic Compute Cloud) provides **virtual servers** to run applications.
+
+    Example:-  
+        Hosting a Spring Boot application on an EC2 Linux server.
+
+---
+
+5. What are EC2 instance types in AWS?
+
+    - General Purpose (t2, t3)  
+    - Compute Optimized (c5)  
+    - Memory Optimized (r5)  
+    - Storage Optimized  
+
+---
+
+6. What is AMI in AWS?
+  
+    AMI (Amazon Machine Image) is a **template** used to launch EC2 instances.
+
+---
+
+7. What is S3 and how is it used in real applications?
+  
+    S3 (Simple Storage Service) is **object storage** used to store files.
+
+    Example:-  
+        Storing images, logs, backups, and static website files.
+
+---
+
+8. Difference between S3 and EBS in AWS?
+
+    |      S3         |     EBS         |
+    -------------------------------------
+    | Object storage  | Block storage   |
+    | Highly durable  | Attached to EC2 |
+    | Not OS bootable | OS bootable     |
+
+---
+
+9. What is EBS in AWS?
+
+    EBS (Elastic Block Store) provides **persistent storage** for EC2.
+
+---
+
+10. What is VPC in AWS?
+
+    VPC (Virtual Private Cloud) is a **private network** in AWS.
+
+---
+
+11. What is a subnet in AWS?
+  
+    A subnet is a **range of IP addresses** inside a VPC.
+
+---
+
+12. Difference between Public and Private subnet in AWS?
+
+    |     Public          |     Private        |
+    --------------------------------------------
+    | Internet accessible | No direct internet |
+    | Has IGW             | Uses NAT           |
+
+---
+
+13. What is an Internet Gateway in AWS?
+  
+    Allows communication between VPC and the internet.
+
+---
+
+14. What is NAT Gateway in AWS?
+
+    Allows **private instances** to access the internet securely.
+
+---
+
+15. What is Security Group in AWS?
+
+    Security Group acts as a **virtual firewall** for EC2.
+
+---
+
+16. What is IAM in AWS?
+
+    IAM (Identity and Access Management) controls **who can access what** in AWS.
+
+---
+
+17. Difference between IAM Users and Roles in AWS?
+
+    | Users | Roles |
+    |-----|------|
+    | Long-term credentials | Temporary credentials |
+    | Human access | Service access |
+
+---
+
+18. What is Load Balancer in AWS?
+  
+    Distributes traffic across multiple servers.
+
+    Example:-  
+        ALB distributes traffic to multiple EC2 instances.
+
+---
+
+19. Types of Load Balancers in AWS?
+
+    - Application Load Balancer  
+    - Network Load Balancer  
+    - Classic Load Balancer  
+
+---
+
+20. What is Auto Scaling in AWS?
+
+    Automatically increases or decreases EC2 instances based on load.
+
+---
+
+21. What is RDS in AWS?
+  
+    RDS (Relational Database Service) manages databases like:
+        - MySQL  
+        - PostgreSQL  
+        - Oracle  
+
+---
+
+22. Difference between RDS and EC2 database in AWS?
+
+    | RDS | EC2 |
+    |----|----|
+    | Managed | Manual |
+    | Automated backups | Manual backups |
+    | Easy scaling | Hard |
+
+---
+
+23. What is DynamoDB in AWS?
+
+    A **fully managed NoSQL database** with low latency.
+
+---
+
+24. What is CloudWatch in AWS?
+    
+    Monitors AWS resources and applications.
+
+    Example:-
+        Tracking CPU utilization of EC2.
+
+---
+
+25. What is CloudTrail in AWS?
+  
+    Records **API activity** for auditing.
+
+---
+
+26. What is Route 53 in AWS?
+  
+    DNS service used to route traffic to AWS resources.
+
+---
+
+27. What is Elastic Beanstalk in AWS?
+  
+    PaaS service to deploy applications without managing infrastructure.
+
+---
+
+28. What is Lambda in AWS?
+  
+    Serverless compute service that runs code without managing servers.
+
+---
+
+29. What is serverless computing in AWS?
+  
+    We write code, AWS manages servers automatically.
+
+---
+
+30. What is SQS in AWS?
+  
+    Simple Queue Service for **asynchronous messaging**.
+
+---
+
+31. What is SNS in AWS?
+  
+    Simple Notification Service for **pub-sub messaging**.
+
+---
+
+32. Difference between SQS and SNS in AWS?
+
+    | SQS | SNS |
+    |----|----|
+    | Queue-based | Topic-based |
+    | One consumer | Multiple subscribers |
+
+---
+
+33. What is AWS Region?
+  
+    Geographical location where AWS data centers are located.
+
+---
+
+34. What is Availability Zone in AWS?
+  
+    Independent data centers within a region.
+
+---
+
+35. What is High Availability in AWS?
+  
+    Deploying resources across **multiple AZs** to avoid downtime.
+
+---
+
+36. What is Fault Tolerance in AWS?
+
+    System continues working even if one component fails.
+
+---
+
+37. What is AWS Free Tier?
+
+    Free usage for selected services for 12 months.
+
+---
+
+38. How do you deploy Spring Boot on AWS?
+
+    1. Create EC2  
+    2. Install Java & Docker  
+    3. Build Spring Boot JAR  
+    4. Run app or Docker container  
+
+---
+
+39. AWS with CI/CD – Real Example?
+
+    Jenkins builds app → Docker image → push to ECR → deploy to EC2/EKS.
+
+---
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
                                                         ***** CI & CD *****
 
 
@@ -7265,36 +7550,5 @@ What is Docker, Docker image and Docker container ?
 
 
 
-
------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-                                                        ***** Unit test *****
-
-
-Difference between unit test and integration test ?
-
-    | Unit test                    | Integration test                   |
-    | ---------------------------- | ---------------------------------- |
-    | Tests single class or method | Tests multiple components together |
-    | Very fast                    | Slower                             |
-    | Uses mocks                   | Uses real DB / services usually    |
-
-    Example:-
-        Unit test → test only UserService
-        Integration test → test controller + service + DB
-
-
-What is Test Driven Development (TDD) and your opinion ?
-
-    👉 TDD means:-
-        Write test first
-        Then write code
-        Then refactor
-
-    Cycle:
-        Red → Green → Refactor
-
-    👉 My opinion:
-        It improves code quality and reduces bugs, but it takes little extra time initially.
 
 */

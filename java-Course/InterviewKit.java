@@ -221,7 +221,7 @@ What are the main features of Java?
 	High performance (JIT compiler)
 	
 
-What is the difference between JDK, JRE, and JVM?
+What is the difference between JVM, JRE and JDK?
 
     ▶ JVM (Java Virtual Machine)
 
@@ -373,6 +373,17 @@ Can the main() method be overloaded? How?
 
     ✅ Yes, main() method can be overloaded
 
+    Example|:-
+        public class Test {
+            public static void main(String[] args) {
+                System.out.println("Main with String[]");
+            }
+
+            public static void main(int[] args) {
+                System.out.println("Main with int[]");
+            }
+        }
+
     ❌ But JVM will only call this method:-
             public static void main(String[] args)
 
@@ -394,8 +405,21 @@ Can we override a private methods in java?
 
     👉 This is method hiding, not overriding
 
+    Example:-
+        class Parent {
+            private void show() {
+                System.out.println("Parent");
+            }
+        }
 
-What is static keyword?
+        class Child extends Parent {
+            private void show() {
+                System.out.println("Child");            //  This is not overriding, it's a new method in Child class
+            }
+        }
+
+
+What is static keyword / variable in Java?
 
     Static members belong to the class, not to the object.
 
@@ -407,6 +431,13 @@ What is Static Methods?
     It cannot be overridden by subclasses or implementing classes
     It is called using the class / interface name, not by creating an object.
 
+    Example:-
+        class MathUtil {
+            static int add(int a, int b) {
+                return a + b;
+            }
+        }
+
 
 Can static methods be overridden?
 
@@ -417,28 +448,33 @@ Can static methods be overridden?
 
     👉 This is called method hiding, not overriding.
 
-    class Parent {
-        static void show() {
-            System.out.println("Parent");
+    Example:-
+        class Parent {
+            static void show() {
+                System.out.println("Parent");
+            }
         }
-    }
-    class Child extends Parent {
-        static void show() {
-            System.out.println("Child");
+        class Child extends Parent {
+            static void show() {
+                System.out.println("Child");
+            }
         }
-    }
-
-    Parent p = new Child();
-    p.show();   // Output: Parent
+        Parent p = new Child();
+        p.show();   // Output: Parent
 
 
 What is static initializer block ?
 
-    👉 A static block is used to initialize static data.
+    👉 A static initializer block in Java is a special block of code used to initialize static variables of a class.
 
     Example:-
-        static {
-            System.out.println("Static block executed");
+        class Test {
+            static int count;
+
+            static {
+                count = 10;   // Initialize static variable
+                System.out.println("Static block executed");
+            }
         }
     ✔ Executed only once when class is loaded.
 
@@ -463,14 +499,15 @@ Difference between static methods, static variables, and static classes
     | Access instance data | ❌ No           | ❌ No        | ❌ No                |
     | Usage                | Shared data     | Utility logic | Helper/Inner classes |
     
-    Static classes are allowed only as nested classes
-        class Outer {
-            static class Inner {
-                void show() {
-                    System.out.println("Static Inner Class");
+    Example:-
+        Static classes are allowed only as nested classes
+            class Outer {
+                static class Inner {
+                    void show() {
+                        System.out.println("Static Inner Class");
+                    }
                 }
             }
-        }
 
 
 Difference between static and non-static method ?
@@ -481,6 +518,16 @@ Difference between static and non-static method ?
     | Called using class name              | Called using object      |
     | Cannot access instance data directly | Can access instance data |
 
+    Example:-
+        class Test {
+            static void show() {
+                System.out.println("Static method");
+            }
+
+            void run() {
+                System.out.println("Non-static method");
+            }
+        }
     Test.show();            // static
     new Test().run();       // non-static
 
@@ -489,6 +536,17 @@ Can we serialize static variables?
 
     ❌ No.  Static variables belong to the class, not to the object.
 
+    Example:-
+        class Employee implements Serializable {
+            private static int count;               // This will not be serialized
+            private String name;
+
+            public Employee(String name) {
+                this.name = name;
+                count++;
+            }
+        }
+
 
 Why Java does not support operator overloading?
 
@@ -496,19 +554,41 @@ Why Java does not support operator overloading?
     Operator overloading can make code confusing.
 
     Example (not allowed in Java):
+        class Complex {
+            int real, imag;
 
-        a + b   // custom meaning like in C++
+            Complex(int r, int i) {
+                real = r;
+                imag = i;
+            }
+
+            // This is not allowed in Java
+            Complex operator+(Complex c) {
+                return new Complex(this.real + c.real, this.imag + c.imag);
+            }
+        }
 
     Only + is overloaded in Java for:
-
         numbers
         strings
 
 
-What is constructor?
+What is constructor? 
 
 	In Java, a constructor is a special type of method used to initialize new objects of a class.
-	It is invoked automatically when an object is created using the new keyword. 
+	It is invoked automatically when an object is created using the new keyword.
+
+    Example:-
+        class Employee {
+            int id;
+            String name;
+
+            // Constructor
+            Employee(int id, String name) {
+                this.id = id;
+                this.name = name;
+            }
+        }
 
 
 Explain the concept of Constructor Overloading?
@@ -518,14 +598,15 @@ Explain the concept of Constructor Overloading?
         Same constructor name (class name)
 
         class Employee {
+            // Constructor 1: No parameters
             Employee() {
                 System.out.println("Default Constructor");
             }
-
+            // Constructor 2: One parameter
             Employee(int id) {
                 System.out.println("ID: " + id);
             }
-
+            // Constructor 3: Two parameters
             Employee(int id, String name) {
                 System.out.println(id + " " + name);
             }
@@ -538,15 +619,17 @@ Define Copy Constructor in Java
     Java does not have a built-in copy constructor, but we can create one manually.
     A copy constructor copies values from one object to another.
     
-    class Student {
-        int id;
-        String name;
+    Example:-
+        class Employee {
+            int id;
+            String name;
 
-        Student(Student s) {
-            this.id = s.id;
-            this.name = s.name;
+            // Copy constructor
+            Employee(Employee e) {
+                this.id = e.id;
+                this.name = e.name;
+            }
         }
-    }
 
 
 Can we use default constructor if explicit constructor is defined ?
@@ -560,20 +643,7 @@ Can we use default constructor if explicit constructor is defined ?
         }
         public static void main(String[] args) {
             Student s1 = new Student();                         // ❌ Compile-time error
-        }
-    }
-
-    //  Correct method:-
-    class Student {
-        Student() {
-            System.out.println("Default constructor");
-        }
-        Student(int id) {
-            System.out.println("ID = " + id);
-        }
-        public static void main(String[] args) {
-            Student s1 = new Student();                     // works
-            Student s2 = new Student(10);                   // works
+            Student s2 = new Student(10);                       // Correct method
         }
     }
 
@@ -581,6 +651,14 @@ Can we use default constructor if explicit constructor is defined ?
 What is OOP ?
 
     OOP stands for Object-Oriented Programming. OOP is a programming model based on objects and classes.
+
+    Example:-
+        class Car {
+            String color;
+            void drive() {
+                System.out.println("Car is moving");
+            }
+        }
 
 
 What are the four pillars of OOP?
@@ -615,21 +693,97 @@ What is Inheritance?
     Inheritance allows a class to acquire properties and methods of another class.
 
     Types of Inheritance in Java:-
-        Single inheritance (A → B)
-        Multilevel inheritance (A → B → C)
-        Hierarchical inheritance (one parent → many children)
-        Multiple (through interface only)
-        Hybrid (using interface)
 
-    Example:-
-        class Vehicle {
-            void run(){
-                System.out.println("Vehicle running");
-            }
-        }
+        * Single inheritance (A → B)
+                Example:-
+                    class A {
+                        void show() {
+                            System.out.println("A");
+                        }
+                    }
 
-        class Bike extends Vehicle {
-        }
+                    class B extends A {
+                        void display() {
+                            System.out.println("B");
+                        }
+                    }
+
+        * Multilevel inheritance (A → B → C)
+                Example:-
+                    class A {
+                        void show() {
+                            System.out.println("A");
+                        }
+                    }
+
+                    class B extends A {
+                        void display() {
+                            System.out.println("B");
+                        }
+                    }
+
+                    class C extends B {
+                        void print() {
+                            System.out.println("C");
+                        }
+                    }
+
+        * Hierarchical inheritance (one parent → many children)
+                Example:-
+                    class A {
+                        void show() {
+                            System.out.println("A");
+                        }
+                    }
+
+                    class B extends A {
+                        void display() {
+                            System.out.println("B");
+                        }
+                    }
+
+                    class C extends A {
+                        void print() {
+                            System.out.println("C");
+                        }
+                    }
+
+        * Multiple (through interface only)
+                Example:-
+                    interface A {
+                        void show();
+                    }
+
+                    interface B {
+                        void display();
+                    }
+
+                    class C implements A, B {
+                        public void show() {
+                            System.out.println("A");
+                        }
+                        public void display() {
+                            System.out.println("B");
+                        }
+                    }
+
+        * Hybrid (using interface)
+                Example:-
+                    class A {
+                        void show() {
+                            System.out.println("A");
+                        }
+                    }
+
+                    interface B {
+                        void display();
+                    }
+
+                    class C extends A implements B {
+                        public void display() {
+                            System.out.println("B");
+                        }
+                    }
 
 
 Why is multiple inheritance not supported in Java?
@@ -719,7 +873,6 @@ What is Method Overriding (Runtime Polymorphism)?
     Happens at runtime
 
     Example:-
-
         class Parent {
             void show() {
                 System.out.println("Parent");
@@ -747,7 +900,21 @@ Difference between Compile-time and Runtime Polymorphism ?
 Difference between Overloading and Overriding ?
 
 	Overloading: Same method name, different parameters (compile-time).
+        Example:-
+            class MathUtil {
+                int add(int a, int b) { ... }
+                int add(int a, int b, int c) { ... }
+            }
+
 	Overriding: Same method name & parameters in subclass (runtime).
+        Example:-
+            class Parent {
+                void show() { ... }
+            }
+            class Child extends Parent {
+                @Override
+                void show() { ... }
+            }
 
 
 What is an abstract class?
@@ -774,20 +941,34 @@ What is an interface in Java?
 	A contract with only abstract methods (Java 8+: default & static methods allowed).
 	Supports multiple inheritance.
 
-	interface Animal {
-        void sound();
-    }
+    Example:-
+        interface Drawable {
+            void draw();
+        }
+
+        class Circle implements Drawable {
+            public void draw() {
+                System.out.println("Drawing Circle");
+            }
+        }
 
 
 Difference between abstract class and interface?
 
-    Abstract class	                                                    Interface
-    --------------                                                  ------------------------------------
-    Can have constructors	                                        No constructors
-    Can have normal methods	                                        All methods are public by default
-    Multiple inheritance not supported	                            Multiple inheritance supported
-    concrete methods                                                Only abstract methods (until Java 8).
-
+    | Feature      | Abstract Class                          | Interface                            |
+    | ------------ | --------------------------------------- | ------------------------------------ |
+    | Constructors | Can have constructors                   | No constructors                      |
+    | Methods      | Can have both abstract & normal methods | All methods are public by default    |
+    | Inheritance  | Multiple inheritance not supported      | Multiple inheritance supported       |
+    | Method Type  | Can have concrete (implemented) methods | Only abstract methods (until Java 8) |
+    
+    Example:-
+        abstract class A { ... }
+        interface B { ... }
+        interface C { ... }
+        
+        class D extends A implements B, C { ... }
+    
 	A class can extend one abstract class but implement multiple interfaces.
 
 
@@ -831,12 +1012,26 @@ What is equals and hashCode contract ?
     2️⃣ If two objects have the same hashCode(),  👉 they may or may not be equal.
 
     Example
+        class Employee {
+            int id;
 
-        @Override
-        public boolean equals(Object o) { ... }
+            Employee(int id) {
+                this.id = id;
+            }
 
-        @Override
-        public int hashCode() { ... }
+            @Override
+            public boolean equals(Object o) {
+                if (this == o) return true;
+                if (o == null || getClass() != o.getClass()) return false;
+                Employee employee = (Employee) o;
+                return id == employee.id;
+            }
+
+            @Override
+            public int hashCode() {
+                return Objects.hash(id);
+            }
+        }
 
     ✔ Very important when using HashMap / HashSet.
 
@@ -846,17 +1041,22 @@ What is String immutability in Java?
 	Strings are immutable (cannot be changed).
 	New objects are created on modification.
 
+    Example:-
+        String s = "Hello";
+        s.concat(" World");   // creates new object "Hello World", s still points to "Hello"
+
 
 Is String thread-safe in Java?
 
     ✅ Yes. Because String is immutable.
-
     Once created, it cannot be modified, so multiple threads can safely use it.
 
     Example:
         String s = "Hello";
-
-    No thread can change this object.
+        Thread t1 = new Thread(() -> System.out.println(s));
+        Thread t2 = new Thread(() -> System.out.println(s));
+        t1.start();
+        t2.start();
 
 
 Why is String is immutable in Java ?
@@ -943,14 +1143,12 @@ What is StringTokenizer?
 What is String Constant Pool?
 
     String Constant Pool is a special memory area in the heap where string literals are stored.
-
     If the same string already exists, Java reuses it.
 
-    Example:
+    Example:-
         String a = "Java";
         String b = "Java";
-
-    System.out.println(a == b);   // true
+        System.out.println(a == b);   // true
 
     Both refer to the same object from the pool.
 
@@ -960,34 +1158,47 @@ What are different ways to create a String object?
     String literal uses String Constant Pool, new always creates a new object.
 
     There are mainly 2 ways.
-
-    1️⃣ Using String literal (uses String pool)
-        String s1 = "Java";
-    2️⃣ Using new keyword (creates new object in heap)
-        String s2 = new String("Java");
+        1️⃣ Using String literal (uses String pool)
+            String s1 = "Java";
+        2️⃣ Using new keyword (creates new object in heap)
+            String s2 = new String("Java");
 
 
 What is the difference between String, StringBuffer, and StringBuilder?
 
     | Feature     | String   | StringBuffer | StringBuilder |
+    | ----------- | -------- | ------------ | ------------- |
+    | Mutable     | ❌ No     | ✅ Yes        | ✅ Yes         |
+    | Thread-safe | ✅ Yes    | ✅ Yes        | ❌ No          |
+    | Performance | Slow     | Medium       | Fast          |
+    | Introduced  | Java 1.0 | Java 1.0     | Java 1.5      |
 
-    | Mutable     | ❌ No     | ✅ Yes        | ✅ Yes        |
-    | Thread-safe | ✅ Yes    | ✅ Yes        | ❌ No         |
-    | Performance | Slow      | Medium         | Fast          |
-    | Introduced  | Java 1.0  | Java 1.0       | Java 1.5      |
+    Examples:-
+        String s = "Java";
+        s.concat(" World");                                             // creates new object
 
-Examples:-
-    String s = "Java";
-    s.concat(" World");                                             // creates new object
-
-    StringBuilder sb = new StringBuilder("Java");
-    sb.append(" World");                                            // modifies same object
+        StringBuilder sb = new StringBuilder("Java");
+        sb.append(" World");                                            // modifies same object
 
 
 What are threads in Java?
 
-	Smallest unit of execution.
+	Thread is Smallest unit of execution.
 	Created by extending Thread class or implementing Runnable interface.
+
+    Example:-
+        class MyThread extends Thread {
+            public void run() {
+                System.out.println("Thread is running");
+            }
+        }
+
+        public class Test {
+            public static void main(String[] args) {
+                MyThread t = new MyThread();
+                t.start();
+            }
+        }
 
 
 If two threads have same priority, which executes first ?
@@ -1012,13 +1223,22 @@ Explain Java Thread Lifecycle ?
             ↑
         Waiting/Blocked
 
-    Thread t = new Thread(() -> {
-        System.out.println("Thread running");
-    });
-    t.start();    
+    Example:-
+        class MyThread extends Thread {
+            public void run() {
+                System.out.println("Running");
+            }
+        }
+
+        public class Test {
+            public static void main(String[] args) {
+                MyThread t = new MyThread();   // New
+                t.start();                    // Runnable → Running
+            }
+        }
 
 
-Extend Thread vs Implement Runnable. Which method to override? Where thread starts? Can we call start twice?**
+Extend Thread class vs Implement Runnable interface. Which method to override? Where thread starts? Can we call start twice?**
 
     👉 When extending Thread
             We override:
@@ -1051,39 +1271,40 @@ What is multithreading?
     Multithreading is the process of executing multiple threads concurrently to improve performance.
     It is implemented using the Thread class or the Runnable interface.
 
-    Using Thread class
-        class MyThread extends Thread {*5
-            public void run(){
-                System.out.println("Thread running");
+    Example:-
+        Using Thread class:-
+            class MyThread extends Thread {*5
+                public void run(){
+                    System.out.println("Thread running");
+                }
             }
-        }
 
-        public class Test {
-            public static void main(String[] args) {
-                MyThread t = new MyThread();
-                t.start();
+            public class Test {
+                public static void main(String[] args) {
+                    MyThread t = new MyThread();
+                    t.start();
+                }
             }
-        }
 
-    Using Runnable (recommended)
-        class MyTask implements Runnable {
-            public void run(){
-                System.out.println("Running");
+        Using Runnable (recommended):-
+            class MyTask implements Runnable {
+                public void run(){
+                    System.out.println("Running");
+                }
             }
-        }
 
-        public class Test {
-            public static void main(String[] args) {
-                Thread t = new Thread(new MyTask());
-                t.start();
+            public class Test {
+                public static void main(String[] args) {
+                    Thread t = new Thread(new MyTask());
+                    t.start();
+                }
             }
-        }
 
 
 What are the differece between Thread and Multi-thread?
 
     | Feature        | Single-Threaded            | Multi-Threaded                      |
-
+    -------------------------------------------------------------------------------------
     | **Threads**    | 1                          | 2 or more                           |
     | **Execution**  | Sequential                 | Parallel/Interleaved                |
     | **Speed**      | Slower for multiple tasks  | Faster for independent tasks        |
@@ -1107,6 +1328,15 @@ What is the difference between final, finally, and finalize?
 What is finally block?
 
     A block that always executes whether exception occurs or not.
+
+    Example:-
+        try {
+            int a = 10 / 0;
+        } catch (Exception e) {
+            System.out.println("Exception caught");
+        } finally {
+            System.out.println("Finally block executed");
+        }
 
 
 Will finally execute if return is in try/catch?
@@ -1180,9 +1410,9 @@ What is a blank final variable?
     }
 
 
-What is exception?
+What is exception in Java?
 
-    exception is an abnormal situation that occurs during program execution.
+    An exception is an abnormal situation that occurs during program execution.
         Use try, catch, finally to handle exceptions.
 
 
@@ -1303,24 +1533,21 @@ Difference between throw and throws?
     | Position | Inside method              | Method signature          |
     | Handles  | One exception              | Multiple exceptions       |
 
-    void check(int age) throws Exception {
-        if (age < 18) {
-            throw new Exception("Not Eligible");
+    Example:-
+        void m1() throws IOException {
+            throw new IOException("IO error");
         }
-    }
-
-    void read() throws IOException {
-    }
 
 
 Is it possible to rethrow an exception ?
 
     ✅ Yes. We catch it, do some work (like logging), and throw it again.
     
+    Example:-
         try {
             int a = 10 / 0;
         } catch (Exception e) {
-            throw e;   // rethrowing
+            throw e;                // rethrowing
         }
 
 
@@ -1335,12 +1562,12 @@ What happens if an exception is thrown by a super class method?
 
     class B extends A {
         // valid
-        void test() throws FileNotFoundException { }
+        void test() throws FileNotFoundException { }        //  narrower checked exception
     }
 
     But this is ❌ not allowed:
         class B extends A {
-            void test() throws Exception { }   // broader checked exception
+            void test() throws Exception { }                // broader checked exception
         }
 
 
@@ -1385,8 +1612,7 @@ Synchronized block or synchronized method – which is better ?
         ✔ It locks only the critical section
         ✔ Better performance
 
-    Example:
-
+    Example:-
         public void update() {
             synchronized(this) {
                 // critical code
@@ -1425,6 +1651,14 @@ What is the difference between Array and ArrayList?
 What is Garbage Collection in Java?
 
 	Automatic memory management that removes unused objects by JVM
+
+    Example:-
+        public class Test {
+            public static void main(String[] args) {
+                Test t = new Test();
+                t = null;   // eligible for GC
+            }
+        }
 
 
 There is a method called gc(). What is its purpose?
@@ -1481,8 +1715,9 @@ What is reflection in Java?
 	Ability to inspect and modify classes, methods, and fields at runtime.
 
     Example:-
-        Class<?> c = Class.forName("com.app.Employee");
-        Object obj = c.getDeclaredConstructor().newInstance();
+        Class<?> cls = Class.forName("com.app.Employee");
+        Method m = cls.getMethod("getName");
+        String name = (String) m.invoke(emp);
 
 
 How can we create object dynamically at runtime in Java ?
@@ -1625,8 +1860,8 @@ What is deadlock ?
     Deadlock occurs when two or more threads wait forever for each other’s resources.
 
     Examples:-
-        Thread1 → Resource A → waits for B
-        Thread2 → Resource B → waits for A
+        Thread 1 locks Resource A and waits for Resource B.
+        Thread 2 locks Resource B and waits for Resource A.
 
 
 What is ClassLoader ?
@@ -1666,7 +1901,8 @@ What is serialization in Java?
 
     Example:-
         class Employee implements Serializable {
-            int id;
+            private int id;
+            private String name;
         }
 
 
@@ -1683,7 +1919,7 @@ What happens if a Serializable class has a member which is not serializable?  Ho
 
             class Employee implements Serializable {
                 private int id;
-                private transient Address address;   // fix
+                private transient Address address;              // fix
             }
 
 
@@ -1709,9 +1945,7 @@ What is Externalization in Java ?
     We manually write and read fields.
 
     Example:-
-
         class Employee implements Externalizable {
-
             int id;
             String name;
 
@@ -1731,10 +1965,20 @@ What is deserialization?
 
     Converting byte stream back into object.
 
+    Example:-
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("employee.ser"));
+        Employee emp = (Employee) ois.readObject();
+
 
 What is transient keyword?
 
     Transient prevents a variable from being serialized.
+
+    Example:-
+        class Employee implements Serializable {
+            private int id;
+            private transient String password;                      // will not be serialized
+        }
 
 
 What is marker interface?
@@ -1749,7 +1993,10 @@ What is marker interface?
         Cloneable
         RandomAccess
 
+    Example:-
         class Employee implements Serializable {
+            private int id;
+            private String name;
         }
 
 
@@ -1761,7 +2008,6 @@ What is cloning in Java?
     👉 And override clone().
 
     class Employee implements Cloneable {
-
         int id;
 
         Employee(int id) {
@@ -1776,7 +2022,6 @@ What is cloning in Java?
         public static void main(String[] args) throws Exception {
 
             Employee e1 = new Employee(1);
-
             Employee e2 = (Employee) e1.clone();
 
             System.out.println(e1.id); // 1
@@ -1794,12 +2039,10 @@ What is composition in Java?
     Preferred over inheritance
 
     Example:-
-        class Engine {
-            void start() {}
-        }
+        class Engine { }
 
         class Car {
-            Engine engine = new Engine();
+            Engine engine;                  // composition
         }
     👉 If Car is destroyed, Engine is also destroyed
 
@@ -1807,7 +2050,7 @@ What is composition in Java?
 Difference between IS-A and HAS-A relationship ?
 
     | IS-A                        | HAS-A                       |
-
+    -------------------------------------------------------------
     | Inheritance                 | Composition                 |
     | `extends`                   | Object reference            |
     | Strong coupling             | Loose coupling              |
@@ -1864,8 +2107,7 @@ What is Coupling in OOP and why is it helpful?
 
     Coupling refers to the dependency between classes.
 
-    Types:
-
+    Types:-
         Tight coupling – High dependency ❌
         Loose coupling – Low dependency ✅
 
@@ -1927,14 +2169,14 @@ Wrapper Class in Java?
             Automatic conversion of primitive type into a Wrapper object.
 
             int a = 10;
-            Integer obj = a;   // auto-boxing
+            Integer obj = a;            // auto-boxing
 
 
         🟥 Un-boxing:
             Automatic conversion of Wrapper object into primitive type.
 
             Integer newVersion = Integer.valueOf(1);
-            int b = newVersion;	//	Un-boxing    
+            int b = newVersion;	        //	Un-boxing    
 
     👉 Needed for Collections, Generics.
 
@@ -1954,10 +2196,18 @@ What is try-with-resources?
 
     Automatically closes resources like files and streams.
 
+    Example:-
+        try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+            String line = br.readLine();
+            System.out.println(line);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
 Variables declared outside main – how to access in main?
 
-    If it is an instance variable
+    If it is an instance variable:-
         class Test {
             int a = 10;
 
@@ -1967,7 +2217,7 @@ Variables declared outside main – how to access in main?
             }
         }
             
-    If it is static
+    If it is static:-
         class Test {
             static int a = 10;
 
@@ -1980,7 +2230,7 @@ Variables declared outside main – how to access in main?
 Difference between this & super?
 
     | Feature          | `this`                          | `super`                        |
-
+    ---------------------------------------------------------------------------------------
     | Refers to        | Current object                  | Parent object                  |
     | Used for         | Accessing current class members | Accessing parent class members |
     | Constructor call | Calls current class constructor | Calls parent class constructor |
@@ -1992,12 +2242,11 @@ When do you use super and this keyword?
 
     this
         Refers to current class object
-        Used to resolve variable conflicts
+        Used to resolve variable conflicts(when local variable has same name as instance variable)
             this.id = id;
 
     super
         super is used to access parent class variables, methods and constructors.
-        Used to access parent variables, methods, constructors
             super.display();
 
 
@@ -2256,7 +2505,7 @@ What is a package in Java?
         * Build-in package
         * User-defined package
 
-    There are many built-in packages such as lang, awt, javax, net, io , util, sql etc.
+    There are many built-in packages such as lang, awt, javax, net, io, util, sql etc.
 
 
  							***** Upcasting & Downcasting *****
@@ -2332,7 +2581,6 @@ Why volatile?
 How do you create HTTP POST request in Java?
 
     We create POST request using HttpClient and HttpRequest.
-    (In Spring Boot, usually we use RestTemplate or WebClient.)
 
     Simple example (Java 11 HttpClient):-
 
@@ -2415,16 +2663,14 @@ What is stateless object ?
 What is instance level locking and class level locking ?
 
     👉 Instance level locking
-
-        Locks a particular object.
+            Locks the current object instance.
 
             public synchronized void method() { }
             or
             synchronized(this) { }
 
     👉 Class level locking
-
-        Locks the class.
+            Locks the entire class, affecting all instances.
 
             public static synchronized void method() { }
             or
@@ -2496,7 +2742,7 @@ What is classpath ?
         java -cp myapp.jar;lib/* com.app.Main
 
 
-Why pointers are not used in Java
+Why pointers are not used in Java?
 
     👉 To improve:-
             security
@@ -2577,11 +2823,11 @@ Explain Java 8 features?
 
 Why did we move to Java 8 instead of Java 7?
 
-    Reduce boilerplate code
-    Support functional programming
+    Reduce boilerplate code (anonymous classes → lambda)
+    Support functional programming (e.g., Stream API)
     Improve performance (parallel processing)
     Handle null pointer issues (Optional)
-    Simplify date/time handling
+    Simplify date/time handling (java.time)
 
     👉 Java 7 was more imperative, Java 8 is functional + modern
 
@@ -2599,7 +2845,7 @@ What is Metaspace in Java 8?
         Metaspace → grows automatically (uses native memory)
 
 
-What is Anonymous?
+What is Anonymous Class?
 
     An anonymous class is a class without a name that is created and used at the same time.
 
@@ -2610,7 +2856,7 @@ What is Anonymous?
     };
 
 
-What is functional interface?
+What is functional interface in Java 8?
 
 	A Functional Interface in Java is an interface that has exactly one abstract method (SAM — Single Abstract Method).
 	It can have any number of default methods, static methods, and private methods, but only one abstract method.
@@ -2623,7 +2869,7 @@ What is functional interface?
         }
 
     
-Why do we use @FunctionalInterface annotation?
+Why do we use @FunctionalInterface annotation in Java 8?
 
     It is used for compile-time safety.
     It ensures that the interface contains only one abstract method.
@@ -2660,7 +2906,7 @@ What is Optional?
 			if(opName.isPresent()) System.out.println(opName.get().length());
 
 
-Common methods in Optional?
+Common methods in Optional class?
 
     of()
     ofNullable()
@@ -2675,7 +2921,7 @@ Common methods in Optional?
 
 What is default method in interface?
 
-		Declared in an interface using the default keyword.		
+		Declared in an interface using the default keyword.	
 		Have a method body (unlike normal abstract methods).		
 		Can be overridden in implementing classes.
 
@@ -2691,13 +2937,13 @@ What is default method in interface?
         }
 
 
-What is Lambda Expression?
+What is Lambda Expression in Java 8?
 
     A short way to write anonymous functions.
     Lambda is an anonymous function.
-    No method name
-    No return type
-    Used to implement functional interfaces
+    No method name.
+    No return type.
+    Used to implement functional interfaces.
 
     Syntax:
         (parameters) -> expression
@@ -2833,6 +3079,14 @@ What are Predefined Functional Interfaces in java 8?
             Supplier<Double> s = () -> Math.random();
             System.out.println(s.get());
 
+        8. UnaryOperator<T> - Takes a single same type input, returns same type output
+            UnaryOperator<Integer> uo = x -> x * x;
+            System.out.println(uo.apply(5));   // 25
+
+        9. BinaryOperator<T> - Takes two same type inputs, returns same type output
+            BinaryOperator<Integer> bo = (a, b) -> a * b;
+            System.out.println(bo.apply(5, 10));   // 50
+
 
 Default methods in predefined interfaces ?
 
@@ -2845,7 +3099,7 @@ Default methods in predefined interfaces ?
     👉 Used to add methods without breaking existing code
 
 
-Difference between Collection and Stream API?
+Difference between Collection and Stream API? 
 
     | Collection  | Stream         |
     --------------------------------
@@ -2856,20 +3110,10 @@ Difference between Collection and Stream API?
 
 In which scenario will you use parallel stream?
 
-    Use parallel stream when:
-
+    Use parallel stream when:-
         Large data set
         Independent operations
         CPU-intensive processing
-
-    Example:
-            list.parallelStream()
-                .forEach(System.out::println);
-
-
-Have you used parallel streams as well?
-
-    Yes, I have used parallel streams for processing large collections where operations are independent.
 
     Example:
             list.parallelStream()
@@ -2930,7 +3174,7 @@ Static, Instance & Constructor Method References ?
         | Constructor | `Class::new`          |
 
 
-What is Effectively Final?
+What is Effectively Final in Java?
 
     A variable is effectively final if:
             Not declared final
@@ -3427,7 +3671,7 @@ Difference between HashSet and TreeSet?
     | Performance    | Faster      | Slower            |
     | Data structure | Hash table  | Red-Black Tree    |
 
-    Set<Integer> hs = new HashSet<>();
+    Set<Integer> hs = new Has1hSet<>();
     Set<Integer> ts = new TreeSet<>();
 
 
@@ -3465,12 +3709,12 @@ Difference between HashMap and IdentityHashMap?
     im.put(b, "2"); // Stored separately
 
 
-What is hash collision?
+What is hash collision in HashMap?
 
     Hash collision happens when two different keys produce the same hash index in a HashMap.
 
 
-What is the use of CopyOnWriteArrayList ?
+What is the use of CopyOnWriteArrayList in Java?
 
     👉 It is a thread-safe list.
 
@@ -3552,6 +3796,33 @@ Why is Spring preferred / core benefits of Spring Framework?
         You can replace a class without changing other classes because of DI.
 
 
+What are different modules available in Spring Framework?
+
+    The Spring Framework consists of several modules such as Core Container, Spring AOP, Spring JDBC, Spring ORM, Spring Web/MVC, and Spring Test.
+
+    The Core Container provides dependency injection and bean management.
+    AOP handles cross-cutting concerns like logging and transactions.
+    JDBC and ORM modules simplify database operations.
+    Spring MVC is used for building web applications and REST APIs.
+    Spring Test provides testing support for Spring applications.
+
+    Example
+        If you build a web application, you mainly use:
+            Core + MVC + ORM (Hibernate/JPA) + Spring Data + Spring Security
+
+
+What is bean annotation in Spring?
+
+    Bean annotation is used to define a bean in Spring.
+
+    Example:-
+        @Component
+        public class UserService {
+        }
+
+    👉 This tells Spring to create an instance of UserService and manage it as a bean.
+        
+
 How to create a stateful bean in Spring?
 
     By default, Spring beans are **stateless singletons**.
@@ -3579,23 +3850,8 @@ How to create a stateful bean in Spring?
         }
     👉 This is commonly used for stateful web data.
 
-                            
-What are different modules available in Spring Framework?
 
-    The Spring Framework consists of several modules such as Core Container, Spring AOP, Spring JDBC, Spring ORM, Spring Web/MVC, and Spring Test.
-
-    The Core Container provides dependency injection and bean management.
-    AOP handles cross-cutting concerns like logging and transactions.
-    JDBC and ORM modules simplify database operations.
-    Spring MVC is used for building web applications and REST APIs.
-    Spring Test provides testing support for Spring applications.
-
-    Example
-        If you build a web application, you mainly use:
-            Core + MVC + ORM (Hibernate/JPA) + Spring Data + Spring Security
-
-
-Explain the bean scopes supported by Spring?
+Explain the bean scopes supported by Spring ?
 
     Spring supports mainly these scopes:
 
@@ -3630,6 +3886,40 @@ Explain the bean scopes supported by Spring?
             @Component
             public class ReportService {
             }
+
+
+SOLID principles (brief)
+
+    - **S**: Single Responsibility
+    - **O**: Open/Closed (open for extension, closed for modification)
+    - **L**: Liskov Substitution
+    - **I**: Interface Segregation
+    - **D**: Dependency Inversion
+
+    S – Single Responsibility
+        A class should have only one reason to change.
+
+        Bad:
+            class ReportService {
+                void generateReport(){}
+                void saveToFile(){}
+            }
+
+        Better:
+            class ReportGenerator {}
+            class ReportSaver {}
+
+    ### O – Open / Closed
+        Open for extension, closed for modification.
+
+    ### L – Liskov Substitution
+        Subclasses should behave like their parent.
+
+    ### I – Interface Segregation
+        Do not force classes to implement unnecessary methods.
+
+    ### D – Dependency Inversion
+            Depend on abstractions, not concrete classes.
 
 
 How to define the scope of a bean?
@@ -3802,6 +4092,8 @@ Explain Advice in Spring AOP?
 
 
 How can we inject beans in Spring?
+
+    We can inject beans using Dependency Injection (DI).
 
     There are three ways:-
         Constructor Injection(recommended)
@@ -4176,13 +4468,28 @@ What are Spring Boot components?
 
 How to disable a specific auto-configuration class ?
 
-    👉 Using exclude in @SpringBootApplication.
+    👉 Using exclude in @SpringBootApplication annotation.
 
     Example:-
         @SpringBootApplication(
             exclude = DataSourceAutoConfiguration.class
         )
     ✔ That auto-configuration will not be applied.
+
+
+What is Maven in Spring Boot?
+
+    Maven is a build automation tool used to manage dependencies and build Spring Boot applications.
+
+    It helps in:
+        * Managing project dependencies
+        * Building and packaging the application
+        * Running the application using plugins
+
+    Example:-
+        mvn spring-boot:run
+
+    This command runs the Spring Boot application using Maven.
 
 
 Why do we need spring-boot-maven-plugin?
@@ -4210,7 +4517,7 @@ How do you deploy Spring Boot application?
 
 What is Embedded server in Spring Boot?
 
-    We do not deploy WAR files manually to external servers.
+    We do not deploy WAR or JAR files manually to external servers.
 
     Spring Boot provides built-in servers like:
         * Tomcat (default)
@@ -4560,7 +4867,7 @@ How to implement logging in Spring Boot?
 
     👉 Logging level is configured in:-
             properties file:
-9                logging.level.root=INFO
+                logging.level.root=INFO
                 
 
 
@@ -4634,7 +4941,7 @@ What are Profiles in Spring Boot?
             application-dev.properties
             application-prod.properties
 
-        Activate profile:
+        Activate profile: 
             properties
                 spring.profiles.active=dev
 
@@ -4707,7 +5014,7 @@ How can I create a Spring REST application from scratch ?
 How do you create RESTful APIs using Spring Boot?
 
     We use:-
-        * @RestController
+        * @RestController annotation
         * Mapping annotations like @GetMapping, @PostMapping, etc.
 
     Example:-
@@ -4799,8 +5106,7 @@ What is the difference between @PathVariable and @RequestParam?
 
 Do you know the use of @ModelAttribute?
 
-    @ModelAttribute is used to:
-        👉 bind form data or request parameters to a model object.
+    @ModelAttribute is used to bind form data or request parameters to a model object.
 
     Example:-
         @PostMapping("/save")
@@ -4822,7 +5128,7 @@ What is ResponseEntity and its benefit ?
 
     Example:-
         return ResponseEntity.ok(employee);
-
+    
 
 
 
@@ -5303,8 +5609,7 @@ How does @Transactional work internally?
 
 What is Transaction Management in Spring? Explain different types.?
 
-    Transaction management ensures:
-        👉 data is either fully saved or fully rolled back.
+    Transaction management ensures data is either fully saved or fully rolled back.
 
     Two types:-
         ✔ Programmatic transaction
@@ -5341,7 +5646,7 @@ How to call a stored procedure from Java using Spring?
     We can use:
         👉 JdbcTemplate
         or
-        👉 JPA @Procedure
+        👉 JPA @Procedure annotation
 
     Example using JPA:-
         public interface UserRepository extends JpaRepository<User, Long> {
@@ -5439,6 +5744,7 @@ Usage of @ExceptionHandler in Spring MVC ?
 
 What is validation in Spring Boot?
 
+    Validation is the process of checking if input data meets certain criteria before processing.
     Spring Boot integrates Bean Validation.
 
     Example:-
@@ -5584,16 +5890,6 @@ How do you implement security in a Spring Boot application?
 
             return http.build();
 
-                
-How does Spring Boot support OAuth 2.0?
-
-    Spring Boot provides built-in support using Spring Security OAuth2.
-
-    It supports:
-        * OAuth2 login
-        * OAuth2 resource server
-        * JWT token validation
-
 
 Explain the concept of Spring Security OAuth?
 
@@ -5605,6 +5901,16 @@ Explain the concept of Spring Security OAuth?
         * token validation
 
     👉 It is used when authentication is handled by a central identity server.
+
+
+How does Spring Boot support OAuth 2.0?
+
+    Spring Boot provides built-in support using Spring Security OAuth2.
+
+    It supports:
+        * OAuth2 login
+        * OAuth2 resource server
+        * JWT token validation
 
 
 How do you configure Basic Authentication in Spring Security?
@@ -5676,7 +5982,7 @@ Do you know what is JWT 2.0 and JWT token?
             JWT (token format)
 
         JWT Token
-            JWT is a compact token used to securely transfer user information.
+            JWT (JSON Web Token) is a stateless authentication token used to securely transmit user information between client and server.
 
             It contains:-
                 Header
@@ -5824,7 +6130,6 @@ When and where do you use @Transactional in testing?
 
 
 #1. What are Microservices?
-
     
     Microservices architecture is a design approach where an application is broken into **small, independent, loosely-coupled services**, each responsible for a single business capability.
     Each service:
@@ -5835,7 +6140,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-#2. Difference between Monolithic and Microservices
+#2. Difference between Monolithic and Microservices ?
 
     | Monolithic         | Microservices                 |
     | ------------------ | ----------------------------- |
@@ -5847,7 +6152,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-#3. Advantages of Microservices
+#3. Advantages of Microservices ?
 
     * Independent deployment
     * Easy scalability
@@ -5890,7 +6195,7 @@ When and where do you use @Transactional in testing?
 #7. What is Eureka Server & Client?
 
     * **Eureka Server** → Service registry
-    * **Eureka Client** → Registers service with the registry
+    * **Eureka Client** → Registers service with the registry or service register itself.
 
     @EnableEurekaServer
     public class EurekaServerApp {}
@@ -5901,12 +6206,11 @@ When and where do you use @Transactional in testing?
 
     API Gateway is the **single entry point for all client requests**.
 
-    Responsibilities:
-
-    * Routing
-    * Authentication
-    * Rate limiting
-    * Load balancing
+    Responsibilities:-
+            * Routing
+            * Authentication
+            * Rate limiting
+            * Load balancing
 
     Example: **Spring Cloud Gateway**
         yaml file:
@@ -5918,7 +6222,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-#9. Why do we need an API Gateway?
+#9. Why do we need an API Gateway in Microservices?
 
     * Hide internal services
     * Centralized security
@@ -5927,7 +6231,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-#10. What is Load Balancing?
+#10. What is Load Balancing in Microservices?
 
     Load balancing distributes traffic across multiple service instances.
 
@@ -5943,7 +6247,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-#11. What is Circuit Breaker?
+#11. What is Circuit Breaker pattern in Microservices?
 
     Prevents cascading failures when a service is down.
 
@@ -5966,7 +6270,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-#13. What is Config Server?
+#13. What is Config Server in Microservices?
 
     Centralized configuration management system.
 
@@ -5981,7 +6285,7 @@ When and where do you use @Transactional in testing?
             
 ---
 
-#14. Why use centralized configuration?
+#14. Why use centralized configuration in Microservices?
 
     - No redeployment for config changes
     - Environment-specific configs
@@ -5989,7 +6293,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-#15. What is Distributed Tracing?
+#15. What is Distributed Tracing in Microservices?
 
     Tracking request flow across multiple services.
 
@@ -6002,7 +6306,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-#16. Why Distributed Tracing important?
+#16. Why Distributed Tracing important in Microservices?
 
     Helps identify:
             * performance bottlenecks
@@ -6010,7 +6314,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-#17. What is Saga Pattern?
+#17. What is Saga Pattern in Microservices?
 
     Pattern for managing **distributed transactions** across microservices.
     Each service performs local transaction.
@@ -6020,12 +6324,12 @@ When and where do you use @Transactional in testing?
         2. **Orchestration** – Central controller, Easier control
 
     Example:
-        Order → Payment → Inventory  
+        Order → Payment → Inventory
         If payment fails → rollback order
 
 ---
 
-#18. How do you maintain data consistency?
+#18. How do you maintain data consistency in Microservices?
 
     * Saga pattern
     * Eventual consistency
@@ -6033,7 +6337,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-#19. What is Event-Driven Microservices?
+#19. What is Event-Driven Architecture in Microservices?
 
     Services communicate using **events** instead of direct calls.
 
@@ -6045,7 +6349,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-#20. What is Idempotency?
+#20. What is Idempotency in Microservices?
 
     Same request executed multiple times gives **same result**.
 
@@ -6103,17 +6407,17 @@ When and where do you use @Transactional in testing?
 
 #25. How do you secure microservices?
 
+    * API Gateway security
     * JWT authentication
     * OAuth2
     * HTTPS
-    * API Gateway security
     * Role based access control
 
 ---
 
 #26. What is OAuth2?
 
-    Authorization framework using **access tokens**.s
+    Authorization framework using **access tokens**.
 
     Flow:
         Client → Auth Server → Access Token → Resource Server
@@ -6186,7 +6490,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-#34. What is client-side load balancing?
+#34. What is client-side load balancing in microservices?
 
     The client chooses which service instance to call.
     Spring Cloud LoadBalancer selects one instance automatically.
@@ -6210,7 +6514,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-#37. What is database per service pattern?
+#37. What is database per service pattern in microservices?
 
     Each microservice manages its own database.
     Other services cannot access it directly.
@@ -6247,7 +6551,7 @@ When and where do you use @Transactional in testing?
 
 ---
 
-#42. What do you understand by Domain Driven Design?
+#42. What do you understand by Domain Driven Design in microservices?
 
     Designing services based on **business domains**.
 
@@ -6274,7 +6578,7 @@ When and where do you use @Transactional in testing?
 
 #45. When serviceA calls serviceB how is session maintained?
 
-    Using **JWT token forwarding**.
+    Session state is typically managed by the client or through stateless mechanisms like JWT tokens.
 
 ---
 
@@ -7237,7 +7541,7 @@ What are Set Operations?
 
 3. What are the advantages of AWS?
 
-    - Scalability  
+    - Scalability
     - High availability  
     - Pay only for what you use  
     - Global infrastructure  
@@ -7290,14 +7594,13 @@ What are Set Operations?
 
 9. What is EBS in AWS?
 
-    EBS (Elastic Block Store) provides **persistent storage** for EC2.
+    EBS (Elastic Block Store) provides **persistent storage** for EC2 instances.
 
 ---
 
 10. What is VPC in AWS?
 
-    VPC (Virtual Private Cloud) is a **private network** in AWS.
-
+    VPC (Virtual Private Cloud) is a **private network** in AWS where you can launch resources securely.
 ---
 
 11. What is a subnet in AWS?
@@ -7382,11 +7685,11 @@ What are Set Operations?
 
 22. Difference between RDS and EC2 database in AWS?
 
-    | RDS | EC2 |
-    |----|----|
-    | Managed | Manual |
+    |      RDS          |      EC2       |
+    --------------------------------------
+    | Managed           | Manual         |
     | Automated backups | Manual backups |
-    | Easy scaling | Hard |
+    | Easy scaling      | Hard           |
 
 ---
 
@@ -7449,9 +7752,9 @@ What are Set Operations?
 
 32. Difference between SQS and SNS in AWS?
 
-    | SQS | SNS |
-    |----|----|
-    | Queue-based | Topic-based |
+    |     SQS      |       SNS            |
+    ---------------------------------------
+    | Queue-based  | Topic-based          |
     | One consumer | Multiple subscribers |
 
 ---

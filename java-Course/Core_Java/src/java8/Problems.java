@@ -1,8 +1,3 @@
-
-import java.util.Arrays;
-import java.util.List;
-
-
 /* 
  
 	Separate Odd and Even Numbers
@@ -27,8 +22,7 @@ public class Problems {
 
 
 
-	Frequency Of Each Characters In String
-	
+	Frequency Of Each Characters In String	
 	
 public class Problems{
 	public static void main(String[] args) {
@@ -971,10 +965,6 @@ public class Problems {
 
 
 
-
-
-
-
         Write a Java 8 program to convert a list of strings to uppercase.
  
 public class Problems {
@@ -1341,7 +1331,24 @@ public class Problems {
         System.out.println(AllContains);
     }
 }
-*/
+ */
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
+public class Problems {
 
+    public static void main(String[] args) {
+        ToString();
+    }
+
+    public static void ToString() {
+        List<String> list = Arrays.asList("java", "python", "react");
+
+        list.stream().map(String::toUpperCase).forEach(System.out::println);
+
+        List<String> lists = list.stream().map(String::toUpperCase).collect(Collectors.toList());
+        System.out.println(lists);
+    }
+}

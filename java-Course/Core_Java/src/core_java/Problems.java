@@ -1,3 +1,7 @@
+
+import java.util.HashMap;
+import java.util.Map;
+
 /*
 String Occurance, second min and max, using object type data stored, comparable and comparators
 
@@ -279,7 +283,7 @@ public class Problems {
 		boolean found = false;
 		
 		for(int i = 0; i < name.length(); i++) {
-			if(name.indexOf(i) == target) {
+			if(name.charAt(i) == target) {
 				found = true;
 				System.out.println("word found");
 				break;
@@ -338,35 +342,7 @@ public class Problems {
 	}
 }
  
- 
- 
-	Method 02
-
-package my_java_package_name;
-
-public class Problems {
-
-	public static void main(String[] args) {
-		m1();
-	}
-
-	public static void m1() {
-		String name = "apple";
-		char[] chars = name.toCharArray();
-
-		for (int i = 0; i < chars.length; i++) {
-			for (int j = i + 1; j < chars.length; j++) {
-				if (chars[i] == chars[j]) {
-					System.out.println("Duplicate words is " + chars[i]);
-				}
-			}
-		}
-	}
-}
-
-
-
-
+-------------------------------------------------------------------------------------
 
 
 4. Add Two Numbers with User Input
@@ -387,7 +363,7 @@ class Problems {
 }
 
 
-
+-------------------------------------------------------------------------------------
 
 
 5. Count Number of Words in a String
@@ -401,7 +377,7 @@ class Problems {
 }
 	
 
-
+-------------------------------------------------------------------------------------
 
 
 6. Calculate the Sum of an Array
@@ -419,7 +395,7 @@ class Problems {
 
 
 
-
+-------------------------------------------------------------------------------------
 
 
 
@@ -436,7 +412,7 @@ class Problems {
 
 
 
-
+-------------------------------------------------------------------------------------
 
 
 
@@ -454,7 +430,7 @@ class Problems {
 
 
 
-
+-------------------------------------------------------------------------------------
 
 
 
@@ -480,7 +456,7 @@ class Problems {
 
 
 
-
+-------------------------------------------------------------------------------------
 
 
 
@@ -499,7 +475,7 @@ class Problems {
 
 
 
-
+-------------------------------------------------------------------------------------
 
 
 
@@ -522,7 +498,7 @@ class Problems {
 
 
 
-
+-------------------------------------------------------------------------------------
 
 
 
@@ -549,7 +525,7 @@ class Problems {
 
 
 
-
+-------------------------------------------------------------------------------------
 
 
 13. Loop Through an Enum
@@ -568,7 +544,7 @@ class Problems {
 
 
 
-
+-------------------------------------------------------------------------------------
 
 
 
@@ -585,7 +561,7 @@ class Problems {
 
 
 
-
+-------------------------------------------------------------------------------------
 
 
 
@@ -604,7 +580,7 @@ class Problems {
 
 
 
-
+-------------------------------------------------------------------------------------
 
 
 
@@ -625,7 +601,7 @@ class Problems {
 }
 
 
-
+-------------------------------------------------------------------------------------
 
 
 
@@ -638,6 +614,8 @@ class Problems {
 	}
 }
 
+
+-------------------------------------------------------------------------------------
 
 
 18. Find first occurrence
@@ -653,6 +631,7 @@ class Problems {
 }
 	
 
+-------------------------------------------------------------------------------------
 
 
 
@@ -669,6 +648,7 @@ class Problems {
 }
 
 
+-------------------------------------------------------------------------------------
 
 
 20. Find all occurrences with positions
@@ -688,6 +668,8 @@ class Problems {
 	}
 }
 
+
+-------------------------------------------------------------------------------------
 
 
 
@@ -730,7 +712,7 @@ class Problems {
 }
 
 
-
+-------------------------------------------------------------------------------------
 
 
 
@@ -752,6 +734,8 @@ class Problems {
 }
 
 
+
+-------------------------------------------------------------------------------------
 
 
 23. Using TreeSet (short & easy)
@@ -778,7 +762,7 @@ class Problems {
 
 
 
-
+-------------------------------------------------------------------------------------
 
 
 
@@ -820,6 +804,7 @@ class Problems {
 
 
 
+-------------------------------------------------------------------------------------
 
 
 
@@ -1030,19 +1015,49 @@ public class Problems {
 		}
 	}
 }
- */
 
 
 package core_java;
 
 import java.util.Scanner;
 
-public class Problems{
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter a number : ");
-		int num = scanner.nextInt();
-		System.out.println("You entered : " + num);
-		scanner.close();
-	}
+public class Problems {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a number : ");
+        int num = scanner.nextInt();
+        System.out.println("You entered : " + num);
+        scanner.close();
+    }
+}
+
+
+
+			Two Sum
+
+ */
+public class Problems {
+
+    public static void main(String[] args) {
+        int[] nums = {7, 11, 5, 2};
+        int target = 9;
+
+        int[] result = twoSum(nums, target);
+        System.out.println(result[0] + ", " + result[1]);
+    }
+
+    public static int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+            map.put(nums[i], i);
+        }
+        return new int[]{-1, -1};
+    }
 }

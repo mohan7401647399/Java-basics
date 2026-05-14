@@ -351,7 +351,7 @@ What are data types in Java?
 
 	Primitive:
         | Data Type   | Size    | Default Value | Example Values                                            | Description                                   |
-
+        -----------------------------------------------------------------------------------------------------------------------------------------------------
         | **byte**    | 1 byte  | 0             | `-128` to `127`                                           | Small integers; often used for saving memory. |
         | **short**   | 2 bytes | 0             | `-32,768` to `32,767`                                     | Medium-sized integers.                        |
         | **int**     | 4 bytes | 0             | `-2,147,483,648` to `2,147,483,647`                       | Default integer type.                         |
@@ -2240,20 +2240,33 @@ Difference between this & super?
 
 When do you use super and this keyword?
 
-    this
+    this:-
         Refers to current class object
         Used to resolve variable conflicts(when local variable has same name as instance variable)
-            this.id = id;
+            this.a = a;   // resolves conflict
 
-    super
+         Used to call current class constructor
+            this(10);     // calls constructor with int parameter
+
+         Used to call current class method
+            this.display();
+
+         Used to access current class variable
+            System.out.println(this.a);
+
+    super:-
         super is used to access parent class variables, methods and constructors.
-            super.display();
+            super.a = 10;   // access parent variable
+
+            super.display(); // access parent method
+
+            super(10);     // call parent constructor
 
 
-Differences between Error and Exception
+Differences between Error and Exception in Java?
 
     | Feature       | Error            | Exception            |
-
+    -----------------------------------------------------------
     | Recoverable   | ❌ No            | ✅ Yes              |
     | Occurs due to | System issues    | Application logic    |
     | Package       | java.lang.Error  | java.lang.Exception  |
@@ -2266,22 +2279,23 @@ Java works as “pass by value” or “pass by reference”?
             For primitive types → copy of value is passed
             For objects → copy of the reference value is passed (not the object itself)
 
-    class Test {
-        int x = 10;
-    }
+    Example:-
+        void modify(int x) {
+            x = 20;                     // modifies local copy, not original
+        }
 
-    void modify(Test t) {
-        t.x = 20;   // changes original object
-    }
+        void modify(Employee e) {
+            e.id = 10;                  // modifies object through reference
+        }
     👉 Reference is copied, not the object → still pass by value
 
 
-Memory in Java?
+What is memory management in Java?
 
 	In Java, memory is managed through the **Java Memory Model (JMM)**. It divides memory into several regions, each with a specific purpose. 
 
     | Memory Area                       | Description                                                                 |
-
+    -------------------------------------------------------------------------------------------------------------------
     | **Heap**                          | Stores objects and instance variables. Shared by all threads.               |
     | **Stack**                         | Stores method calls, local variables, and references. One stack per thread. |
     | **Method Area**                   | Stores class-level metadata (static variables, class info, constants).      |
@@ -2306,7 +2320,7 @@ Thread 2 >  |          Stack            |
               ++
 
 
-Difference between Heap Memory and JVM?
+Difference between Heap Memory and JVM ?
 
     JVM
         Java Virtual Machine executes Java programs.
@@ -2321,6 +2335,7 @@ How are Java objects stored in memory?
     Objects are stored in Heap memory
     Reference variables are stored in Stack
 
+    Example:-
         Test t = new Test();
     
     t → stack
@@ -2333,7 +2348,8 @@ Difference between Heap and Stack memory?
     Stack → method calls, local variables
 
 
-                                                *****Access Modifiers?*****
+
+What are 4 types of access modifiers in Java?
 
 	Access Modifiers in Java control where our variables, methods, or classes can be accessed from.
 	Access modifiers are keywords in Java that define how much access other classes/objects have to variables, methods, and classes.
@@ -2361,7 +2377,7 @@ Difference between Heap and Stack memory?
         | `private`   | ✅         | ❌           | ❌                       | ❌                   |
 
 
- 									*****Homogeneous & Heterogeneous*****
+What is the difference between  Homogeneous and Heterogeneous data?
 
     Homogeneous = same type of data (e.g., ArrayList<String>)
     Heterogeneous = different types of data (e.g., ArrayList raw type)
@@ -2403,7 +2419,7 @@ Difference between Heap and Stack memory?
                 System.out.println(list); // [Java, 100, 45.67, true]
 
 
-				                                            *****enum*****
+What is an Enum in Java?
 
 	In Java, an enum (short for enumeration) is a special data type used to define a collection of constants (fixed set of values).
 
@@ -2411,8 +2427,13 @@ Difference between Heap and Stack memory?
             When you need a fixed set of related constants (like days of week, directions, status codes, colors, etc.).
             Makes code readable, type-safe, and organized.
 
+    Example:-
+        enum Day {
+            SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+        }
 
-				                                *****Varargs - Variable Arguments*****
+
+What are Varargs in Java?
 
 	Varargs in Java stands for Variable Arguments.
 	It allows a method to accept zero or multiple arguments of the same type without explicitly defining them as an array.
@@ -2432,7 +2453,8 @@ Difference between Heap and Stack memory?
     }
 
 
- 								***** Type casting *****
+
+What is Type Casting in Java?
 
 	Type casting is when we assign a value of one primitive data type to another type.
 
@@ -2461,7 +2483,7 @@ Difference between Heap and Stack memory?
         }
 
 
- 									*****Scanner*****
+What is Scanner class in Java?
 
     The Scanner class in Java (from java.util package) is used to read input from various sources like the keyboard, files, or strings. 
     It simplifies parsing primitive types and strings using regular expressions.
@@ -2487,6 +2509,15 @@ What is an Inner Class?
 
     An inner class is a class defined inside another class.
     It helps group classes that are only used in one place, making your code more readable, logical, and encapsulated.
+
+    Example:-
+        class Outer {
+            class Inner {
+                void display() {
+                    System.out.println("Hello from Inner class");
+                }
+            }
+        }
 	
    🔹 Types of Inner Classes in Java:-
             | Type of Inner Class          | Description                                                      |
@@ -2508,17 +2539,16 @@ What is a package in Java?
     There are many built-in packages such as lang, awt, javax, net, io, util, sql etc.
 
 
- 							***** Upcasting & Downcasting *****
+What is Upcasting and Downcasting in Java?
 
-What is Upcasting?
-
+    Upcasting:-
         Upcasting means converting a child class object into a parent class reference.
         ✔ It's done automatically by Java (implicit).
 
-            Animal a = new Dog();   // Upcasting
-
-What is Downcasting?
-
+            Dog d = new Dog();
+            Animal a = d;           // upcasting
+            
+    Downcasting:-
         Downcasting means converting a parent class reference back into a child class reference.
         ⚠ It must be done manually using casting, and it is risky.
 
@@ -2557,23 +2587,24 @@ How to create a thread-safe Singleton class using double-checked locking?
 
     Double-checked locking ensures that synchronization happens only when the instance is created.
 
-    class Singleton {
+    Example:-
+        class Singleton {
 
-        private static volatile Singleton instance;
+            private static volatile Singleton instance;
 
-        private Singleton() {}
+            private Singleton() {}
 
-        public static Singleton getInstance() {
-            if (instance == null) {                 // 1st check
-                synchronized (Singleton.class) {
-                    if (instance == null) {         // 2nd check
-                        instance = new Singleton();
+            public static Singleton getInstance() {
+                if (instance == null) {                 // 1st check
+                    synchronized (Singleton.class) {
+                        if (instance == null) {         // 2nd check
+                            instance = new Singleton();
+                        }
                     }
                 }
+                return instance;
             }
-            return instance;
         }
-    }
 Why volatile?
     To make sure all threads see the updated object correctly.
 
@@ -2677,15 +2708,18 @@ What is instance level locking and class level locking ?
             synchronized(Employee.class) { }
 
 
-What is ExecutorService?
+What is ExecutorService in Java?
 
     ExecutorService manages thread pools.
     Better than creating threads manually
     Improves performance
 
     Example:
-        ExecutorService es = Executors.newFixedThreadPool(5);
-        es.execute(() -> System.out.println("Task"));
+        ExecutorService executor = Executors.newFixedThreadPool(5);
+        executor.submit(() -> {
+            System.out.println("Task executed");
+        });
+        executor.shutdown();
 
 
 What is Callable interface in threads?
@@ -2734,7 +2768,7 @@ Difference between thread and process?
     | Faster communication | Slower communication |
 
 
-What is classpath ?
+What is classpath in Java?
 
     👉 Classpath tells the JVM where to find .class files and libraries.
 
@@ -2756,12 +2790,11 @@ What is Log4j in Java?
 
     Log4j is a logging framework for Java.
 
-    👉 It is used to print application messages (logs) like:
-
-        information messages
-        errors
-        warnings
-        debugging messages
+    👉 It is used to print application messages (logs) like:-
+            information messages
+            errors
+            warnings
+            debugging messages
 
     It is developed and maintained by Apache Software Foundation.
  
@@ -2849,11 +2882,12 @@ What is Anonymous Class?
 
     An anonymous class is a class without a name that is created and used at the same time.
 
-    Runnable r = new Runnable() {
-        public void run() {
-            System.out.println("Hello");
-        }
-    };
+    Example:-
+        Runnable r = new Runnable() {
+            public void run() {
+                System.out.println("Hello");
+            }
+        };
 
 
 What is functional interface in Java 8?
@@ -2862,7 +2896,7 @@ What is functional interface in Java 8?
 	It can have any number of default methods, static methods, and private methods, but only one abstract method.
     It used to support lambda expressions.
 
-    Example:
+    Example:-
         @FunctionalInterface
         interface Calculator {
             int add(int a, int b);
@@ -2875,11 +2909,12 @@ Why do we use @FunctionalInterface annotation in Java 8?
     It ensures that the interface contains only one abstract method.
     If we add another abstract method, compiler gives error.
 
-    @FunctionalInterface
-    interface Test {
-        void show();
-        // void test();  ❌ compile-time error
-    }
+    Example:-
+        @FunctionalInterface
+        interface Test {
+            void show();
+            // void test();  ❌ compile-time error
+        }
 
 
 Difference between normal interface and functional interface ?
@@ -3026,6 +3061,7 @@ What is Collectors?
     Collectors is a utility class in the java.util.stream package.
 	It provides factory methods to create common collectors which are used with the Stream API to process data and collect the result into a desired form like List, Set, Map, String, etc
 
+    Example:-
 		List<Integer> even = list.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
 
 
@@ -3177,10 +3213,9 @@ Static, Instance & Constructor Method References ?
 What is Effectively Final in Java?
 
     A variable is effectively final if:
-            Not declared final
-            But value is never changed
+            Not declared with final keyword but value is never changed
 
-    Example:
+    Example:-
         int x = 10;
         Runnable r = () -> System.out.println(x);
         
@@ -3634,21 +3669,55 @@ What is fail-fast and fail-safe ?
     Fail-fast:-
         Collections that throw ConcurrentModificationException if modified while iterating.
 
+    Example:-
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+
+        for (Integer num : list) {
+            list.add(3);                        // ConcurrentModificationException
+        }
+
     Fail-safe:-
         Collections that work on a cloned copy and do not throw ConcurrentModificationException.
+
+    Example:-
+        CopyOnWriteArrayList<Integer> list = new CopyOnWriteArrayList<>();
+        list.add(1);
+        list.add(2);
+
+        for (Integer num : list) {
+            list.add(3);                        // No exception, works on copy
+        }
 
 
 What is Iterator and ListIterator?
 
-    Iterator
+    Iterator:-
         Works for all collections
         Unidirectional (forward only)
         Methods: hasNext(), next(), remove()
 
-    ListIterator
+        Example:-
+            List<Integer> list = new ArrayList<>();
+            Iterator<Integer> it = list.iterator();
+            while (it.hasNext()) {
+                Integer num = it.next();
+                // process num
+            }
+
+    ListIterator:-
         Works for List collections
         Bidirectional (forward and backward)
         Methods: hasNext(), next(), hasPrevious(), previous(), add(), set()
+
+        Example:-
+            List<Integer> list = new ArrayList<>();
+            ListIterator<Integer> it = list.listIterator();
+            while (it.hasNext()) {
+                Integer num = it.next();
+                // process num
+            }
 
 
 How to remove duplicates from ArrayList?
@@ -3712,6 +3781,13 @@ Difference between HashMap and IdentityHashMap?
 What is hash collision in HashMap?
 
     Hash collision happens when two different keys produce the same hash index in a HashMap.
+
+    Example:-
+        String key1 = "Aa";
+        String key2 = "BB";
+
+        System.out.println(key1.hashCode());                // 2112
+        System.out.println(key2.hashCode());                // 2112
 
 
 What is the use of CopyOnWriteArrayList in Java?
@@ -6523,8 +6599,7 @@ When and where do you use @Transactional in testing?
 
 #38. How do you containerize Spring Boot microservices?
 
-    Using Dockerfile:-
-       
+    Using Dockerfile:-       
                 FROM openjdk:17
                 COPY app.jar app.jar
                 ENTRYPOINT ["java","-jar","app.jar"]
@@ -7626,13 +7701,13 @@ What are Set Operations?
 
 14. What is NAT Gateway in AWS?
 
-    Allows **private instances** to access the internet securely.
+    NAT(Network Address Translation) Gateway Allows **private instances** to access the internet securely.
 
 ---
 
 15. What is Security Group in AWS?
 
-    Security Group acts as a **virtual firewall** for EC2.
+    Security Group acts as a **virtual firewall** for EC2 instances.
 
 ---
 
@@ -7679,7 +7754,7 @@ What are Set Operations?
     RDS (Relational Database Service) manages databases like:
         - MySQL  
         - PostgreSQL  
-        - Oracle  
+        - Oracle  1
 
 ---
 
@@ -7704,7 +7779,7 @@ What are Set Operations?
     Monitors AWS resources and applications.
 
     Example:-
-        Tracking CPU utilization of EC2.
+        Tracking CPU utilization of EC2 instances.
 
 ---
 
@@ -7716,7 +7791,7 @@ What are Set Operations?
 
 26. What is Route 53 in AWS?
   
-    DNS service used to route traffic to AWS resources.
+    DNS(Domain Name System) service used to route traffic to AWS resources.
 
 ---
 

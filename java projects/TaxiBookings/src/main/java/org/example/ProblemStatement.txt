@@ -1,0 +1,14 @@
+Design a taxi booking application where customers can book taxis available at a certain points in a linear route.
+
+Taxi count: Assume 4 taxis for simplicity, but it should scale to any number of taxis
+Points on Route: A,B,C,D,E.F(each 15 km apart)
+Travel time between points : 60 minutes
+
+Minimum Rs.100 for the first 5km
+Rs.10 per km thereafter
+Initial taxi position: All taxis are stationed at A
+
+When a customer books a taxi A free taxi at that pickup point is allocated.
+If no free taxi is available, the nearest taxi is allocated
+If two taxis are free at same point the one with low earnings is allocated
+Taxis only point from the pickup point to the drop point. If no taxi is available the booking is rejected.

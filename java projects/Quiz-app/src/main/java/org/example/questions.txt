@@ -1,0 +1,140 @@
+1. What is the correct way to declare a variable in Java?
+A) var name;
+B) int name;
+C) name int;
+D) declare int name;
+Answer: B
+
+2. Which of the following is a valid Java identifier?
+A) 123variable
+B) variable-name
+C) variable_name
+D) variable@name
+Answer: C
+
+3. What is the default value of an int variable in Java?
+A) 0
+B) 1
+C) null
+D) undefined
+Answer: A
+
+4. Which keyword is used to create a class in Java?
+A) class
+B) Class
+C) CLASS
+D) object
+Answer: A
+
+5. What is the size of an int in Java?
+A) 8 bits
+B) 16 bits
+C) 32 bits
+D) 64 bits
+Answer: C
+
+6. Which method is the entry point of a Java program?
+A) init()
+B) start()
+C) main()
+D) run()
+Answer: C
+
+7. What does 'static' keyword mean in Java?
+A) Creates a constant variable
+B) Belongs to the class rather than an instance
+C) Makes a variable private
+D) Makes a variable final
+Answer: B
+
+8. Which one is not a primitive data type in Java?
+A) int
+B) String
+C) boolean
+D) double
+Answer: B
+
+9. What is the correct syntax for creating an array in Java?
+A) int array[5];
+B) int[] array = new int[5];
+C) int array = new int[5];
+D) Both A and B
+Answer: D
+
+10. Which operator is used for string concatenation in Java?
+A) &
+B) +
+C) //
+D) %
+Answer: B
+
+11. What is the scope of a private variable in Java?
+A) Can be accessed anywhere
+B) Can be accessed within the same class only
+C) Can be accessed in the same package
+D) Can be accessed in derived classes
+Answer: B
+
+12. Which of the following is a valid comment in Java?
+A) @ This is a comment
+B) // This is a comment
+C) ** This is a comment
+D) -- This is a comment
+Answer: B
+
+13. What is the purpose of the 'new' keyword in Java?
+A) To declare a new variable
+B) To create an object instance
+C) To declare a new method
+D) To import a new package
+Answer: B
+
+14. Which loop will execute at least once even if the condition is false?
+A) for loop
+B) while loop
+C) do-while loop
+D) foreach loop
+Answer: C
+
+15. What is the correct way to compare strings in Java?
+A) string1 == string2
+B) string1.equals(string2)
+C) string1.compare(string2)
+D) string1 === string2
+Answer: B
+
+16. Which keyword is used to create a method in Java?
+A) function
+B) void
+C) method
+D) def
+Answer: B
+
+17. What is the default access modifier in Java?
+A) private
+B) protected
+C) public
+D) package-private
+Answer: D
+
+18. Which exception is thrown when dividing by zero in Java?
+A) NullPointerException
+B) ArithmeticException
+C) NumberFormatException
+D) IOException
+Answer: B
+
+19. What does 'null' represent in Java?
+A) It represents the number 0
+B) It represents an empty string
+C) It represents the absence of a value
+D) It represents false
+Answer: C
+
+20. Which of the following is the correct way to initialize a variable?
+A) int x;
+B) int x = 10;
+C) int x = "10";
+D) x = 10;
+Answer: B
+

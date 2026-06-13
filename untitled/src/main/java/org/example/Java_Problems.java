@@ -1,3 +1,5 @@
+package org.example;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -1035,10 +1037,10 @@ public class Problems {
 
 			Two Sum
 
- */
-public class Problems {
 
-    public static void main(String[] args) {
+public class Java_Problems {
+
+    public static void javaproblemSolution() {
         int[] nums = {7, 11, 5, 2};
         int target = 9;
 
@@ -1059,4 +1061,23 @@ public class Problems {
         }
         return new int[]{-1, -1};
     }
+}
+*/
+
+public class Java_Problems {
+
+    public static void inputsAdditions() {
+        int input = 1234;
+
+        String convertToString = String.valueOf(input);
+        String[] convertToArray = convertToString.split("");
+
+        int output = 0;
+
+        for(int i = 0; i < convertToArray.length; i++) {
+            output += Integer.parseInt(convertToArray[i]);
+        }
+        System.out.println("Addition value is : " + output);
+    }
+
 }

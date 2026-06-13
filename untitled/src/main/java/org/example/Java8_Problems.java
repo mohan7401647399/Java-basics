@@ -1,7 +1,12 @@
-/* 
- 
+package org.example;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+/*
+
 	Separate Odd and Even Numbers
-	
+
 public class Problems {
 	public static void main(String[] args) {
 		List<Integer> listOfIntegers = new ArrayList<>();
@@ -12,7 +17,7 @@ public class Problems {
 		listOfIntegers.add(6);
 		listOfIntegers.add(7);
 		System.out.println("Total lists -> " + listOfIntegers);
-		
+
 		Map<Boolean, List<Integer>> OddEvenNums = listOfIntegers.stream().collect(Collectors.partitioningBy(i -> i % 2 == 0));
 		System.out.println("Even nums -> " + OddEvenNums.get(true));
 		System.out.println("Odd nums -> " + OddEvenNums.get(false));
@@ -22,8 +27,8 @@ public class Problems {
 
 
 
-	Frequency Of Each Characters In String	
-	
+	Frequency Of Each Characters In String
+
 public class Problems{
 	public static void main(String[] args) {
 		String name = "I am a Java developer";
@@ -43,7 +48,7 @@ public class Problems{
 
 
 	Sort The List In Reverse Order
-	
+
 public class Problems{
 	public static void main(String[] args) {
 		List<Integer> lists = new ArrayList<>();
@@ -51,7 +56,7 @@ public class Problems{
 		lists.add(2);
 		lists.add(3);
 		lists.add(4);
-		
+
 		System.out.println(lists);
 		lists.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
 	}
@@ -75,9 +80,9 @@ public class Problems{
 		lists.add(50);
 		lists.add(60);
 		lists.add(20);
-		
+
 		System.out.println(lists);
-		
+
 		lists.stream().filter(i -> i % 5 == 0).forEach(System.out::println);
 	}
 }
@@ -86,7 +91,7 @@ public class Problems{
 
 
 
-	Merge Two Unsorted Arrays Into Single Sorted Array	
+	Merge Two Unsorted Arrays Into Single Sorted Array
 
 
 public class Problems {
@@ -95,9 +100,9 @@ public class Problems {
 		int[] b = { 6, 7, 9, 3 };
 
 		IntStream.concat(Arrays.stream(a), Arrays.stream(b)).forEach(System.out::println);
-		
+
 		IntStream.concat(Arrays.stream(a), Arrays.stream(b)).sorted().forEach(System.out::println);
-		
+
 		int[] result = IntStream.concat(Arrays.stream(a), Arrays.stream(b)).sorted().toArray();
 		System.out.println(Arrays.toString(result));
 	}
@@ -115,7 +120,7 @@ public class Problems{
 		System.out.println("hi");
 		int[] a = { 2, 1, 3, 6 };
 		int[] b = { 6, 7, 9, 3 };
-		
+
 		int[] result = IntStream.concat(Arrays.stream(a), Arrays.stream(b)).sorted().distinct().toArray();
 		System.out.println(Arrays.toString(result));
 	}
@@ -171,7 +176,7 @@ public class Problems {
 
 
 		Write a program to find the first non-repeating character in a string.
-		
+
 		import java.util.LinkedHashMap;
 		import java.util.Map;
 
@@ -179,7 +184,7 @@ public class Problems {
 			public static void main(String[] args) {
 				String str = "swiss";
 		Map<Character, Integer> map = new LinkedHashMap<>();
-		
+
 		for(char c : str.toCharArray()){
 			map.put(c, map.getOrDefault(c, 0) + 1);
 		}
@@ -218,7 +223,7 @@ public class Problems {
 
 
 		Write a program to check if a person is eligible to vote (age >= 18).
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -237,7 +242,7 @@ public class Problems {
 
 
 		Write a program to count the number of words in a sentence.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -255,7 +260,7 @@ public class Problems {
 
 		Write a Java program to reverse a string.
 
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -276,7 +281,7 @@ public class Problems {
 
 		Write a program to sort a list of integers.
 
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -296,7 +301,7 @@ public class Problems {
 
 		Write a program to demonstrate thread pooling using ExecutorService.
 
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -317,7 +322,7 @@ public class Problems {
 		Write a program to find triplets in an array whose sum is zero.
 
 
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -348,7 +353,7 @@ public class Problems {
 
 		Write a program to remove duplicate elements from an array.
 
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -370,7 +375,7 @@ public class Problems {
 
 		Write a program to check if a string is a palindrome.
 
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -388,7 +393,7 @@ public class Problems {
 
 
 		Write a program to find the factorial of a number using recursion.
- 
+
 public class Problems {
 
     static int fact(int n) {
@@ -407,7 +412,7 @@ public class Problems {
 
 
 		Write a program to check if a number is prime.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -428,7 +433,7 @@ public class Problems {
 
 		Write a program to print Fibonacci series up to n terms.
 
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -449,7 +454,7 @@ public class Problems {
 
 		Write a program to swap two numbers without using a third variable.
 
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -470,7 +475,7 @@ public class Problems {
 
 
 		Write a program to check if two strings are anagrams.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -489,7 +494,7 @@ public class Problems {
 
 
 		Write a program to implement binary search.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -510,7 +515,7 @@ public class Problems {
 
 		Write a program to implement linear search.
 
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -535,7 +540,7 @@ public class Problems {
 
 		Write a program to find the largest element in an array.
 
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -558,7 +563,7 @@ public class Problems {
 
 		Write a program to reverse an array.
 
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -575,7 +580,7 @@ public class Problems {
 
 
 		Write a program to implement bubble sort.
- 
+
 import java.util.Arrays;
 
 public class Problems {
@@ -604,7 +609,7 @@ public class Problems {
 
         Write a program to implement selection sort.
 
- 
+
 import java.util.Arrays;
 
 public class Problems {
@@ -634,7 +639,7 @@ public class Problems {
 
         Write a program to implement insertion sort.
 
- 
+
 import java.util.Arrays;
 
 public class Problems {
@@ -661,7 +666,7 @@ public class Problems {
 
     Write a program to remove whitespaces from a string.
 
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -679,7 +684,7 @@ public class Problems {
 
 
         Write a program to find duplicate elements in an array.
- 
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -709,7 +714,7 @@ public class Problems {
 
         Write a program to merge two sorted arrays.
 
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -734,7 +739,7 @@ public class Problems {
 
         Write a program to find common elements in two arrays.
 
- 
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -759,7 +764,7 @@ public class Problems {
 
 
         Write a program to calculate the sum of digits of a number.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -784,7 +789,7 @@ public class Problems {
 
         Write a program to find the second largest number in an array.
 
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -801,7 +806,7 @@ public class Problems {
 
 
         Write a program to find GCD of two numbers.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -822,7 +827,7 @@ public class Problems {
 
 
         Write a program to find LCM of two numbers.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -846,7 +851,7 @@ public class Problems {
 
 
         Write a Java 8 program to filter a list of employees whose salary is less than 5000.
- 
+
 class Employee {
 
     String name;
@@ -887,7 +892,7 @@ public class Problems {
 
 
         Write a Java 8 program to find the maximum salary from a list.
- 
+
 class Employee {
 
     String name;
@@ -927,7 +932,7 @@ public class Problems {
 
 
         Write a Java 8 program to group elements of a list by a certain property (e.g., department).
- 
+
 class Employee {
 
     String name;
@@ -966,7 +971,7 @@ public class Problems {
 
 
         Write a Java 8 program to convert a list of strings to uppercase.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -982,7 +987,7 @@ public class Problems {
 
 
         Write a Java 8 program to count character occurrences in a string using Streams.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -1001,7 +1006,7 @@ public class Problems {
 
 
         Use Java 8 Optional to avoid NullPointerException.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -1015,7 +1020,7 @@ public class Problems {
 
 
         Use lambda expression to sort a list.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -1032,7 +1037,7 @@ public class Problems {
 
 
         Use method reference and constructor reference in Java 8.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -1052,7 +1057,7 @@ public class Problems {
 
 
         Use Java 8 Collectors.toMap() to convert a list to a map.
- 
+
 class Employee {
 
     String name;
@@ -1094,7 +1099,7 @@ public class Problems {
 
 
         Use flatMap to flatten nested lists in Java 8.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -1113,7 +1118,7 @@ public class Problems {
 
 
         Write a Java 8 program to find the average of a list of numbers.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -1133,7 +1138,7 @@ public class Problems {
 
 
         Write a Java 8 program to join a list of strings with a delimiter.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -1152,7 +1157,7 @@ public class Problems {
 
 
         Write a Java 8 program to remove duplicates from a list using Streams.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -1170,7 +1175,7 @@ public class Problems {
 
 
         Write a Java 8 program to sort a map by values.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -1192,7 +1197,7 @@ public class Problems {
 
 
         Write a Java 8 program to sort a list of objects using multiple fields.
- 
+
 class Employee {
 
     String name;
@@ -1233,7 +1238,7 @@ public class Problems {
 
 
         Write a Java 8 program to get current date and time using LocalDateTime.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -1251,7 +1256,7 @@ public class Problems {
 
 
         Write a Java 8 program to calculate the difference between two dates.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -1272,7 +1277,7 @@ public class Problems {
 
 
         Write a Java 8 program to convert a list of integers to their squares.
- 
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -1293,7 +1298,7 @@ public class Problems {
 
 
         Write a Java 8 program to partition a list based on a predicate.
- 
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -1317,7 +1322,7 @@ public class Problems {
 
 
         Write a Java 8 program to check if a list contains a given string ignoring case.
- 
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -1333,17 +1338,9 @@ public class Problems {
 }
  */
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+public class Java8_Problems {
 
-public class Problems {
-
-    public static void main(String[] args) {
-        ToString();
-    }
-
-    public static void ToString() {
+    public static void java8ProblemSolution() {
         List<String> list = Arrays.asList("java", "python", "react");
 
         list.stream().map(String::toUpperCase).forEach(System.out::println);

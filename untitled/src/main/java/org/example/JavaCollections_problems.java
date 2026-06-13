@@ -1,3 +1,4 @@
+package org.example;
 /*
 
 package Collections;
@@ -126,14 +127,10 @@ class problems {
 
 
 
-package Collections;
  */
 
-
-package Collections;
-
-class problems {
-	public static void main(String[] args) {
+public class JavaCollections_problems {
+	public static void collectionsProblems() {
 		String input = "a1b2c3d4";
 		StringBuilder result = new StringBuilder();
 

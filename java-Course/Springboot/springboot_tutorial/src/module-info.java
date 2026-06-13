@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * 
- */
-module springboot_tutorial {
-}
